@@ -16,7 +16,7 @@ INSERT INTO Pilote (nom, prenom, numPil, paysPil) VALUES
     ('Bottas', 'Valtteri', '77', 'Finlande'),
     ('HÜlkenberg', 'Nico', '27', 'Allemagne'),
     ('Ricciardo', 'Daniel', '3', 'Australie'),
-    ('Guan Yu', 'Zhou', '24', 'Chine'),
+    ('Zhou', 'Guan Yu', '24', 'Chine'),
     ('Magnussen', 'Kevin', '20', 'Dannemark'),
     ('Lawson', 'Liam', '40', 'Nouvelle-Zélande'),
     ('Sargeant', 'Logan', '2', 'Etats-Unis'),
