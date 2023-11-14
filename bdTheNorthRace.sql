@@ -7,7 +7,6 @@ CREATE TABLE Pilote (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
     prenom VARCHAR(40),
-    numPil Int(2),
     paysPil VARCHAR(30),
     Primary Key(id)
     )
@@ -30,16 +29,15 @@ Create Table Classement(
     )
 ENGINE=InnoDB;
 
-Create Table CalculPoint(
+Create Table CoursesAnnee(
     idPil INT(3) ,
     annee INT(4),
     idEcu INT(3) ,
     nbPointPil INT(4),
     placePil INT(3),
+    numPil Int(2),
     PRIMARY KEY(idPil, annee, idEcu),
     FOREIGN KEY(idPil) REFERENCES Pilote(id),
     FOREIGN KEY(idEcu) REFERENCES Ecurie(id)
     )
 ENGINE=InnoDB;
-
-    
