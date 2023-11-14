@@ -2,10 +2,6 @@ DROP DATABASE if exists bdTheNorthRace;
 CREATE DATABASE if not exists bdTheNorthRace;
 
 Use bdTheNorthRace;
-Drop Table if exists Pilote;
-Drop Table if exists Ecurie;
-Drop Table if exists Classement;
-Drop Table if exists CalculPoint;
 
 CREATE TABLE Pilote (
 	id INT(3) AUTO_INCREMENT,
@@ -50,6 +46,28 @@ Create Table CalculPoint(
     FOREIGN KEY(idEcu) REFERENCES Ecurie(id)
     )
 ENGINE=InnoDB;
-    
 
+
+INSERT INTO Pilote (nom, prenom, numPil, paysPil, photoPil)
+VALUES
+	('Verstappen', 'Max', '1', 'Pays-Bas', Null),
+	('Perez', 'Sergio', '11', 'Mexique', Null),
+    ('Hamilton', 'Lewis', '44', 'Royaume-Uni', Null),
+	('Alonso','Fernando', '14', 'Espagnol', Null),
+    ('Norris', 'Lando', '4', 'Royaume-Uni', Null)
+    ('Sainz', 'Carlos', '55', 'Espagne', Null),
+    ('Leclerc', 'Charles', '16', 'Monaco', Null),
+    ('Russel', 'George', '63', 'Royaume-Uni', Null),
+    ('Piastri', 'Oscar', '81', 'Australie', Null),
+    ('Flâner', 'Lance', '18', 'Canada', Null),
+    ('Gasly', 'Pierre', '10', 'France', Null),
+    ('Ocon', 'Estéban', '31', 'France', Null),
+    ('Albon', 'Alexandre', '23', 'Thailande', Null),
+    ('Tsunoda', 'Yuki', '22', 'Japon', Null),
+    ('Bottas', 'Valtteri', '77', 'Finlande', Null),
+    ('HÜlkenberg', 'Nico', '27', 'Allemagne', Null),
+    ('Ricciardo', 'Daniel', '3', 'Australie', Null),
+    ('Guan Yu', 'Zhou', '24', 'Chine', Null),
+    
+    
     
