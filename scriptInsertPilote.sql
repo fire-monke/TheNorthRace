@@ -1,3 +1,4 @@
+
 INSERT INTO Pilote (nom, prenom, numPil, paysPil) VALUES
 	('Verstappen', 'Max', '1', 'Pays-Bas'),
 	('Perez', 'Sergio', '11', 'Mexique'),
@@ -14,10 +15,29 @@ INSERT INTO Pilote (nom, prenom, numPil, paysPil) VALUES
     ('Albon', 'Alexandre', '23', 'Thailande'),
     ('Tsunoda', 'Yuki', '22', 'Japon'),
     ('Bottas', 'Valtteri', '77', 'Finlande'),
-    ('HÜlkenberg', 'Nico', '27', 'Allemagne'),
+    ('Hülkenberg', 'Nico', '27', 'Allemagne'),
     ('Ricciardo', 'Daniel', '3', 'Australie'),
     ('Zhou', 'Guan Yu', '24', 'Chine'),
     ('Magnussen', 'Kevin', '20', 'Dannemark'),
     ('Lawson', 'Liam', '40', 'Nouvelle-Zélande'),
     ('Sargeant', 'Logan', '2', 'Etats-Unis'),
-    ('De Vries', 'Nyck', '24', 'Pays-Bas');
+    ('De Vries', 'Nyck', '24', 'Pays-Bas'),
+    ('Vettel', 'Sebastian', '5', 'Allemagne'),
+    ('Schumacher', 'Mick', '47', 'Allemagne'),
+    ('Latifi', 'Nicholas', '6', 'Canada'),
+    ('Räikkönen', 'Kimi', '7', 'Finlande'),
+    ('Giovinazzi', 'Antonio', '50', 'Italie'),
+    ('Kubica', 'Robert', '21', 'Pologne'),
+    ('Mazepin', 'Nikita', '9', 'Russe'),
+    ('Kvyat', 'Daniil', '26', 'Russe'),
+    ('Grosjean', 'Romain', '8', 'France'),
+    ('Aitken', 'Jack', '89', 'Royaume-Uni'),
+    ('Fittipaldi', 'Pietro', '51', 'Brésil'),
+    ('Vandoorne', 'Stoffel', '11', 'Belgique'),
+    ('Ericsson', 'Marcus', '9', 'Suède'),
+    ('Hartley', 'Brendon', '28', 'Nouvelle-Zélande'),
+    ('Sirotkin', 'Sergey', '35', 'Russe');
+    
+    
+    
+    
