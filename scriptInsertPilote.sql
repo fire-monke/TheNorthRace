@@ -1,7 +1,7 @@
-INSERT INTO Pilote (nom, prenom, numPil, paysPil)
-VALUES('Verstappen', 'Max', '1', 'Pays-Bas'),
+INSERT INTO Pilote (nom, prenom, numPil, paysPil) VALUES
+	('Verstappen', 'Max', '1', 'Pays-Bas'),
 	('Perez', 'Sergio', '11', 'Mexique'),
-    ('Hamilton', 'Lewis', '44', 'Royaume-Uni',
+    ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
 	('Alonso','Fernando', '14', 'Espagnol'),
     ('Norris', 'Lando', '4', 'Royaume-Uni'),
     ('Sainz', 'Carlos', '55', 'Espagne'),
