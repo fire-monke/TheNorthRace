@@ -8,8 +8,7 @@ CREATE TABLE Pilote (
     nom VARCHAR(15),
     prenom VARCHAR(15),
     numPil Int(2),
-    paysPil VARCHAR(15),
-    photoPil VARCHAR(250),
+    paysPil VARCHAR(20),
     Primary Key(id)
     )
 ENGINE=InnoDB;
@@ -18,8 +17,6 @@ ENGINE=InnoDB;
 CREATE TABLE Ecurie (
 	id INT(3) AUTO_INCREMENT,
     nom VARCHAR(15),
-    logoEcu VARCHAR(250),
-    photoEcu VARCHAR(250),
     Primary Key(id)
     )
 ENGINE=InnoDB;
@@ -47,27 +44,4 @@ Create Table CalculPoint(
     )
 ENGINE=InnoDB;
 
-
-INSERT INTO Pilote (nom, prenom, numPil, paysPil, photoPil)
-VALUES
-	('Verstappen', 'Max', '1', 'Pays-Bas', Null),
-	('Perez', 'Sergio', '11', 'Mexique', Null),
-    ('Hamilton', 'Lewis', '44', 'Royaume-Uni', Null),
-	('Alonso','Fernando', '14', 'Espagnol', Null),
-    ('Norris', 'Lando', '4', 'Royaume-Uni', Null)
-    ('Sainz', 'Carlos', '55', 'Espagne', Null),
-    ('Leclerc', 'Charles', '16', 'Monaco', Null),
-    ('Russel', 'George', '63', 'Royaume-Uni', Null),
-    ('Piastri', 'Oscar', '81', 'Australie', Null),
-    ('Flâner', 'Lance', '18', 'Canada', Null),
-    ('Gasly', 'Pierre', '10', 'France', Null),
-    ('Ocon', 'Estéban', '31', 'France', Null),
-    ('Albon', 'Alexandre', '23', 'Thailande', Null),
-    ('Tsunoda', 'Yuki', '22', 'Japon', Null),
-    ('Bottas', 'Valtteri', '77', 'Finlande', Null),
-    ('HÜlkenberg', 'Nico', '27', 'Allemagne', Null),
-    ('Ricciardo', 'Daniel', '3', 'Australie', Null),
-    ('Guan Yu', 'Zhou', '24', 'Chine', Null),
-    
-    
     
