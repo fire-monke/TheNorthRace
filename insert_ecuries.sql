@@ -82,3 +82,6 @@ INSERT INTO Ecurie(nom) VALUES
 ('Alphatauri'),
 ('Alpha Romeo'),
 ('Hass');
+
+
+select * from pilote;
