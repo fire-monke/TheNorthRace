@@ -1,5 +1,6 @@
- INSERT INTO Pilote (nom, prenom, numPil, paysPil) VALUES
+INSERT INTO Pilote (nom, prenom, numPil, paysPil) VALUES
 	-- Pilote de l'année 2023
+    
 	('Verstappen', 'Max', '1', 'Pays-Bas'),
 	('Perez', 'Sergio', '11', 'Mexique'),
     ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
@@ -9,7 +10,7 @@
     ('Leclerc', 'Charles', '16', 'Monaco'),
     ('Russel', 'George', '63', 'Royaume-Uni'),
     ('Piastri', 'Oscar', '81', 'Australie'),
-    ('Flâner', 'Lance', '18', 'Canada'),
+    ('Stroll', 'Lance', '18', 'Canada'),
     ('Gasly', 'Pierre', '10', 'France'),
     ('Ocon', 'Estéban', '31', 'France'),
     ('Albon', 'Alexandre', '23', 'Thailande'),
@@ -22,23 +23,128 @@
     ('Lawson', 'Liam', '40', 'Nouvelle-Zélande'),
     ('Sargeant', 'Logan', '2', 'Etats-Unis'),
     ('De Vries', 'Nyck', '24', 'Pays-Bas'),
+    
+    
     -- Pilote de l'année 2022
+    
+    -- ('Verstappen', 'Max', '1', 'Pays-Bas'),
+    -- ('Leclerc', 'Charles', '16', 'Monaco'),
+    -- ('Perez', 'Sergio', '11', 'Mexique'),
+    -- ('Russel', 'George', '63', 'Royaume-Uni'),
+    -- ('Sainz', 'Carlos', '55', 'Espagne'),
+    -- ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
+    -- ('Norris', 'Lando', '4', 'Royaume-Uni'),
+    -- ('Ocon', 'Estéban', '31', 'France'),
+    -- ('Alonso','Fernando', '14', 'Espagnol'),
+    -- ('Bottas', 'Valtteri', '77', 'Finlande'),
+    -- ('Ricciardo', 'Daniel', '3', 'Australie'),
     ('Vettel', 'Sebastian', '5', 'Allemagne'),
+    -- ('Magnussen', 'Kevin', '20', 'Dannemark'),
+    -- ('Gasly', 'Pierre', '10', 'France'),
+    -- ('Stroll', 'Lance', '18', 'Canada'),
     ('Schumacher', 'Mick', '47', 'Allemagne'),
+    -- ('Tsunoda', 'Yuki', '22', 'Japon'),
+    -- ('Zhou', 'Guan Yu', '24', 'Chine'),
+    -- ('Albon', 'Alexandre', '23', 'Thailande'),
     ('Latifi', 'Nicholas', '6', 'Canada'),
+    -- ('De Vries', 'Nyck', '24', 'Pays-Bas'),
+    -- ('Hülkenberg', 'Nico', '27', 'Allemagne'),
+    
+    
      -- Pilote de l'année 2021
+     
+	-- ('Verstappen', 'Max', '1', 'Pays-Bas'),
+    -- ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
+    -- ('Bottas', 'Valtteri', '77', 'Finlande'),
+    -- ('Perez', 'Sergio', '11', 'Mexique'),
+    -- ('Sainz', 'Carlos', '55', 'Espagne'),
+    -- ('Norris', 'Lando', '4', 'Royaume-Uni'),
+    -- ('Leclerc', 'Charles', '16', 'Monaco'),
+    -- ('Ricciardo', 'Daniel', '3', 'Australie'),
+    -- ('Gasly', 'Pierre', '10', 'France'),
+    -- ('Alonso','Fernando', '14', 'Espagnol'),
+    -- ('Ocon', 'Estéban', '31', 'France'),
+    -- ('Vettel', 'Sebastian', '5', 'Allemagne'),
+    -- ('Stroll', 'Lance', '18', 'Canada'),
+    -- ('Tsunoda', 'Yuki', '22', 'Japon'),
+    -- ('Russel', 'George', '63', 'Royaume-Uni'),
     ('Räikkönen', 'Kimi', '7', 'Finlande'),
+    -- ('Latifi', 'Nicholas', '6', 'Canada'),
     ('Giovinazzi', 'Antonio', '50', 'Italie'),
+    -- ('Schumacher', 'Mick', '47', 'Allemagne'),
     ('Kubica', 'Robert', '21', 'Pologne'),
     ('Mazepin', 'Nikita', '9', 'Russe'),
+    
+    
      -- Pilote de l'année 2020
+     
+	-- ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
+    -- ('Bottas', 'Valtteri', '77', 'Finlande'),
+    -- ('Verstappen', 'Max', '1', 'Pays-Bas'),
+    -- ('Perez', 'Sergio', '11', 'Mexique'),
+    -- ('Ricciardo', 'Daniel', '3', 'Australie'),
+    -- ('Sainz', 'Carlos', '55', 'Espagne'),
+    -- ('Albon', 'Alexandre', '23', 'Thailande'),
+    -- ('Leclerc', 'Charles', '16', 'Monaco'),
+    -- ('Norris', 'Lando', '4', 'Royaume-Uni'),
+    -- ('Gasly', 'Pierre', '10', 'France'),
+    -- ('Stroll', 'Lance', '18', 'Canada'),
+    -- ('Ocon', 'Estéban', '31', 'France'),
+    -- ('Vettel', 'Sebastian', '5', 'Allemagne'),
     ('Kvyat', 'Daniil', '26', 'Russe'),
+    -- ('Hülkenberg', 'Nico', '27', 'Allemagne'),
+    -- ('Räikkönen', 'Kimi', '7', 'Finlande'),
+    -- ('Giovinazzi', 'Antonio', '50', 'Italie'),
+    -- ('Russel', 'George', '63', 'Royaume-Uni'),
     ('Grosjean', 'Romain', '8', 'France'),
+    -- ('Magnussen', 'Kevin', '20', 'Dannemark'),
     ('Aitken', 'Jack', '89', 'Royaume-Uni'),
     ('Fittipaldi', 'Pietro', '51', 'Brésil'),
+    
+    
+    -- Pilote de l'année 2019
+    
+    -- ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
+    -- ('Bottas', 'Valtteri', '77', 'Finlande'),
+    -- ('Verstappen', 'Max', '1', 'Pays-Bas'),
+    -- ('Leclerc', 'Charles', '16', 'Monaco'),
+    -- ('Vettel', 'Sebastian', '5', 'Allemagne'),
+    -- ('Sainz', 'Carlos', '55', 'Espagne'),
+    -- ('Gasly', 'Pierre', '10', 'France'),
+    -- ('Albon', 'Alexandre', '23', 'Thailande'),
+    -- ('Ricciardo', 'Daniel', '3', 'Australie'),
+    -- ('Perez', 'Sergio', '11', 'Mexique'),
+    -- ('Norris', 'Lando', '4', 'Royaume-Uni'),
+    -- ('Räikkönen', 'Kimi', '7', 'Finlande'),
+    -- ('Kvyat', 'Daniil', '26', 'Russe'),
+    -- ('Hülkenberg', 'Nico', '27', 'Allemagne'),
+    -- ('Stroll', 'Lance', '18', 'Canada'),
+    -- ('Magnussen', 'Kevin', '20', 'Dannemark'),
+    -- ('Giovinazzi', 'Antonio', '50', 'Italie'),
+    -- ('Grosjean', 'Romain', '8', 'France'),
+    -- ('Kubica', 'Robert', '21', 'Pologne'),
+    -- ('Russel', 'George', '63', 'Royaume-Uni'),
+    
+    
      -- Pilote de l'année 2018
+     
+     -- ('Hamilton', 'Lewis', '44', 'Royaume-Uni'),
+     -- ('Vettel', 'Sebastian', '5', 'Allemagne'),
+     -- ('Räikkönen', 'Kimi', '7', 'Finlande'),
+     -- ('Verstappen', 'Max', '1', 'Pays-Bas'),
+     -- ('Bottas', 'Valtteri', '77', 'Finlande'),
+     -- ('Ricciardo', 'Daniel', '3', 'Australie'),
+     -- ('Hülkenberg', 'Nico', '27', 'Allemagne'),
+     -- ('Perez', 'Sergio', '11', 'Mexique'),
+     -- ('Magnussen', 'Kevin', '20', 'Dannemark'),
+     -- ('Sainz', 'Carlos', '55', 'Espagne'),
+     -- ('Alonso','Fernando', '14', 'Espagnol'),
+     -- ('Ocon', 'Estéban', '31', 'France'),
+     -- ('Leclerc', 'Charles', '16', 'Monaco'),
+     -- ('Grosjean', 'Romain', '8', 'France'),
+     -- ('Gasly', 'Pierre', '10', 'France'),
     ('Vandoorne', 'Stoffel', '11', 'Belgique'),
     ('Ericsson', 'Marcus', '9', 'Suède'),
+    -- ('Stroll', 'Lance', '18', 'Canada'),
     ('Hartley', 'Brendon', '28', 'Nouvelle-Zélande'),
     ('Sirotkin', 'Sergey', '35', 'Russe');
-    
