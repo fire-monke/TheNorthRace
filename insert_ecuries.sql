@@ -64,7 +64,7 @@ INSERT INTO Ecurie(nom) VALUES
 -- ('Alpine Renault'),
 -- ('McLaren Mercedes'),
 ('Alfa Romeo Ferrari'),
-('Aston Martin Aramco'),
+('Aston Martin Aramco')
 -- ('HAAS FERRARI')
 -- ('Alphatauri')
 -- ('WILLIAMS MERCEDES'),
@@ -82,6 +82,3 @@ INSERT INTO Ecurie(nom) VALUES
 -- ('Alphatauri'),
 ('Alpha Romeo'),
 ('Hass');
-
-
-select * from pilote;
