@@ -76,9 +76,9 @@ INSERT INTO Ecurie(nom) VALUES
 -- ('Mercedes'), (Commenté car déjà présent dans 2018)
 -- ('Ferrari'), (Commenté car déjà présent dans 2018)
 ('McLaren'),
-('Aston Martin'),
-('Alpine'),
-('Williams'),
+-- ('Aston Martin'),
+-- ('Alpine'),
+-- ('Williams'),
 -- ('Alphatauri'),
 ('Alpha Romeo'),
 -- ('Hass');
