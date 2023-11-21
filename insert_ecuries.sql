@@ -18,7 +18,7 @@ INSERT INTO Ecurie(nom) VALUES
 INSERT INTO Ecurie(nom) VALUES
 -- ('MERCEDES'),
 -- ('FERRARI'),
-('Red Bull Racing'),
+-- ('Red Bull Racing'),
 -- ('MCLAREN RENAULT'),
 -- ('RENAULT'),
 -- ('SCUDERIA TORO ROSSO HONDA'),
