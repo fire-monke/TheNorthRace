@@ -54,7 +54,7 @@ Insert into Classement(idEcu, annee, nbPointEcu, placeEcu) Values
     Insert into Classement(idEcu, annee, nbPointEcu, placeEcu) Values
 	(1, 2019, 739, 1),
     (2, 2019, 504, 2),
-    (3, 2019, 417, 3),
+    (4, 2019, 417, 3),
     (6, 2019, 145, 4),
     (3, 2019, 91, 5),
     (9, 2019, 85, 6),
