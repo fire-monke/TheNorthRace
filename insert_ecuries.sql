@@ -58,7 +58,7 @@ INSERT INTO Ecurie(nom) VALUES
 
 -- 2022
 INSERT INTO Ecurie(nom) VALUES
-('Red Bull Racing'),
+-- ('Red Bull Racing'),
 -- ('FERRARI'),
 -- ('MERCEDES'),
 -- ('Alpine Renault'),
@@ -66,20 +66,20 @@ INSERT INTO Ecurie(nom) VALUES
 ('Alfa Romeo Ferrari'),
 ('Aston Martin Aramco'),
 -- ('HAAS FERRARI')
-('Alphatauri')
+-- ('Alphatauri')
 -- ('WILLIAMS MERCEDES'),
 ;
 
 -- 2023
 INSERT INTO Ecurie(nom) VALUES
-('Red Bull Racing'),
+-- ('Red Bull Racing'),
 -- ('Mercedes'), (Commenté car déjà présent dans 2018)
 -- ('Ferrari'), (Commenté car déjà présent dans 2018)
 ('McLaren'),
 ('Aston Martin'),
 ('Alpine'),
 ('Williams'),
-('Alphatauri'),
+-- ('Alphatauri'),
 ('Alpha Romeo'),
 ('Hass');
 
