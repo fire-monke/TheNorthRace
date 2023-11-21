@@ -81,4 +81,4 @@ INSERT INTO Ecurie(nom) VALUES
 ('Williams'),
 -- ('Alphatauri'),
 ('Alpha Romeo'),
-('Hass');
+-- ('Hass');
