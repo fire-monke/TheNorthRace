@@ -8,6 +8,7 @@ CREATE TABLE Pilote (
     nom VARCHAR(40),
     prenom VARCHAR(40),
     paysPil VARCHAR(30),
+    dateNais Date,
     Primary Key(id)
     )
 ENGINE=InnoDB;
