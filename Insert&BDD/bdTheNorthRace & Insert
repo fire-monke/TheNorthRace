@@ -16,6 +16,7 @@ ENGINE=InnoDB;
 CREATE TABLE Ecurie (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
+    couleur VARCHAR(10),
     Primary Key(id)
     )
 ENGINE=InnoDB;
@@ -186,88 +187,89 @@ INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
 ('Hartley', 'Brendon', 'Nouvelle-Zélande', '1989-11-10'),
 ('Sirotkin', 'Sergey', 'Russe', '1995-08-27');
 
+
 -- 2018
-INSERT INTO Ecurie(nom) VALUES
-	('Mercedes'),
-	('Ferrari'),
-	('Renault'),
-	('Red Bull Racing'),
-	('Haas'),
-	('McLaren Renault'),
-	('Force India Mercedes'),
-	('Sauber'),
-	('Scuderia Toro Rosso'),
-	('Williams'),
-	('Force India Sahara');
+INSERT INTO Ecurie(nom,couleur) VALUES
+	('Mercedes','#6CD3BF'),
+	('Ferrari','#F91536'),
+	('Renault','#FFF500'),
+	('Red Bull Racing','#3671C6'),
+	('Haas','#B6BABD'),
+	('McLaren Renault','#F58020'),
+	('Force India Mercedes','#F596C8'),
+	('Sauber','#9B0000'),
+	('Scuderia Toro Rosso','#0032FF'),
+	('Williams','#37BEDD'),
+	('Force India Sahara','#F596C8');
 
 -- 2019
-INSERT INTO Ecurie(nom) VALUES
-	-- ('MERCEDES'),
-	-- ('FERRARI'),
-	-- ('Red Bull Racing'),
-	-- ('MCLAREN RENAULT'),
-	-- ('RENAULT'),
-	-- ('SCUDERIA TORO ROSSO HONDA'),
-	('Racing Point BWT'),
-	('Alfa Romeo Racing');
-	-- ('HAAS FERRARI'),
-	-- ('WILLIAMS MERCEDES'),
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('FERRARI', '#F91536'),
+	-- ('Red Bull Racing', '#3671C6'),
+	-- ('MCLAREN RENAULT', '#F58020'),
+	-- ('RENAULT', '#FFF500'),
+	-- ('SCUDERIA TORO ROSSO HONDA', '#0032FF'),
+	('Racing Point BWT','#F596C8'),
+	('Alfa Romeo Racing','#C92D4B');
+	-- ('HAAS FERRARI', '#B6BABD'),
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
 
 -- 2020
-INSERT INTO Ecurie(nom) VALUES
-	-- ('MERCEDES'),
-	-- ('RED BULL RACING HONDA'),
-	-- ('MCLAREN RENAULT'),
-	-- ('RACING POINT BWT MERCEDES'),
-	-- ('RENAULT'),
-	-- ('FERRARI'),
-	('Alphatauri');
-	-- ('ALFA ROMEO RACING FERRARI'),
-	-- ('HAAS FERRARI'),
-	-- ('WILLIAMS MERCEDES'),
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('RED BULL RACING HONDA', '#3671C6'),
+	-- ('MCLAREN RENAULT', '#F58020'),
+	-- ('RACING POINT BWT MERCEDES', '#F596C8'),
+	-- ('RENAULT', '#FFF500'),
+	-- ('FERRARI', '#F91536'),
+	('Alphatauri','#5E8FAA');
+	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
+	-- ('HAAS FERRARI', '#B6BABD'),
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
 
 -- 2021
-INSERT INTO Ecurie(nom) VALUES
-	-- ('MERCEDES'),
-	-- ('RED BULL RACING HONDA'),
-	-- ('FERRARI'),
-	('McLaren Mercedes'),
-	('Alpine'),
-	-- ('ALPHATAURI HONDA'),
-	('Aston Martin');
-	-- ('WILLIAMS MERCEDES'),
-	-- ('ALFA ROMEO RACING FERRARI'),
-	-- ('HAAS FERRARI')
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('RED BULL RACING HONDA', '#3671C6'),
+	-- ('FERRARI', '#F91536'),
+	('McLaren Mercedes','#F58020'),
+	('Alpine','#2293D1'),
+	-- ('ALPHATAURI HONDA', '#5E8FAA'),
+	('Aston Martin','#358C75');
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
+	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
+	-- ('HAAS FERRARI', '#B6BABD')
 
 
 -- 2022
-INSERT INTO Ecurie(nom) VALUES
-	-- ('Red Bull Racing'),
-	-- ('FERRARI'),
-	-- ('MERCEDES'),
-	-- ('Alpine Renault'),
-	-- ('McLaren Mercedes'),
-	('Alfa Romeo Ferrari'),
-	('Aston Martin Aramco');
-	-- ('HAAS FERRARI')
-	-- ('Alphatauri')
-	-- ('WILLIAMS MERCEDES'),
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('Red Bull Racing', '#3671C6'),
+	-- ('FERRARI', '#F91536'),
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('Alpine Renault', '#2293D1'),
+	-- ('McLaren Mercedes', '#F58020'),
+	('Alfa Romeo Ferrari','#C92D4B'),
+	('Aston Martin Aramco','#358C75');
+	-- ('HAAS FERRARI', '#B6BABD')
+	-- ('Alphatauri', '#5E8FAA')
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
 
 -- 2023
-INSERT INTO Ecurie(nom) VALUES
-	-- ('Red Bull Racing'),
-	-- ('Mercedes'), (Commenté car déjà présent dans 2018)
-	-- ('Ferrari'), (Commenté car déjà présent dans 2018)
-	('McLaren'),
-	-- ('Aston Martin'),
-	-- ('Alpine'),
-	-- ('Williams'),
-	-- ('Alphatauri'),
-	('Alpha Romeo');
-	-- ('Hass')
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('Red Bull Racing', '#3671C6'),
+	-- ('Mercedes', '#6CD3BF'), (Commenté car déjà présent dans 2018)
+	-- ('Ferrari', '#F91536'), (Commenté car déjà présent dans 2018)
+	('McLaren','#F58020'),
+	-- ('Aston Martin', '#358C75'),
+	-- ('Alpine', '#2293D1'),
+	-- ('Williams', '#37BEDD'),
+	-- ('Alphatauri', '#5E8FAA'),
+	('Alpha Romeo','#C92D4B');
+	-- ('Hass', '#B6BABD')
 
 -- 2023 
 Insert into Classement(idEcu, annee, nbPointEcu, placeEcu) Values
@@ -493,4 +495,3 @@ INSERT INTO CoursesAnnee(idPil, annee, idEcu, nbPointPil, placePil, numPil) VALU
 	(20, 2023, 14, 2, 20, 40),
 	(21, 2023, 10, 1, 21, 2),
 	(22, 2023, 14, 0, 22, 24);
-
