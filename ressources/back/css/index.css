@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body{
+    width: 100vw;
+  }
+  
+  
+  /* ------------------navbar---------------- */
+  
+  
+  .navbar {
+    position: relative;
+    z-index: 999;
+    height: 8.5vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-shadow: 0px 8px 8px -6px rgba(50, 50, 50, 0.50);
+  }
+
+  .nav-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    font-weight: 500;
+  }
+
+  .nav-content a{
+    color: #2264c7;
+  }
+  
+  .logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+  }
+  
+  .navbar h1 span{
+    color: #1162db;
+  }
+  
+  .logout a{color: #373737;
+    margin-left: 5px;
+    transition: 0.3s;}
+
+  
+  .logout:hover a{
+    color: #1162db;
+    transition: 0.3s;
+  }
+
+  .lock{
+    height: 30px;
+    width: 20px;
+    background-image: url(../ressource/images/index/lock.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s;
+  }
+
+   .logout:hover .lock{
+    transition: 0.3s;
+    background-image: url(../ressource/images/index/lockyellow.svg);
+  }
+  
+  
+   /* ------------------Corp---------------- */
+
+  
+  .main{
+    height: 90vh;
+    width: 100vw;
+  }
+  
+  .idadmin{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #1162db;
+    border-bottom: 1px solid rgb(126, 126, 126);
+  }
+  
+  @keyframes apparitiontitre {
+  
+    100%{
+        opacity: 100%;
+        transform: none;
+    }
+  
+  
+  }
