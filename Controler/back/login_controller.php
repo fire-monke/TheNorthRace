@@ -1,20 +1,20 @@
 <?php
 session_start();
-require_once '../connexion_PDO.php';
+require_once '../../model/connexion_PDO.php';
 
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
+    $identifiant = $_POST['identifiant'];
     $password = $_POST['password'];
 
     $pdo = connectDB();
 
-    $stmt = $pdo->prepare("SELECT * FROM admin WHERE username = :username LIMIT 1");
-    $stmt->execute(['username' => $username]);
+    $stmt = $pdo->prepare("SELECT * FROM gerant WHERE identifiant = :identifiant LIMIT 1");
+    $stmt->execute(['identifiant' => $identifiant]);
     $admin = $stmt->fetch();
 
     if ($admin && $password === $admin['password']) {
         $_SESSION['admin'] = $admin;
-        header('Location: ../view/index.php');
+        header('Location: ../../view/back/path/app.php');
         exit();
     } else {
         $error = 'Identifiants incorrects. Veuillez réessayer.';

@@ -1,11 +1,11 @@
 <?php
 function connectDB() {
     $host = "localhost";
-    $dbname = "bdoccasion";
+    $dbname = "bdTheNorthRace";
     $user = "root";
     try {
         
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user);
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, "root");
 
         // Configuration des options PDO
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
