@@ -30,17 +30,8 @@
     box-shadow: 0px 8px 8px -6px rgba(50, 50, 50, 0.50);
   }
 
-  .nav-content{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 50%;
-    font-weight: 500;
-  }
 
-  .nav-content a{
-    color: #2264c7;
-  }
+
   
   .logout{
     display: flex;
@@ -61,6 +52,19 @@
 
   
   .logout:hover a{
+    color: #1162db;
+    transition: 0.3s;
+  }
+
+  nav button{
+    color: #373737;
+    transition: 0.3s;
+    border: none;
+    background: none;
+  }
+
+  
+  nav button:hover{
     color: #1162db;
     transition: 0.3s;
   }

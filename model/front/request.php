@@ -104,29 +104,3 @@ class GetVoitures {
 
 }
 
-class GetTypeVoitures {
-    private $pdo;
-
-    public function __construct() {
-        $this->pdo = connectDB(); 
-    }
-
-    public function afficherTypeVoitures($type) {
-        try {
-            $query = "SELECT voiture.immat, idProp, nbPlaces, modele.idModele, modele.libModele, modele.marque, modele.carburant, categories.nom, CONCAT(DAY(datePremImmat),'/', MONTH(datePremImmat),'/',YEAR(datePremImmat)) AS DATE  
-            FROM voiture
-            INNER JOIN modele ON modele.idModele = voiture.idModele
-            INNER JOIN categories ON categories.idcat = modele.idCat
-            INNER JOIN cartegrise ON cartegrise.immat = voiture.immat
-            WHERE categories.nom = '$type'
-            "
-            ;
-            $request = $this->pdo->query($query);
-            $voituresTypes = $request->fetchAll();
-            return $voituresTypes;
-        } catch (PDOException $e) {
-            $error = $e->getMessage();
-     }
-    }
-}    
-?>

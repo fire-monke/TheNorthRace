@@ -1,4 +1,4 @@
-        const menuLinks = document.querySelectorAll('nav a')
+        const menuLinks = document.querySelectorAll('nav button')
       
 
         menuLinks.forEach((menuLink,index) => {
@@ -7,8 +7,9 @@
                     otherEntity.style.color = "#373737"
                 })
                 menuLink.style.color = "#1162db"
-                console.log("dsfdsf");
-                e.preventDefault()
+                
+                console.log(menuLink);
+
             })
         })
 

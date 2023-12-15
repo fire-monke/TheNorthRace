@@ -15,17 +15,13 @@
     <div class="connexion">
         <h1>Bienvenue</h1>
         <p>Veuillez saisir vos coordonnées administrateur</p>
- 
-        <div class="formulaire">
-            <form method="post" action="../../controler/back/login_controller.php">
-                
-                <?php if (!empty($error)): ?>
+        <?php if (!empty($error)): ?>
                 <p class="error"><?php echo $error; ?></p>
                 <?php endif; ?>
-
+        <div class="formulaire">
+            <form method="post" action="../../controler/back/login_controller.php">
                 <input type="text" id="identifiant" name="identifiant" placeholder="Nom d'utilisateur" required><br>
                 <input type="password" id="password" name="password" placeholder="Mot de passe" required><br>
-
                 <input type="submit" id="submit" name="submit" value="Se connecter">
             </form>
         </div>

@@ -1,16 +1,14 @@
 <?php
 session_start();
-require_once '../../model/connexion_PDO.php';
 
 if (isset($_POST['submit'])) {
     $identifiant = $_POST['identifiant'];
     $password = $_POST['password'];
 
-    $pdo = connectDB();
 
-    $stmt = $pdo->prepare("SELECT * FROM gerant WHERE identifiant = :identifiant LIMIT 1");
-    $stmt->execute(['identifiant' => $identifiant]);
-    $admin = $stmt->fetch();
+    require_once("../../model/back/request.php");
+    $getAdmin = new GetModeles();
+    $admin = $getAdmin->GetAdmin($identifiant);
 
     if ($admin && $password === $admin['password']) {
         $_SESSION['admin'] = $admin;
@@ -21,6 +19,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-include '../view/login.php';
+include '../../view/back/login.php';
 ?>
 

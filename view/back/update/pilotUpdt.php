@@ -16,7 +16,7 @@
     
     <div class="update">
         <h1>MODIFICATION <span>PILOTE</span></h1>
-        <form action="../../../controler/back/login_controller.php" method="POST" class="load-view-form" enctype="multipart/form-data">
+        <form action="../../../controler/back/login_controller.php" method="POST">
                 <input type="text" id="nom" name="nom" placeholder="Nom" required>
 
                 <input type="text" id="prenom" name="prenom" placeholder="Prenom" required>

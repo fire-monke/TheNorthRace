@@ -9,22 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/app.js"></script>
 </head>
 
 <body>
+<?php 
+    while ($row = $result->fetch()) {
+        $id = $row['idPil'];
+        $name = $row['nom'] + " " + $row['prenom'];
+        echo '<option value="' . htmlentities($id) . '">' . htmlentities($name) . '</option>';
+    }
+?>
 
-    
-    <div class="update">
-        <h1>MODIFICATION <span>Ecurie</span></h1>
-        <form action="../../../controler/back/login_controller.php" method="POST" class="load-view-form" enctype="multipart/form-data">
-                <input type="text" id="nom" name="nom" placeholder="Nom" required>
-
-                <input type="text" id="couleur" name="couleur" placeholder="Couleur" required>
-
-                <input type="submit" value="Modifier">
-        </form>
+    <div class="pilot">
+        <h2>1</h2>
+        <p>Max <span>VERSTAPPEN</span></p>
+        <h3>Red Bull Racing</h3> 
+        <p class="points">524</p>
+        <img name="row "src="./ressources/front/images/greenRow.png" alt="">
     </div>
 </body>
 
