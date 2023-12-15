@@ -1,0 +1,33 @@
+body{ 
+    margin-left: 30px;
+    background-color: #15151E;
+    color: white;
+    height: 100vh;
+}
+
+.toutes{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 40%;
+    width: 70%;
+    align-items: left;
+    justify-content: space-between;
+
+   
+}
+.ecurie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid white; 
+    border-bottom: 1px solid white; 
+    border-radius: 15px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    width: 250px;
+    height: 100px;
+  
+
+}
+
