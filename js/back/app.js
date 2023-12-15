@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function() {
   // Intercepte le clic sur les liens avec la classe "load-view"
   $('.load-view').click(function(event) {
@@ -62,6 +63,19 @@ const menuLink = document.querySelectorAll('.menu-link')
                     otherEntity.style.color = "#4E4E4E"
                 })
                 entity.style.color = "#FDB901"
+=======
+        const menuLinks = document.querySelectorAll('nav button')
+      
+
+        menuLinks.forEach((menuLink,index) => {
+          menuLink.addEventListener("click", (e) => {
+                menuLinks.forEach(otherEntity => {
+                    otherEntity.style.color = "#373737"
+                })
+                menuLink.style.color = "#1162db"
+                
+                console.log(menuLink);
+>>>>>>> 99faa55c97139b839038561a3d3a37a319ece07f
 
             })
         })

@@ -104,6 +104,7 @@ class GetVoitures {
 
 }
 
+<<<<<<< HEAD
 class GetTypeVoitures {
     private $pdo;
 
@@ -130,3 +131,5 @@ class GetTypeVoitures {
     }
 }    
 ?>
+=======
+>>>>>>> 99faa55c97139b839038561a3d3a37a319ece07f
