@@ -8,16 +8,55 @@ class Ecurie {
         $this->cnx = connexionPDO();
     }
 
-    function getEcurieByIdPiloteAndLastYear($idPil){
+    function getEcuries(){
         try{
-            $req = $this->cnx->prepare("SELECT e.id, e.nom, e.couleur
-            FROM Ecurie e
-            JOIN CoursesAnnee c ON e.id = c.idEcu
-            WHERE idPil = :idPil
-            GROUP BY 1, 2, 3
-            HAVING max(c.annee);");
+            $req = $this->cnx->prepare("CALL getEcuries()");
+            $req->execute();
     
-            $req->bindValue(':idPil', $idPil, PDO::PARAM_STR);
+            $resultat = $req->fetchall(PDO::FETCH_OBJ);
+    
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $resultat;
+    }
+
+    function getEcuriesLastSeason(){
+        try{
+            $req = $this->cnx->prepare("CALL getEcuriesLastSeason()");
+            $req->execute();
+    
+            $resultat = $req->fetchall(PDO::FETCH_OBJ);
+    
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $resultat;
+    }
+
+    function getEcurieById($idEcu){
+        try{
+            $req = $this->cnx->prepare("CALL getEcurieById(:idEcu)");
+    
+            $req->bindValue(':idEcu', $idEcu, PDO::PARAM_INT);
+            $req->execute();
+    
+            $resultat = $req->fetch(PDO::FETCH_OBJ);
+    
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $resultat;
+    }
+
+    function getEcurieOfLastSeasonOfPiloteByIdPilote($idPil){
+        try{
+            $req = $this->cnx->prepare("CALL getEcurieOfLastSeasonOfPiloteByIdPilote(:idPil)");
+    
+            $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
             $req->execute();
     
             $resultat = $req->fetch(PDO::FETCH_OBJ);
@@ -31,15 +70,9 @@ class Ecurie {
 
     function getLastEcurieByIdPilote($idPil){
         try{
-            $req = $this->cnx->prepare(
-            "SELECT DISTINCT e.id, e.nom, e.couleur, c.annee, idPil
-            FROM Ecurie e
-            JOIN CoursesAnnee c ON e.id = c.idEcu
-            WHERE c.idPil = :idPil
-            ORDER BY c.annee DESC
-            ;");
+            $req = $this->cnx->prepare("CALL getLastEcurieByIdPilote(:idPil)");
     
-            $req->bindValue(':idPil', $idPil, PDO::PARAM_STR);
+            $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
             $req->execute();
     
             $resultat = $req->fetch(PDO::FETCH_OBJ);
@@ -65,9 +98,9 @@ class Ecurie {
         }
     }
     // remove a Ecurie if it has never run
-    function deleteEcurie($idEcurie) {
+    function deleteEcurieById($idEcurie) {
         try {
-            $req = $this->cnx->prepare("DELETE FROM Ecurie WHERE id = :idEcurie;");
+            $req = $this->cnx->prepare("CALL deleteEcurieById(:idEcurie)");
             $req->bindValue(':idEcurie', $idEcurie, PDO::PARAM_INT);
             $req->execute();
 
@@ -77,12 +110,10 @@ class Ecurie {
         }
     }
     // update a color of an Ecurie
-    function updateEcurieColor($id, $couleur) {
+    function updateEcurieColor($idEcurie, $couleur) {
         try {
-            $req = $this->cnx->prepare("UPDATE Ecurie
-                                SET couleur=:couleur
-                                WHERE id=:id");
-            $req->bindValue(':id', $id, PDO::PARAM_INT);
+            $req = $this->cnx->prepare("CALL updateEcurieColor(:idEcurie, :couleur)");
+            $req->bindValue(':idEcurie', $idEcurie, PDO::PARAM_INT);
             $req->bindValue(':couleur', $couleur, PDO::PARAM_STR);
             $req->execute();
 

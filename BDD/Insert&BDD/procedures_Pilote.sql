@@ -24,26 +24,6 @@ BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE if exists getPilotes;
-DELIMITER //
-CREATE PROCEDURE getPilotes()
-BEGIN
-    SELECT id, nom, prenom, paysPil, dateNais FROM Pilote p;
-END //
-DELIMITER ;
-
-DROP PROCEDURE if exists getPiloteById;
-DELIMITER //
-CREATE PROCEDURE getPiloteById(
-    IN idPilote INT(3)
-)
-BEGIN
-    SELECT nom, prenom, paysPil, dateNais
-	FROM Pilote p
-	WHERE id = idPilote;
-END //
-DELIMITER ;
-
 DROP PROCEDURE if exists updatePilote;
 DELIMITER //
 CREATE PROCEDURE updatePilote(
@@ -57,6 +37,26 @@ BEGIN
     UPDATE Pilote
 	SET nom=nomPil, prenom=prenomPil, paysPil=paysPilPil
 	WHERE id=idPilote;
+END //
+DELIMITER ;
+
+DROP PROCEDURE if exists getPilotes;
+DELIMITER //
+CREATE PROCEDURE getPilotes()
+BEGIN
+    SELECT id, nom, prenom, paysPil, dateNais FROM Pilote;
+END //
+DELIMITER ;
+
+DROP PROCEDURE if exists getPiloteById;
+DELIMITER //
+CREATE PROCEDURE getPiloteById(
+    IN idPilote INT(3)
+)
+BEGIN
+    SELECT nom, prenom, paysPil, dateNais
+	FROM Pilote
+	WHERE id = idPilote;
 END //
 DELIMITER ;
 
