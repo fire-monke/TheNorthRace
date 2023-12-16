@@ -3,11 +3,20 @@ CREATE DATABASE if not exists bdTheNorthRace;
 
 Use bdTheNorthRace;
 
+CREATE TABLE Gerant (
+    identifiant VARCHAR(40),
+    password VARCHAR(40) NOT NULL,
+    Primary Key(identifiant)
+    )
+ENGINE=InnoDB;
+insert into gerant values("admin",'admin');
+
 CREATE TABLE Pilote (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
     prenom VARCHAR(40),
     paysPil VARCHAR(30),
+    dateNais Date,
     Primary Key(id)
     )
 ENGINE=InnoDB;
@@ -15,6 +24,7 @@ ENGINE=InnoDB;
 CREATE TABLE Ecurie (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
+    couleur VARCHAR(40),
     Primary Key(id)
     )
 ENGINE=InnoDB;
@@ -47,7 +57,7 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
     ('Verstappen', 'Max', 'Pays-Bas'),
 	('Perez', 'Sergio', 'Mexique'),
     ('Hamilton', 'Lewis', 'Royaume-Uni'),
-	('Alonso', 'Fernando', 'Espagnol'),
+	('Alonso', 'Fernando', 'Espagne'),
     ('Norris', 'Lando', 'Royaume-Uni'),
     ('Sainz', 'Carlos', 'Espagne'),
     ('Leclerc', 'Charles', 'Monaco'),
@@ -62,7 +72,7 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
     ('Hülkenberg', 'Nico', 'Allemagne'),
     ('Ricciardo', 'Daniel', 'Australie'),
     ('Zhou', 'Guan Yu', 'Chine'),
-    ('Magnussen', 'Kevin', 'Dannemark'),
+    ('Magnussen', 'Kevin', 'Danemark'),
     ('Lawson', 'Liam', 'Nouvelle-Zélande'),
     ('Sargeant', 'Logan', 'Etats-Unis'),
     ('De Vries', 'Nyck', 'Pays-Bas'),
@@ -77,11 +87,11 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
 	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
 	-- ('Norris', 'Lando', 'Royaume-Uni'),
 	-- ('Ocon', 'Estéban', 'France'),
-	-- ('Alonso','Fernando', 'Espagnol'),
+	-- ('Alonso','Fernando', 'Espagne'),
 	-- ('Bottas', 'Valtteri', 'Finlande'),
 	-- ('Ricciardo', 'Daniel', 'Australie'),
 	('Vettel', 'Sebastian', 'Allemagne'),
-	-- ('Magnussen', 'Kevin', 'Dannemark'),
+	-- ('Magnussen', 'Kevin', 'Danemark'),
 	-- ('Gasly', 'Pierre', 'France'),
 	-- ('Stroll', 'Lance', 'Canada'),
 	('Schumacher', 'Mick', 'Allemagne'),
@@ -103,7 +113,7 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
 	-- ('Leclerc', 'Charles', 'Monaco'),
 	-- ('Ricciardo', 'Daniel', 'Australie'),
 	-- ('Gasly', 'Pierre', 'France'),
-	-- ('Alonso','Fernando', 'Espagnol'),
+	-- ('Alonso','Fernando', 'Espagne'),
 	-- ('Ocon', 'Estéban', 'France'),
 	-- ('Vettel', 'Sebastian', 'Allemagne'),
 	-- ('Stroll', 'Lance', 'Canada'),
@@ -137,7 +147,7 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
 	-- ('Giovinazzi', 'Antonio', 'Italie'),
 	-- ('Russel', 'George', 'Royaume-Uni'),
 	('Grosjean', 'Romain', 'France'),
-	-- ('Magnussen', 'Kevin', 'Dannemark'),
+	-- ('Magnussen', 'Kevin', 'Danemark'),
 	('Aitken', 'Jack', 'Royaume-Uni'),
 	('Fittipaldi', 'Pietro', 'Brésil'),
 
@@ -157,7 +167,7 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
 	-- ('Kvyat', 'Daniil', 'Russe'),
 	-- ('Hülkenberg', 'Nico', 'Allemagne'),
 	-- ('Stroll', 'Lance', 'Canada'),
-	-- ('Magnussen', 'Kevin', 'Dannemark'),
+	-- ('Magnussen', 'Kevin', 'Danemark'),
 	-- ('Giovinazzi', 'Antonio', 'Italie'),
 	-- ('Grosjean', 'Romain', 'France'),
 	-- ('Kubica', 'Robert', 'Pologne'),
@@ -172,9 +182,9 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
 	-- ('Ricciardo', 'Daniel', 'Australie'),
 	-- ('Hülkenberg', 'Nico', 'Allemagne'),
 	-- ('Perez', 'Sergio', 'Mexique'),
-	-- ('Magnussen', 'Kevin', 'Dannemark'),
+	-- ('Magnussen', 'Kevin', 'Danemark'),
 	-- ('Sainz', 'Carlos', 'Espagne'),
-	-- ('Alonso','Fernando', 'Espagnol'),
+	-- ('Alonso','Fernando', 'Espagne'),
 	-- ('Ocon', 'Estéban', 'France'),
 	-- ('Leclerc', 'Charles', 'Monaco'),
 	-- ('Grosjean', 'Romain', 'France'),
@@ -493,4 +503,3 @@ INSERT INTO CoursesAnnee(idPil, annee, idEcu, nbPointPil, placePil, numPil) VALU
 	(20, 2023, 14, 2, 20, 40),
 	(21, 2023, 10, 1, 21, 2),
 	(22, 2023, 14, 0, 22, 24);
-
