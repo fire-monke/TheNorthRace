@@ -53,7 +53,7 @@ Create Table CoursesAnnee(
 ENGINE=InnoDB;
 
 -- 2023
-INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
+INSERT INTO Pilote (nom, prenom, paysPil) VALUES
 ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
     ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
     ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
@@ -131,7 +131,7 @@ INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
     ('Kvyat', 'Daniil', 'Russe', '1994-04-26'),
     ('Grosjean', 'Romain', 'France', '1986-04-17'),
     ('Aitken', 'Jack', 'Royaume-Uni', '1995-09-23'),
-    ('Fittipaldi', 'Pietro', 'Brésil', '1996-06-25'),
+    ('Fittipaldi', 'Pietro', 'Brésil', '1996-06-25')
 	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
 	-- ('Bottas', 'Valtteri', 'Finlande'),
 	-- ('Verstappen', 'Max', 'Pays-Bas'),
