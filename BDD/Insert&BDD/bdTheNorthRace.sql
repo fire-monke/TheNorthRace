@@ -3,14 +3,6 @@ CREATE DATABASE if not exists bdTheNorthRace;
 
 Use bdTheNorthRace;
 
-CREATE TABLE Gerant (
-    identifiant VARCHAR(40),
-    password VARCHAR(40) NOT NULL,
-    Primary Key(identifiant)
-    )
-ENGINE=InnoDB;
-insert into gerant values("admin",'admin');
-
 CREATE TABLE Pilote (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
@@ -24,7 +16,7 @@ ENGINE=InnoDB;
 CREATE TABLE Ecurie (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
-    couleur VARCHAR(40),
+    couleur VARCHAR(10),
     Primary Key(id)
     )
 ENGINE=InnoDB;
@@ -53,8 +45,8 @@ Create Table CoursesAnnee(
 ENGINE=InnoDB;
 
 -- 2023
-INSERT INTO Pilote (nom, prenom, paysPil) VALUES
-('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
+INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
+    ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
     ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
     ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
     ('Alonso', 'Fernando', 'Espagne', '1981-07-29'),
@@ -71,210 +63,213 @@ INSERT INTO Pilote (nom, prenom, paysPil) VALUES
     ('Bottas', 'Valtteri', 'Finlande', '1989-08-28'),
     ('Hülkenberg', 'Nico', 'Allemagne', '1987-08-19'),
     ('Ricciardo', 'Daniel', 'Australie', '1989-07-01'),
-    ('Zhou', 'Guan Yu', 'Chine', '1999-05-30'),
+    ('Zhou', 'Guan Yu', 'Chine', '2000-05-30'),
     ('Magnussen', 'Kevin', 'Danemark', '1992-10-05'),
-    ('Lawson', 'Liam', 'Nouvelle-Zélande', '2002-01-11'),
+    ('Lawson', 'Liam', 'Nouvelle-Zélande', '2002-07-11'),
     ('Sargeant', 'Logan', 'Etats-Unis', '2000-12-31'),
-    ('De Vries', 'Nyck', 'Pays-Bas', '1995-02-06'),
+    ('De Vries', 'Nyck', 'Pays-Bas', '1995-02-26'),
     
     
--- Pilote de l'année 2022
+       -- Pilote de l'année 2022
+    -- ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
+    -- ('Leclerc', 'Charles', 'Monaco', '1997-10-16'),
+    -- ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
+    -- ('Russel', 'George', 'Royaume-Uni', '1998-02-15'),
+    -- ('Sainz', 'Carlos', 'Espagne', '1994-09-01'),
+    -- ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
+    -- ('Norris', 'Lando', 'Royaume-Uni', '1999-11-13'),
+    -- ('Ocon', 'Estéban', 'France', '1996-09-17'),
+    -- ('Alonso','Fernando', 'Espagne', '1981-07-29'),
+    -- ('Bottas', 'Valtteri', 'Finlande', '1989-08-28'),
+    -- ('Ricciardo', 'Daniel', 'Australie', '1989-07-01'),
     ('Vettel', 'Sebastian', 'Allemagne', '1987-07-03'),
+    -- ('Magnussen', 'Kevin', 'Danemark', '1992-10-05'),
+    -- ('Gasly', 'Pierre', 'France', '1996-02-07'),
+    -- ('Stroll', 'Lance', 'Canada', '1998-10-29'),
     ('Schumacher', 'Mick', 'Allemagne', '1999-03-22'),
+    -- ('Tsunoda', 'Yuki', 'Japon', '2000-05-11'),
+    -- ('Zhou', 'Guan Yu', 'Chine', '2000-05-30'),
+    -- ('Albon', 'Alexandre', 'Thailande', '1996-03-23'),
     ('Latifi', 'Nicholas', 'Canada', '1995-06-29'),
-	-- ('Verstappen', 'Max', 'Pays-Bas'),
-	-- ('Leclerc', 'Charles', 'Monaco'),
-	-- ('Perez', 'Sergio', 'Mexique'),
-	-- ('Russel', 'George', 'Royaume-Uni'),
-	-- ('Sainz', 'Carlos', 'Espagne'),
-	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
-	-- ('Norris', 'Lando', 'Royaume-Uni'),
-	-- ('Ocon', 'Estéban', 'France'),
-	-- ('Alonso','Fernando', 'Espagne'),
-	-- ('Bottas', 'Valtteri', 'Finlande'),
-	-- ('Ricciardo', 'Daniel', 'Australie'),
-	-- ('Magnussen', 'Kevin', 'Danemark'),
-	-- ('Gasly', 'Pierre', 'France'),
-	-- ('Stroll', 'Lance', 'Canada'),
-	-- ('Tsunoda', 'Yuki', 'Japon'),
-	-- ('Zhou', 'Guan Yu', 'Chine'),
-	-- ('Albon', 'Alexandre', 'Thailande'),
-	-- ('De Vries', 'Nyck', 'Pays-Bas'),
-	-- ('Hülkenberg', 'Nico', 'Allemagne'),
+    -- ('De Vries', 'Nyck', 'Pays-Bas', '1995-02-06'),
+    -- ('Hülkenberg', 'Nico', 'Allemagne', '1987-08-19'),
     
-    
--- Pilote de l'année 2021
+    -- Pilote de l'année 2021
+    -- ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
+    -- ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
+    -- ('Bottas', 'Valtteri', 'Finlande', '1989-08-28'),
+    -- ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
+    -- ('Sainz', 'Carlos', 'Espagne', '1994-09-01'),
+    -- ('Norris', 'Lando', 'Royaume-Uni', '1999-11-13'),
+    -- ('Leclerc', 'Charles', 'Monaco', '1997-10-16'),
+    -- ('Ricciardo', 'Daniel', 'Australie', '1989-07-01'),
+    -- ('Gasly', 'Pierre', 'France', '1996-02-07'),
+    -- ('Alonso','Fernando', 'Espagne', '1981-07-29'),
+    -- ('Ocon', 'Estéban', 'France', '1996-09-17'),
+    -- ('Vettel', 'Sebastian', 'Allemagne', '1987-07-03'),
+    -- ('Stroll', 'Lance', 'Canada', '1998-10-29'),
+    -- ('Tsunoda', 'Yuki', 'Japon', '2000-05-11'),
+    -- ('Russel', 'George', 'Royaume-Uni', '1998-02-15'),
     ('Räikkönen', 'Kimi', 'Finlande', '1979-10-17'),
+    -- ('Latifi', 'Nicholas', 'Canada', '1995-06-29'),
     ('Giovinazzi', 'Antonio', 'Italie', '1993-12-14'),
+    -- ('Schumacher', 'Mick', 'Allemagne', '1999-03-22'),
     ('Kubica', 'Robert', 'Pologne', '1984-12-07'),
-    ('Mazepin', 'Nikita', 'Russe', '1999-03-02'),
-	-- ('Verstappen', 'Max', 'Pays-Bas'),
-	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
-	-- ('Bottas', 'Valtteri', 'Finlande'),
-	-- ('Perez', 'Sergio', 'Mexique'),
-	-- ('Sainz', 'Carlos', 'Espagne'),
-	-- ('Norris', 'Lando', 'Royaume-Uni'),
-	-- ('Leclerc', 'Charles', 'Monaco'),
-	-- ('Ricciardo', 'Daniel', 'Australie'),
-	-- ('Gasly', 'Pierre', 'France'),
-	-- ('Alonso','Fernando', 'Espagne'),
-	-- ('Ocon', 'Estéban', 'France'),
-	-- ('Vettel', 'Sebastian', 'Allemagne'),
-	-- ('Stroll', 'Lance', 'Canada'),
-	-- ('Tsunoda', 'Yuki', 'Japon'),
-	-- ('Russel', 'George', 'Royaume-Uni'),
-	-- ('Latifi', 'Nicholas', 'Canada'),
-	-- ('Schumacher', 'Mick', 'Allemagne'),
+    ('Mazepin', 'Nikita', 'Russie', '1999-03-02'),
     
     
 -- Pilote de l'année 2020
-    ('Kvyat', 'Daniil', 'Russe', '1994-04-26'),
-    ('Grosjean', 'Romain', 'France', '1986-04-17'),
-    ('Aitken', 'Jack', 'Royaume-Uni', '1995-09-23'),
-    ('Fittipaldi', 'Pietro', 'Brésil', '1996-06-25')
-	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
-	-- ('Bottas', 'Valtteri', 'Finlande'),
-	-- ('Verstappen', 'Max', 'Pays-Bas'),
-	-- ('Perez', 'Sergio', 'Mexique'),
-	-- ('Ricciardo', 'Daniel', 'Australie'),
-	-- ('Sainz', 'Carlos', 'Espagne'),
-	-- ('Albon', 'Alexandre', 'Thailande'),
-	-- ('Leclerc', 'Charles', 'Monaco'),
-	-- ('Norris', 'Lando', 'Royaume-Uni'),
-	-- ('Gasly', 'Pierre', 'France'),
-	-- ('Stroll', 'Lance', 'Canada'),
-	-- ('Ocon', 'Estéban', 'France'),
-	-- ('Vettel', 'Sebastian', 'Allemagne'),
-	-- ('Hülkenberg', 'Nico', 'Allemagne'),
-	-- ('Räikkönen', 'Kimi', 'Finlande'),
-	-- ('Giovinazzi', 'Antonio', 'Italie'),
-	-- ('Russel', 'George', 'Royaume-Uni'),
-	-- ('Magnussen', 'Kevin', 'Danemark'),
+
+-- ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
+-- ('Bottas', 'Valtteri', 'Finlande', '1989-08-28'),
+-- ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
+-- ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
+-- ('Ricciardo', 'Daniel', 'Australie', '1989-07-01'),
+-- ('Sainz', 'Carlos', 'Espagne', '1994-09-01'),
+-- ('Albon', 'Alexandre', 'Thailande', '1996-03-23'),
+-- ('Leclerc', 'Charles', 'Monaco', '1997-10-16'),
+-- ('Norris', 'Lando', 'Royaume-Uni', '1999-11-13'),
+-- ('Gasly', 'Pierre', 'France', '1996-02-07'),
+-- ('Stroll', 'Lance', 'Canada', '1998-10-29'),
+-- ('Ocon', 'Estéban', 'France', '1996-09-17'),
+-- ('Vettel', 'Sebastian', 'Allemagne', '1987-07-03'),
+('Kvyat', 'Daniil', 'Russie', '1994-04-26'),
+-- ('Hülkenberg', 'Nico', 'Allemagne', '1987-08-19'),
+-- ('Räikkönen', 'Kimi', 'Finlande', '1979-10-17'),
+('Grosjean', 'Romain', 'France', '1986-04-17'),
+-- ('Magnussen', 'Kevin', 'Danemark', '1992-10-05'),
+('Aitken', 'Jack', 'Royaume-Uni', '1995-09-23'),
+('Fittipaldi', 'Pietro', 'Brésil', '1996-06-25'),
 
 -- Pilote de l'année 2019
-	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
-	-- ('Bottas', 'Valtteri', 'Finlande'),
-	-- ('Verstappen', 'Max', 'Pays-Bas'),
-	-- ('Leclerc', 'Charles', 'Monaco'),
-	-- ('Vettel', 'Sebastian', 'Allemagne'),
-	-- ('Sainz', 'Carlos', 'Espagne'),
-	-- ('Gasly', 'Pierre', 'France'),
-	-- ('Albon', 'Alexandre', 'Thailande'),
-	-- ('Ricciardo', 'Daniel', 'Australie'),
-	-- ('Perez', 'Sergio', 'Mexique'),
-	-- ('Norris', 'Lando', 'Royaume-Uni'),
-	-- ('Räikkönen', 'Kimi', 'Finlande'),
-	-- ('Kvyat', 'Daniil', 'Russe'),
-	-- ('Hülkenberg', 'Nico', 'Allemagne'),
-	-- ('Stroll', 'Lance', 'Canada'),
-	-- ('Magnussen', 'Kevin', 'Danemark'),
-	-- ('Giovinazzi', 'Antonio', 'Italie'),
-	-- ('Grosjean', 'Romain', 'France'),
-	-- ('Kubica', 'Robert', 'Pologne'),
-	-- ('Russel', 'George', 'Royaume-Uni'),
+
+-- ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
+-- ('Bottas', 'Valtteri', 'Finlande', '1989-08-28'),
+-- ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
+-- ('Leclerc', 'Charles', 'Monaco', '1997-10-16'),
+-- ('Vettel', 'Sebastian', 'Allemagne', '1987-07-03'),
+-- ('Sainz', 'Carlos', 'Espagne', '1994-09-01'),
+-- ('Gasly', 'Pierre', 'France', '1996-02-07'),
+-- ('Albon', 'Alexandre', 'Thailande', '1996-03-23'),
+-- ('Ricciardo', 'Daniel', 'Australie', '1989-07-01'),
+-- ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
+-- ('Norris', 'Lando', 'Royaume-Uni', '1999-11-13'),
+-- ('Räikkönen', 'Kimi', 'Finlande', '1979-10-17'),
+-- ('Kvyat', 'Daniil', 'Russie', '1994-04-26'),
+-- ('Hülkenberg', 'Nico', 'Allemagne', '1987-08-19'),
+-- ('Stroll', 'Lance', 'Canada', '1998-10-29'),
+-- ('Magnussen', 'Kevin', 'Danemark', '1992-10-05'),
+-- ('Giovinazzi', 'Antonio', 'Italie', '1993-12-14'),
+-- ('Grosjean', 'Romain', 'France', '1986-04-17'),
+-- ('Kubica', 'Robert', 'Pologne', '1984-12-07'),
+-- ('Russel', 'George', 'Royaume-Uni', '1998-02-15'),
 
 -- Pilote de l'année 2018
-    ('Vandoorne', 'Stoffel', 'Belgique', '1992-03-26'),
-    ('Ericsson', 'Marcus', 'Suède', '1990-09-02'),
-    ('Hartley', 'Brendon', 'Nouvelle-Zélande', '1989-11-10'),
-    ('Sirotkin', 'Sergey', 'Russe', '1995-08-27');
-	-- ('Hamilton', 'Lewis', 'Royaume-Uni'),
-	-- ('Vettel', 'Sebastian', 'Allemagne'),
-	-- ('Räikkönen', 'Kimi', 'Finlande'),
-	-- ('Verstappen', 'Max', 'Pays-Bas'),
-	-- ('Bottas', 'Valtteri', 'Finlande'),
-	-- ('Ricciardo', 'Daniel', 'Australie'),
-	-- ('Hülkenberg', 'Nico', 'Allemagne'),
-	-- ('Perez', 'Sergio', 'Mexique'),
-	-- ('Magnussen', 'Kevin', 'Danemark'),
-	-- ('Sainz', 'Carlos', 'Espagne'),
-	-- ('Alonso','Fernando', 'Espagne'),
-	-- ('Ocon', 'Estéban', 'France'),
-	-- ('Leclerc', 'Charles', 'Monaco'),
-	-- ('Grosjean', 'Romain', 'France'),
-	-- ('Gasly', 'Pierre', 'France'),
-	-- ('Stroll', 'Lance', 'Canada'),
+
+-- ('Hamilton', 'Lewis', 'Royaume-Uni', '1985-01-07'),
+-- ('Vettel', 'Sebastian', 'Allemagne', '1987-07-03'),
+-- ('Räikkönen', 'Kimi', 'Finlande', '1979-10-17'),
+-- ('Verstappen', 'Max', 'Pays-Bas', '1997-09-30'),
+-- ('Bottas', 'Valtteri', 'Finlande', '1989-08-28'),
+-- ('Ricciardo', 'Daniel', 'Australie', '1989-07-01'),
+-- ('Hülkenberg', 'Nico', 'Allemagne', '1987-08-19'),
+-- ('Perez', 'Sergio', 'Mexique', '1990-01-26'),
+-- ('Magnussen', 'Kevin', 'Danemark', '1992-10-05'),
+-- ('Sainz', 'Carlos', 'Espagne', '1994-09-01'),
+-- ('Alonso','Fernando', 'Espagne', '1981-07-29'),
+-- ('Ocon', 'Estéban', 'France', '1996-09-17'),
+-- ('Leclerc', 'Charles', 'Monaco', '1997-10-16'),
+-- ('Grosjean', 'Romain', 'France', '1986-04-17'),
+-- ('Gasly', 'Pierre', 'France', '1996-02-07'),
+('Vandoorne', 'Stoffel', 'Belgique', '1992-03-26'),
+('Ericsson', 'Marcus', 'Suède', '1990-09-02'),
+-- ('Stroll', 'Lance', 'Canada', '1998-10-29'),
+('Hartley', 'Brendon', 'Nouvelle-Zélande', '1989-11-10'),
+('Sirotkin', 'Sergey', 'Russie', '1995-08-27');
 
 
 -- 2018
-INSERT INTO Ecurie(nom, couleur) VALUES
-    ('Mercedes', '#00D2BE'),
-    ('Ferrari', '#DC0000'),
-    ('Renault', '#FFF500'),
-    ('Red Bull Racing', '#1E41FF'),
-    ('Haas', '#F0D787'),
-    ('McLaren Renault', '#FF8700'),
-    ('Force India Mercedes', '#F595C8'),
-    ('Sauber', '#9B0000'),
-    ('Scuderia Toro Rosso', '#469BFF'),
-    ('Williams', '#FFFFFF'),
-    ('Force India Sahara', '#F595C8');
+INSERT INTO Ecurie(nom,couleur) VALUES
+	('Mercedes','#6CD3BF'),
+	('Ferrari','#F91536'),
+	('Renault','#FFF500'),
+	('Red Bull Racing','#3671C6'),
+	('Haas','#B6BABD'),
+	('McLaren Renault','#F58020'),
+	('Force India Mercedes','#F596C8'),
+	('Sauber','#9B0000'),
+	('Scuderia Toro Rosso','#0032FF'),
+	('Williams','#37BEDD'),
+	('Force India Sahara','#F596C8');
 
 -- 2019
-INSERT INTO Ecurie(nom, couleur) VALUES
-    ('Racing Point BWT', '#F595C8'),
-    ('Alfa Romeo Racing', '#9B0000');
-    -- ('MERCEDES'),
-    -- ('FERRARI'),
-    -- ('Red Bull Racing'),
-    -- ('MCLAREN RENAULT'),
-    -- ('RENAULT'),
-    -- ('SCUDERIA TORO ROSSO HONDA'),
-    -- ('HAAS FERRARI'),
-    -- ('WILLIAMS MERCEDES'),
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('FERRARI', '#F91536'),
+	-- ('Red Bull Racing', '#3671C6'),
+	-- ('MCLAREN RENAULT', '#F58020'),
+	-- ('RENAULT', '#FFF500'),
+	-- ('SCUDERIA TORO ROSSO HONDA', '#0032FF'),
+	('Racing Point BWT','#F596C8'),
+	('Alfa Romeo Racing','#C92D4B');
+	-- ('HAAS FERRARI', '#B6BABD'),
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
+
 
 -- 2020
-INSERT INTO Ecurie(nom, couleur) VALUES
-    ('Alphatauri', '#469BFF');
-    -- ('MERCEDES'),
-    -- ('RED BULL RACING HONDA'),
-    -- ('MCLAREN RENAULT'),
-    -- ('RACING POINT BWT MERCEDES'),
-    -- ('RENAULT'),
-    -- ('FERRARI'),
-    -- ('ALFA ROMEO RACING FERRARI'),
-    -- ('HAAS FERRARI'),
-    -- ('WILLIAMS MERCEDES'),
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('RED BULL RACING HONDA', '#3671C6'),
+	-- ('MCLAREN RENAULT', '#F58020'),
+	-- ('RACING POINT BWT MERCEDES', '#F596C8'),
+	-- ('RENAULT', '#FFF500'),
+	-- ('FERRARI', '#F91536'),
+	('Alphatauri','#5E8FAA');
+	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
+	-- ('HAAS FERRARI', '#B6BABD'),
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
+
 
 -- 2021
-INSERT INTO Ecurie(nom, couleur) VALUES
-    ('McLaren Mercedes', '#FF8700'),
-    ('Alpine', '#0090FF'),
-    ('Aston Martin', '#4D282E');
-    -- ('MERCEDES'),
-    -- ('RED BULL RACING HONDA'),
-    -- ('FERRARI'),
-    -- ('ALPHATAURI HONDA'),
-    -- ('WILLIAMS MERCEDES'),
-    -- ('ALFA ROMEO RACING FERRARI'),
-    -- ('HAAS FERRARI')
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('RED BULL RACING HONDA', '#3671C6'),
+	-- ('FERRARI', '#F91536'),
+	('McLaren Mercedes','#F58020'),
+	('Alpine','#2293D1'),
+	-- ('ALPHATAURI HONDA', '#5E8FAA'),
+	('Aston Martin','#358C75');
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
+	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
+	-- ('HAAS FERRARI', '#B6BABD')
+
 
 -- 2022
-INSERT INTO Ecurie(nom, couleur) VALUES
-    ('McLaren Mercedes', '#FF8700'),
-    ('Alfa Romeo Ferrari', '#DC0000'),
-    ('Aston Martin Aramco', '#4D282E');
-    -- ('Red Bull Racing'),
-    -- ('FERRARI'),
-    -- ('MERCEDES'),
-    -- ('Alpine Renault'),
-    -- ('HAAS FERRARI')
-    -- ('Alphatauri')
-    -- ('WILLIAMS MERCEDES'),
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('Red Bull Racing', '#3671C6'),
+	-- ('FERRARI', '#F91536'),
+	-- ('MERCEDES', '#6CD3BF'),
+	-- ('Alpine Renault', '#2293D1'),
+	-- ('McLaren Mercedes', '#F58020'),
+	('Alfa Romeo Ferrari','#C92D4B'),
+	('Aston Martin Aramco','#358C75');
+	-- ('HAAS FERRARI', '#B6BABD')
+	-- ('Alphatauri', '#5E8FAA')
+	-- ('WILLIAMS MERCEDES', '#37BEDD'),
+
 
 -- 2023
-INSERT INTO Ecurie(nom, couleur) VALUES
-    ('McLaren', '#FF8700'),
-    ('Alpha Romeo', '#DC0000');
-    -- ('Red Bull Racing'),
-    -- ('Mercedes'),
-    -- ('Ferrari'),
-    -- ('Aston Martin'),
-    -- ('Alpine'),
-    -- ('Williams'),
-    -- ('Alphatauri'),
-    -- ('Hass')
-
+INSERT INTO Ecurie(nom,couleur) VALUES
+	-- ('Red Bull Racing', '#3671C6'),
+	-- ('Mercedes', '#6CD3BF'), (Commenté car déjà présent dans 2018)
+	-- ('Ferrari', '#F91536'), (Commenté car déjà présent dans 2018)
+	('McLaren','#F58020'),
+	-- ('Aston Martin', '#358C75'),
+	-- ('Alpine', '#2293D1'),
+	-- ('Williams', '#37BEDD'),
+	-- ('Alphatauri', '#5E8FAA'),
+	('Alpha Romeo','#C92D4B');
+	-- ('Hass', '#B6BABD')
 
 -- 2023 
 Insert into Classement(idEcu, annee, nbPointEcu, placeEcu) Values
@@ -499,8 +494,7 @@ INSERT INTO CoursesAnnee(idPil, annee, idEcu, nbPointPil, placePil, numPil) VALU
 	(19, 2023, 5, 3, 19, 20),
 	(20, 2023, 14, 2, 20, 40),
 	(21, 2023, 10, 1, 21, 2),
-	(22, 2023, 14, 0, 22, 24);
-    
+	(22, 2023, 14, 0, 22, 24);   
     
     
 -- PROCEDURES STOCKEES PARAMETREES
