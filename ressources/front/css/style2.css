@@ -272,7 +272,7 @@ header .wrapper{
 }
 
 .first .color{
-    background-color: #3671C6;
+    /* background-color: #3671C6; */
     width: 25vw;
     height: 0.75rem;
 }
@@ -323,7 +323,7 @@ header .wrapper{
 }
 
 .first .color{
-    background-color: #3671C6;
+    /* background-color: #3671C6; */
     width: 25vw;
     height: 0.75rem;
 }
@@ -375,13 +375,13 @@ header .wrapper{
 }
 
 .second .color{
-    background-color: #3671C6;
+    /* background-color: #3671C6; */
     width: 22.5vw;
     height: 0.75rem;
 }
 
 .third .color{
-    background-color: #2EAFAA;
+    /* background-color: #2EAFAA; */
     width: 22.5vw;
     height: 0.75rem;
 }
@@ -398,6 +398,7 @@ header .wrapper{
 }
 
 .pilot{
+    overflow: auto;
     width: 80vw;
     height: 5vw;
     margin-bottom: 1px;
@@ -423,7 +424,7 @@ header .wrapper{
     margin-left: 1vw;
 }
 
-.pilot h2::after{
+.pilot .teamcolor{
     content: "";
     position: relative;
     left: 2rem;
@@ -431,7 +432,7 @@ header .wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3671C6;
+    /* background-color: #3671C6; */
     width: 0.35vw;
     height: 1.25vw;
 }

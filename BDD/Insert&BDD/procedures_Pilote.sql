@@ -77,7 +77,7 @@ DROP PROCEDURE if exists getPilotesPodium;
 DELIMITER //
 CREATE PROCEDURE getPilotesPodium()
 BEGIN
-	SELECT p.nom, p.prenom, c.nbPointPil
+	SELECT p.id, p.nom, p.prenom, c.nbPointPil
 	FROM Pilote p
 	INNER JOIN CoursesAnnee c ON p.id = c.idPil
 	ORDER BY c.annee DESC, c.nbPointPil DESC
@@ -101,5 +101,23 @@ BEGIN
 	)
 	AND c.idEcu = idEcurie
 	ORDER BY p.nom;
+END //
+DELIMITER ;
+
+DROP PROCEDURE if exists getPilotePointsLastSeasonById;
+DELIMITER //
+CREATE PROCEDURE getPilotePointsLastSeasonById(
+	IN idPilote INT(3)
+)
+BEGIN
+    select nbPointPil from coursesannee where idPil=idPilote and annee = (select max(annee) from coursesannee where idPil=idPilote);
+END //
+DELIMITER ;
+
+DROP PROCEDURE if exists getPilotesLastSeason;
+DELIMITER //
+CREATE PROCEDURE getPilotesLastSeason()
+BEGIN
+    select id, nom, prenom, paysPil, dateNais from pilote join coursesannee on id=idPil where annee = (select max(annee) from coursesannee) order by nbPointPil desc;
 END //
 DELIMITER ;

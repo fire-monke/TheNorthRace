@@ -1,11 +1,11 @@
 <?php
-require_once('connexion_PDO.php');
+require_once "$racine/model/connexion_PDO.php";
 
 class Ecurie {
     private $cnx;
 
     public function __construct() {
-        $this->cnx = connexionPDO();
+        $this->cnx = connectDB();
     }
 
     function getEcuries(){

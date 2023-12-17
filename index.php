@@ -49,15 +49,35 @@
             <a href="">Constructeur</a>
             <a href="">Dernière Course</a>
     </nav>
+    
+    <?php
+    $racine = dirname(__FILE__);
+
+    require_once "$racine/model/back/class_pilote.php";
+    require_once "$racine/model/back/class_ecurie.php";
+    $Pilote = new Pilote();
+    $Ecurie = new Ecurie();
+
+    $lePodium = $Pilote->getPilotesPodium();
+    // echo var_dump($lePodium[1]);
+    // echo var_dump($lePodium[1]->id);
+    // echo var_dump($Ecurie->getLastEcurieByIdPilote($lePodium[1]->id));
+    ?>
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
-            <img src="./ressources/front/images/Pilot2.png" alt="">
-            <div class="white">
-                <div class="black">
-                    <div class="color"></div>
-                    <h2>Sergio</h2>
-                    <h1>Perez</h1>
+            <?php echo '<img src="./ressources/front/images/'. $lePodium[1]->nom. '.png" alt="">' ?>
+                <div class="white">
+                    <div class="black">
+                        <?php
+                        $couleurEcurie = $Ecurie->getLastEcurieByIdPilote($lePodium[1]->id)->couleur;
+                        if (empty($couleurEcurie)){
+                            $couleurEcurie = "pink";
+                        }
+                        echo '<div class="color" style="background-color:'. $couleurEcurie .'"></div>';
+                        ?>
+                        <h2><?php echo htmlentities($lePodium[1]->prenom) ?></h2>
+                        <h1><?php echo htmlentities($lePodium[1]->nom) ?></h1>
                 </div>
             </div>
         </div>
@@ -65,9 +85,15 @@
             <img src="./ressources/front/images/firstPilot.png" alt="">
             <div class="white">
                 <div class="black">
-                    <div class="color"></div>
-                    <h2>Max</h2>
-                    <h1>Verstappen</h1>
+                        <?php
+                        $couleurEcurie = $Ecurie->getLastEcurieByIdPilote($lePodium[0]->id)->couleur;
+                        if (empty($couleurEcurie)){
+                            $couleurEcurie = "pink";
+                        }
+                        echo '<div class="color" style="background-color:'. $couleurEcurie .'"></div>';
+                        ?>
+                    <h2><?php echo htmlentities($lePodium[0]->prenom) ?></h2>
+                    <h1><?php echo htmlentities($lePodium[0]->nom) ?></h1>
                 </div>
             </div>
         </div>
@@ -75,44 +101,43 @@
             <img src="./ressources/front/images/Pilot3.png" alt="">
             <div class="white">
                 <div class="black">
-                    <div class="color"></div>
-                    <h2>Lewis</h2>
-                    <h1>Hamilton</h1>
+                        <?php
+                        $couleurEcurie = $Ecurie->getLastEcurieByIdPilote($lePodium[2]->id)->couleur;
+                        if (empty($couleurEcurie)){
+                            $couleurEcurie = "pink";
+                        }
+                        echo '<div class="color" style="background-color:'. $couleurEcurie .'"></div>';
+                        ?>
+                    <h2><?php echo htmlentities($lePodium[2]->prenom) ?></h2>
+                    <h1><?php echo htmlentities($lePodium[2]->nom) ?></h1>
                 </div>
             </div>
         </div>
-    </div>
+    </div><!-- Fermeture de la balise podium -->
+
     <div class="standing">
-        <div class="pilot">
-            <h2>1</h2>
-            <p>Max <span>VERSTAPPEN</span></p>
-            <h3>Red Bull Racing</h3> 
-            <p class="points">524</p>
-            <img name="row "src="./ressources/front/images/greenRow.png" alt="">
-        </div>
-        <div class="pilot">
-            <h2>2</h2>
-            <p>Sergio <span>PEREZ</span></p>
-            <h3>Red Bull Racing</h3> 
-            <p class="points">258</p>
-            <img name="row "src="./ressources/front/images/greenRow.png" alt="">
-        </div>
-        <div class="pilot">
-            <h2>3</h2>
-            <p>Lewis <span>HAMILTON</span></p>
-            <h3>Mercedes</h3> 
-            <p class="points">226</p>
-            <img name="row "src="./ressources/front/images/greenRow.png" alt="">
-        </div>
-        <div class="pilot">
-            <h2>4</h2>
-            <p>Fernando <span>ALONSO</span></p>
-            <h3>Aston Martin</h3> 
-            <p class="points">198</p>
-            <img name="row "src="./ressources/front/images/greenRow.png" alt="">
-        </div>
-        
-        <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button>
+        <?php
+        $lesPilotes = $Pilote->getPilotesLastSeason();
+
+        $cpt=0;
+        foreach($lesPilotes as $unPilote)
+        {
+            $cpt+=1;
+            // echo var_dump($unPilote);
+            $nomEcurie = $Ecurie->getEcurieOfLastSeasonOfPiloteByIdPilote($unPilote->id)->nom;
+            $nbPoints = $Pilote->getPilotePointsLastSeasonById($unPilote->id)->nbPointPil;
+            $couleur = $Ecurie->getLastEcurieByIdPilote($unPilote->id)->couleur;
+
+            echo '<div class="pilot">';
+            echo '<h2>'.$cpt.'</h2>'; echo '<div class="teamcolor" style="background-color:'. $couleur .'"></div>';
+            echo '<p>'.htmlentities($unPilote->prenom).' <span>'.htmlentities($unPilote->nom).'</span></p>';
+            echo '<h3>'.htmlentities($nomEcurie).'</h3>';
+            echo '<p class="points">'.htmlentities($nbPoints).'</p>';
+            echo '<img name="row "src="./ressources/front/images/greenRow.png" alt="">';
+            echo '</div>';
+        }?>
+        <!-- height: auto; METTRE CA DANS LA DIV DES PILOTES ET METTRE LE CSS DES COULEURS DE MON TRUC A LA PLACE DE CELUI DE LUCAS-->
+        <!-- <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button> -->
     </div>
 </section>
 <section class="grandPrix">

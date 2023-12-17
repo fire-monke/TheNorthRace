@@ -1,11 +1,11 @@
 <?php
-require_once('connexion_PDO.php');
+require_once "$racine/model/connexion_PDO.php";
 
 class Pilote {
     private $cnx;
 
     public function __construct() {
-        $this->cnx = connexionPDO();
+        $this->cnx = connectDB();
     }
 
     function getPilotes(){
@@ -25,7 +25,7 @@ class Pilote {
         try{
             $req = $this->cnx->prepare("CALL getPiloteById(:idPil)");
     
-            $req->bindValue(':idPil', $idPil, PDO::PARAM_STR);
+            $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
             $req->execute();
     
             $resultat = $req->fetch(PDO::FETCH_OBJ);
@@ -40,7 +40,7 @@ class Pilote {
     function getAllPointsPiloteById($idPil){
         try{
             $req = $this->cnx->prepare("CALL getAllPointsPiloteById(:idPil)");
-            $req->bindValue(':idPil', $idPil, PDO::PARAM_STR);
+            $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
             $req->execute();
     
             $resultat = $req->fetch(PDO::FETCH_OBJ);
@@ -69,7 +69,7 @@ class Pilote {
         try{
             $req = $this->cnx->prepare("CALL getPilotesByIdEcu(:idEcu)");
     
-            $req->bindValue(':idEcu', $idEcu, PDO::PARAM_STR);
+            $req->bindValue(':idEcu', $idEcu, PDO::PARAM_INT);
             $req->execute();
     
             $resultat = $req->fetchAll(PDO::FETCH_OBJ);
@@ -125,7 +125,33 @@ class Pilote {
             die();
         }
     }
+
+    function getPilotePointsLastSeasonById($idPil){
+        try{
+            $req = $this->cnx->prepare("CALL getPilotePointsLastSeasonById(:idPil)");
+            $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
+            $req->execute();
+    
+            $resultat = $req->fetch(PDO::FETCH_OBJ);
+    
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $resultat;
+    }
+
+    function getPilotesLastSeason(){
+        try{
+            $req = $this->cnx->prepare("CALL getPilotesLastSeason()");
+            $req->execute();
+    
+            $resultat = $req->fetchall(PDO::FETCH_OBJ);
+    
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $resultat;
+    }
 }
-
-
-
