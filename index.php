@@ -66,13 +66,13 @@
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
-            <?php echo '<img src="./ressources/front/images/'. $lePodium[1]->nom. '.png" alt="">' ?>
+            <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. $lePodium[1]->nom. '.png" alt="">' ?>
                 <div class="white">
                     <div class="black">
                         <?php
                         $couleurEcurie = $Ecurie->getLastEcurieByIdPilote($lePodium[1]->id)->couleur;
                         if (empty($couleurEcurie)){
-                            $couleurEcurie = "pink";
+                            $couleurEcurie = "white";
                         }
                         echo '<div class="color" style="background-color:'. $couleurEcurie .'"></div>';
                         ?>
@@ -82,13 +82,13 @@
             </div>
         </div>
         <div class="first">
-            <img src="./ressources/front/images/firstPilot.png" alt="">
+        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. $lePodium[0]->nom. '.png" alt="">' ?>
             <div class="white">
                 <div class="black">
                         <?php
                         $couleurEcurie = $Ecurie->getLastEcurieByIdPilote($lePodium[0]->id)->couleur;
                         if (empty($couleurEcurie)){
-                            $couleurEcurie = "pink";
+                            $couleurEcurie = "white";
                         }
                         echo '<div class="color" style="background-color:'. $couleurEcurie .'"></div>';
                         ?>
@@ -98,13 +98,13 @@
             </div>
         </div>
         <div class="third">
-            <img src="./ressources/front/images/Pilot3.png" alt="">
+        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. $lePodium[2]->nom. '.png" alt="">' ?>
             <div class="white">
                 <div class="black">
                         <?php
                         $couleurEcurie = $Ecurie->getLastEcurieByIdPilote($lePodium[2]->id)->couleur;
                         if (empty($couleurEcurie)){
-                            $couleurEcurie = "pink";
+                            $couleurEcurie = "white";
                         }
                         echo '<div class="color" style="background-color:'. $couleurEcurie .'"></div>';
                         ?>
