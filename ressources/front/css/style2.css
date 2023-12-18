@@ -380,7 +380,6 @@ header .wrapper{
 }
 
 .pilot{
-    overflow: auto;
     width: 80vw;
     height: 5vw;
     margin-bottom: 1px;
@@ -394,6 +393,7 @@ header .wrapper{
     vertical-align: middle;
     margin-left: 2vw;
     margin-right: 2vw;
+    width: 1%;
 }
 
 .pilot h3{
