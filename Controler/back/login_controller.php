@@ -5,8 +5,8 @@ if (isset($_POST['submit'])) {
     $identifiant = $_POST['identifiant'];
     $password = $_POST['password'];
 
-
-    require_once("../../model/back/request.php");
+    require_once("../../getRacine.php");
+    require_once("$racine/model/back/request.php");
     $getAdmin = new GetModeles();
     $admin = $getAdmin->GetAdmin($identifiant);
 
@@ -19,6 +19,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-include '../../view/back/login.php';
+include_once '../../view/back/login.php';
 ?>
 

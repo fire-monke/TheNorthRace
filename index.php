@@ -1,3 +1,7 @@
+<?php include("getRacine.php");
+include("$racine/controler/back/controler.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
