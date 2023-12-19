@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    transition: .3s;
+ }
+ 
+ 
+ body{
+   overflow-x: hidden;
+   background-color: #F2F1F1;}
+
+
+.interBloqueGaucheG {
+
+   width: 40%;
+   flex-direction: column;
+   justify-content: center;
+   line-height: 27px;
+   
+}
+
+
+.interBloqueGaucheD {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 27px;
+  font-size: 20px;
+}
+
+
+main{
+   display: flex;
+}
+
+.BoqueGauche{
+   margin-left: 100px;
+   width: 50%;
+}
+
+.wrap{
+   display: flex;
+}
+
+.BoqueDroite {
+   width: 50%;
+   
+   display: flex;
+   
+}
+
+.pilote1{
+   
+   width: 50%;
+}
+
+.pilote2{
+   width: 50%;
+}
+
+.interBloqueDroiteG{
+  
+   font-size: 30px;
+   
+}
+
+.interBloqueDroiteD{
+
+   font-size: 30px;
+   
+}
+
+.photobas{
+   width: 100vw;
+   height: 42.5vw;
+   margin-top: 80px;
+   background-image: url("./images/f1.png");
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+
+
+
+
+
