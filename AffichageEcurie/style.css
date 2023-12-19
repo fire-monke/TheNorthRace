@@ -1,3 +1,6 @@
+h2{
+    margin-left: 8px;
+}
 body{ 
     margin-left: 30px;
     background-color: #15151E;
@@ -13,6 +16,7 @@ body{
     width: 70%;
     align-items: left;
     justify-content: space-between;
+    margin-top: 40px;
 
    
 }
@@ -20,14 +24,28 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 1px solid white; 
-    border-bottom: 1px solid white; 
-    border-radius: 15px;
+    border-right: 1px solid #434346; 
+    border-bottom: 1px solid #434346; 
+    box-shadow: 5px 0 5px -5px #11111111, 0 5px 5px -5px #11111111;
+    border-radius: 0px  0px 20px 0px;
     margin-right: 1px;
     margin-bottom: 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     width: 250px;
     height: 100px;
   
 
 }
+
+.ecurie-background {
+           
+    width: 50px; /* Ajustez la largeur du fond selon vos besoins */
+    height: 20px; /* Ajustez la hauteur du fond selon vos besoins */
+    position: absolute;
+    margin-top: 65px;
+    z-index: -1; /* Assurez-vous que le z-index est inférieur à celui de .ecurie */
+}
+
+
 
