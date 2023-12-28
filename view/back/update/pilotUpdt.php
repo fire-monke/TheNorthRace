@@ -15,18 +15,46 @@
 
     
     <div class="update">
-        <h1>MODIFICATION <span>PILOTE</span></h1>
-        <form action="../../../controler/back/login_controller.php" method="POST">
-                <input type="text" id="nom" name="nom" placeholder="Nom" required>
+        <h1>MODIFICATION <span>
+<?php
+try{
+    require_once "$racine/controler/back/controler.php";
+    if (isset($_GET['id'])) {
+        $piloteId = $_GET['id'];
+    } else {
+        echo "Erreur : ID du pilote non spécifié.";
+    }
+    if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
+    echo htmlentities($unPilote->prenom) ." ". htmlentities($unPilote->nom);
+    }
 
-                <input type="text" id="prenom" name="prenom" placeholder="Prenom" required>
+}
+catch(Exception $ex){
+echo $ex->GetMessage();
+}?></span></h1>
 
-                <input type="text" id="pays" name="pays" placeholder="Pays" required>
+        <form action="<?php echo $racine?>/controler/back/controler.php" method="POST">
+                <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
 
-                <input type="text" id="dateNais" name="dateNais" placeholder="dateNais" required>
+                <input type="text" id="prenom" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
+
+                <input type="text" id="pays" name="pays" placeholder="Pays" value="<?php if (!empty($unPilote->paysPil)){
+                    echo htmlentities($unPilote->paysPil);
+                }?>" required>
+
+                <input type="text" id="dateNais" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){
+        echo htmlentities($unPilote->dateNais);
+    };?>" required>
 
                 <input type="submit" value="Modifier">
         </form>
+        <?php
+        // Vérifie si le formulaire a été soumis
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            require_once "$racine/controler/back/controler.php";
+        // Assurez-vous d'avoir les valeurs nécessaires pour la mise à jour      
+        }
+?>
     </div>
 </body>
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once("../../../getRacine.php");
 if (!isset($_SESSION['admin'])) {
     header('Location: ../login.php');
     exit();
@@ -13,8 +13,7 @@ if (!isset($_SESSION['admin'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord</title>
-    <link rel="stylesheet" href="../../../ressources/back/css/index6.css">
-    <link rel="icon" href="./ressource/images/favicon.ico">
+    <link rel="stylesheet" href="../../../ressources/back/css/index8.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -34,8 +33,9 @@ if (!isset($_SESSION['admin'])) {
         <button id="classement" href="">Classement</button>
     </nav>
     <script>
+  var PILOT = true;
   $("#pilotes").on("click", function() {
-    chargerInclude("../update/pilotUpdt.php");
+    chargerInclude("./pilote.php");
   });
 
   $("#ecuries").on("click", function() {
@@ -48,6 +48,15 @@ if (!isset($_SESSION['admin'])) {
   $("#classement").on("click", function() {
     chargerInclude("../update/classementUpdt.php");
   });
+
+  $(document).on("click", ".updt", function() {
+    var piloteId = $(this).data("id");
+    if (PILOT) {
+    chargerInclude("../../../controler/back/controler.php?id=" + piloteId);
+  }
+  });
+
+
 
   // Fonction pour charger l'include avec AJAX
   function chargerInclude(url) {
@@ -70,7 +79,7 @@ if (!isset($_SESSION['admin'])) {
     <div class="affichage">
         <div class="print-box" id="include-container">
             <?php 
-                include_once("../update/pilotUpdt.php")
+                include_once("./pilote.php")
             ?>
         </div>
     </div>

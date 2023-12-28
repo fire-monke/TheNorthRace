@@ -7,9 +7,6 @@
                     otherEntity.style.color = "#373737"
                 })
                 menuLink.style.color = "#1162db"
-                
-                console.log(menuLink);
-
             })
         })
 
