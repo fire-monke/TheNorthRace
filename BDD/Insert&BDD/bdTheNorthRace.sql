@@ -2,6 +2,11 @@ DROP DATABASE if exists bdTheNorthRace;
 CREATE DATABASE if not exists bdTheNorthRace;
 
 Use bdTheNorthRace;
+CREATE TABLE Gerant(
+	identifiant VARCHAR(40) PRIMARY KEY,
+    password VARCHAR(50)
+    );
+INSERT INTO Gerant(identifiant, password) VALUES('admin','admin');
 
 CREATE TABLE Pilote (
     id INT(3) AUTO_INCREMENT,

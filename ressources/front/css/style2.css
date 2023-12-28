@@ -380,13 +380,7 @@ header .wrapper{
 }
 
 .pilot{
-<<<<<<< HEAD
-    overflow: hidden;
-    /* cache la barre de scroll quand on zoom trop sur la liste des pilotes */
-    /* overflow: auto; */
-=======
->>>>>>> 6e475f907ff970a700d961cacef770558ab92cb8
-    width: 80vw;
+    width: 70%;
     height: 5vw;
     margin-bottom: 1px;
     display: flex;
@@ -399,12 +393,7 @@ header .wrapper{
     vertical-align: middle;
     margin-left: 2vw;
     margin-right: 2vw;
-<<<<<<< HEAD
-    width: 20px;
-    /* background-color: #00A19B; */
-=======
     width: 1%;
->>>>>>> 6e475f907ff970a700d961cacef770558ab92cb8
 }
 
 .pilot h3{

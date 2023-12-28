@@ -1,7 +1,7 @@
 <?php
     try{
         if(empty($_GET['page'])){//quand l'utilisateur lance le site, on appelle le controller de la page d'accueil
-            include_once("$racine/controller/front/ctrl_accueil.php");
+            include_once(RACINE . '/controller/front/ctrl_accueil.php');
         }else{
             $url = explode("/",$_GET['page']);//découpe l'url en petits bouts séparés par '/'
             // echo "<pre>";
@@ -10,11 +10,11 @@
 
             switch($url[0]){
                 case "accueil":
-                    include_once("$racine/controller/front/ctrl_accueil.php");
+                    include_once(RACINE . '/controller/front/ctrl_accueil.php');
                     break;
                 case "connexion":
                     // echo "Page CONNEXION demandée";
-                    include_once("$racine/controller/back/login_controller.php");
+                    include_once(RACINE . '/controller/back/login_controller.php');
                     break;
                 case "inscription":
                     echo "Page INSCRIPTION demandée";

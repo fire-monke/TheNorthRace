@@ -1,5 +1,5 @@
 <?php
-require_once "$racine/model/connexion_PDO.php";
+require_once(RACINE . '/model/connexion_PDO.php');
 
 class Ecurie {
     private $cnx;

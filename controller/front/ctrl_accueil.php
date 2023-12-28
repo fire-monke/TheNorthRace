@@ -1,11 +1,12 @@
 <?php
 
-if(!isset($racine) || empty($racine) || $racine == dirname(__FILE__) ){
-    $racine = "../../getRacine.php";
-}
+// if(!isset($racine) || empty($racine) || $racine == dirname(__FILE__) ){
+//     $racine = "../../getRacine.php";
+// }
 
-require_once "$racine/model/back/class_pilote.php";
-require_once "$racine/model/back/class_ecurie.php";
+
+require_once(RACINE . '/model/back/class_pilote.php');
+require_once(RACINE . '/model/back/class_ecurie.php');
 
 $Pilote = new Pilote();
 $Ecurie = new Ecurie();
@@ -40,4 +41,4 @@ foreach ($lesPilotesDB as $unPilote) {
     );
 }
 
-include_once("$racine/view/front/path/accueil.php");
+include_once(RACINE . '/view/front/path/accueil.php');
