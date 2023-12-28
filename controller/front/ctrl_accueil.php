@@ -1,5 +1,9 @@
 <?php
 
+if(!isset($racine) || empty($racine) || $racine == dirname(__FILE__) ){
+    $racine = "../../getRacine.php";
+}
+
 require_once "$racine/model/back/class_pilote.php";
 require_once "$racine/model/back/class_ecurie.php";
 
@@ -19,5 +23,21 @@ $prenomPil3 = $lePodium[2]->prenom;
 $nomPil1 = $lePodium[0]->nom;
 $nomPil2 = $lePodium[1]->nom;
 $nomPil3 = $lePodium[2]->nom;
+
+$lesPilotesDB = $Pilote->getPilotesLastSeason();
+
+$tableau_multidimensionnel = array();
+
+$lesPilotes = [];
+
+foreach ($lesPilotesDB as $unPilote) {
+    $lesPilotes[] = array(
+        "nomEcurie" => $Ecurie->getEcurieOfLastSeasonOfPiloteByIdPilote($unPilote->id)->nom,
+        "prenomPil" => $unPilote->prenom,
+        "nomPil" => $unPilote->nom,
+        "nbPointsPil" => $Pilote->getPilotePointsLastSeasonById($unPilote->id)->nbPointPil,
+        "couleurEcu" => $Ecurie->getLastEcurieByIdPilote($unPilote->id)->couleur,
+    );
+}
 
 include_once("$racine/view/front/path/accueil.php");

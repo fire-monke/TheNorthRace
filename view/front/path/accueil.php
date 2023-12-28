@@ -86,22 +86,15 @@
 
     <div class="standing">
         <?php
-        $lesPilotes = $Pilote->getPilotesLastSeason();
-
         $cpt=0;
         foreach($lesPilotes as $unPilote)
         {
             $cpt+=1;
-            // echo var_dump($unPilote);
-            $nomEcurie = $Ecurie->getEcurieOfLastSeasonOfPiloteByIdPilote($unPilote->id)->nom;
-            $nbPoints = $Pilote->getPilotePointsLastSeasonById($unPilote->id)->nbPointPil;
-            $couleur = $Ecurie->getLastEcurieByIdPilote($unPilote->id)->couleur;
-
             echo '<div class="pilot">';
-            echo '<h2>'.$cpt.'</h2>'; echo '<div class="teamcolor" style="background-color:'. $couleur .'"></div>';
-            echo '<p>'.htmlentities($unPilote->prenom).' <span>'.htmlentities($unPilote->nom).'</span></p>';
-            echo '<h3>'.htmlentities($nomEcurie).'</h3>';
-            echo '<p class="points">'.htmlentities($nbPoints).'</p>';
+            echo '<h2>'.$cpt.'</h2>'; echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
+            echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
+            echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
+            echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
             echo '<img name="row "src="./ressources/front/images/greenRow.png" alt="">';
             echo '</div>';
         }?>
