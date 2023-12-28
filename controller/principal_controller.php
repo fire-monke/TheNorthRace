@@ -19,7 +19,10 @@
                 case "inscription":
                     echo "Page INSCRIPTION demandée";
                     break;
-
+                case "appli":
+                    // echo "Page delete/update/add demandée";
+                    include_once(RACINE . '/controller/back/app_controller.php');
+                    break;
                 //Cas modification d'une table dans la BDD
                 case "update":
                     if(empty($url[1]))
