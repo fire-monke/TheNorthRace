@@ -1,11 +1,3 @@
-<?php
-session_start();
-require_once("../../../getRacine.php");
-if (!isset($_SESSION['admin'])) {
-    header('Location: ../login.php');
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -79,7 +71,7 @@ if (!isset($_SESSION['admin'])) {
     <div class="affichage">
         <div class="print-box" id="include-container">
             <?php 
-                include_once("./pilote.php")
+                include_once(RACINE .'/view/back/path/pilote.php');
             ?>
         </div>
     </div>

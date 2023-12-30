@@ -1,14 +1,6 @@
 <?php 
-if (!defined('INCLUDED')) {
-    // Include nécessaire si la constante n'est pas définie
-    // Assurez-vous d'ajuster le chemin selon votre structure
-    require("../../getRacine.php");
-}
 
-
-
-
-require_once("$racine/model/back/request.php");
+require_once(RACINE . '/model/back/request.php');
 if (isset($_GET['id'])) {
     $piloteId = $_GET['id'];
 

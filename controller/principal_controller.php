@@ -19,31 +19,32 @@
                 case "inscription":
                     echo "Page INSCRIPTION demandée";
                     break;
+                //Cas modification d'une table dans la BDD
                 case "appli":
                     // echo "Page delete/update/add demandée";
                     include_once(RACINE . '/controller/back/app_controller.php');
                     break;
-                //Cas modification d'une table dans la BDD
-                case "update":
-                    if(empty($url[1]))
-                    {
-                        throw new Exception("Le type de modification n'a pas été renseigné");
-                    }
-                    switch($url[1]){
-                        case "pilote":
-                            echo "Page update pilote demandée";
-                            break;
-                        case "ecurie":
-                            echo "Page update ecurie demandée";
-                            break;
-                        // et cetera
-                        // case "blabla":
-                        //
-                        //     break;
-                        default:
-                            throw new Exception("La page demandée n'existe pas :'(");
-                    }
-                    break;
+
+                // case "update":
+                //     if(empty($url[1]))
+                //     {
+                //         throw new Exception("Le type de modification n'a pas été renseigné");
+                //     }
+                //     switch($url[1]){
+                //         case "pilote":
+                //             echo "Page update pilote demandée";
+                //             break;
+                //         case "ecurie":
+                //             echo "Page update ecurie demandée";
+                //             break;
+                //         // et cetera
+                //         // case "blabla":
+                //         //
+                //         //     break;
+                //         default:
+                //             throw new Exception("La page demandée n'existe pas :'(");
+                //     }
+                //     break;
                 
                 case "pilotes":
                     // include_once("$racine/view/back/path/pilote.php");

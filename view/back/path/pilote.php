@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../ressources/back/css/index8.css">
+    <link rel="stylesheet" href="./ressources/back/css/index8.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,8 +13,7 @@
 <body>
 <?php
 try{
-    require_once("../../../getRacine.php");
-    require_once "$racine/controler/back/controler.php";
+    require_once(RACINE . '/controller/back/pilote_controller.php');
     $Pilote = new Pilote();
     $lesPilotes = $Pilote->getPilotes();
     $Ecurie = new Ecurie();
@@ -34,8 +33,8 @@ try{
         if (!empty($uneEcurie->nom)){
             echo '<h3>'. htmlentities($uneEcurie->nom) .'</h3>';
         }
-        echo '<button class="updt" data-id="'. htmlentities($unPilote->id) .'"><img src="../../../ressources/back/images/index/edit.png" alt="#"></button>
-        <button class="delete" data-id="'. htmlentities($unPilote->id) .'"><img src="../../../ressources/back/images/index/delete.png" alt="#"></button>';
+        echo '<button class="updt" data-id="'. htmlentities($unPilote->id) .'"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
+        <button class="delete" data-id="'. htmlentities($unPilote->id) .'"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';
         echo '</div>';
     }
 }
@@ -47,7 +46,7 @@ catch(Exception $ex){
     $(document).on("click", ".updt", function() {
         var piloteId = $(this).data("id");
         $.ajax({
-            url: '<?php echo $racine?>/controler/back/controler.php?id=' + piloteId, // Le chemin vers votre script PHP
+            url: '<?php echo RACINE; ?>/controler/back/controler.php?id=' + piloteId, // Le chemin vers votre script PHP
             type: 'GET',
             success: function(response) {
                 console.log(response);

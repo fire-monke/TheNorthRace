@@ -19,7 +19,7 @@
                 <p class="error"><?php echo $error; ?></p>
                 <?php endif; ?>
         <div class="formulaire">
-        <form method="post" action="connexion">
+        <form method="post" action="connexion"><!-- Renvoie vers RACINE/controller/back/login_controller.php -->
                 <input type="text" id="identifiant" name="identifiant" placeholder="Nom d'utilisateur" required><br>
                 <input type="password" id="password" name="password" placeholder="Mot de passe" required><br>
                 <input type="submit" id="submit" name="submit" value="Se connecter">
