@@ -16,8 +16,9 @@ ECURIE = false;
 </script>
 <body>
     <ul class="topbar">
-        <li>Prénom</li>
-        <li>Nom</li>
+        <li>Ecurie</li>
+        <li>Année</li>
+        <li>Points</li>
         <button class="create" data-entity="pilote">Ajouter<img src="../../../ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
 <?php
