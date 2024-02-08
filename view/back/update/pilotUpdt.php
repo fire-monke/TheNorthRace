@@ -18,7 +18,7 @@
         <h1>MODIFICATION <span>
 <?php
 try{
-    require_once "$racine/controler/back/controler.php";
+    require_once "$racine/controller/back/controller.php";
     if (isset($_GET['id'])) {
         $piloteId = $_GET['id'];
     } else {
@@ -33,7 +33,8 @@ catch(Exception $ex){
 echo $ex->GetMessage();
 }?></span></h1>
 
-        <form action="<?php echo $racine?>/controler/back/controler.php" method="POST">
+        <form action="../../../controller/back/controller.php" method="POST">
+        <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
                 <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
 
                 <input type="text" id="prenom" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
@@ -46,12 +47,12 @@ echo $ex->GetMessage();
         echo htmlentities($unPilote->dateNais);
     };?>" required>
 
-                <input type="submit" value="Modifier">
+                <input name=submit type="submit" value="Modifier">
         </form>
         <?php
         // Vérifie si le formulaire a été soumis
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            require_once "$racine/controler/back/controler.php";
+            require_once "$racine/controller/back/controller.php";
         // Assurez-vous d'avoir les valeurs nécessaires pour la mise à jour      
         }
 ?>

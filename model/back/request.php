@@ -292,4 +292,24 @@ class Pilote {
     }
 }
 
+class Classement {
+    private $cnx;
+
+    public function __construct() {
+        $this->cnx = connectDB();
+    }
+
+    function deletePiloteById($idPilote) {
+        try {
+            $req = $this->cnx->prepare("CALL deletePiloteById(:idPilote)");
+            $req->bindValue(':idPilote', $idPilote, PDO::PARAM_INT);
+            $req->execute();
+
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+    }
+}
+
 ?>

@@ -10,40 +10,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
+<style>
+.topbar li:first-child{
+    margin-left: 6vw;
+}
+</style>
 <script>
-var PILOT = true;
-ECURIE = false;
+      var ECURIE = true;
+      PILOT = false;
 </script>
 <body>
     <ul class="topbar">
-        <li>Prénom</li>
+        <li>Couleur</li>
         <li>Nom</li>
-        <button class="create" data-entity="pilote">Ajouter<img src="../../../ressources/back/images/index/add.svg" alt="#"></button>
+        <button class="create" data-entity="ecurie">Ajouter<img src="../../../ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
 <?php
 try{
     require_once("../../../getRacine.php");
     require_once "$racine/controler/back/controler.php";
-    $Pilote = new Pilote();
-    $lesPilotes = $Pilote->getPilotes();
     $Ecurie = new Ecurie();
-    foreach($lesPilotes as $unPilote){
-        $uneEcurie = $Ecurie->getLastEcurieByIdPilote($unPilote->id);
+    $lesEcuries = $Ecurie->getEcuries();
+    foreach($lesEcuries as $uneEcurie){
         echo '<div class="pilot">';
-        if (!empty($unPilote->id)){
-        echo '<h2>'. htmlentities($unPilote->id) .'</h2>';
+        if (!empty($uneEcurie->id)){
+        echo '<h2>'. htmlentities($uneEcurie->id) .'</h2>';
         }
         if (!empty($uneEcurie->couleur)){
-            echo '<div style="background:'. htmlentities($uneEcurie->couleur) . ';"></div>';
-        }
-        if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
-        echo '<p>'. htmlentities($unPilote->prenom) . '<span>' . htmlentities($unPilote->nom) . '</span>'.'</p>';
+            echo '<div style="background:'.$uneEcurie->couleur. ';"></div>';
         }
         if (!empty($uneEcurie->nom)){
             echo '<h3>'. htmlentities($uneEcurie->nom) .'</h3>';
         }
-        echo '<button class="updt" data-id="'. htmlentities($unPilote->id) .'" data-entity="pilote"><img src="../../../ressources/back/images/index/edit.png" alt="#"></button>
-        <button class="delete" data-id="'. htmlentities($unPilote->id) .'" data-entity="pilote"><img src="../../../ressources/back/images/index/delete.png" alt="#"></button>';
+        echo '<button class="updt" data-id="'. htmlentities($uneEcurie->id) .'" data-entity="ecurie"><img src="../../../ressources/back/images/index/edit.png" alt="#"></button>
+        <button class="delete" data-id="'. htmlentities($uneEcurie->id) .'" data-entity="ecurie"><img src="../../../ressources/back/images/index/delete.png" alt="#"></button>';
         echo '</div>';
     }
 }

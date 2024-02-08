@@ -1,101 +1,94 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
   }
-  body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 0;
   height: 0;
   background-color: transparent;
-  }
-  /* ----------------BLOC ACCUEIL----------------- */
+}
+/* ----------------BLOC ACCUEIL----------------- */
   
 body {
-    height: 100vh;
-    width: 100vw;
-    background-image: url(../ressource/images/login/bulle.svg);
-    background-position: center;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-
-  .connexion{
-    color: #373737;
-    height: 70vh;
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .connexion h1{
-    font-size: 45px;
-    font-weight: bold;
-    
-  }
-
-  .connexion p{
-    font-size: 18px;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-align: center;
-    width: 50%;
-    margin: 1rem 0;
-  }
-
-  p:nth-child(3){
-    color: red;
-    font-weight: 600;
-  }
-
-  .connexion form input{
-    height: 7.5svh;
-    width: 25vw;
-    border-radius: 50px;
-    padding: 10px 20px;
-    margin: 15px;
-    border: 2px solid #A7A7A7;
-    outline: 0px black;
-    transition: 0.3s;
-  }
-
-  .connexion form input:focus{
-    border: 2px solid #2264c7;
-    transition: 0.3s;
-  }
-
- #submit{
-    background-color: #2264c7;
-    border: 2px solid #2264c7;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
- }
-
- #submit:hover{
-    background-color: transparent;
-    border: 2px solid #2264c7;
-    color: #2264c7;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(../ressource/images/login/bulle.svg);
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-  .formulaire{
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+.connexion{
+  color: #373737;
+  height: 70vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-
+.connexion h1{
+  font-size: 45px;
+  font-weight: bold;
   
+}
 
+.connexion p{
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  width: 50%;
+  margin: 1rem 0;
+}
 
-  
+p:nth-child(3){
+  color: red;
+  font-weight: 600;
+}
+
+.connexion form input{
+  height: 7.5svh;
+  width: 25vw;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 15px;
+  border: 2px solid #A7A7A7;
+  outline: 0px black;
+  transition: 0.3s;
+}
+
+.connexion form input:focus{
+  border: 2px solid #2264c7;
+  transition: 0.3s;
+}
+
+#submit{
+  background-color: #2264c7;
+  border: 2px solid #2264c7;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#submit:hover{
+  background-color: transparent;
+  border: 2px solid #2264c7;
+  color: #2264c7;
+}
+
+.formulaire{
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

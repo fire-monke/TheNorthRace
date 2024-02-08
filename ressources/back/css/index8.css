@@ -59,6 +59,7 @@
   nav button{
     color: #373737;
     transition: 0.3s;
+    font-weight: 600;
     border: none;
     background: none;
   }
@@ -67,7 +68,13 @@
   nav button:hover{
     color: #1162db;
     transition: 0.3s;
+    cursor: pointer;
   }
+
+button.active{
+    color: #1162db;
+  }
+
   
    /* ------------------Corp---------------- */
 
@@ -118,6 +125,59 @@
   align-items: center;
   flex-wrap: wrap;
   border: 1px solid grey;
+}
+
+.topbar{
+  display: flex;
+  width: 90%;
+  height: 5rem;
+  background-color: rgb(22, 22, 22);
+  color: white;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.topbar li{
+  margin-left: 2vw;
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.topbar li:first-child{
+  margin-left: 7vw;
+}
+
+
+.topbar button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13%;
+  background-color: #1162db;
+  height: 55%;
+  border-radius: 0.5rem;
+  border: 1px solid #1162db;
+  margin-left: auto;
+  margin-right: 2vw;
+  transition: .3s;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+
+.topbar button:hover{
+  background-color: #246bd7;
+  border: 1px solid #246bd7;
+  transition: .3s;
+  transform:scale(1.07);
+}
+
+.topbar button img{
+  width: 1.2vw;
+  margin-left: 1vw;
 }
 
 .pilot h2{

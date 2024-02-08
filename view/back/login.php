@@ -1,3 +1,8 @@
+<?php
+include_once("../../getRacine.php");
+include_once("$racine/controler/back/login_controller.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,8 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin TheNorthRace</title>
-    <link rel="stylesheet" href="./ressources/back/css/stylelogin.css">
-    <link rel="icon" href="./ressources/logo_ecurie_PNG/Mercedes.png">
+    <link rel="stylesheet" href="../../ressources/back/css/stylelogin4.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">

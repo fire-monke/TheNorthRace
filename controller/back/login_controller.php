@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     if ($admin && $password === $admin['password']) {
         $_SESSION['admin'] = $admin;
         // header('Location: ./view/back/path/app.php');
-        header('Location: ./appli');// appel le controller principal qui renvoie vers -> ./view/back/path/app.php
+        header('Location: ./appli');// appelle le controller principal qui renvoie vers -> ./view/back/path/app.php
         exit();
     } else {
         $error = 'Identifiants incorrects. Veuillez réessayer.';
