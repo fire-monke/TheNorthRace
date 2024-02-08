@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../ressources/back/css/index8.css">
+    <link rel="stylesheet" href="./ressources/back/css/index8.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -23,12 +23,11 @@
     <ul class="topbar">
         <li>Couleur</li>
         <li>Nom</li>
-        <button class="create" data-entity="ecurie">Ajouter<img src="../../../ressources/back/images/index/add.svg" alt="#"></button>
+        <button class="create" data-entity="ecurie">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
 <?php
 try{
-    require_once("../../../getRacine.php");
-    require_once "$racine/controler/back/controler.php";
+    require_once(RACINE . '/controller/back/controller.php');
     $Ecurie = new Ecurie();
     $lesEcuries = $Ecurie->getEcuries();
     foreach($lesEcuries as $uneEcurie){
@@ -42,8 +41,8 @@ try{
         if (!empty($uneEcurie->nom)){
             echo '<h3>'. htmlentities($uneEcurie->nom) .'</h3>';
         }
-        echo '<button class="updt" data-id="'. htmlentities($uneEcurie->id) .'" data-entity="ecurie"><img src="../../../ressources/back/images/index/edit.png" alt="#"></button>
-        <button class="delete" data-id="'. htmlentities($uneEcurie->id) .'" data-entity="ecurie"><img src="../../../ressources/back/images/index/delete.png" alt="#"></button>';
+        echo '<button class="updt" data-id="'. htmlentities($uneEcurie->id) .'" data-entity="ecurie"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
+        <button class="delete" data-id="'. htmlentities($uneEcurie->id) .'" data-entity="ecurie"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';
         echo '</div>';
     }
 }

@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../ressources/back/css/EcurieUpdt.css">
+    <link rel="stylesheet" href="./ressources/back/css/EcurieUpdt.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    
     <div class="update">
         <h1>MODIFICATION <span>
         <?php
         try {
-            require_once "$racine/controler/back/controler.php";
+            require_once(RACINE . '/controller/back/controller.php');
             if (isset($_GET['id'])) {
                 $EcurieId = $_GET['id'];
             } else {
@@ -28,7 +26,7 @@
                 ?>
                 <style>
                     .h1 span {
-                        color: #<?php echo htmlentities($uneEcurie->couleur); ?>;
+                        color: #<?php echo htmlentities($uneEcurie->couleur); ?>
                     }
                 </style>
                 <?php
@@ -41,7 +39,7 @@
         ?>
         </span></h1>
 
-        <form action="../../../controler/back/controler.php" method="POST">
+        <form action="./appli" method="POST">
             <input type="hidden" name="EcurieId" value="<?php echo $EcurieId; ?>">
             <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php echo !empty($uneEcurie->nom) ? htmlentities($uneEcurie->nom) : ''; ?>" required>
 
@@ -51,5 +49,4 @@
         </form>
     </div>
 </body>
-
 </html>

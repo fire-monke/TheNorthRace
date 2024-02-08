@@ -1,22 +1,3 @@
-<?php
-session_start();
-require_once("../../../getRacine.php");
-if (!isset($_SESSION['admin'])) {
-    header('Location: ../login.php');
-    exit();
-}
-
-
-$pagesEntites = array(
-  'pilote' => 'pilote.php',
-  'ecurie' => 'ecurie.php',
-  'classement' => 'classement.php',
-  'courses' => 'courses.php'
-);
-$typeEntiteAjoutee = isset($_GET['type']) ? $_GET['type'] : '';
-$pageAInclure = isset($pagesEntites[$typeEntiteAjoutee]) ? $pagesEntites[$typeEntiteAjoutee] : 'pilote.php';
-$nomDuFichier = pathinfo($pageAInclure, PATHINFO_FILENAME); // Extrait le nom du fichier sans l'extension
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,17 +5,13 @@ $nomDuFichier = pathinfo($pageAInclure, PATHINFO_FILENAME); // Extrait le nom du
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord</title>
-    <link rel="stylesheet" href="../../../ressources/back/css/index8.css">
+    <link rel="stylesheet" href="./ressources/back/css/index8.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="../../../js/back/app.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 </head>
 <body>
-    
-
     <div class="navbar">
     <h1>THE NORTH<span>RACE</span></h1>
     <nav>
@@ -43,59 +20,52 @@ $nomDuFichier = pathinfo($pageAInclure, PATHINFO_FILENAME); // Extrait le nom du
         <button id="courses" href="">Courses</button>
         <button id="classement" href="">Classement</button>
     </nav>
-    <script>
+    <div class="logout">
+        <a class="txt" href="./deconnexion">Se déconnecter</a>
+    </div>
+    </div>
+    <div class="affichage">
+        <div class="print-box" id="include-container">
+            <?php
+                include_once($pageAInclure);
+            ?>
+        </div>
+    </div>
+</body>
+</html>
+<script>
 $(document).ready(function() {
-  // Au chargement de la page
-  const urlParams = new URLSearchParams(window.location.search);
-  const typeEntite = urlParams.get('type');
+	// Au chargement de la page
+	const urlParams = new URLSearchParams(window.location.search);
+	const typeEntite = urlParams.get('type');
 
-  // Vérifiez si le type d'entité existe et ajoutez la classe "active" au bouton correspondant
-  if (typeEntite) {
-    $("#" + typeEntite).addClass("active");
-  }
-    // Gérez les clics sur les boutons comme vous le faisiez auparavant
-    $("#pilote").on("click", function() {
-      chargerInclude("pilote");
-    });
+	// Vérifiez si le type d'entité existe et ajoutez la classe "active" au bouton correspondant
+	if (typeEntite) {
+		$("#" + typeEntite).addClass("active");
+	}
+	// Gérez les clics sur les boutons
+	$("#pilote").on("click", function() {
+		chargerInclude("pilote");
+	});
 
-    $("#ecurie").on("click", function() {
-      chargerInclude("ecurie");
-    });
+	$("#ecurie").on("click", function() {
+		chargerInclude("ecurie");
+	});
 
-    $("#courses").on("click", function() {
-      chargerInclude("courses");
-    });
+	$("#courses").on("click", function() {
+		chargerInclude("courses");
+	});
 
-    $("#classement").on("click", function() {
-      chargerInclude("classement");
-    });
-
-    // ... (restez les mêmes)
-  });
-
-  $("#pilote").on("click", function() {
-    chargerInclude("pilote");
-  });
-
-  $("#ecurie").on("click", function() {
-    chargerInclude("ecurie");
-  });
-
-  $("#courses").on("click", function() {
-    chargerInclude("courses");
-  });
-
-  $("#classement").on("click", function() {
-  chargerInclude("classement");
+	$("#classement").on("click", function() {
+		chargerInclude("classement");
+	});
 });
 
-
-  $(document).on("click", ".updt", function() {
+$(document).on("click", ".updt", function() {
     const Id = $(this).data("id");
     const entity = $(this).data("entity");
-
-    $.ajax({
-        url: '../../../controler/back/controler.php?id=' + Id + '&entity=' + entity,
+        $.ajax({
+        url: './appli/update/&id=' + Id + '&entity=' + entity,
         type: 'GET',
         success: function(response) {
             console.log(response);
@@ -113,36 +83,34 @@ $(document).ready(function() {
                 console.error('Réponse JSON inattendue:', response);
             }
         },
-        error: function(error) {
-            console.error('Erreur AJAX :', error);
+        error: function(xhr, status, error) {
+            console.error('Erreur AJAX :', xhr.responseText); // Affiche la réponse du serveur
+            console.error('Status :', status); // Affiche le statut de la requête
+            console.error('Erreur :', error); // Affiche l'erreur
         }
     });
 });
 
-
-
-  $(document).on("click", ".delete", function() {
+$(document).on("click", ".delete", function() {
     const Id = $(this).data("id");
     const entity = $(this).data("entity");
     $.ajax({
-      url: '../../../controler/back/controler.php?action=delete&id=' + Id + '&entity=' + entity,
+        url: './appli/delete/&id='+ Id + '&entity=' + entity,
         type: 'GET',
         success: function(response) {
-            console.log(response);
+            // Recharger la page après le succès de la requête AJAX
+            window.location.reload();
         },
         error: function(error) {
             console.error('Erreur AJAX :', error);
         }
     });
-    setTimeout(() => {
-      window.refresh()
-    }, 500);
 });
 
 $(document).on("click", ".create", function() {
     const entity = $(this).data("entity");
     $.ajax({
-        url: '../../../controler/back/controler.php?action=create&entity=' + entity,
+        url: './appli/create/pilote/&entity=' + entity,
         type: 'GET',
         success: function(response) {
             console.log(response);
@@ -151,43 +119,30 @@ $(document).on("click", ".create", function() {
                 console.log('redirection réussie.');
             }
         },
-        error: function(error) {
-            console.error('Erreur AJAX :', error);
+        error: function(xhr, status, error) {
+            console.error('Erreur AJAX :', xhr.responseText); // Affiche la réponse du serveur
+            console.error('Status :', status); // Affiche le statut de la requête
+            console.error('Erreur :', error); // Affiche l'erreur
         }
+
     });
 });
 
-
-
 function chargerInclude(typeEntite) {
-    $("nav button").removeClass("active");
-    $("#" + typeEntite).addClass("active");
-    console.log($("nav button"));
-    console.log($("#" + typeEntite));
-    $.ajax({
-      url: typeEntite + '.php',
-      type: "GET",
-      success: function(data) {
-        $("#include-container").html(data);
-      },
-      error: function() {
-        alert("Erreur lors du chargement de l'inclusion.");
-      }
-    });
-  }
-
+	$("nav button").removeClass("active");
+	$("#" + typeEntite).addClass("active");
+	console.log($("nav button"));
+	console.log($("#" + typeEntite));
+	$.ajax({
+		url: './appli/&type=' + typeEntite,
+		type: "GET",
+		success: function(data) {
+			$("#include-container").html(data);
+		},
+		error: function() {
+			alert("Erreur lors du chargement de l'inclusion.");
+			console.error('Erreur AJAX :', error);
+		}
+	});
+}
 </script>
-    <div class="logout">
-        <a class="txt" href="../../../controler/back/logout.php">Se déconnecter</a>
-    </div>
-    </div>
-    <div class="affichage">
-        <div class="print-box" id="include-container">
-            <?php 
-              include_once($pageAInclure);
-            ?>
-        </div>
-    </div>
-    
-</body>
-</html>

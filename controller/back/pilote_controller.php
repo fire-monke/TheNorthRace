@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
         // Faites ce que vous devez faire avec $unPilote
         // Par exemple, effectuez une mise à jour en base de données, etc.
         if (!defined('PILOT')) {
-            include("../../view/back/update/pilotUpdt.php");
+            include(RACINE . "/view/back/update/pilotUpdt.php");
             var_dump($racine);
         }
     } catch (Exception $ex) {

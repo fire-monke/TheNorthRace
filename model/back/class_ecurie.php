@@ -12,9 +12,9 @@ class Ecurie {
         try{
             $req = $this->cnx->prepare("CALL getEcuries()");
             $req->execute();
-    
+
             $resultat = $req->fetchall(PDO::FETCH_OBJ);
-    
+
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();
@@ -26,9 +26,9 @@ class Ecurie {
         try{
             $req = $this->cnx->prepare("CALL getEcuriesLastSeason()");
             $req->execute();
-    
+
             $resultat = $req->fetchall(PDO::FETCH_OBJ);
-    
+
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();
@@ -39,12 +39,12 @@ class Ecurie {
     function getEcurieById($idEcu){
         try{
             $req = $this->cnx->prepare("CALL getEcurieById(:idEcu)");
-    
+
             $req->bindValue(':idEcu', $idEcu, PDO::PARAM_INT);
             $req->execute();
-    
+
             $resultat = $req->fetch(PDO::FETCH_OBJ);
-    
+
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();
@@ -55,12 +55,12 @@ class Ecurie {
     function getEcurieOfLastSeasonOfPiloteByIdPilote($idPil){
         try{
             $req = $this->cnx->prepare("CALL getEcurieOfLastSeasonOfPiloteByIdPilote(:idPil)");
-    
+
             $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
             $req->execute();
-    
+
             $resultat = $req->fetch(PDO::FETCH_OBJ);
-    
+
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();
@@ -71,12 +71,12 @@ class Ecurie {
     function getLastEcurieByIdPilote($idPil){
         try{
             $req = $this->cnx->prepare("CALL getLastEcurieByIdPilote(:idPil)");
-    
+
             $req->bindValue(':idPil', $idPil, PDO::PARAM_INT);
             $req->execute();
-    
+
             $resultat = $req->fetch(PDO::FETCH_OBJ);
-    
+
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();
@@ -123,4 +123,3 @@ class Ecurie {
         }
     }
 }
-

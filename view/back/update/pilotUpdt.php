@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../ressources/back/css/PiloteUpdt.css">
+    <link rel="stylesheet" href="./ressources/back/css/PiloteUpdt.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    
     <div class="update">
         <h1>MODIFICATION <span>
 <?php
 try{
-    require_once "$racine/controller/back/controller.php";
+    require_once(RACINE . '/controller/back/controller.php');
     if (isset($_GET['id'])) {
         $piloteId = $_GET['id'];
     } else {
@@ -33,7 +31,7 @@ catch(Exception $ex){
 echo $ex->GetMessage();
 }?></span></h1>
 
-        <form action="../../../controller/back/controller.php" method="POST">
+        <form action="./appli" method="POST">
         <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
                 <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
 
@@ -44,19 +42,11 @@ echo $ex->GetMessage();
                 }?>" required>
 
                 <input type="text" id="dateNais" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){
-        echo htmlentities($unPilote->dateNais);
-    };?>" required>
+                    echo htmlentities($unPilote->dateNais);
+                }?>" required>
 
                 <input name=submit type="submit" value="Modifier">
         </form>
-        <?php
-        // Vérifie si le formulaire a été soumis
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            require_once "$racine/controller/back/controller.php";
-        // Assurez-vous d'avoir les valeurs nécessaires pour la mise à jour      
-        }
-?>
     </div>
 </body>
-
 </html>

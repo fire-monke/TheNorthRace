@@ -1,18 +1,36 @@
-<!-- FAIRE LE CONTOLLER DE L'APP
-
-==> SÉPARER LE CTRLLER DE LA VUE -->
-
 <?php
-if (!isset($GLOBALS['RACINE'])) {
-    $racine = dirname(__FILE__);
-    require_once($racine . '/../../getRacine.php');
-}
-
 session_start();
 if (!isset($_SESSION['admin'])) {
     header('Location: ./connexion');
     exit();
-}else{
-    require_once(RACINE . "/view/back/path/app.php");
 }
-?>
+
+$pagesEntites = array(
+  'pilote' => 'pilote.php',
+  'ecurie' => 'ecurie.php',
+//   'classement' => 'classement.php',
+//   'courses' => 'courses.php'
+);
+
+// Checks if a 'type' parameter is present in the URL, includes the corresponding PHP file from the specified directory,
+// and catches any exceptions if the file does not exist, displaying an error message.
+if (isset($_GET['type'])) {
+    $type = $_GET['type'];
+    $pathToFile = RACINE . '/view/back/path/' . $type . '.php';
+    try {
+        if (file_exists($pathToFile)) {
+            include_once($pathToFile);
+        } else {
+            throw new Exception("Le fichier spécifié n'existe pas.");
+        }
+    } catch (Exception $e) {
+        echo "Une erreur s'est produite : " . $e->getMessage();
+    }exit();
+}
+
+
+$typeEntiteAjoutee = isset($_GET['type']) ? htmlentities($_GET['type']) : '';
+$pageAInclure = isset($pagesEntites[$typeEntiteAjoutee]) ? $pagesEntites[$typeEntiteAjoutee] : 'pilote.php'; // affiche la page pilote.php par défaut
+
+require_once(RACINE . "/controller/back/controller.php");
+require_once(RACINE . "/view/back/path/app.php");
