@@ -7,6 +7,22 @@ class CourseManager {
     public function __construct() {
         $this->cnx = connectDB();
     }
+
+    
+    public function getCourseDetailsByPilot($idPil) {
+        $req = $this->pdo->prepare("SELECT * FROM CoursesAnnee WHERE idPil = :idPil");
+        $req->bindParam(':idPil', $idPil, PDO::PARAM_INT);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getCourseDetailsByTeam($idEcu) {
+        $req = $this->pdo->prepare("SELECT * FROM CoursesAnnee WHERE idEcu = :idEcu");
+        $req->bindParam(':idEcu', $idEcu, PDO::PARAM_INT);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
      public function getCourseDetailsByPilotAndYear($idPil, $year) {
         $req = $this->pdo->prepare("SELECT * FROM CoursesAnnee WHERE idPil = :idPil AND annee = :year");
         $req->bindParam(':idPil', $idPil, PDO::PARAM_INT);
