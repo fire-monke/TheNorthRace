@@ -63,3 +63,43 @@ function getCourseDetailsByPilotTeamAndYear($idPil, $idEcu, $year) {
 
     return $resultat;
 }
+
+
+function getTop3CoursesByYear($year) {
+    try {
+        $cnx = connexionPDO();
+
+        $req = $cnx->prepare("SELECT * FROM CoursesAnnee WHERE annee = :year ORDER BY nbPointPil DESC LIMIT 3");
+        $req->bindParam(':year', $year, PDO::PARAM_INT);
+        $req->execute();
+
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (PDOException $e) {
+        die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
+    } finally {
+        $cnx = null; // Fermez la connexion PDO dans le bloc finally pour vous assurer qu'elle est toujours fermée
+    }
+
+    return $resultat;
+}
+
+
+function getAllCoursesByYear($year) {
+    try {
+        $cnx = connexionPDO();
+
+        $req = $cnx->prepare("SELECT * FROM CoursesAnnee WHERE annee = :year");
+        $req->bindParam(':year', $year, PDO::PARAM_INT);
+        $req->execute();
+
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (PDOException $e) {
+        die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
+    } finally {
+        $cnx = null; // Fermez la connexion PDO dans le bloc finally pour vous assurer qu'elle est toujours fermée
+    }
+
+    return $resultat;
+}
