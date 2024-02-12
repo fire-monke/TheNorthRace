@@ -123,7 +123,7 @@ function getPilotesByTop3(){
     return $resultat;
 }
 
-function getAllPilotesByTop3(){
+function getAllPilotesByTop3WithYear($year){
     try {
         $cnx = connexionPDO();
 
@@ -131,10 +131,11 @@ function getAllPilotesByTop3(){
         FROM Pilote p
         INNER JOIN CoursesAnnee c ON p.id = c.idPil
         INNER JOIN Ecurie e ON e.id = c.idEcu
-        WHERE annee = YEAR(CURRENT_DATE()) 
+        WHERE annee = :year
         ORDER BY c.nbPointPil DESC, p.nom
         LIMIT 3;");
 
+        $req->bindParam(':year', $year, PDO::PARAM_INT);
         $req->execute();
 
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -149,3 +150,4 @@ function getAllPilotesByTop3(){
 
     return $resultat;
 }
+
