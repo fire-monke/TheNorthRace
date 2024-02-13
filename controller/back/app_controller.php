@@ -14,8 +14,8 @@ $pagesEntites = array(
 
 // Checks if a 'type' parameter is present in the URL, includes the corresponding PHP file from the specified directory,
 // and catches any exceptions if the file does not exist, displaying an error message.
-if (isset($_GET['type'])) {
-    $type = $_GET['type'];
+if (isset($_POST['type'])) {
+    $type = $_POST['type'];
     $pathToFile = RACINE . '/view/back/path/' . $type . '.php';
     try {
         if (file_exists($pathToFile)) {

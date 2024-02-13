@@ -725,3 +725,73 @@ BEGIN
 END //
 DELIMITER ;
 
+-- PROCEDURES STOCKEES PARAMETREES
+-- -------------------------------------
+-- CoursesAnnee CoursesAnnee
+-- -------------------------------------
+
+DROP PROCEDURE IF EXISTS getAllCoursesByYear
+DELIMITER //
+CREATE PROCEDURE getAllCoursesByYear (IN year INT) BEGIN
+    SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
+    FROM CoursesAnnee c
+    INNER JOIN Pilote p ON c.idPil = p.id
+    INNER JOIN Ecurie e ON c.idEcu = e.id
+    WHERE c.annee = year;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getCourseDetailsByPilot
+DELIMITER //
+CREATE PROCEDURE getCourseDetailsByPilot (IN idPil INT) BEGIN
+    SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
+    FROM CoursesAnnee c
+    INNER JOIN Pilote p ON c.idPil = p.id
+    INNER JOIN Ecurie e ON c.idEcu = e.id
+    WHERE c.idPil = idPil;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getCourseDetailsByPilotAndYear
+DELIMITER //
+CREATE PROCEDURE getCourseDetailsByPilotAndYear (IN idPil INT, IN year INT) BEGIN
+    SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
+    FROM CoursesAnnee c
+    INNER JOIN Pilote p ON c.idPil = p.id
+    INNER JOIN Ecurie e ON c.idEcu = e.id
+    WHERE c.idPil = idPil AND c.annee = year;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getCourseDetailsByPilotTeamAndYear
+DELIMITER //
+CREATE PROCEDURE getCourseDetailsByPilotTeamAndYear (IN idPil INT, IN idEcu INT, IN year INT) BEGIN
+    SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
+    FROM CoursesAnnee c
+    INNER JOIN Pilote p ON c.idPil = p.id
+    INNER JOIN Ecurie e ON c.idEcu = e.id
+    WHERE c.idPil = idPil AND c.idEcu = idEcu AND c.annee = year;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getCourseDetailsByTeam
+DELIMITER //
+CREATE PROCEDURE getCourseDetailsByTeam (IN idEcu INT) BEGIN
+    SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
+    FROM CoursesAnnee c
+    INNER JOIN Pilote p ON c.idPil = p.id
+    INNER JOIN Ecurie e ON c.idEcu = e.id
+    WHERE c.idEcu = idEcu;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getCourseDetailsByTeamAndYear
+DELIMITER //
+CREATE PROCEDURE getCourseDetailsByTeamAndYear (IN idEcu INT, IN year INT) BEGIN
+    SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
+    FROM CoursesAnnee c
+    INNER JOIN Pilote p ON c.idPil = p.id
+    INNER JOIN Ecurie e ON c.idEcu = e.id
+    WHERE c.idEcu = idEcu AND c.annee = year;
+END //
+DELIMITER ;
