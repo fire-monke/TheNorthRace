@@ -11,7 +11,7 @@ class Classement {
 
     function getClassementByYear($year) {
         try {
-            $req = $this->cnx->prepare("CALL GetClassementByYear(:year)");
+            $req = $this->cnx->prepare("CALL getClassementByYear(:year)");
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->execute();
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -24,7 +24,7 @@ class Classement {
 
     function getPodiumByYear($year) {
         try {
-            $req = $this->cnx->prepare("CALL GetPodiumByYear(:year)");
+            $req = $this->cnx->prepare("CALL getPodiumByYear(:year)");
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->execute();
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -59,6 +59,41 @@ class Classement {
         }
         return $resultat;
     }
-}
 
-//sdsd
+    function addClassement($teamId, $year, $points, $teamPlace) {
+        try {
+            $req = $this->cnx->prepare("CALL addClassement(:teamId, :year, :points, :teamPlace)");
+            $req->bindValue(':teamId', $teamId, PDO::PARAM_INT);
+            $req->bindValue(':year', $year, PDO::PARAM_INT);
+            $req->bindValue(':points', $points, PDO::PARAM_INT);
+            $req->bindValue(':teamPlace', $teamPlace, PDO::PARAM_INT);
+            $req->execute();
+        } catch (PDOException $e) {
+            error_log("Erreur !: " . $e->getMessage());
+        }
+    }
+
+    function deleteClassement($teamId, $year) {
+        try {
+            $req = $this->cnx->prepare("CALL deleteClassement(:teamId, :year)");
+            $req->bindValue(':teamId', $teamId, PDO::PARAM_INT);
+            $req->bindValue(':year', $year, PDO::PARAM_INT);
+            $req->execute();
+        } catch (PDOException $e) {
+            error_log("Erreur !: " . $e->getMessage());
+        }
+    }
+
+    function updateClassement($points, $teamPlace, $teamId, $year) {
+        try {
+            $req = $this->cnx->prepare("CALL updateClassement(:points, :teamPlace, :teamId, :year)");
+            $req->bindValue(':points', $points, PDO::PARAM_INT);
+            $req->bindValue(':teamPlace', $teamPlace, PDO::PARAM_INT);
+            $req->bindValue(':teamId', $teamId, PDO::PARAM_INT);
+            $req->bindValue(':year', $year, PDO::PARAM_INT);
+            $req->execute();
+        } catch (PDOException $e) {
+            error_log("Erreur !: " . $e->getMessage());
+        }
+    }
+}
