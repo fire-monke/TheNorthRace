@@ -849,7 +849,7 @@ DELIMITER ;
 
 -- PROCEDURES STOCKEES PARAMETREES
 -- -------------------------------------
--- Classement Classement
+-- Classement Classement 
 -- -------------------------------------
 DROP PROCEDURE IF EXISTS getClassementByYear
 DELIMITER //
@@ -877,9 +877,9 @@ BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS AddClassement;
+DROP PROCEDURE IF EXISTS addClassement;
 DELIMITER //
-CREATE PROCEDURE AddClassement(
+CREATE PROCEDURE addClassement(
     IN teamId INT,
     IN year INT,
     IN points INT,
@@ -892,9 +892,9 @@ END//
 DELIMITER ;
 
 
-DROP PROCEDURE IF EXISTS DeleteClassement;
+DROP PROCEDURE IF EXISTS deleteClassement;
 DELIMITER //
-CREATE PROCEDURE DeleteClassement(
+CREATE PROCEDURE deleteClassement(
     IN teamId INT,
     IN year INT
 )
@@ -903,9 +903,9 @@ BEGIN
 END//
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS UpdateClassement;
+DROP PROCEDURE IF EXISTS updateClassement;
 DELIMITER //
-CREATE PROCEDURE UpdateClassement(
+CREATE PROCEDURE updateClassement(
     IN points INT,
     IN teamPlace INT,
     IN teamId INT,
