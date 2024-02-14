@@ -1,5 +1,5 @@
 <?php
-require_once(RACINE . '/model/connexion_PDO.php');
+require_once('../Model/connexion_PDO.php');
 
 class CoursesAnnee {
     private $cnx;
@@ -94,6 +94,51 @@ class CoursesAnnee {
             $req->bindParam(1, $year, PDO::PARAM_INT);
             $req->execute();
             return $req->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
+        }
+    }
+
+     // Méthode pour ajouter une course pour une année donnée
+     public function AddRaceYear($pilotId, $yearRace,$teamId, $points, $pilotPlace, $pilotNumber) {
+        try {
+            $req = $this->cnx->prepare("CALL AddRaceYear(?, ?, ?, ?, ?, ?)");
+            $req->bindParam(1, $pilotId, PDO::PARAM_INT);
+            $req->bindParam(2, $yearRace, PDO::PARAM_INT);
+            $req->bindParam(3, $teamId, PDO::PARAM_INT);
+            $req->bindParam(4, $points, PDO::PARAM_INT);
+            $req->bindParam(5, $pilotPlace, PDO::PARAM_INT);
+            $req->bindParam(6, $pilotNumber, PDO::PARAM_INT);
+            $req->execute();
+        } catch (PDOException $e) {
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
+        }
+    }
+
+    // Méthode pour supprimer une course pour une année donnée
+    public function DeleteRaceYear($pilotId, $teamId, $yearRace) {
+        try {
+            $req = $this->cnx->prepare("CALL DeleteRaceYear(?, ?, ?)");
+            $req->bindParam(1, $pilotId, PDO::PARAM_INT);
+            $req->bindParam(2, $teamId, PDO::PARAM_INT);
+            $req->bindParam(3, $yearRace, PDO::PARAM_INT);
+            $req->execute();
+        } catch (PDOException $e) {
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
+        }
+    }
+
+    // Méthode pour modifier une course pour une année donnée
+    public function updateRaceForYear($pilotId, $teamId, $year, $newPoints, $newPilotPlace, $newPilotNumber) {
+        try {
+            $req = $this->cnx->prepare("CALL UpdateRaceForYear(?, ?, ?, ?, ?, ?)");
+            $req->bindParam(1, $pilotId, PDO::PARAM_INT);
+            $req->bindParam(2, $teamId, PDO::PARAM_INT);
+            $req->bindParam(3, $year, PDO::PARAM_INT);
+            $req->bindParam(4, $newPoints, PDO::PARAM_INT);
+            $req->bindParam(5, $newPilotPlace, PDO::PARAM_INT);
+            $req->bindParam(6, $newPilotNumber, PDO::PARAM_INT);
+            $req->execute();
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
