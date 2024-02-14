@@ -730,7 +730,7 @@ DELIMITER ;
 -- CoursesAnnee CoursesAnnee
 -- -------------------------------------
 
-DROP PROCEDURE IF EXISTS getAllCoursesByYear
+DROP PROCEDURE IF EXISTS getAllCoursesByYear;
 DELIMITER //
 CREATE PROCEDURE getAllCoursesByYear (IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
@@ -741,7 +741,7 @@ CREATE PROCEDURE getAllCoursesByYear (IN year INT) BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByPilot
+DROP PROCEDURE IF EXISTS getCourseDetailsByPilot;
 DELIMITER //
 CREATE PROCEDURE getCourseDetailsByPilot (IN idPil INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
@@ -752,7 +752,7 @@ CREATE PROCEDURE getCourseDetailsByPilot (IN idPil INT) BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByPilotAndYear
+DROP PROCEDURE IF EXISTS getCourseDetailsByPilotAndYear;
 DELIMITER //
 CREATE PROCEDURE getCourseDetailsByPilotAndYear (IN idPil INT, IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
@@ -763,7 +763,7 @@ CREATE PROCEDURE getCourseDetailsByPilotAndYear (IN idPil INT, IN year INT) BEGI
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByPilotTeamAndYear
+DROP PROCEDURE IF EXISTS getCourseDetailsByPilotTeamAndYear;
 DELIMITER //
 CREATE PROCEDURE getCourseDetailsByPilotTeamAndYear (IN idPil INT, IN idEcu INT, IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
@@ -774,7 +774,7 @@ CREATE PROCEDURE getCourseDetailsByPilotTeamAndYear (IN idPil INT, IN idEcu INT,
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByTeam
+DROP PROCEDURE IF EXISTS getCourseDetailsByTeam;
 DELIMITER //
 CREATE PROCEDURE getCourseDetailsByTeam (IN idEcu INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
@@ -785,7 +785,7 @@ CREATE PROCEDURE getCourseDetailsByTeam (IN idEcu INT) BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByTeamAndYear
+DROP PROCEDURE IF EXISTS getCourseDetailsByTeamAndYear;
 DELIMITER //
 CREATE PROCEDURE getCourseDetailsByTeamAndYear (IN idEcu INT, IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
@@ -795,3 +795,57 @@ CREATE PROCEDURE getCourseDetailsByTeamAndYear (IN idEcu INT, IN year INT) BEGIN
     WHERE c.idEcu = idEcu AND c.annee = year;
 END //
 DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS AddRaceYear;
+DELIMITER //
+CREATE PROCEDURE AddRaceYear(
+    IN pilotId INT,
+    IN yearRace INT,
+    IN teamId INT,
+    IN points INT,
+    IN pilotPlace INT,
+    IN pilotNumber INT
+)
+BEGIN
+    INSERT INTO CoursesAnnee(idPil, annee, idEcu, nbPointPil, placePil, numPil) 
+    VALUES(pilotId, yearRace, teamId, points, pilotPlace, pilotNumber);
+END//
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS DeleteRaceYear;
+DELIMITER //
+CREATE PROCEDURE DeleteRaceYear(
+    IN pilotId INT,
+    IN teamID INT,
+    IN yearRace INT
+)
+BEGIN
+    DELETE FROM CoursesAnnee 
+    WHERE idPil = pilotId AND annee = yearRace AND idEcu = teamId;
+END//
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS UpdateRaceForYear;
+DELIMITER //
+CREATE PROCEDURE UpdateRaceForYear(
+    IN pilotId INT,
+    IN yearRace INT,
+    IN teamId INT,
+    IN newPoints INT,
+    IN newPilotPlace INT,
+    IN newPilotNumber INT
+)
+BEGIN
+    UPDATE CoursesAnnee 
+    SET nbPointPil = newPoints, 
+        placePil = newPilotPlace, 
+        numPil = newPilotNumber
+    WHERE idPil = pilotId AND annee = yearRace AND idEcu = teamId;
+END//
+DELIMITER ;
+
+
+
