@@ -1,5 +1,5 @@
 <?php
-require_once('../Model/connexion_PDO.php');
+require_once(RACINE . '/model/connexion_PDO.php');
 
 class CoursesAnnee {
     private $cnx;
