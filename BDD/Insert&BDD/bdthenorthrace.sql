@@ -18,13 +18,22 @@ CREATE TABLE Pilote (
     )
 ENGINE=InnoDB;
 
-CREATE TABLE Ecurie (
+CREATE TABLE if not exists Ecurie (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40),
     couleur VARCHAR(10),
+    dateCreation year,
+    localisation VARCHAR(50), 
+    titresConstructeurs INT, 
+	coursesDisputees INT,
+    victoires INT, 
+    podiums INT, 
+    directeur VARCHAR(50), 
+  
     Primary Key(id)
-    )
+)
 ENGINE=InnoDB;
+
 
 Create Table Classement(
     idEcu INT(3),
@@ -194,18 +203,19 @@ INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
 
 
 -- 2018
-INSERT INTO Ecurie(nom,couleur) VALUES
-	('Mercedes','#6CD3BF'),
-	('Ferrari','#F91536'),
-	('Renault','#FFF500'),
-	('Red Bull Racing','#3671C6'),
-	('Haas','#B6BABD'),
-	('McLaren Renault','#F58020'),
-	('Force India Mercedes','#F596C8'),
-	('Sauber','#9B0000'),
-	('Scuderia Toro Rosso','#0032FF'),
-	('Williams','#37BEDD'),
-	('Force India Sahara','#F596C8');
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, titresConstructeurs, coursesDisputees, victoires, podiums, directeur) VALUES  
+('Mercedes', '#6CD3BF', 1954, 'Brackley, Royaume-Uni', 8, 270, 125, 281, 'Toto Wolff'),  
+('Ferrari', '#F91536', 1929, 'Maranello, Italie', 16, 1073, 243, 806, 'Frédéric Vasseur'),  
+('Renault', '#FFF500', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
+('Red Bull Racing', '#3671C6', 2005, 'Milton Keynes, Royaume-Uni', 6, 369, 114, 263, 'Christian Horner'),  
+('Haas', '#B6BABD', 2016, 'Kannapolis, États-Unis', 0, 142, 0, 0, 'Ayao Komatsu'),  
+('McLaren Renault', '#F58020', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
+('Force India Mercedes', '#F596C8', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
+('Sauber', '#9B0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
+('Scuderia Toro Rosso', '#0032FF', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
+('Williams', '#37BEDD', 1977, 'Grove, Royaume-Uni', 9, 745, 114, 312, 'James Vowles'),  
+('Force India Sahara', '#F596C8', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 
 -- 2019
 INSERT INTO Ecurie(nom,couleur) VALUES
@@ -222,42 +232,42 @@ INSERT INTO Ecurie(nom,couleur) VALUES
 
 
 -- 2020
-INSERT INTO Ecurie(nom,couleur) VALUES
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, titresConstructeurs, coursesDisputees, victoires, podiums, directeur) VALUES  
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('RED BULL RACING HONDA', '#3671C6'),
 	-- ('MCLAREN RENAULT', '#F58020'),
 	-- ('RACING POINT BWT MERCEDES', '#F596C8'),
 	-- ('RENAULT', '#FFF500'),
 	-- ('FERRARI', '#F91536'),
-	('Alphatauri','#5E8FAA');
+	 ('Alphatauri','#5E8FAA',2006, 'Faenza, Italie', 0, 346, 2, 5, 'Laurent Mekies');
 	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
 	-- ('HAAS FERRARI', '#B6BABD'),
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
 
 -- 2021
-INSERT INTO Ecurie(nom,couleur) VALUES
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, titresConstructeurs, coursesDisputees, victoires, podiums, directeur) VALUES  
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('RED BULL RACING HONDA', '#3671C6'),
 	-- ('FERRARI', '#F91536'),
-	('McLaren Mercedes','#F58020'),
-	('Alpine','#2293D1'),
+	('McLaren Mercedes','#F58020', 1963, 'Woking, Royaume-Uni', 8, 880, 183, 501, 'Bruno Famin'),
+	('Alpine','#2293D1' ,2021, 'Enstone, Royaume-Uni', 2, 471, 36, 107, 'Laurent Rossi'),
 	-- ('ALPHATAURI HONDA', '#5E8FAA'),
-	('Aston Martin','#358C75');
+	('Aston Martin','#358C75', 2021, 'Silverstone, Royaume-Uni', 0, 71, 0, 9, 'Mike Krack');
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
 	-- ('HAAS FERRARI', '#B6BABD')
 
 
 -- 2022
-INSERT INTO Ecurie(nom,couleur) VALUES
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, titresConstructeurs, coursesDisputees, victoires, podiums, directeur) VALUES  
 	-- ('Red Bull Racing', '#3671C6'),
 	-- ('FERRARI', '#F91536'),
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('Alpine Renault', '#2293D1'),
 	-- ('McLaren Mercedes', '#F58020'),
-	('Alfa Romeo Ferrari','#C92D4B'),
-	('Aston Martin Aramco','#358C75');
+	('Alfa Romeo Ferrari','#C92D4B', 1950, 'Hinwil, Suisse', 0, 175, 10, 26, 'Allessandro Alunni Bravi'),
+	('Aston Martin Aramco','#358C75', 2021, 'Silverstone, Royaume-Uni', 0, 71, 0, 9, 'Mike Krack');
 	-- ('HAAS FERRARI', '#B6BABD')
 	-- ('Alphatauri', '#5E8FAA')
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
@@ -696,7 +706,7 @@ CREATE PROCEDURE getEcurieById(
 	IN idEcu INT(3)
 )
 BEGIN
-    SELECT id, nom, couleur FROM Ecurie
+    SELECT id, nom, couleur,dateCreation, localisation, titresConstructeurs, coursesDisputees, victoires, podiums, directeur FROM Ecurie
     WHERE id=idEcu;
 END //
 DELIMITER ;
@@ -847,7 +857,6 @@ BEGIN
 END//
 DELIMITER ;
 
-
 -- PROCEDURES STOCKEES PARAMETREES
 -- -------------------------------------
 -- Classement Classement 
@@ -922,7 +931,7 @@ DROP PROCEDURE IF EXISTS getClassementByTeam;
 DELIMITER //
 CREATE PROCEDURE getClassementByTeam(IN teamId INT)
 BEGIN
-    SELECT idEcu, annee, nbPointEcu, placeEcu
+    SELECT *
     FROM Classement
     WHERE idEcu = teamId;
 END //
@@ -932,9 +941,8 @@ DROP PROCEDURE IF EXISTS getClassementByYearAndTeam;
 DELIMITER //
 CREATE PROCEDURE getClassementByYearAndTeam(IN raceYear INT, IN teamId INT)
 BEGIN
-    SELECT idEcu, annee, nbPointEcu, placeEcu
+    SELECT *
     FROM Classement
     WHERE annee = raceYear AND idEcu = teamId;
 END //
 DELIMITER ;
-
