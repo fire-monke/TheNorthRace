@@ -1,6 +1,6 @@
 <?php
 
-require_once('../connexion_PDO.php');
+require_once(RACINE . '/model/connexion_PDO.php');
 
 class Classement {    
     private $cnx;
@@ -8,7 +8,7 @@ class Classement {
     public function __construct() {
         $this->cnx = connectDB();
     }
-
+    // Function to fetch ranking data for a specific year from the database.
     function getClassementByYear($year) {
         try {
             $req = $this->cnx->prepare("CALL getClassementByYear(:year)");
@@ -17,11 +17,11 @@ class Classement {
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
         return $resultat;
     }
-
+    // Function to fetch podium data for a specific year from the database.
     function getPodiumByYear($year) {
         try {
             $req = $this->cnx->prepare("CALL getPodiumByYear(:year)");
@@ -30,11 +30,11 @@ class Classement {
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
         return $resultat;
     }
-
+    // Function to fetch ranking data for a specific team from the database.
     function getClassementByTeam($idEcu) {
         try {
             $req = $this->cnx->prepare("CALL getClassementByTeam(:idEcu)");
@@ -42,11 +42,11 @@ class Classement {
             $req->execute();
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
         return $resultat;
     }
-
+    // Function to fetch ranking data for a specific year and team from the database.
     function getClassementByYearAndTeam($year, $idEcu) {
         try {
             $req = $this->cnx->prepare("CALL getClassementByYearAndTeam(:year, :idEcu)");
@@ -55,11 +55,11 @@ class Classement {
             $req->execute();
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
         return $resultat;
     }
-
+     Function to add new ranking data for a team in a specific year to the database.
     function addClassement($teamId, $year, $points, $teamPlace) {
         try {
             $req = $this->cnx->prepare("CALL addClassement(:teamId, :year, :points, :teamPlace)");
@@ -69,10 +69,10 @@ class Classement {
             $req->bindValue(':teamPlace', $teamPlace, PDO::PARAM_INT);
             $req->execute();
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
     }
-
+    // Function to delete ranking data for a team in a specific year from the database.
     function deleteClassement($teamId, $year) {
         try {
             $req = $this->cnx->prepare("CALL deleteClassement(:teamId, :year)");
@@ -80,10 +80,10 @@ class Classement {
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->execute();
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
     }
-
+    // Function to update ranking data for a team in a specific year in the database.
     function updateClassement($points, $teamPlace, $teamId, $year) {
         try {
             $req = $this->cnx->prepare("CALL updateClassement(:points, :teamPlace, :teamId, :year)");
@@ -93,9 +93,7 @@ class Classement {
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->execute();
         } catch (PDOException $e) {
-            error_log("Erreur !: " . $e->getMessage());
+            die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
     }
 }
-
-//deffff
