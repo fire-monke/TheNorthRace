@@ -741,9 +741,9 @@ CREATE PROCEDURE getAllCoursesByYear (IN year INT) BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByPilot;
+DROP PROCEDURE IF EXISTS getCoursesDetailsByPilot;
 DELIMITER //
-CREATE PROCEDURE getCourseDetailsByPilot (IN idPil INT) BEGIN
+CREATE PROCEDURE getCoursesDetailsByPilot (IN idPil INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
@@ -774,9 +774,9 @@ CREATE PROCEDURE getCourseDetailsByPilotTeamAndYear (IN idPil INT, IN idEcu INT,
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByTeam;
+DROP PROCEDURE IF EXISTS getCoursesDetailsByTeam;
 DELIMITER //
-CREATE PROCEDURE getCourseDetailsByTeam (IN idEcu INT) BEGIN
+CREATE PROCEDURE getCoursesDetailsByTeam (IN idEcu INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
@@ -785,9 +785,9 @@ CREATE PROCEDURE getCourseDetailsByTeam (IN idEcu INT) BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByTeamAndYear;
+DROP PROCEDURE IF EXISTS getCoursesDetailsByTeamAndYear;
 DELIMITER //
-CREATE PROCEDURE getCourseDetailsByTeamAndYear (IN idEcu INT, IN year INT) BEGIN
+CREATE PROCEDURE getCoursesDetailsByTeamAndYear (IN idEcu INT, IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
@@ -921,7 +921,7 @@ DROP PROCEDURE IF EXISTS getClassementByTeam;
 DELIMITER //
 CREATE PROCEDURE getClassementByTeam(IN teamId INT)
 BEGIN
-    SELECT *
+    SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
     WHERE idEcu = teamId;
 END //
@@ -931,7 +931,7 @@ DROP PROCEDURE IF EXISTS getClassementByYearAndTeam;
 DELIMITER //
 CREATE PROCEDURE getClassementByYearAndTeam(IN raceYear INT, IN teamId INT)
 BEGIN
-    SELECT *
+    SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
     WHERE annee = raceYear AND idEcu = teamId;
 END //
