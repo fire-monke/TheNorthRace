@@ -8,7 +8,7 @@ class CoursesAnnee {
         $this->cnx = connectDB();
     }
 
-    // Méthode pour récupérer les détails d'une course par pilote
+    // Method to retrieve the details of a race per driverurse par pilote
     public function getCourseDetailsByPilot($idPil) {
         try {
             $req = $this->cnx->prepare("CALL GetCourseDetailsByPilot(?)");
@@ -16,14 +16,13 @@ class CoursesAnnee {
             $req->execute();
             return $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            // Gérer l'erreur de manière appropriée
-            // Vous pouvez journaliser l'erreur ou renvoyer une valeur par défaut
-            // Si nécessaire, lancez une nouvelle exception ou renvoyez un message d'erreur
+            // Handle the error appropriately
+            // You can log the error or return a default value
+            // If necessary, throw a new exception or return an error message
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
     }
 
-    // Méthode pour récupérer les détails d'une course par équipe
     public function getCourseDetailsByTeam($idEcu) {
         try {
             $req = $this->cnx->prepare("CALL GetCourseDetailsByTeam(?)");
@@ -34,8 +33,7 @@ class CoursesAnnee {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
     }
-
-    // Méthode pour récupérer les détails d'une course par pilote et année
+    // Method to retrieve the details of a team race
     public function getCourseDetailsByPilotAndYear($idPil, $year) {
         try {
             $req = $this->cnx->prepare("CALL GetCourseDetailsByPilotAndYear(?, ?)");
@@ -48,7 +46,7 @@ class CoursesAnnee {
         }
     }
 
-    // Méthode pour récupérer les détails d'une course par équipe et année
+   // Method to retrieve the details of a race by team and year
     public function getCourseDetailsByTeamAndYear($idEcu, $year) {
         try {
             $req = $this->cnx->prepare("CALL GetCourseDetailsByTeamAndYear(?, ?)");
@@ -61,7 +59,7 @@ class CoursesAnnee {
         }
     }
 
-    // Méthode pour récupérer les détails d'une course par pilote, équipe et année
+       // Method to retrieve the details of a race by team and year and pilot
     public function getCourseDetailsByPilotTeamAndYear($idPil, $idEcu, $year) {
         try {
             $req = $this->cnx->prepare("CALL GetCourseDetailsByPilotTeamAndYear(?, ?, ?)");
@@ -75,7 +73,7 @@ class CoursesAnnee {
         }
     }
 
-    // Méthode pour récupérer les 3 meilleures courses d'une année
+    // Method to recover the 3 best races of a year
     public function getTop3CoursesByYear($year) {
         try {
             $req = $this->cnx->prepare("CALL GetTop3CoursesByYear(?)");
@@ -87,7 +85,7 @@ class CoursesAnnee {
         }
     }
 
-    // Méthode pour récupérer toutes les courses d'une année
+  // Method to recover all races of a year
     public function getAllCoursesByYear($year) {
         try {
             $req = $this->cnx->prepare("CALL GetAllCoursesByYear(?)");
@@ -99,7 +97,7 @@ class CoursesAnnee {
         }
     }
 
-     // Méthode pour ajouter une course pour une année donnée
+ // Method to add a race for a given year
      public function AddRaceYear($pilotId, $yearRace,$teamId, $points, $pilotPlace, $pilotNumber) {
         try {
             $req = $this->cnx->prepare("CALL AddRaceYear(?, ?, ?, ?, ?, ?)");
@@ -115,7 +113,7 @@ class CoursesAnnee {
         }
     }
 
-    // Méthode pour supprimer une course pour une année donnée
+    // Method to delete
     public function DeleteRaceYear($pilotId, $teamId, $yearRace) {
         try {
             $req = $this->cnx->prepare("CALL DeleteRaceYear(?, ?, ?)");
@@ -128,7 +126,7 @@ class CoursesAnnee {
         }
     }
 
-    // Méthode pour modifier une course pour une année donnée
+    // Method to update
     public function updateRaceForYear($pilotId, $teamId, $year, $newPoints, $newPilotPlace, $newPilotNumber) {
         try {
             $req = $this->cnx->prepare("CALL UpdateRaceForYear(?, ?, ?, ?, ?, ?)");
