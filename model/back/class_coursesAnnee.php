@@ -9,9 +9,9 @@ class CoursesAnnee {
     }
 
     // Method to retrieve the details of a race per driverurse par pilote
-    public function getCourseDetailsByPilot($idPil) {
+    public function getCoursesDetailsByPilot($idPil) {
         try {
-            $req = $this->cnx->prepare("CALL GetCourseDetailsByPilot(?)");
+            $req = $this->cnx->prepare("CALL GetCoursesDetailsByPilot(?)");
             $req->bindParam(1, $idPil, PDO::PARAM_INT);
             $req->execute();
             return $req->fetchAll(PDO::FETCH_ASSOC);
@@ -23,9 +23,9 @@ class CoursesAnnee {
         }
     }
 
-    public function getCourseDetailsByTeam($idEcu) {
+    public function getCoursesDetailsByTeam($idEcu) {
         try {
-            $req = $this->cnx->prepare("CALL GetCourseDetailsByTeam(?)");
+            $req = $this->cnx->prepare("CALL GetCoursesDetailsByTeam(?)");
             $req->bindParam(1, $idEcu, PDO::PARAM_INT);
             $req->execute();
             return $req->fetchAll(PDO::FETCH_ASSOC);
@@ -34,9 +34,9 @@ class CoursesAnnee {
         }
     }
     // Method to retrieve the details of a team race
-    public function getCourseDetailsByPilotAndYear($idPil, $year) {
+    public function getCoursesDetailsByPilotAndYear($idPil, $year) {
         try {
-            $req = $this->cnx->prepare("CALL GetCourseDetailsByPilotAndYear(?, ?)");
+            $req = $this->cnx->prepare("CALL GetCoursesDetailsByPilotAndYear(?, ?)");
             $req->bindParam(1, $idPil, PDO::PARAM_INT);
             $req->bindParam(2, $year, PDO::PARAM_INT);
             $req->execute();
@@ -47,9 +47,9 @@ class CoursesAnnee {
     }
 
    // Method to retrieve the details of a race by team and year
-    public function getCourseDetailsByTeamAndYear($idEcu, $year) {
+    public function getCoursesDetailsByTeamAndYear($idEcu, $year) {
         try {
-            $req = $this->cnx->prepare("CALL GetCourseDetailsByTeamAndYear(?, ?)");
+            $req = $this->cnx->prepare("CALL GetCoursesDetailsByTeamAndYear(?, ?)");
             $req->bindParam(1, $idEcu, PDO::PARAM_INT);
             $req->bindParam(2, $year, PDO::PARAM_INT);
             $req->execute();
@@ -60,9 +60,9 @@ class CoursesAnnee {
     }
 
        // Method to retrieve the details of a race by team and year and pilot
-    public function getCourseDetailsByPilotTeamAndYear($idPil, $idEcu, $year) {
+    public function getCoursesDetailsByPilotTeamAndYear($idPil, $idEcu, $year) {
         try {
-            $req = $this->cnx->prepare("CALL GetCourseDetailsByPilotTeamAndYear(?, ?, ?)");
+            $req = $this->cnx->prepare("CALL GetCoursesDetailsByPilotTeamAndYear(?, ?, ?)");
             $req->bindParam(1, $idPil, PDO::PARAM_INT);
             $req->bindParam(2, $idEcu, PDO::PARAM_INT);
             $req->bindParam(3, $year, PDO::PARAM_INT);
