@@ -25,7 +25,7 @@ CREATE TABLE if not exists Ecurie (
     dateCreation year,
     localisation VARCHAR(50), 
     nbTitresConstructeur INT, 
-	coursesDisputees INT,
+	nbCoursesDisputees INT,
     nbVictoires INT, 
     nbPoduims INT, 
     directeur VARCHAR(50), 
@@ -203,7 +203,7 @@ INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
 
 
 -- 2018
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, coursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 ('Mercedes', '#6CD3BF', 1954, 'Brackley, Royaume-Uni', 8, 270, 125, 281, 'Toto Wolff'),  
 ('Ferrari', '#F91536', 1929, 'Maranello, Italie', 16, 1073, 243, 806, 'Frédéric Vasseur'),  
 ('Renault', '#FFF500', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
@@ -232,7 +232,7 @@ INSERT INTO Ecurie(nom,couleur) VALUES
 
 
 -- 2020
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, coursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('RED BULL RACING HONDA', '#3671C6'),
 	-- ('MCLAREN RENAULT', '#F58020'),
@@ -246,7 +246,7 @@ INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructe
 
 
 -- 2021
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, coursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('RED BULL RACING HONDA', '#3671C6'),
 	-- ('FERRARI', '#F91536'),
@@ -260,7 +260,7 @@ INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructe
 
 
 -- 2022
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, coursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 	-- ('Red Bull Racing', '#3671C6'),
 	-- ('FERRARI', '#F91536'),
 	-- ('MERCEDES', '#6CD3BF'),
@@ -706,7 +706,7 @@ CREATE PROCEDURE getEcurieById(
 	IN idEcu INT(3)
 )
 BEGIN
-    SELECT id, nom, couleur,dateCreation, localisation, nbTitresConstructeur, coursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
+    SELECT id, nom, couleur,dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     WHERE id=idEcu;
 END //
 DELIMITER ;
