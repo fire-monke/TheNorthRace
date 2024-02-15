@@ -848,4 +848,93 @@ END//
 DELIMITER ;
 
 
+-- PROCEDURES STOCKEES PARAMETREES
+-- -------------------------------------
+-- Classement Classement 
+-- -------------------------------------
+DROP PROCEDURE IF EXISTS getClassementByYear
+DELIMITER //
+CREATE PROCEDURE getClassementByYear(IN year INT)
+BEGIN
+    SELECT c.placePil, p.prenom, p.nom, p.paysPil, e.nom as nomEcurie, c.nbPointPil
+    FROM pilote p
+    INNER JOIN coursesannee c ON p.id = c.idPil
+    INNER JOIN ecurie e ON e.id = c.idEcu
+    WHERE c.annee = year
+    ORDER BY c.placePil;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getPodiumByYear
+DELIMITER //
+CREATE PROCEDURE getPodiumByYear(IN year INT)
+BEGIN
+    SELECT e.nom as nomEcurie, c.placeEcu, c.nbPointEcu
+	FROM classement c
+	INNER JOIN ecurie e ON e.id = c.idEcu
+	WHERE c.annee = year
+	ORDER BY c.placeEcu
+	LIMIT 3;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS addClassement;
+DELIMITER //
+CREATE PROCEDURE addClassement(
+    IN teamId INT,
+    IN year INT,
+    IN points INT,
+    IN teamPlace INT
+)
+BEGIN
+    INSERT INTO Classement(idEcu, annee, nbPointEcu, placeEcu) 
+    VALUES(teamId, year, points, teamPlace);
+END//
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS deleteClassement;
+DELIMITER //
+CREATE PROCEDURE deleteClassement(
+    IN teamId INT,
+    IN year INT
+)
+BEGIN
+    DELETE FROM Classement WHERE idEcu = teamId AND annee = year;
+END//
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS updateClassement;
+DELIMITER //
+CREATE PROCEDURE updateClassement(
+    IN points INT,
+    IN teamPlace INT,
+    IN teamId INT,
+    IN year INT
+)
+BEGIN
+    UPDATE Classement SET nbPointEcu = points, placeEcu = teamPlace 
+    WHERE idEcu = teamId AND annee = year;
+END//
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getClassementByTeam;
+DELIMITER //
+CREATE PROCEDURE getClassementByTeam(IN teamId INT)
+BEGIN
+    SELECT idEcu, annee, nbPointEcu, placeEcu
+    FROM Classement
+    WHERE idEcu = teamId;
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getClassementByYearAndTeam;
+DELIMITER //
+CREATE PROCEDURE getClassementByYearAndTeam(IN raceYear INT, IN teamId INT)
+BEGIN
+    SELECT idEcu, annee, nbPointEcu, placeEcu
+    FROM Classement
+    WHERE annee = raceYear AND idEcu = teamId;
+END //
+DELIMITER ;
 
