@@ -931,7 +931,7 @@ DROP PROCEDURE IF EXISTS getClassementByTeam;
 DELIMITER //
 CREATE PROCEDURE getClassementByTeam(IN teamId INT)
 BEGIN
-    SELECT *
+    SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
     WHERE idEcu = teamId;
 END //
@@ -941,7 +941,7 @@ DROP PROCEDURE IF EXISTS getClassementByYearAndTeam;
 DELIMITER //
 CREATE PROCEDURE getClassementByYearAndTeam(IN raceYear INT, IN teamId INT)
 BEGIN
-    SELECT *
+    SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
     WHERE annee = raceYear AND idEcu = teamId;
 END //
