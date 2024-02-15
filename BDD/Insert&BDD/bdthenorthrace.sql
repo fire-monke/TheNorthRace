@@ -752,9 +752,9 @@ CREATE PROCEDURE getCoursesDetailsByPilot (IN idPil INT) BEGIN
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByPilotAndYear;
+DROP PROCEDURE IF EXISTS getCoursesDetailsByPilotAndYear;
 DELIMITER //
-CREATE PROCEDURE getCourseDetailsByPilotAndYear (IN idPil INT, IN year INT) BEGIN
+CREATE PROCEDURE getCoursesDetailsByPilotAndYear (IN idPil INT, IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
@@ -763,9 +763,9 @@ CREATE PROCEDURE getCourseDetailsByPilotAndYear (IN idPil INT, IN year INT) BEGI
 END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS getCourseDetailsByPilotTeamAndYear;
+DROP PROCEDURE IF EXISTS getCoursesDetailsByPilotTeamAndYear;
 DELIMITER //
-CREATE PROCEDURE getCourseDetailsByPilotTeamAndYear (IN idPil INT, IN idEcu INT, IN year INT) BEGIN
+CREATE PROCEDURE getCoursesDetailsByPilotTeamAndYear (IN idPil INT, IN idEcu INT, IN year INT) BEGIN
     SELECT c.idPil,c.annee,c.idEcu,c.nbPointPil,c.placePil,c.numPil, p.nom AS nomPilote, p.prenom AS prenomPilote, e.nom AS nomEcurie
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
