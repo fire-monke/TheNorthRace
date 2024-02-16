@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Drivers</title>
-    <link rel="stylesheet" href="../../ressources/hallFamecss.css">
+    <link rel="stylesheet" href="../../ressources/alldrivers.css">
 </head>
 
 <body>
