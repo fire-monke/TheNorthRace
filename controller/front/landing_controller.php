@@ -2,7 +2,8 @@
 
 require_once(RACINE . '/model/back/class_pilote.php');
 require_once(RACINE . '/model/back/class_ecurie.php');
-
+$ecurieObj = new Ecurie();
+$ecuries = $ecurieObj->getEcuriesLastSeason();
 $Pilote = new Pilote();
 $Ecurie = new Ecurie();
 

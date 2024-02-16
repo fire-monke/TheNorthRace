@@ -12,6 +12,9 @@ try{
             case "accueil":
                 include_once(RACINE . '/controller/front/landing_controller.php');
                 break;
+            case "ecurie":
+                include_once(RACINE . '/controller/front/ecurie_controller.php');
+                break;
             case "connexion":
                 include_once(RACINE . '/controller/back/login_controller.php');
                 break;
