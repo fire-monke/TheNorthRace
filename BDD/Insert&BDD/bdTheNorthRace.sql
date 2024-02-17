@@ -598,7 +598,7 @@ CREATE PROCEDURE getPilotesByIdEcu(
 	IN idEcurie INT(3)
 )
 BEGIN
-	SELECT p.nom, p.prenom, e.nom AS nomEcurie
+	SELECT p.id, p.nom, p.prenom, e.nom AS nomEcurie
 	FROM Pilote p
 	INNER JOIN CoursesAnnee c ON p.id = c.idPil
 	INNER JOIN Ecurie e ON e.id = c.idEcu
