@@ -87,7 +87,7 @@
     <div class="standing" id="standing-initial">
     <?php
     $cpt=0;
-    foreach(array_slice($lesPilotes, 0, 10) as $unPilote)
+    foreach(array_slice($lesPilotes, 0, 6) as $unPilote)
     {
         $cpt+=1;
         echo '<div class="pilot">';
@@ -99,31 +99,8 @@
         echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
         echo '</div>';
     }?>
-    <button id="voir-plus">VOIR TOUS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
+    <button id="voir-initial">VOIR TOUS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var voirPlusBtn = document.getElementById("voir-plus");
-    var imgElement = voirPlusBtn.querySelector("img");
-
-    // Chemin vers l'image alternative
-    var alternativeImagePath = "./ressources/front/images/greenRow.png";
-
-    // Sauvegarder le chemin de l'image d'origine
-    var originalImagePath = imgElement.src;
-
-    // Changer l'image au survol
-    voirPlusBtn.addEventListener("mouseover", function() {
-        imgElement.src = alternativeImagePath;
-    });
-
-    // Revenir à l'image d'origine lorsque le curseur n'est plus sur le bouton
-    voirPlusBtn.addEventListener("mouseout", function() {
-        imgElement.src = originalImagePath;
-    });
-});
-</script>
 
 <div class="standing" id="tous" style="display: none;">
     <?php
@@ -140,20 +117,70 @@ document.addEventListener("DOMContentLoaded", function() {
         echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
         echo '</div>';
     }?>
+    <button id="voir-tous">VOIR MOINS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
 </div>
 
 <script>
+//script pour afficher les classements selon le bouton cliqué
 document.addEventListener("DOMContentLoaded", function() {
-    var voirPlusBtn = document.getElementById("voir-plus");
+    var voirInitialBtn = document.getElementById("voir-initial");
+    var voirTousBtn = document.getElementById("voir-tous");
     var standingInitial = document.getElementById("standing-initial");
     var tousStanding = document.getElementById("tous");
     
-    voirPlusBtn.addEventListener("click", function() {
+    voirInitialBtn.addEventListener("click", function() {
         standingInitial.style.display = "none";
         tousStanding.style.display = "flex";
     });
+    
+    voirTousBtn.addEventListener("click", function() {
+        tousStanding.style.display = "none";
+        standingInitial.style.display = "flex";
+    });
+});
+//script pour le hoover des boutons et remonter en haut lorsque voir moins est cliqué
+document.addEventListener("DOMContentLoaded", function() {
+    var voirPlusBtn = document.getElementById("voir-initial");
+    var voirMoinsBtn = document.getElementById("voir-tous");
+    var standingInitial = document.getElementById("standing-initial");
+    var tousStanding = document.getElementById("tous");
+
+    var imgElement = voirPlusBtn.querySelector("img");
+    var alternativeImagePath = "./ressources/front/images/greenRow.png";
+    var originalImagePath = imgElement.src;
+
+    voirPlusBtn.addEventListener("click", function() {
+        standingInitial.style.display = "none";
+        tousStanding.style.display = "flex";
+        imgElement.src = alternativeImagePath; // Changer l'image du bouton voir-tous
+    });
+
+    voirMoinsBtn.addEventListener("click", function() {
+        tousStanding.style.display = "none";
+        standingInitial.style.display = "flex";
+        standingInitial.scrollIntoView(); // Faire défiler vers le haut de la div standingInitial
+        imgElement.src = originalImagePath; // Changer l'image du bouton voir-initial
+    });
+
+    // Ajouter le comportement de survol pour les deux boutons
+    voirPlusBtn.addEventListener("mouseover", function() {
+        imgElement.src = alternativeImagePath;
+    });
+
+    voirPlusBtn.addEventListener("mouseout", function() {
+        imgElement.src = originalImagePath;
+    });
+
+    voirMoinsBtn.addEventListener("mouseover", function() {
+        imgElement.src = alternativeImagePath;
+    });
+
+    voirMoinsBtn.addEventListener("mouseout", function() {
+        imgElement.src = originalImagePath;
+    });
 });
 </script>
+
 
 </section>
 <section class="grandPrix">
