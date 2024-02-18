@@ -10,108 +10,96 @@
     <title>TheNorthRace</title>
 </head>
 <body>
-    <header style="position: relative;">
+    <header>
         <div class="wrapper">
         <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
-    </div>
-        <nav id="headerNav" >
-            <a href="">Classement</a>
-            <a href="">Pilotes</a>
-            <a href="#" id="ecurie" onmouseleave="clearContent()">Ecuries</a>
-            <div class="espaceEntreEcurieEtHovEcu"></div>
-            <a href="">Archives</a>
-    </div>
-        </nav>
-        <div class="connection">
-            <a href="./connexion">Connexion</a>
-            <a href="./inscription">Inscription</a>
         </div>
-   
-        <div class= "hovEcu" style="display: none;">
+<nav id="headerNav">
+    <a href="">Classement</a>
+    <a href="">Pilotes</a>
+    <a href="" id="ecurie">Ecuries</a>
+    <a href="">Archives</a>
+</nav>
+<div class="connection">
+    <a href="./connexion">Connexion</a>
+    <a href="./inscription">Inscription</a>
+</div>
 
-    <h2 class='hov'>Toutes</h2>
-    <div class="toutes">
-    <?php foreach ($ecuries as $ecurie):
-        $nomEcurie = $ecurie->nom;
-        $couleurEcurie = $ecurie->couleur;
-        $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
-        ?>
-         <a class="a-f1" href="http://localhost/TheNorthRace/ecurie/<?php echo $ecurie->id; ?>">
-        <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
-            <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
-            <h4><?php echo $nomEcurie; ?></h4>
-            <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px" margin-left="200px">
-        </div>
-        </a>
-    <?php endforeach; ?>
-    </div>
-    <script>
-    // Sélectionnez tous les éléments avec l'attribut 'data-color-ecurie'
-    const elements = document.querySelectorAll('[data-color-ecurie]');
-    
-    // Parcourez chaque élément et ajoutez un gestionnaire d'événements pour 'mouseover'
-    elements.forEach((element) => {
-        element.addEventListener('mouseover', () => {
-            // Changez la couleur de la bordure de l'élément en utilisant l'attribut 'data-color-ecurie'
-            element.style.borderColor = element.getAttribute('data-color-ecurie');
-        });
-        
-        // Ajoutez également un gestionnaire d'événements pour 'mouseout' pour réinitialiser la couleur de la bordure
-        element.addEventListener('mouseout', () => {
-            element.style.borderColor = ''; // Réinitialiser la couleur de la bordure
-        });
-    });
-</script>
-    </div>
-    <script>
-    const ecurie = document.querySelector('#ecurie');
-    const espaceEntreEcurieEtHovEcu = document.querySelector('.espaceEntreEcurieEtHovEcu');
-    const hovEcu = document.querySelector('.hovEcu');
 
-    // Lorsque vous survolez l'élément ecurie, affichez la div hovEcu
-    ecurie.addEventListener('mouseover', () => {
-        hovEcu.style.display = 'block';
-    });
-
-    // Lorsque vous quittez l'élément ecurie, vérifiez si la souris est toujours sur hovEcu ou sur l'espace entre ecurie et hovEcu,
-    // Si non, masquez la div hovEcu
-    ecurie.addEventListener('mouseout', () => {
-        // Vérifiez si la souris est sur hovEcu ou sur l'espace entre ecurie et hovEcu
-        const isMouseOverHovEcuOrSpace = (e) => {
-            return hovEcu.contains(e.relatedTarget) || espaceEntreEcurieEtHovEcu.contains(e.relatedTarget);
-        };
-
-        // Si la souris n'est ni sur hovEcu ni sur l'espace entre ecurie et hovEcu, masquez hovEcu
-        if (!isMouseOverHovEcuOrSpace(event)) {
-            hovEcu.style.display = 'none';
-        }
-    });
-
-    // Lorsque vous survolez hovEcu, gardez-la affichée
-    hovEcu.addEventListener('mouseover', () => {
-        hovEcu.style.display = 'block';
-    });
-
-    // Lorsque vous quittez hovEcu, masquez-la
-    hovEcu.addEventListener('mouseout', () => {
-        hovEcu.style.display = 'none';
-    });
-
-    // Lorsque vous survolez l'espace entre ecurie et hovEcu, gardez hovEcu affichée
-    espaceEntreEcurieEtHovEcu.addEventListener('mouseover', () => {
-        hovEcu.style.display = 'block';
-    });
-
-    // Lorsque vous quittez l'espace entre ecurie et hovEcu, masquez-la
-    espaceEntreEcurieEtHovEcu.addEventListener('mouseout', () => {
-        hovEcu.style.display = 'none';
-    });
-</script>
 
     </header>
     
     <main>
-        <section class="firstSection">
+        <section class="firstSection" style= 'position: relative';>
+        <div class="hovEcu" style="display: none;">
+            <h2 class='hov'>Toutes</h2>
+            <div class="toutes">
+                <?php foreach ($ecuries as $ecurie):
+                    $nomEcurie = $ecurie->nom;
+                    $couleurEcurie = $ecurie->couleur;
+                    $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
+                ?>
+                    <a class="a-f1" href="http://localhost/TheNorthRace/ecurie/<?php echo $ecurie->id; ?>">
+                        <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
+                            <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
+                            <h4><?php echo $nomEcurie; ?></h4>
+                            <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+         </div>
+
+    <script>
+        // Sélectionnez tous les éléments avec l'attribut 'data-color-ecurie'
+        const elements = document.querySelectorAll('[data-color-ecurie]');
+
+        // Parcourez chaque élément et ajoutez un gestionnaire d'événements pour 'mouseover'
+        elements.forEach((element) => {
+            element.addEventListener('mouseover', () => {
+                // Changez la couleur de la bordure de l'élément en utilisant l'attribut 'data-color-ecurie'
+                element.style.borderColor = element.getAttribute('data-color-ecurie');
+            });
+
+            // Ajoutez également un gestionnaire d'événements pour 'mouseout' pour réinitialiser la couleur de la bordure
+            element.addEventListener('mouseout', () => {
+                element.style.borderColor = ''; // Réinitialiser la couleur de la bordure
+            });
+        });
+
+        // Sélectionnez l'élément 'ecurie' dans le 'headerNav'
+        const ecurie = document.querySelector('#headerNav #ecurie');
+        const hovEcu = document.querySelector('.hovEcu');
+
+        // Fonction pour vérifier si la souris est sur ou en dehors de 'hovEcu'
+        const isMouseOverHovEcu = (e) => {
+            return hovEcu.contains(e.relatedTarget) || ecurie.contains(e.relatedTarget) || e.target == ecurie;
+        };
+
+        // Lorsque vous survolez l'élément 'ecurie', affichez la div 'hovEcu'
+        ecurie.addEventListener('mouseover', () => {
+            hovEcu.style.display = 'block';
+        });
+
+        // Lorsque vous quittez l'élément 'ecurie' ou 'hovEcu', masquez la div 'hovEcu'
+        document.addEventListener('mouseout', (e) => {
+            if (!isMouseOverHovEcu(e)) {
+                hovEcu.style.display = 'none';
+            }
+        });
+
+        // Lorsque vous survolez 'hovEcu', gardez-la affichée
+        hovEcu.addEventListener('mouseover', () => {
+            hovEcu.style.display = 'block';
+        });
+
+        // Lorsque vous quittez 'hovEcu', masquez-la
+        hovEcu.addEventListener('mouseout', () => {
+            hovEcu.style.display = 'none';
+        });
+
+        </script>
+
             <div class="wrapper">
                 <div class="wrapper2">
             <h3>NEWSLETTER</h3>
