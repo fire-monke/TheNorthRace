@@ -84,22 +84,77 @@
         </div>
     </div><!-- Fermeture de la balise podium -->
 
-    <div class="standing">
-        <?php
-        $cpt=0;
-        foreach($lesPilotes as $unPilote)
-        {
-            $cpt+=1;
-            echo '<div class="pilot">';
-            echo '<h2>'.$cpt.'</h2>'; echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
-            echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
-            echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
-            echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
-            echo '<img name="row "src="./ressources/front/images/greenRow.png" alt="">';
-            echo '</div>';
-        }?>
-        <!-- <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button> -->
-    </div>
+    <div class="standing" id="standing-initial">
+    <?php
+    $cpt=0;
+    foreach(array_slice($lesPilotes, 0, 10) as $unPilote)
+    {
+        $cpt+=1;
+        echo '<div class="pilot">';
+        echo '<h2>'.$cpt.'</h2>'; 
+        echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
+        echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
+        echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
+        echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
+        echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
+        echo '</div>';
+    }?>
+    <button id="voir-plus">VOIR TOUS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var voirPlusBtn = document.getElementById("voir-plus");
+    var imgElement = voirPlusBtn.querySelector("img");
+
+    // Chemin vers l'image alternative
+    var alternativeImagePath = "./ressources/front/images/greenRow.png";
+
+    // Sauvegarder le chemin de l'image d'origine
+    var originalImagePath = imgElement.src;
+
+    // Changer l'image au survol
+    voirPlusBtn.addEventListener("mouseover", function() {
+        imgElement.src = alternativeImagePath;
+    });
+
+    // Revenir à l'image d'origine lorsque le curseur n'est plus sur le bouton
+    voirPlusBtn.addEventListener("mouseout", function() {
+        imgElement.src = originalImagePath;
+    });
+});
+</script>
+
+<div class="standing" id="tous" style="display: none;">
+    <?php
+    $cpt=0;
+    foreach($lesPilotes as $unPilote)
+    {
+        $cpt+=1;
+        echo '<div class="pilot">';
+        echo '<h2>'.$cpt.'</h2>'; 
+        echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
+        echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
+        echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
+        echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
+        echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
+        echo '</div>';
+    }?>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var voirPlusBtn = document.getElementById("voir-plus");
+    var standingInitial = document.getElementById("standing-initial");
+    var tousStanding = document.getElementById("tous");
+    
+    voirPlusBtn.addEventListener("click", function() {
+        standingInitial.style.display = "none";
+        tousStanding.style.display = "flex";
+    });
+});
+</script>
+
 </section>
 <section class="grandPrix">
     <div class="gpChild">

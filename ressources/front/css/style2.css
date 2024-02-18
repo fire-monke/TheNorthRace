@@ -379,6 +379,8 @@ header .wrapper{
     padding-bottom:2vw;
 }
 
+#voir-plus:hover{    background-color: white;
+    color: #2D2D2D;}
 .pilot{
     width: 70%;
     height: 5vw;
