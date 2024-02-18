@@ -49,7 +49,6 @@
             <a href="">Constructeurs</a>
             <a href="">Dernière Course</a>
     </nav>
-    
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
