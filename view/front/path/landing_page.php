@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-    </div><!-- Fermeture de la balise podium -->
+    </div><!-- Closing the podium div -->
 
     <div class="standing" id="standing-initial">
     <?php
@@ -121,7 +121,7 @@
 </div>
 
 <script>
-//script pour afficher les classements selon le bouton cliqué
+//script to display rankings based on button clicked
 document.addEventListener("DOMContentLoaded", function() {
     var voirInitialBtn = document.getElementById("voir-initial");
     var voirTousBtn = document.getElementById("voir-tous");
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
         standingInitial.style.display = "flex";
     });
 });
-//script pour le hoover des boutons et remonter en haut lorsque voir moins est cliqué
+//script to hoover buttons and go to top when view less is clicked
 document.addEventListener("DOMContentLoaded", function() {
     var voirPlusBtn = document.getElementById("voir-initial");
     var voirMoinsBtn = document.getElementById("voir-tous");
@@ -152,17 +152,17 @@ document.addEventListener("DOMContentLoaded", function() {
     voirPlusBtn.addEventListener("click", function() {
         standingInitial.style.display = "none";
         tousStanding.style.display = "flex";
-        imgElement.src = alternativeImagePath; // Changer l'image du bouton voir-tous
+        imgElement.src = alternativeImagePath; // Change the image of the voir-plus button
     });
 
     voirMoinsBtn.addEventListener("click", function() {
         tousStanding.style.display = "none";
         standingInitial.style.display = "flex";
-        standingInitial.scrollIntoView(); // Faire défiler vers le haut de la div standingInitial
-        imgElement.src = originalImagePath; // Changer l'image du bouton voir-initial
+        standingInitial.scrollIntoView(); // Scroll to top of div standingInitial
+        imgElement.src = originalImagePath; // Change the image of the voir-initial
     });
 
-    // Ajouter le comportement de survol pour les deux boutons
+    // Add hover behavior for both buttons
     voirPlusBtn.addEventListener("mouseover", function() {
         imgElement.src = alternativeImagePath;
     });
@@ -180,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-
 
 </section>
 <section class="grandPrix">
