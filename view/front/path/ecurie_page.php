@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./ressources/front/css/ecurie.css">
+    <link rel="stylesheet" href="../ressources/front/css/ecurie.css">
     <title>Écuries</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
           <?php foreach ($pilotes as $pilote) : ?>
             <div class="pilote">
             <div class="imgPil">
-                <img src="<?php echo "./ressources/front/images/photo_pilote_PNG/{$pilote->nom}.png"; ?>" alt="Nom de l'image">
+                <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$pilote->nom}.png"; ?>" alt="Nom de l'image">
             </div>
                 <div class="interBloqueDroiteG">
                     <?php

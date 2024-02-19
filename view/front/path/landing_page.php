@@ -10,27 +10,24 @@
     <title>TheNorthRace</title>
 </head>
 <body>
-    <header>
-        <div class="wrapper">
+<header>
+    <div class="wrapper">
         <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
-        </div>
-<nav id="headerNav">
-    <a href="">Classement</a>
-    <a href="">Pilotes</a>
-    <a href="" id="ecurie">Ecuries</a>
-    <a href="">Archives</a>
-</nav>
-<div class="connection">
-    <a href="./connexion">Connexion</a>
-    <a href="./inscription">Inscription</a>
-</div>
-
-
-
-    </header>
+    </div>
+    <nav id="headerNav">
+        <a href="">Classement</a>
+        <a href="">Pilotes</a>
+        <a href="" id="ecurie">Ecuries</a>
+        <a href="">Archives</a>
+    </nav>
+    <div class="connection">
+        <a href="./connexion">Connexion</a>
+        <a href="./inscription">Inscription</a>
+    </div>
+</header>
     
-    <main>
-        <section class="firstSection" style= 'position: relative';>
+<main>
+    <section class="firstSection" style= 'position: relative';>
         <div class="hovEcu" style="display: none;">
             <h2 class='hov'>Toutes</h2>
             <div class="toutes">
@@ -39,16 +36,16 @@
                     $couleurEcurie = $ecurie->couleur;
                     $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
                 ?>
-                    <a class="a-f1" href="http://localhost/TheNorthRace/ecurie/<?php echo $ecurie->id; ?>">
+                    <a class="a-f1" href="./ecurie/<?php echo $ecurie->id; ?>">
                         <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
                             <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
                             <h4><?php echo $nomEcurie; ?></h4>
-                            <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
+                            <img class="img-f1" src="../ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
                         </div>
                     </a>
                 <?php endforeach; ?>
             </div>
-         </div>
+        </div>
 
     <script>
         // Sélectionnez tous les éléments avec l'attribut 'data-color-ecurie'
@@ -115,14 +112,14 @@
                 <a href=""><img src="./ressources/front/images/whiteLinkedin.png" alt="#"></a>
             </div>
         </div>
-</section>
-<section class="secondSection">
+    </section>
+    <section class="secondSection">
     <nav id="championshipNav">
             <a href="">Pilotes</a>
             <a href="">Constructeurs</a>
             <a href="">Dernière Course</a>
     </nav>
-    
+
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
@@ -173,19 +170,19 @@
         }?>
         <!-- <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button> -->
     </div>
-</section>
-<section class="grandPrix">
+    </section>
+    <section class="grandPrix">
     <div class="gpChild">
         <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div><div class="gpChild">
+    </div><div class="gpChild">
     <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div><div class="gpChild active">
+    </div><div class="gpChild active">
     <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2023</h1>
@@ -211,20 +208,20 @@
                 </div>
             </div>
         </div>
-</div>
-<div class="gpChild">
+    </div>
+    <div class="gpChild">
     <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div><div class="gpChild">
+    </div><div class="gpChild">
         <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div>
-</section>
-<footer>
+    </div>
+    </section>
+    <footer>
     <section class="contact">
         <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
         <form action="" method="post">
@@ -267,9 +264,9 @@
         <a href=""><img src="./ressources/front/images/greyGitHub.png" alt="#"></a>
         <a href=""><img src="./ressources/front/images/greyTwitter.png" alt="#"></a>
         <a href=""><img src="./ressources/front/images/greyLinkedin.png" alt="#"></a>
-</div>
-<a class="TheNorthRace" href="">© 2023  -  TheNorthRace</a>
-</footer>
-    </main>
+    </div>
+    <a class="TheNorthRace" href="">© 2023  -  TheNorthRace</a>
+    </footer>
+</main>
 </body>
 </html>
