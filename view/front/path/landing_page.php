@@ -17,7 +17,7 @@
         <nav id="headerNav">
             <a href="">Classement</a>
             <a href="">Pilotes</a>
-            <a href="">Ecuries</a>
+            <a href="./ecuries">Ecuries</a>
             <a href="">Archives</a>
         </nav>
         <div class="connection">
