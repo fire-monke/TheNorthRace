@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 	font-family: Montserrat;
 	transition: .3s;
-	background-color: red;
+
 
 }
 
@@ -49,9 +49,8 @@ main{
 	margin-left: 40px;
 }
 
-/* .trait{display: flex;margin-top: 80px;
-
-} */
+.trait{display: flex;margin-top: 80px;
+} 
 
 
 .BoqueGauche{
@@ -84,10 +83,10 @@ height: 500px; */
 /* .pilote1{width: 50%;}
 .pilote2{width: 50%;} */
 
-/* .imgPil{
+.imgPil{
 
 
-height: 20vw;
+height: 17vw;
 width: auto;
 /* background-image: url("./Hamilton.png"); */
 /* background-repeat: no-repeat;
@@ -95,7 +94,9 @@ background-size: contain;
 background-color: red; */
 
 
-/*}*/
+}
+
+img{height: 100%;}
 
 /* .imgPil2{
 

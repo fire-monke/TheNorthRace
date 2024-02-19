@@ -40,7 +40,7 @@
                         <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
                             <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
                             <h4><?php echo $nomEcurie; ?></h4>
-                            <img class="img-f1" src="../ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
+                            <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
                         </div>
                     </a>
                 <?php endforeach; ?>
