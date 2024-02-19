@@ -16,7 +16,7 @@
     </div>
         <nav id="headerNav">
             <a href="">Classement</a>
-            <a href="">Pilotes</a>
+            <a href="./pilotes">Pilotes</a>
             <a href="">Ecuries</a>
             <a href="">Archives</a>
         </nav>

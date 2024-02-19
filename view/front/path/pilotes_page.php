@@ -4,226 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ressources/front/css/pilotes.css">
-    <title>Pilotes</title>
-    
 </head>
 <body>
    <main>
-    <h1>Pilotes F1 2023</h1>
-   <div class="top">
-        <div class="inTop">
-                 <div class="infoTop">
-                    <p>1</p>
-                    <p>100 PTS</p>
+    <h1 style="font-size: 60px;">Pilotes F1 2023</h1>
+    <div class="top">
+        <?php foreach ($pilotes as $pilote): ?>
+            <?php 
+            // Récupérer l'écurie du pilote
+            $ecuriePil = $ecurieController->getEcurieOfLastSeasonOfPiloteByIdPilote($pilote->id);
+            ?>
+            <div class="pilote">
+                <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
+                    <div class="infoTop">
+                        <p><?= $detail['placePil'] ?></p>
+                        <p><?= $detail['nbPointPil'] ?> PTS</p>
+                    </div>
+                <?php endforeach; ?>
+                <div class="infomid">
+                    <div class="couleur">
+                        <div class="couleur-ecu" style="background-color: <?= $ecuriePil->couleur ?>"></div>
+                        <div class="nom-prenom">
+                            <p><?= $pilote->prenom ?></p>
+                            <h2><?= $pilote->nom ?></h2>
+                        </div>
+                    </div>
+                    <img class="drapeau" src="./ressources/front/images/pays_Pilote_PNG/<?= $pilote->paysPil ?>.png" alt="Drapeau du pays du pilote" width="50px" height="30px">
                 </div>
-                <div class="nom-prenomTop">
-                    <h4>Nom du pilote 1111</h4>
-                    <h4>Prénom du pilote 1111</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
+                <div class="ecurie">
+                    <div class="info-ecurie">
+                        <div class="nomEcu">
+                            <p style="font-size: 20px;"><?= $ecuriePil->nom ?></p>
+                        </div>
+                        <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
+                            <div class="infoCourse">
+                                <div class="num-pilote" style="font-size: 50px;"><?= $detail['numPil'] ?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="photo-pilote">
+                        <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom ?>" alt="Photo du pilote">
+                    </div>
                 </div>
-                <div class="ecurieTop">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-        </div>
-        
-        <div class="inTop">
-                <div class="infoTop">
-                    <p>1</p>
-                    <p>100 PTS</p>
-                </div>
-                <div class="nom-prenomTop">
-                    <h4>Nom du pilote 2222</h4>
-                    <h4>Prénom du pilote 2222</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurieTop">
-                    <p>Nom de l'écurie 2222</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 2222</p>
-                </div>
-        </div>
-
-        <div class="inTop">
-                <div class="infoTop">
-                    <p>1</p>
-                    <p>100 PTS</p>
-                </div>
-                <div class="nom-prenomTop">
-                    <h4>Nom du pilote 3333</h4>
-                    <h4>Prénom du pilote 3333</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurieTop">
-                    <p>Nom de l'écurie 3333</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 3333</p>
-                </div>
-        </div>
+            </div>
+        <?php endforeach; ?>
     </div>
-    <div class="tous">
+    </main>
 
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>1</p>
-                    <p>100 PTS</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-            <div class="pilote" id="pilote1">
-                <div class="info">
-                    <p>Position: 1</p>
-                    <p>Points: 100</p>
-                </div>
-                <div class="nom-prenom">
-                    <h4>Nom du pilote 1</h4>
-                    <h4>Prénom du pilote 1</h4>
-                    <img src="pays_image1.png" alt="Drapeau du pays du pilote 1" width="50px" height="30px">
-                </div>
-                <div class="ecurie">
-                    <p>Nom de l'écurie 1</p>
-                    <img src="photo_pilote1.png" alt="Photo du pilote 1" width="100px" height="100px">
-                    <p>Numéro: 1</p>
-                </div>
-            </div>
-    </div>
+<script>
+    // Ajoutez votre script JavaScript ici
+    const pilotes = document.querySelectorAll('.pilote');
+
+    pilotes.forEach(pilote => {
+        pilote.addEventListener('mouseover', () => {
+            const couleurEcu = pilote.querySelector('.couleur-ecu').style.backgroundColor;
+            pilote.style.borderRight = `2px solid ${couleurEcu}`;
+            pilote.style.borderTop = `2px solid ${couleurEcu}`;
+            
+            // Appliquer la couleur de l'écurie au numéro de pilote
+            const numPilote = pilote.querySelector('.num-pilote');
+            if (numPilote) {
+                numPilote.style.color = couleurEcu;
+            }
+        });
+
+        pilote.addEventListener('mouseout', () => {
+            pilote.style.borderRight = '2px solid black'; 
+            pilote.style.borderTop = '2px solid black';
+            
+            // Réinitialiser la couleur du numéro de pilote
+            const numPilote = pilote.querySelector('.num-pilote');
+            if (numPilote) {
+                numPilote.style.color = 'black';
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

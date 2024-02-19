@@ -1,4 +1,4 @@
-*{background-color: red;}
+
 
 h1{
     border-right: 1px solid #434346; 
@@ -12,16 +12,16 @@ h1{
 .top{
     display: flex;
     margin-top: 100px;
-    justify-content: center;
-    
-   
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 200px;
 
 }  
 .inTop{
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #434346; 
-    border-top: 1px solid #434346; 
+    border-right: 2px solid black; 
+    border-top: 2px solid black; 
     box-shadow: 5px 0 5px -5px #11111111, 0 5px 5px -5px #11111111;
     border-radius: 0px  20px 0px 0px;
     padding-left: 10px;
@@ -42,9 +42,10 @@ h1{
 
 .pilote{
     display: flex;
+    flex-direction: column;
     justify-content: center;    
-    border-right: 1px solid #434346; 
-    border-top: 1px solid #434346; 
+    border-right: 2px solid black; 
+    border-top: 2px solid black; 
     box-shadow: 5px 0 5px -5px #11111111, 0 5px 5px -5px #11111111;
     border-radius: 0px  20px 0px 0px;
     padding-bottom: 10px;
@@ -54,15 +55,52 @@ h1{
     width: 350px;
     height: 300px;
 
+
 }
 
 .infoTop {
     display: flex;
-    height: 40px;
-    width: 100%;
-    align-items: top;
-    background-color: red;
+    height: 30px;
+    width: 94.5%;
     justify-content: space-between;
     border-bottom: 1px solid #434346; 
+    padding: 10px;
     
 }
+.infomid{display: flex;  border-bottom: 1px solid #434346; align-items: center;justify-content: space-around; }
+.nom-prenom h2 {
+    margin: 0; /* Ajoutez cette ligne pour supprimer les marges */
+    padding-top: 5px;
+}
+.nom-prenom p {
+    margin: 0; /* Ajoutez cette ligne pour supprimer les marges */
+}
+.nom-prenom {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.drapeau{margin-right: 10px;}
+.couleur{display: flex; align-items: center; width: 100%;
+    justify-content: flex-start;  margin-right: 5vh;}
+    
+.couleur-ecu{height: 40px; width: 5px;    margin-right: 1vh;}
+
+.ecurie{
+ 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+
+    
+}
+
+.info-ecurie{display: flex;  flex-direction: column;   align-items: baseline; height: 100%;justify-content: space-around;}
+
+
+
