@@ -8,11 +8,23 @@ $ecurieObj = new Ecurie();
 $CourseObj = new CoursesAnnee();
 $piloteObj = new Pilote();
 
-$ecurie = $ecurieObj->getEcurieById($idEcurie);
+// Supposons que $idEcurie est déjà défini
 
-# tests if the identifier sent by the url exists
-if (!isset($ecurie) || $ecurie == ''){
-    throw new Exception("L'id de l'écurie est introuvable");
+// Récupérer les écuries de la dernière saison
+$ecuriesLastSeason = $ecurieObj->getEcuriesLastSeason();
+
+// Vérifier si l'écurie avec $idEcurie fait partie de la dernière saison
+$ecurie = null;
+foreach ($ecuriesLastSeason as $ecurieLastSeason) {
+    if ($ecurieLastSeason->id == $idEcurie) {
+        $ecurie = $ecurieLastSeason;
+        break;
+    }
+}
+
+// Si l'écurie n'appartient pas à la dernière saison, lancer une exception
+if ($ecurie === null) {
+    throw new Exception("L'écurie avec l'ID $idEcurie n'appartient pas à la dernière saison.");
 }
 
 $nomEcurie = $ecurie->nom;
@@ -26,7 +38,7 @@ $podiumsEcurie = $ecurie->nbPoduims;
 $directeurEcurie = $ecurie->directeur;
 $pilotes = $piloteObj->getPilotesByIdEcu($idEcurie);
 $idPils = array(); 
-$year = 2023;
+$year = 2023; // La dernière saison
 
 // Générer le chemin d'accès et le style pour l'image de l'écurie
 $ecurieNom = $ecurie->nom;
@@ -38,7 +50,6 @@ if ($ecurieNom === "Alpine" || $ecurieNom === "Aston Martin Aramco" || $ecurieNo
     // Appliquer un style particulier
     $style = 'object-fit: contain; max-height: 300px; margin-top: 20px;';
 }
-
 
 // Inclure la vue
 include_once(RACINE . '/view/front/path/ecurie_page.php');
