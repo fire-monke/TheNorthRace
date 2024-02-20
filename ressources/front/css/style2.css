@@ -395,7 +395,7 @@ header .wrapper{
 }
 
 #voir-initial:hover,
-#voir-tous:hover {
+#voir-moins:hover {
     background-color: white;
     color: #2D2D2D;
 }
