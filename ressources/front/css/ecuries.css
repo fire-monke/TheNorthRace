@@ -62,19 +62,32 @@ h2{
     margin-right: 8px;
     
     justify-content: space-between;
-    height: 55px;align-items: center;
+    height: 55px;
+    align-items: center;
 }
 
-.interpil{display: flex;align-items: baseline;}
-p{font-size: 20px;}
-.ecurie{display: flex; justify-content: flex-start;}
+.interpil{
+    display: flex;
+    align-items: baseline;
+}
+
+p{
+    font-size: 20px;
+}
+
+.ecurie{
+    display: flex;
+    justify-content: flex-start;
+}
+
 .voiture {
     width: 500px;
     height: 160px;
-
 }
 
-.img{height: 200px;}
+.img{
+    height: 200px;
+}
 
 .imgPil {
     height:55px;
