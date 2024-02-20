@@ -188,50 +188,69 @@
         echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
         echo '</div>';
     }?>
-       <button id="voir-moins">VOIR MOINS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
+       <button id="voir-tous">VOIR MOINS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
 </div>
+
 <script>
+//script to display rankings based on button clicked
 document.addEventListener("DOMContentLoaded", function() {
     var voirInitialBtn = document.getElementById("voir-initial");
-    var voirMoinsBtn = document.getElementById("voir-moins");
+    var voirTousBtn = document.getElementById("voir-tous");
     var standingInitial = document.getElementById("standing-initial");
     var tousStanding = document.getElementById("tous");
-    var imgElementPlus = voirInitialBtn.querySelector("img");
-    var imgElementMoins = voirMoinsBtn.querySelector("img");
-    var originalImagePath = imgElementPlus.src;
-    var alternativeImagePath = "./ressources/front/images/greenRow.png";
-
+    
     voirInitialBtn.addEventListener("click", function() {
         standingInitial.style.display = "none";
         tousStanding.style.display = "flex";
-        imgElementPlus.src = alternativeImagePath;
     });
     
+    voirTousBtn.addEventListener("click", function() {
+        tousStanding.style.display = "none";
+        standingInitial.style.display = "flex";
+    });
+});
+//script to hoover buttons and go to top when view less is clicked
+document.addEventListener("DOMContentLoaded", function() {
+    var voirPlusBtn = document.getElementById("voir-initial");
+    var voirMoinsBtn = document.getElementById("voir-tous");
+    var standingInitial = document.getElementById("standing-initial");
+    var tousStanding = document.getElementById("tous");
+
+    var imgElement = voirPlusBtn.querySelector("img");
+    var alternativeImagePath = "./ressources/front/images/greenRow.png";
+    var originalImagePath = imgElement.src;
+
+    voirPlusBtn.addEventListener("click", function() {
+        standingInitial.style.display = "none";
+        tousStanding.style.display = "flex";
+        imgElement.src = alternativeImagePath; // Change the image of the voir-plus button
+    });
+
     voirMoinsBtn.addEventListener("click", function() {
         tousStanding.style.display = "none";
         standingInitial.style.display = "flex";
-        standingInitial.scrollIntoView();
-        imgElementPlus.src = originalImagePath;
+        standingInitial.scrollIntoView(); // Scroll to top of div standingInitial
+        imgElement.src = originalImagePath; // Change the image of the voir-initial
     });
 
-    voirInitialBtn.addEventListener("mouseover", function() {
-        imgElementPlus.src = alternativeImagePath;
+    // Add hover behavior for both buttons
+    voirPlusBtn.addEventListener("mouseover", function() {
+        imgElement.src = alternativeImagePath;
     });
 
-    voirInitialBtn.addEventListener("mouseout", function() {
-        imgElementPlus.src = originalImagePath;
+    voirPlusBtn.addEventListener("mouseout", function() {
+        imgElement.src = originalImagePath;
     });
 
     voirMoinsBtn.addEventListener("mouseover", function() {
-        imgElementMoins.src = alternativeImagePath;
+        imgElement.src = alternativeImagePath;
     });
 
     voirMoinsBtn.addEventListener("mouseout", function() {
-        imgElementMoins.src = originalImagePath;
+        imgElement.src = originalImagePath;
     });
 });
 </script>
-
     <div class="standing">
         <?php
         $cpt=0;
