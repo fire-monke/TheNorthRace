@@ -16,7 +16,7 @@
                         <div class="couleur" style="background-color: <?= $ecurie->couleur; ?>"></div>
                         <h2><?= $ecurie->nom; ?></h2>
                     </div>
-                    <img src="./ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" width="<?= (($ecurie->nom === 'Ferrari') ? '100px' : '80px'); ?>" height="60px" style="margin-right:30px;">
+                    <img class="imgEcu" src="./ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png">
                 </div>
                 <div class="nom-prenom">
                     <?php
@@ -25,15 +25,15 @@
                     foreach ($pilotes as $pilote): ?>
                         <div class="pil">
                             <div class="interpil">
-                                <p style="font-size: 20px;"><?= $pilote->prenom; ?></p>
+                                <p><?= $pilote->prenom; ?></p>
                                 <h2><?= $pilote->nom; ?></h2>
                             </div>
-                            <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom; ?>.png" alt="img du pilote" width="60px" height="55px" style="margin-top:5px; margin-right:10px;">
+                            <img class="imgPil"src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom; ?>.png" alt="img du pilote">
                         </div>
                     <?php endforeach; ?>
                 </div>
                 <div class="ecurie">
-                <div class="voiture"><img src="./ressources/front/images/photo_voiture_PNG/voiture_<?= str_replace(' ', '_', $ecurie->nom); ?>.png" alt="Photo de la voiture" width="500px" height="160px" style="margin-top: <?= ($ecurie->nom === 'Alphatauri') ? '50px;' : '10px;'; ?>"></div>
+                <div class="voiture"><img src="./ressources/front/images/photo_voiture_PNG/voiture_<?= str_replace(' ', '_', $ecurie->nom); ?>.png" alt="Photo de la voiture" style="margin-top: <?= ($ecurie->nom === 'Alphatauri') ? '25px;' : '10px;'; ?>"></div>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -46,8 +46,8 @@
         pilotes.forEach(pilote => {
             pilote.addEventListener('mouseover', () => {
                 const couleurEcu = pilote.querySelector('.couleur').style.backgroundColor;
-                pilote.style.borderRight = `3px solid ${couleurEcu}`;
-                pilote.style.borderTop = `3px solid ${couleurEcu}`;
+                pilote.style.borderRight = `2px solid ${couleurEcu}`;
+                pilote.style.borderTop = `2px solid ${couleurEcu}`;
             });
 
             pilote.addEventListener('mouseout', () => {
