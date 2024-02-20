@@ -13,6 +13,10 @@ try{
                 include_once(RACINE . '/controller/front/landing_controller.php');
                 break;
             case "ecurie":
+                if(!isset($url[1]) || $url[1] == ''){
+                    throw new Exception("L'id de l'écurie est introuvable");
+                    break;
+                }
                 $idEcurie = $url[1];
                 include_once(RACINE . '/controller/front/ecurie_controller.php');
                 break;

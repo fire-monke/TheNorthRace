@@ -9,6 +9,12 @@ $CourseObj = new CoursesAnnee();
 $piloteObj = new Pilote();
 
 $ecurie = $ecurieObj->getEcurieById($idEcurie);
+
+# tests if the identifier sent by the url exists
+if (!isset($ecurie) || $ecurie == ''){
+    throw new Exception("L'id de l'écurie est introuvable");
+}
+
 $nomEcurie = $ecurie->nom;
 $couleurEcurie = $ecurie->couleur;
 $dateCreationEcurie = $ecurie->dateCreation;
