@@ -213,7 +213,8 @@ document.addEventListener("DOMContentLoaded", function() {
     voirTousBtn.addEventListener("click", function() {
         tousStanding.style.display = "none";
         standingInitial.style.display = "flex";
-        imgElementTous.src = originalImagePath; // Correction ici
+          standingInitial.scrollIntoView(); 
+        imgElementTous.src = originalImagePath; 
     });
 
     voirInitialBtn.addEventListener("mouseover", function() {
