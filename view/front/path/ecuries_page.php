@@ -46,8 +46,8 @@
         pilotes.forEach(pilote => {
             pilote.addEventListener('mouseover', () => {
                 const couleurEcu = pilote.querySelector('.couleur').style.backgroundColor;
-                pilote.style.borderRight = `3px solid ${couleurEcu}`;
-                pilote.style.borderTop = `3px solid ${couleurEcu}`;
+                pilote.style.borderRight = `2px solid ${couleurEcu}`;
+                pilote.style.borderTop = `2px solid ${couleurEcu}`;
             });
 
             pilote.addEventListener('mouseout', () => {
