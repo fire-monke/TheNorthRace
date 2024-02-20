@@ -7,7 +7,7 @@
 </head>
 <body>
    <main>
-    <h1 style="font-size: 60px;">Pilotes F1 2023</h1>
+    <h1>Pilotes F1 2023</h1>
     <div class="top">
         <?php foreach ($pilotes as $pilote): ?>
             <?php 
@@ -25,7 +25,7 @@
                     <div class="couleur">
                         <div class="couleur-ecu" style="background-color: <?= $ecuriePil->couleur ?>"></div>
                         <div class="nom-prenom">
-                            <p><?= $pilote->prenom ?></p>
+                            <p class="pren"><?= $pilote->prenom ?></p>
                             <h2><?= $pilote->nom ?></h2>
                         </div>
                     </div>
@@ -34,11 +34,11 @@
                 <div class="ecurie">
                     <div class="info-ecurie">
                         <div class="nomEcu">
-                            <p style="font-size: 20px;"><?= $ecuriePil->nom ?></p>
+                            <p><?= $ecuriePil->nom ?></p>
                         </div>
                         <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                             <div class="infoCourse">
-                                <div class="num-pilote" style="font-size: 50px;"><?= $detail['numPil'] ?></div>
+                                <div class="num-pilote"><?= $detail['numPil'] ?></div>
                             </div>
                         <?php endforeach; ?>
                     </div>
