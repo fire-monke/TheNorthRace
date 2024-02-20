@@ -251,22 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-    <div class="standing">
-        <?php
-        $cpt=0;
-        foreach($lesPilotes as $unPilote)
-        {
-            $cpt+=1;
-            echo '<div class="pilot">';
-            echo '<h2>'.$cpt.'</h2>'; echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
-            echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
-            echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
-            echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
-            echo '<img name="row "src="./ressources/front/images/greenRow.png" alt="">';
-            echo '</div>';
-        }?>
-        <!-- <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button> -->
-    </div>
+    
 </section>
 <section class="grandPrix">
     <div class="gpChild">
