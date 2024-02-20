@@ -1,0 +1,148 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Montserrat;
+	transition: .3s;
+
+
+}
+
+
+body{
+	overflow-x: hidden;
+}
+
+
+.interBloqueGaucheG {
+
+	width: 40%;
+	flex-direction: column;
+	justify-content: center;
+	line-height: 27px;
+
+}
+.interBloqueGaucheG > h3:not(:first-child) {
+	padding-top: 5px;
+}
+
+
+.interBloqueGaucheD {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	line-height: 27px;
+	font-size: 20px;
+	margin-left: 60px;
+	gap: 5px;
+
+}
+
+
+main{
+	display: flex;
+}
+.ecurie-background {
+	width: 3px;
+	height: 250px; 
+	margin-right: 20px;
+	margin-left: 40px;
+}
+
+.trait{display: flex;margin-top: 80px;
+} 
+
+
+.BoqueGauche{
+	margin-left: 100px;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.pilote{width: 50%;}
+.wrap{
+	display: flex;
+	align-items: flex-start;
+	width:80%;
+
+}
+
+
+.BoqueDroite {
+	width: 50%;
+	display: flex; 
+	flex-wrap: wrap;
+/* background-image: url('../fondPil.png');
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+height: 500px; */
+
+}
+/* .pilote1{width: 50%;}
+.pilote2{width: 50%;} */
+
+.imgPil{
+
+
+height: 17vw;
+width: auto;
+/* background-image: url("./Hamilton.png"); */
+/* background-repeat: no-repeat;
+background-size: contain;
+background-color: red; */
+
+
+}
+
+img{height: 100%;}
+
+/* .imgPil2{
+
+height: 30vw;
+
+background-image: url("./Hamilton.png");
+background-repeat: no-repeat;
+margin-left: -1px;
+background-size: cover;
+
+} */
+
+.interBloqueDroiteG {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start; /* Ajout de l'alignement des éléments au début */
+	padding-left: 15px;
+	font-size: 30px;
+	padding-top: 20px; 
+}
+
+.interBloqueDroiteG :first-child {
+	margin-bottom: 15px;
+}
+	/* .interBloqueDroiteD :first-child {
+	margin-bottom: 15px;
+} */
+/* 
+	.interBloqueDroiteD{
+	padding-left: 15px;
+	font-size: 30px;
+	padding-top: 20px;
+
+} */
+
+.photobas{
+	width: 100vw;
+	height: 42.5vw;
+	margin-top: 80px;
+	background-image: url("../images/f1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.last-imgPil {
+	margin-left: -6px;  background-repeat: no-repeat;
+	background-size: contain;
+}

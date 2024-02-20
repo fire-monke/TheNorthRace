@@ -2,9 +2,9 @@
 
 require_once(RACINE . '/model/back/class_pilote.php');
 require_once(RACINE . '/model/back/class_ecurie.php');
-
 $Pilote = new Pilote();
 $Ecurie = new Ecurie();
+$ecuries = $Ecurie->getEcuriesLastSeason();
 
 $lePodium = $Pilote->getPilotesPodium();
 

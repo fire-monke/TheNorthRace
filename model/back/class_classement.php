@@ -60,6 +60,7 @@ class Classement {
         }
         return $resultat;
     }
+
     //Function to add new ranking data for a team in a specific year to the database.
     function addClassement($teamId, $year, $points, $teamPlace) {
         try {
