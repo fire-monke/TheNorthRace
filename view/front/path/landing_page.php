@@ -14,11 +14,10 @@
     <div class="wrapper">
         <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
     </div>
-
   <nav id="headerNav">
         <a href="">Classement</a>
         <a href="./pilotes">Pilotes</a>
-        <a href="" id="ecurie">Ecuries</a>
+        <a href="./ecuries" id="ecurie">Ecuries</a>
         <a href="">Archives</a>
     </nav>
     <div class="connection">
