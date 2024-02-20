@@ -10,23 +10,93 @@
     <title>TheNorthRace</title>
 </head>
 <body>
-    <header>
-        <div class="wrapper">
+<header>
+    <div class="wrapper">
         <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
     </div>
-        <nav id="headerNav">
-            <a href="">Classement</a>
-            <a href="">Pilotes</a>
-            <a href="">Ecuries</a>
-            <a href="">Archives</a>
-        </nav>
-        <div class="connection">
-            <a href="./connexion">Connexion</a>
-            <a href="./inscription">Inscription</a>
+    <nav id="headerNav">
+        <a href="">Classement</a>
+        <a href="">Pilotes</a>
+        <a href="" id="ecurie">Ecuries</a>
+        <a href="">Archives</a>
+    </nav>
+    <div class="connection">
+        <a href="./connexion">Connexion</a>
+        <a href="./inscription">Inscription</a>
+    </div>
+</header>
+    
+<main>
+    <section class="firstSection" style= 'position: relative';>
+        <div class="hovEcu" style="display: none;">
+            <h2 class='hov'>Toutes</h2>
+            <div class="toutes">
+                <?php foreach ($ecuries as $ecurie):
+                    $nomEcurie = $ecurie->nom;
+                    $couleurEcurie = $ecurie->couleur;
+                    $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
+                ?>
+                    <a class="a-f1" href="./ecurie/<?php echo $ecurie->id; ?>">
+                        <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
+                            <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
+                            <h4><?php echo $nomEcurie; ?></h4>
+                            <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </header>
-    <main>
-        <section class="firstSection">
+
+    <script>
+        // Sélectionnez tous les éléments avec l'attribut 'data-color-ecurie'
+        const elements = document.querySelectorAll('[data-color-ecurie]');
+
+        // Parcourez chaque élément et ajoutez un gestionnaire d'événements pour 'mouseover'
+        elements.forEach((element) => {
+            element.addEventListener('mouseover', () => {
+                // Changez la couleur de la bordure de l'élément en utilisant l'attribut 'data-color-ecurie'
+                element.style.borderColor = element.getAttribute('data-color-ecurie');
+            });
+
+            // Ajoutez également un gestionnaire d'événements pour 'mouseout' pour réinitialiser la couleur de la bordure
+            element.addEventListener('mouseout', () => {
+                element.style.borderColor = ''; // Réinitialiser la couleur de la bordure
+            });
+        });
+
+        // Sélectionnez l'élément 'ecurie' dans le 'headerNav'
+        const ecurie = document.querySelector('#headerNav #ecurie');
+        const hovEcu = document.querySelector('.hovEcu');
+
+        // Fonction pour vérifier si la souris est sur ou en dehors de 'hovEcu'
+        const isMouseOverHovEcu = (e) => {
+            return hovEcu.contains(e.relatedTarget) || ecurie.contains(e.relatedTarget) || e.target == ecurie;
+        };
+
+        // Lorsque vous survolez l'élément 'ecurie', affichez la div 'hovEcu'
+        ecurie.addEventListener('mouseover', () => {
+            hovEcu.style.display = 'block';
+        });
+
+        // Lorsque vous quittez l'élément 'ecurie' ou 'hovEcu', masquez la div 'hovEcu'
+        document.addEventListener('mouseout', (e) => {
+            if (!isMouseOverHovEcu(e)) {
+                hovEcu.style.display = 'none';
+            }
+        });
+
+        // Lorsque vous survolez 'hovEcu', gardez-la affichée
+        hovEcu.addEventListener('mouseover', () => {
+            hovEcu.style.display = 'block';
+        });
+
+        // Lorsque vous quittez 'hovEcu', masquez-la
+        hovEcu.addEventListener('mouseout', () => {
+            hovEcu.style.display = 'none';
+        });
+
+        </script>
+
             <div class="wrapper">
                 <div class="wrapper2">
             <h3>NEWSLETTER</h3>
@@ -42,14 +112,14 @@
                 <a href=""><img src="./ressources/front/images/whiteLinkedin.png" alt="#"></a>
             </div>
         </div>
-</section>
-<section class="secondSection">
+    </section>
+    <section class="secondSection">
     <nav id="championshipNav">
             <a href="">Pilotes</a>
             <a href="">Constructeurs</a>
             <a href="">Dernière Course</a>
     </nav>
-    
+
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
@@ -161,6 +231,22 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+    <div class="standing">
+        <?php
+        $cpt=0;
+        foreach($lesPilotes as $unPilote)
+        {
+            $cpt+=1;
+            echo '<div class="pilot">';
+            echo '<h2>'.$cpt.'</h2>'; echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
+            echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
+            echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
+            echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
+            echo '<img name="row "src="./ressources/front/images/greenRow.png" alt="">';
+            echo '</div>';
+        }?>
+        <!-- <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button> -->
+    </div>
 </section>
 <section class="grandPrix">
     <div class="gpChild">
@@ -168,12 +254,12 @@ document.addEventListener("DOMContentLoaded", function() {
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div><div class="gpChild">
+    </div><div class="gpChild">
     <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div><div class="gpChild active">
+    </div><div class="gpChild active">
     <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2023</h1>
@@ -199,20 +285,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
         </div>
-</div>
-<div class="gpChild">
+    </div>
+    <div class="gpChild">
     <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div><div class="gpChild">
+    </div><div class="gpChild">
         <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
         <h1>29</h1>
         <h3>oct</h3>
-</div>
-</section>
-<footer>
+    </div>
+    </section>
+    <footer>
     <section class="contact">
         <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
         <form action="" method="post">
@@ -255,9 +341,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href=""><img src="./ressources/front/images/greyGitHub.png" alt="#"></a>
         <a href=""><img src="./ressources/front/images/greyTwitter.png" alt="#"></a>
         <a href=""><img src="./ressources/front/images/greyLinkedin.png" alt="#"></a>
-</div>
-<a class="TheNorthRace" href="">© 2023  -  TheNorthRace</a>
-</footer>
-    </main>
+    </div>
+    <a class="TheNorthRace" href="">© 2023  -  TheNorthRace</a>
+    </footer>
+</main>
 </body>
 </html>
