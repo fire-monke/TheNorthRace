@@ -152,7 +152,84 @@
                 </div>
             </div>
         </div>
-    </div><!-- Fermeture de la balise podium -->
+    </div><!-- Closing the podium div -->
+
+    <div class="standing" id="standing-initial">
+    <?php
+    $cpt=0;
+    foreach(array_slice($lesPilotes, 0, 6) as $unPilote)
+    {
+        $cpt+=1;
+        echo '<div class="pilot">';
+        echo '<h2>'.$cpt.'</h2>'; 
+        echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
+        echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
+        echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
+        echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
+        echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
+        echo '</div>';
+    }?>
+    <button id="voir-initial">VOIR TOUS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
+</div>
+
+<div class="standing" id="tous" style="display: none;">
+    <?php
+    $cpt=0;
+    foreach($lesPilotes as $unPilote)
+    {
+        $cpt+=1;
+        echo '<div class="pilot">';
+        echo '<h2>'.$cpt.'</h2>'; 
+        echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
+        echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
+        echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
+        echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
+        echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
+        echo '</div>';
+    }?>
+       <button id="voir-moins">VOIR MOINS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var voirInitialBtn = document.getElementById("voir-initial");
+    var voirMoinsBtn = document.getElementById("voir-moins");
+    var standingInitial = document.getElementById("standing-initial");
+    var tousStanding = document.getElementById("tous");
+    var imgElementPlus = voirInitialBtn.querySelector("img");
+    var imgElementMoins = voirMoinsBtn.querySelector("img");
+    var originalImagePath = imgElementPlus.src;
+    var alternativeImagePath = "./ressources/front/images/greenRow.png";
+
+    voirInitialBtn.addEventListener("click", function() {
+        standingInitial.style.display = "none";
+        tousStanding.style.display = "flex";
+        imgElementPlus.src = alternativeImagePath;
+    });
+    
+    voirMoinsBtn.addEventListener("click", function() {
+        tousStanding.style.display = "none";
+        standingInitial.style.display = "flex";
+        standingInitial.scrollIntoView();
+        imgElementPlus.src = originalImagePath;
+    });
+
+    voirInitialBtn.addEventListener("mouseover", function() {
+        imgElementPlus.src = alternativeImagePath;
+    });
+
+    voirInitialBtn.addEventListener("mouseout", function() {
+        imgElementPlus.src = originalImagePath;
+    });
+
+    voirMoinsBtn.addEventListener("mouseover", function() {
+        imgElementMoins.src = alternativeImagePath;
+    });
+
+    voirMoinsBtn.addEventListener("mouseout", function() {
+        imgElementMoins.src = originalImagePath;
+    });
+});
+</script>
 
     <div class="standing">
         <?php
@@ -170,8 +247,8 @@
         }?>
         <!-- <button>VOIR TOUS <img name="row " src="./ressources/front/images/whiteRow.png" alt=""></button> -->
     </div>
-    </section>
-    <section class="grandPrix">
+</section>
+<section class="grandPrix">
     <div class="gpChild">
         <img src="./ressources/front/images/flagMexico.png" alt="">
         <h2>Mexico</h2>
