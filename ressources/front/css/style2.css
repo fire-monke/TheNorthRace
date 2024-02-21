@@ -180,6 +180,7 @@ padding-top: 35px;}
     background-image: url("../images/LasVegasTrack.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover; 
     height: 94svh;
     color: white;
     display: flex;
@@ -191,6 +192,7 @@ padding-top: 35px;}
     padding-top: 2rem;
     padding-left: 2rem;
     background-color: #28282878;
+    /* background-color:#181818a3; */
     width: 45%;
     height: 47%;
     max-height: 60svh;
