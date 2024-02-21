@@ -27,8 +27,24 @@
                 <input type="text" id="dateNais" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
 
                 <input name=submit type="submit" value="Ajouter">
+                
+                <input class="annuler" type="submit" value="Annuler" onclick="cancel(event)">
         </form>
     </div>
+
+    <script>
+        function goToAppli() {
+            // Redirect to the "./appli" page
+            window.location.href = "./appli";
+        }
+
+        function cancel(event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Redirect to the "./appli" page
+            goToAppli();
+        }
+    </script>
 </body>
 
 </html>
