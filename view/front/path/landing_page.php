@@ -16,7 +16,7 @@
     </div>
         <nav id="headerNav">
             <a href="">Classement</a>
-            <a href="">Pilotes</a>
+            <a class="pilotes" href="">Pilotes</a>
             <a href="">Ecuries</a>
             <a href="">Archives</a>
         </nav>
@@ -26,7 +26,91 @@
         </div>
     </header>
     <main>
-        <section class="firstSection">
+        <section class="firstSection" style= 'position: relative';>
+
+        <div class="navSecondary" style="display: none;">
+        <div class="ns-wrapper">
+            <div class="nav-width">
+                <div class="nav-contents">
+                    <div class="nav-header">
+                        <h1>All Drivers &nbsp;<span style="color: red">></span></h1> 
+                    </div>
+                    <div class="nav-list">
+                        <ul>
+                            <?php
+                            // Afficher les pilotes avec leurs couleurs associées
+                            foreach ($pilotesLastSeason as $pilote) {
+                                $nomPilote = $pilote->nom;
+                                $prenomPilote = $pilote->prenom;
+
+
+
+                                $ecuriePilote = $Ecurie->getLastEcurieByIdPilote($pilote->id);
+
+                                if ($ecuriePilote) {
+                                    $couleurEcurie = $ecuriePilote->couleur;
+                                }
+
+                                // Afficher le nom du pilote et la couleur de l'écurie
+                                echo '<li>';
+                                echo '<p data-color-ecurie="' . $couleurEcurie . '"><span style="background-color: ' . $couleurEcurie . '; padding: 2px; margin-right: 10px; "></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe">></strong></p>';
+                                echo '</li>';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    
+    <script>
+        // Sélectionnez tous les éléments avec l'attribut 'data-color-ecurie'
+        const elements = document.querySelectorAll('[data-color-ecurie]');
+
+        // Parcourez chaque élément et ajoutez un gestionnaire d'événements pour 'mouseover'
+        elements.forEach((element) => {
+            element.addEventListener('mouseover', () => {
+                // Changez la couleur de la bordure de l'élément en utilisant l'attribut 'data-color-ecurie'
+                element.style.borderColor = element.getAttribute('data-color-ecurie');
+            });
+
+            // Ajoutez également un gestionnaire d'événements pour 'mouseout' pour réinitialiser la couleur de la bordure
+            element.addEventListener('mouseout', () => {
+                element.style.borderColor = ''; // Réinitialiser la couleur de la bordure
+            });
+        });
+
+        const ecurie = document.querySelector('#headerNav .pilotes'); // Sélectionnez l'élément avec la classe 'pilotes'
+        const navSecondary = document.querySelector('.navSecondary');
+
+        // Fonction pour vérifier si la souris est sur ou en dehors de '.navSecondary'
+        const isMouseOvernavSecondary = (e) => {
+            return navSecondary.contains(e.relatedTarget) || ecurie.contains(e.relatedTarget) || e.target == ecurie;
+        };
+
+        // Lorsque vous survolez l'élément 'ecurie', affichez la div '.navSecondary'
+        ecurie.addEventListener('mouseover', () => {
+            navSecondary.style.display = 'block';
+        });
+
+        // Lorsque vous quittez l'élément 'ecurie' ou '.navSecondary', masquez la div '.navSecondary'
+        document.addEventListener('mouseout', (e) => {
+            if (!isMouseOvernavSecondary(e)) {
+                navSecondary.style.display = 'none';
+            }
+        });
+
+        // Lorsque vous survolez '.navSecondary', gardez-la affichée
+        navSecondary.addEventListener('mouseover', () => {
+            navSecondary.style.display = 'block';
+        });
+
+        // Lorsque vous quittez '.navSecondary', masquez-la
+        navSecondary.addEventListener('mouseout', () => {
+            navSecondary.style.display = 'none';
+        });
+    </script>
             <div class="wrapper">
                 <div class="wrapper2">
             <h3>NEWSLETTER</h3>
