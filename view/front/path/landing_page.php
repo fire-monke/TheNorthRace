@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./ressources/front/css/style2.css">
+    <!-- <link rel="stylesheet" href="./ressources/front/css/hover_drivers.css"> -->
     <title>TheNorthRace</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
                                     $couleurEcurie = $ecuriePilote->couleur;
                                 }
 
-                                // Afficher le nom du pilote et la couleur de l'écurie
+                                // print the pilot name and the color of the stable
                                 echo '<li>';
                                 echo '<p data-color-ecurie="' . $couleurEcurie . '"><span style="background-color: ' . $couleurEcurie . '; padding: 2px; margin-right: 10px; "></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe">></strong></p>';
                                 echo '</li>';
