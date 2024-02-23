@@ -5,9 +5,8 @@ require_once(RACINE . '/model/back/class_ecurie.php');
 $Pilote = new Pilote();
 $Ecurie = new Ecurie();
 $ecuries = $Ecurie->getEcuriesLastSeason();
-
-$lePodium = $Pilote->getPilotesPodium();
 $pilotesLastSeason = $Pilote->getPilotesLastSeason();
+$lePodium = $Pilote->getPilotesPodium();
 
 $couleurEcuriePil1 = $Ecurie->getLastEcurieByIdPilote($lePodium[0]->id)->couleur;
 $couleurEcuriePil2 = $Ecurie->getLastEcurieByIdPilote($lePodium[1]->id)->couleur;
