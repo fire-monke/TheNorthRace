@@ -28,7 +28,7 @@
 
                 <input name=submit type="submit" value="Ajouter">
                 
-                <input class="annuler" type="submit" value="Annuler" onclick="window.location.href='./appli'">
+                <input type="submit" value="Annuler" onclick="window.location.href='./appli'">
         </form>
     </div>
 
