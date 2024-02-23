@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./ressources/front/css/style2.css">
-    <!-- <link rel="stylesheet" href="./ressources/front/css/hover_drivers.css"> -->
     <title>TheNorthRace</title>
 </head>
 <body>
@@ -15,103 +14,6 @@
     <div class="wrapper">
         <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
     </div>
-        <nav id="headerNav">
-            <a href="">Classement</a>
-            <a class="pilotes" href="">Pilotes</a>
-            <a href="">Ecuries</a>
-            <a href="">Archives</a>
-        </nav>
-        <div class="connection">
-            <a href="./connexion">Connexion</a>
-            <a href="./inscription">Inscription</a>
-        </div>
-    </header>
-    <main>
-        <section class="firstSection" style= 'position: relative';>
-
-        <div class="navSecondary" style="display: none;">
-        <div class="ns-wrapper">
-            <div class="nav-width">
-                <div class="nav-contents">
-                    <div class="nav-header">
-                        <h1>All Drivers &nbsp;<span style="color: red">></span></h1> 
-                    </div>
-                    <div class="nav-list">
-                        <ul>
-                            <?php
-                            foreach ($pilotesLastSeason as $pilote) {
-                                $nomPilote = $pilote->nom;
-                                $prenomPilote = $pilote->prenom;
-
-
-
-                                $ecuriePilote = $Ecurie->getLastEcurieByIdPilote($pilote->id);
-
-                                if ($ecuriePilote) {
-                                    $couleurEcurie = $ecuriePilote->couleur;
-                                }
-
-                                // print the pilot name and the color of the stable
-                                echo '<li>';
-                                echo '<p data-color-ecurie="' . $couleurEcurie . '"><span style="background-color: ' . $couleurEcurie . '; padding: 2px; margin-right: 10px; "></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe">></strong></p>';
-                                echo '</li>';
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>  
-        </div>
-    </div>
-    
-    <script>
-    // Select all elements with the attribute 'data-color-ecurie'
-    const elements = document.querySelectorAll('[data-color-ecurie]');
-
-    // Iterate over each element and add an event listener for 'mouseover'
-    elements.forEach((element) => {
-        element.addEventListener('mouseover', () => {
-            // Change the border color of the element using the 'data-color-ecurie' attribute
-            element.style.borderColor = element.getAttribute('data-color-ecurie');
-        });
-
-        // Also add an event listener for 'mouseout' to reset the border color
-        element.addEventListener('mouseout', () => {
-            element.style.borderColor = ''; // Reset the border color
-        });
-    });
-
-    const ecurie = document.querySelector('#headerNav .pilotes'); // Select the element with the class 'pilotes'
-    const navSecondary = document.querySelector('.navSecondary');
-
-    // Function to check if the mouse is over or outside '.navSecondary'
-    const isMouseOvernavSecondary = (e) => {
-        return navSecondary.contains(e.relatedTarget) || ecurie.contains(e.relatedTarget) || e.target == ecurie;
-    };
-
-    // When hovering over the 'ecurie' element, display the '.navSecondary' div
-    ecurie.addEventListener('mouseover', () => {
-        navSecondary.style.display = 'block';
-    });
-
-    // When leaving the 'ecurie' element or '.navSecondary', hide the '.navSecondary' div
-    document.addEventListener('mouseout', (e) => {
-        if (!isMouseOvernavSecondary(e)) {
-            navSecondary.style.display = 'none';
-        }
-    });
-
-    // When hovering over '.navSecondary', keep it displayed
-    navSecondary.addEventListener('mouseover', () => {
-        navSecondary.style.display = 'block';
-    });
-
-    // When leaving '.navSecondary', hide it
-    navSecondary.addEventListener('mouseout', () => {
-        navSecondary.style.display = 'none';
-    });
-</script>
-
   <nav id="headerNav">
         <a href="">Classement</a>
         <a href="./pilotes">Pilotes</a>
@@ -194,6 +96,7 @@
         });
 
         </script>
+
             <div class="wrapper">
                 <div class="wrapper2">
             <h3>NEWSLETTER</h3>
