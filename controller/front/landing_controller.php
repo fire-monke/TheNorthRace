@@ -7,6 +7,7 @@ $Ecurie = new Ecurie();
 $ecuries = $Ecurie->getEcuriesLastSeason();
 
 $lePodium = $Pilote->getPilotesPodium();
+$pilotesLastSeason = $Pilote->getPilotesLastSeason();
 
 $couleurEcuriePil1 = $Ecurie->getLastEcurieByIdPilote($lePodium[0]->id)->couleur;
 $couleurEcuriePil2 = $Ecurie->getLastEcurieByIdPilote($lePodium[1]->id)->couleur;
