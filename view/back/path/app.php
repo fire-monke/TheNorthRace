@@ -27,7 +27,7 @@
     <div class="affichage">
         <div class="print-box" id="include-container">
             <?php
-                include_once($pageAInclure);
+                include_once(RACINE . '/view/back/path/' . $pageAInclure);
             ?>
         </div>
     </div>
@@ -134,8 +134,9 @@ function chargerInclude(typeEntite) {
 	console.log($("nav button"));
 	console.log($("#" + typeEntite));
 	$.ajax({
-		url: './appli/&type=' + typeEntite,
-		type: "GET",
+		url: './appli',
+		type: "POST",
+        data: { type: typeEntite },
 		success: function(data) {
 			$("#include-container").html(data);
 		},

@@ -694,7 +694,7 @@ DROP PROCEDURE if exists getEcuriesLastSeason;
 DELIMITER //
 CREATE PROCEDURE getEcuriesLastSeason()
 BEGIN
-    SELECT id, nom, couleur FROM Ecurie
+    SELECT id, nom, couleur,dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     JOIN Classement on id=idEcu
     WHERE annee = (SELECT max(annee) FROM Classement);
 END //

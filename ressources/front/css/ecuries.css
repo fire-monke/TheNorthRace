@@ -1,0 +1,101 @@
+h1{
+    border-right: 1px solid #434346; 
+    border-top: 1px solid #434346; 
+    border-radius: 0px  20px 0px 0px;
+    padding-top: 20px;
+    margin-left: 250px;
+}
+
+.tous{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pilote{
+    display: flex;
+    flex-direction: column;    
+    border-right: 2px solid #434346; 
+    border-top: 2px solid #434346; 
+    border-radius: 0px  20px 0px 0px;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    padding-left: 10px;
+    margin-left: 30px;
+    width: 660px;
+    height: 300px;
+}
+
+.info{
+    border-bottom: 1px solid #434346;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.interinfo{
+    display: flex; align-items: center;
+}
+
+h2{
+    margin-left: 10px;
+}
+
+.couleur{
+    width: 5px;
+    height: 28px;
+    background-color: red;
+}
+
+.nom-prenom{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 60px;}
+
+.pil{
+    display: flex;
+    width: 48%;
+    border-right: 1px solid #434346;
+    border-bottom: 1px solid #434346;
+    border-radius: 0px  0px 20px 0px;
+    margin-right: 8px;
+    
+    justify-content: space-between;
+    height: 55px;
+    align-items: center;
+}
+
+.interpil{
+    display: flex;
+    align-items: baseline;
+}
+
+p{
+    font-size: 20px;
+}
+
+.ecurie{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.voiture {
+    width: 500px;
+    height: 160px;
+}
+
+.img{
+    height: 200px;
+}
+
+.imgPil {
+    height:55px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+.imgEcu {
+    height: 60px;
+    margin-right: 30px;
+    object-fit: contain;
+}
