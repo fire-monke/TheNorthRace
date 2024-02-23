@@ -27,8 +27,11 @@
                 <input type="text" id="dateNais" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
 
                 <input name=submit type="submit" value="Ajouter">
+                
+                <input type="submit" value="Annuler" onclick="window.location.href='./appli'">
         </form>
     </div>
+
 </body>
 
 </html>
