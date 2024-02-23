@@ -27,44 +27,42 @@
 </header>
     
 <main>
-    <section class="firstSection" style= 'position: relative';>
+    <section class="firstSection">
     
-    <div class="navSecondary" style="display: none;">
-        <div class="ns-wrapper">
-            <div class="nav-width">
-                <div class="nav-contents">
-                    <div class="nav-header">
-                        <h1>All Drivers &nbsp;<span style="color: red">></span></h1> 
-                    </div>
-                    <div class="nav-list">
-                        <ul>
-                            <?php
-                            foreach ($pilotesLastSeason as $pilote) {
-                                $nomPilote = $pilote->nom;
-                                $prenomPilote = $pilote->prenom;
+    <div class="navSecondary">
+        <div class="nav-width nav-content">
+            <div class="nav-header">
+                <h1>Tous les pilotes &nbsp;<span>></span></h1> 
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <?php
+                    foreach ($pilotesLastSeason as $pilote) {
+                        $nomPilote = $pilote->nom;
+                        $prenomPilote = $pilote->prenom;
 
-                                $ecuriePilote = $Ecurie->getLastEcurieByIdPilote($pilote->id);
+                        $ecuriePilote = $Ecurie->getLastEcurieByIdPilote($pilote->id);
 
-                                if ($ecuriePilote) {
-                                    $couleurEcurie = $ecuriePilote->couleur;
-                                }
+                        if ($ecuriePilote) {
+                            $couleurEcurie = $ecuriePilote->couleur;
+                        }
 
-                                // print the pilot name and the color of the stable
-                                echo '<li>';
-                                echo '<p data-color-ecurie="' . $couleurEcurie . '"><span style="background-color: ' . $couleurEcurie . '; padding: 2px; margin-right: 10px; "></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe">></strong></p>';
-                                echo '</li>';
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>  
+                        // print the pilot name and the color of the stable
+                        echo '<li>';
+                        echo '<p data-color-ecurie="' . $couleurEcurie . '"><span class="color-bar-pilot" style="background-color: ' . $couleurEcurie . '"></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe" style="color:'. $couleurEcurie .'">></strong></p>';
+                        echo '</li>';
+                    }
+                    ?>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <div class="hovEcu" style="display: none;">
-        <h2 class='hov'>Toutes</h2>
-        <div class="toutes">
+    <div class="hovEcu">
+        <div class="nav-header">
+            <h1>Toutes les écuries &nbsp;<span>></span></h1> 
+        </div>
+        <div class="nav-list toutes">
             <?php foreach ($ecuries as $ecurie):
                 $nomEcurie = $ecurie->nom;
                 $couleurEcurie = $ecurie->couleur;
@@ -74,7 +72,7 @@
                     <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
                         <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
                         <h4><?php echo $nomEcurie; ?></h4>
-                        <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
+                        <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>">
                     </div>
                 </a>
             <?php endforeach; ?>
