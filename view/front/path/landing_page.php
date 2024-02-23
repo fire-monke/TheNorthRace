@@ -16,8 +16,8 @@
     </div>
   <nav id="headerNav">
         <a href="">Classement</a>
-        <a href="./pilotes">Pilotes</a>
-        <a href="./ecuries" id="ecurie">Ecuries</a>
+        <a href="./pilotes" id="pilotes">Pilotes</a>
+        <a href="./ecuries" id="ecuries">Ecuries</a>
         <a href="">Archives</a>
     </nav>
     <div class="connection">
@@ -28,74 +28,146 @@
     
 <main>
     <section class="firstSection" style= 'position: relative';>
-        <div class="hovEcu" style="display: none;">
-            <h2 class='hov'>Toutes</h2>
-            <div class="toutes">
-                <?php foreach ($ecuries as $ecurie):
-                    $nomEcurie = $ecurie->nom;
-                    $couleurEcurie = $ecurie->couleur;
-                    $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
-                ?>
-                    <a class="a-f1" href="./ecurie/<?php echo $ecurie->id; ?>">
-                        <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
-                            <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
-                            <h4><?php echo $nomEcurie; ?></h4>
-                            <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
-                        </div>
-                    </a>
-                <?php endforeach; ?>
-            </div>
+    
+    <div class="navSecondary" style="display: none;">
+        <div class="ns-wrapper">
+            <div class="nav-width">
+                <div class="nav-contents">
+                    <div class="nav-header">
+                        <h1>All Drivers &nbsp;<span style="color: red">></span></h1> 
+                    </div>
+                    <div class="nav-list">
+                        <ul>
+                            <?php
+                            foreach ($pilotesLastSeason as $pilote) {
+                                $nomPilote = $pilote->nom;
+                                $prenomPilote = $pilote->prenom;
+
+                                $ecuriePilote = $Ecurie->getLastEcurieByIdPilote($pilote->id);
+
+                                if ($ecuriePilote) {
+                                    $couleurEcurie = $ecuriePilote->couleur;
+                                }
+
+                                // print the pilot name and the color of the stable
+                                echo '<li>';
+                                echo '<p data-color-ecurie="' . $couleurEcurie . '"><span style="background-color: ' . $couleurEcurie . '; padding: 2px; margin-right: 10px; "></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe">></strong></p>';
+                                echo '</li>';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
         </div>
+    </div>
+
+    <div class="hovEcu" style="display: none;">
+        <h2 class='hov'>Toutes</h2>
+        <div class="toutes">
+            <?php foreach ($ecuries as $ecurie):
+                $nomEcurie = $ecurie->nom;
+                $couleurEcurie = $ecurie->couleur;
+                $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
+            ?>
+                <a class="a-f1" href="./ecurie/<?php echo $ecurie->id; ?>">
+                    <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
+                        <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
+                        <h4><?php echo $nomEcurie; ?></h4>
+                        <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>" width="200px" height="200px">
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
     <script>
-        // Sélectionnez tous les éléments avec l'attribut 'data-color-ecurie'
-        const elements = document.querySelectorAll('[data-color-ecurie]');
+    // Select the '#ecurie' element in the 'headerNav'
+    const ecurie = document.querySelector('#headerNav #ecuries');
+    const hovEcu = document.querySelector('.hovEcu');
+    const elements = document.querySelectorAll('[data-color-ecurie]');
 
-        // Parcourez chaque élément et ajoutez un gestionnaire d'événements pour 'mouseover'
-        elements.forEach((element) => {
-            element.addEventListener('mouseover', () => {
-                // Changez la couleur de la bordure de l'élément en utilisant l'attribut 'data-color-ecurie'
-                element.style.borderColor = element.getAttribute('data-color-ecurie');
-            });
+    // Function to check if the mouse is over or outside 'hovEcu'
+    const isMouseOverHovEcu = (e) => {
+        return hovEcu.contains(e.relatedTarget) || e.target == ecurie;
+    };
 
-            // Ajoutez également un gestionnaire d'événements pour 'mouseout' pour réinitialiser la couleur de la bordure
-            element.addEventListener('mouseout', () => {
-                element.style.borderColor = ''; // Réinitialiser la couleur de la bordure
-            });
-        });
+    // When hovering over the '#ecurie' element, display the 'hovEcu' div
+    ecurie.addEventListener('mouseover', () => {
+        hovEcu.style.display = 'block';
+    });
 
-        // Sélectionnez l'élément 'ecurie' dans le 'headerNav'
-        const ecurie = document.querySelector('#headerNav #ecurie');
-        const hovEcu = document.querySelector('.hovEcu');
-
-        // Fonction pour vérifier si la souris est sur ou en dehors de 'hovEcu'
-        const isMouseOverHovEcu = (e) => {
-            return hovEcu.contains(e.relatedTarget) || ecurie.contains(e.relatedTarget) || e.target == ecurie;
-        };
-
-        // Lorsque vous survolez l'élément 'ecurie', affichez la div 'hovEcu'
-        ecurie.addEventListener('mouseover', () => {
-            hovEcu.style.display = 'block';
-        });
-
-        // Lorsque vous quittez l'élément 'ecurie' ou 'hovEcu', masquez la div 'hovEcu'
-        document.addEventListener('mouseout', (e) => {
-            if (!isMouseOverHovEcu(e)) {
-                hovEcu.style.display = 'none';
-            }
-        });
-
-        // Lorsque vous survolez 'hovEcu', gardez-la affichée
-        hovEcu.addEventListener('mouseover', () => {
-            hovEcu.style.display = 'block';
-        });
-
-        // Lorsque vous quittez 'hovEcu', masquez-la
-        hovEcu.addEventListener('mouseout', () => {
+    // When leaving the '#ecurie' element or 'hovEcu', hide the 'hovEcu' div
+    document.addEventListener('mouseout', (e) => {
+        if (!isMouseOverHovEcu(e)) {
             hovEcu.style.display = 'none';
+        }
+    });
+
+    // When hovering over 'hovEcu', keep it displayed
+    hovEcu.addEventListener('mouseover', () => {
+        hovEcu.style.display = 'block';
+    });
+
+    // When leaving 'hovEcu', hide it
+    hovEcu.addEventListener('mouseout', () => {
+        hovEcu.style.display = 'none';
+    });
+
+    // Iterate over each element and add event listeners for 'mouseover' and 'mouseout'
+    elements.forEach((element) => {
+        // Save the initial border style to reset it on mouseout
+        const originalBorderStyle = element.style.border;
+
+        element.addEventListener('mouseover', () => {
+            // Change the color of the right and bottom borders of the element using the 'data-color-ecurie' attribute
+            element.style.borderRight = '1px solid ' + element.getAttribute('data-color-ecurie');
+            element.style.borderBottom = '1px solid ' + element.getAttribute('data-color-ecurie');
         });
 
-        </script>
+        // Add an event listener for 'mouseout' to reset the borders
+        element.addEventListener('mouseout', () => {
+            // Reset the border to its initial value
+            element.style.border = originalBorderStyle;
+        });
+    });
+</script>
+
+<script>
+    // Select the '#pilotes' element in the 'headerNav'
+    const pilotes = document.querySelector('#headerNav #pilotes');
+    const navSecondary = document.querySelector('.navSecondary');
+
+    // Function to check if the mouse is over or outside 'navSecondary'
+    const isMouseOverNavSecondary = (e) => {
+        return navSecondary.contains(e.relatedTarget) || e.target == navSecondary || e.target == pilotes;
+    };
+
+    // When hovering over the '#pilotes' element, display the 'navSecondary' div
+    pilotes.addEventListener('mouseover', () => {
+        navSecondary.style.display = 'block';
+    });
+
+    // When leaving the '#pilotes' element or 'navSecondary', hide the 'navSecondary' div
+    document.addEventListener('mouseout', (e) => {
+        if (!isMouseOverNavSecondary(e)) {
+            navSecondary.style.display = 'none';
+        }
+    });
+
+    // When hovering over 'navSecondary', keep it displayed
+    navSecondary.addEventListener('mouseover', () => {
+        navSecondary.style.display = 'block';
+    });
+
+    // When leaving 'navSecondary', hide it
+    navSecondary.addEventListener('mouseout', () => {
+        navSecondary.style.display = 'none';
+    });
+</script>
+
+
+
 
             <div class="wrapper">
                 <div class="wrapper2">
