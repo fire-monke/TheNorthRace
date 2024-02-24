@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         // Mise à jour du pilote
         $Pilote = new Pilote();
         $Pilote->updatePilote($piloteId, $_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['dateNais']);
-        header('Location: ./appli/&type=pilote');
+        header('Location: ./appli&type=pilote');
         exit();
     }
 
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $EcurieId = $_POST['EcurieId'];
         $Ecurie = new Ecurie();
         $Ecurie->updateEcurieColor($EcurieId, $_POST['couleur']);
-        header('Location: ./appli/&type=ecurie');
+        header('Location: ./appli&type=ecurie');
         exit();
     }
 }

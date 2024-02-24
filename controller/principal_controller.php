@@ -42,7 +42,6 @@ try{
 
             case "appli":
                 if(empty($url[1])){
-                    echo "cacacaca";
                     include_once(RACINE . '/controller/back/app_controller.php');
                     exit();
                 }
