@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ressources/front/css/ecurie.css">
+    <link rel="stylesheet" href="../ressources/front/css/partials/footer.css">
     <title>Écuries</title>
 </head>
 <body>
@@ -59,5 +60,7 @@
        </div>
    </main>
    <div class="photobas"></div>   
+
 </body>
+<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>    
 </html>
