@@ -21,6 +21,9 @@ try{
             case "inscription":
                 echo "Page INSCRIPTION demandée";
                 break;
+            case "not_found":
+                include_once(RACINE . '/view/front/path/page_not_found.php');
+                break;
             // LISTER LES AUTRES PAGES DU SITE ET APPELER LEUR CONTROLLER
 
             case "appli":
@@ -36,14 +39,14 @@ try{
                     ### ITEM CREATE
                     case "create":
                         if(empty($url[2])){
-                            throw new Exception("L'ajout est impossible :'(");
+                            header('Location: ../not_found');
                         }
                         $choice = $url[2];
                         if($choice == "pilote" || $choice == "ecurie"){
                             include_once(RACINE . '/controller/back/controller.php');
                         }
                         else{
-                            throw new Exception("AJOUT impossible");
+                            header('Location: ../not_found');
                         }
                         break;
                     case "update":
@@ -53,12 +56,13 @@ try{
                         include_once(RACINE . '/controller/back/app_controller.php');
                         break;
                     default:
-                        throw new Exception("L'affichage des données est impossible :'(");
+                        header('Location: ../not_found');
                         break;
                 }
                 break;
             default:
-                throw new Exception("La page demandée n'existe pas :'(");
+                header('Location: ./not_found');
+                break;
         }
     }
 }

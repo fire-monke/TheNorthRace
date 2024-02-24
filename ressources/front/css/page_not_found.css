@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    transition: .3s;
+}
+body{
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:aliceblue;
+}
+.error{
+    padding-top: 5%;
+}
+h1{
+    font-size: 64px;
+}
+h2{
+    padding-top: 2%;
+    font-size: 48px;
+}
