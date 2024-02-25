@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ressources/front/css/ecurie.css">
     <link rel="stylesheet" href="../ressources/front/css/partials/footer.css">
+    <link rel="stylesheet" href="../ressources/front/css/partials/header.css">
     <title>Écuries</title>
 </head>
+<header>
+<?php  include_once(RACINE . '/view/front/path/partials/header.php');?>  
+</header>
 <body>
    <main>
        <div class="BoqueGauche">
