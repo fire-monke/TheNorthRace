@@ -86,13 +86,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $Pilote = new Pilote();
         $Pilote->addPilote($_POST['nomAdd'], $_POST['prenomAdd'], $_POST['paysAdd']/*, $_POST['dateNaisAdd']*/);
         $_GET = array();
-        header('Location: ./appli');
+        header('Location: ../../appli&type=pilote');//Because url = TheNorthRace/appli/create/pilote
         exit();
     }
     else if (isset($_POST['nomAdd']) && isset($_POST['couleurAdd'])) {
         $Ecurie = new Ecurie();
         $Ecurie->addEcurie($_POST['nomAdd'],$_POST['couleurAdd']);
-        header('Location: ./appli');
+        header('Location: ../../appli&type=ecurie');
         exit();
     }
 
@@ -112,10 +112,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         exit();
     }
 
-    else if (isset($_POST['EcurieId']) && isset($_POST['nom']) && isset($_POST['couleur'])) {
+    else if (isset($_POST['EcurieId']) && isset($_POST['nom']) && isset($_POST['couleur']) && isset($_POST['dateCreation']) && isset($_POST['localisation']) && isset($_POST['nbTitresConstructeur']) && isset($_POST['nbCoursesDisputees']) && isset($_POST['nbVictoires']) && isset($_POST['nbPoduims']) && isset($_POST['directeur'])) {
         $EcurieId = $_POST['EcurieId'];
         $Ecurie = new Ecurie();
-        $Ecurie->updateEcurieColor($EcurieId, $_POST['couleur']);
+        $Ecurie->updateEcurieColor($EcurieId, $_POST['couleur'], $_POST['dateCreation'], $_POST['localisation'], $_POST['nbTitresConstructeur'], $_POST['nbCoursesDisputees'], $_POST['nbVictoires'], $_POST['nbPoduims'], $_POST['directeur']);
         header('Location: ./appli&type=ecurie');
         exit();
     }

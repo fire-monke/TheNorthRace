@@ -20,20 +20,17 @@ ENGINE=InnoDB;
 
 CREATE TABLE if not exists Ecurie (
     id INT(3) AUTO_INCREMENT,
-    nom VARCHAR(40),
-    couleur VARCHAR(10),
-    dateCreation year,
-    localisation VARCHAR(50), 
-    nbTitresConstructeur INT, 
-	nbCoursesDisputees INT,
-    nbVictoires INT, 
-    nbPoduims INT, 
-    directeur VARCHAR(50), 
-  
+    nom VARCHAR(40) NOT NULL,
+    couleur VARCHAR(10) NOT NULL,
+    dateCreation YEAR DEFAULT (YEAR(CURRENT_DATE)) NOT NULL,
+    localisation VARCHAR(50) DEFAULT 'Inconnue' NOT NULL,
+    nbTitresConstructeur INT DEFAULT 0 NOT NULL, 
+    nbCoursesDisputees INT DEFAULT 0 NOT NULL,
+    nbVictoires INT DEFAULT 0 NOT NULL, 
+    nbPoduims INT DEFAULT 0 NOT NULL,
+    directeur VARCHAR(50) DEFAULT 'Inconnu' NOT NULL, 
     Primary Key(id)
-)
-ENGINE=InnoDB;
-
+) ENGINE=InnoDB;
 
 Create Table Classement(
     idEcu INT(3),
@@ -201,24 +198,31 @@ INSERT INTO Pilote (nom, prenom, paysPil, dateNais) VALUES
 ('Hartley', 'Brendon', 'Nouvelle-Zélande', '1989-11-10'),
 ('Sirotkin', 'Sergey', 'Russie', '1995-08-27');
 
-
 -- 2018
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
-('Mercedes', '#6CD3BF', 1954, 'Brackley, Royaume-Uni', 8, 270, 125, 281, 'Toto Wolff'),  
-('Ferrari', '#F91536', 1929, 'Maranello, Italie', 16, 1073, 243, 806, 'Frédéric Vasseur'),  
-('Renault', '#FFF500', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
-('Red Bull Racing', '#3671C6', 2005, 'Milton Keynes, Royaume-Uni', 6, 369, 114, 263, 'Christian Horner'),  
-('Haas', '#B6BABD', 2016, 'Kannapolis, États-Unis', 0, 142, 0, 0, 'Ayao Komatsu'),  
-('McLaren Renault', '#F58020', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
-('Force India Mercedes', '#F596C8', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
-('Sauber', '#9B0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
-('Scuderia Toro Rosso', '#0032FF', NULL, NULL, NULL, NULL, NULL, NULL, NULL),  
-('Williams', '#37BEDD', 1977, 'Grove, Royaume-Uni', 9, 745, 114, 312, 'James Vowles'),  
-('Force India Sahara', '#F596C8', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES
+	('Mercedes', '#6CD3BF', 1954, 'Brackley, Royaume-Uni', 8, 270, 125, 281, 'Toto Wolff'),
+	('Ferrari', '#F91536', 1929, 'Maranello, Italie', 16, 1073, 243, 806, 'Frédéric Vasseur');
+    
+INSERT INTO Ecurie (nom, couleur) VALUES
+	('Renault', '#FFF500');
+    
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES
+	('Red Bull Racing', '#3671C6', 2005, 'Milton Keynes, Royaume-Uni', 6, 369, 114, 263, 'Christian Horner'),
+	('Haas', '#B6BABD', 2016, 'Kannapolis, États-Unis', 0, 142, 0, 0, 'Ayao Komatsu');
+    
+INSERT INTO Ecurie (nom, couleur) VALUES
+	('McLaren Renault', '#F58020'),
+	('Force India Mercedes', '#F596C8'),
+	('Sauber', '#9B0000'),
+	('Scuderia Toro Rosso', '#0032FF');
+    
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES
+	('Williams', '#37BEDD', 1977, 'Grove, Royaume-Uni', 9, 745, 114, 312, 'James Vowles');
 
+INSERT INTO Ecurie (nom, couleur) VALUES
+	('Force India Sahara', '#F596C8'),
 
 -- 2019
-INSERT INTO Ecurie(nom,couleur) VALUES
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('FERRARI', '#F91536'),
 	-- ('Red Bull Racing', '#3671C6'),
@@ -230,37 +234,32 @@ INSERT INTO Ecurie(nom,couleur) VALUES
 	-- ('HAAS FERRARI', '#B6BABD'),
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
-
 -- 2020
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('RED BULL RACING HONDA', '#3671C6'),
 	-- ('MCLAREN RENAULT', '#F58020'),
 	-- ('RACING POINT BWT MERCEDES', '#F596C8'),
 	-- ('RENAULT', '#FFF500'),
 	-- ('FERRARI', '#F91536'),
-	 ('Alphatauri','#5E8FAA',2006, 'Faenza, Italie', 0, 346, 2, 5, 'Laurent Mekies');
+INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES
+	 ('Alphatauri','#5E8FAA',2006, 'Faenza, Italie', 0, 346, 2, 5, 'Laurent Mekies'),
 	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
 	-- ('HAAS FERRARI', '#B6BABD'),
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
-
 -- 2021
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 	-- ('MERCEDES', '#6CD3BF'),
 	-- ('RED BULL RACING HONDA', '#3671C6'),
 	-- ('FERRARI', '#F91536'),
 	('McLaren Mercedes','#F58020', 1963, 'Woking, Royaume-Uni', 8, 880, 183, 501, 'Bruno Famin'),
 	('Alpine','#2293D1' ,2021, 'Enstone, Royaume-Uni', 2, 471, 36, 107, 'Laurent Rossi'),
 	-- ('ALPHATAURI HONDA', '#5E8FAA'),
-	('Aston Martin','#358C75', 2021, 'Silverstone, Royaume-Uni', 0, 71, 0, 9, 'Mike Krack');
+	('Aston Martin','#358C75', 2021, 'Silverstone, Royaume-Uni', 0, 71, 0, 9, 'Mike Krack'),
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 	-- ('ALFA ROMEO RACING FERRARI', '#C92D4B'),
 	-- ('HAAS FERRARI', '#B6BABD')
 
-
 -- 2022
-INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur) VALUES  
 	-- ('Red Bull Racing', '#3671C6'),
 	-- ('FERRARI', '#F91536'),
 	-- ('MERCEDES', '#6CD3BF'),
@@ -272,12 +271,11 @@ INSERT INTO Ecurie (nom, couleur, dateCreation, localisation, nbTitresConstructe
 	-- ('Alphatauri', '#5E8FAA')
 	-- ('WILLIAMS MERCEDES', '#37BEDD'),
 
-
 -- 2023
-INSERT INTO Ecurie(nom,couleur) VALUES
 	-- ('Red Bull Racing', '#3671C6'),
 	-- ('Mercedes', '#6CD3BF'), (Commenté car déjà présent dans 2018)
 	-- ('Ferrari', '#F91536'), (Commenté car déjà présent dans 2018)
+INSERT INTO Ecurie (nom, couleur) VALUES
 	('McLaren','#F58020'),
 	-- ('Aston Martin', '#358C75'),
 	-- ('Alpine', '#2293D1'),
@@ -673,11 +671,25 @@ DROP PROCEDURE if exists updateEcurieColor;
 DELIMITER //
 CREATE PROCEDURE updateEcurieColor(
     IN idEcu INT(3),
-    IN nouvelleCouleurEcu VARCHAR(40)
+    IN new_CouleurEcu VARCHAR(40),
+    IN new_dateCreation year,
+    IN new_localisation VARCHAR(50),
+    IN new_nbTitresConstructeur INT,
+	IN new_nbCoursesDisputees INT,
+    IN new_nbVictoires INT,
+    IN new_nbPoduims INT,
+    IN new_directeur VARCHAR(50)
 )
 BEGIN
     UPDATE Ecurie
-	SET couleur=nouvelleCouleurEcu
+	SET couleur=new_CouleurEcu,
+        dateCreation=new_dateCreation,
+        localisation=new_localisation,
+        nbTitresConstructeur=new_nbTitresConstructeur,
+        nbCoursesDisputees=new_nbCoursesDisputees,
+        nbVictoires=new_nbVictoires,
+        nbPoduims=new_nbPoduims,
+        directeur=new_directeur
 	WHERE id=idEcu;
 END //
 DELIMITER ;
@@ -686,7 +698,7 @@ DROP PROCEDURE if exists getEcuries;
 DELIMITER //
 CREATE PROCEDURE getEcuries()
 BEGIN
-    SELECT id, nom, couleur FROM Ecurie;
+    SELECT id, nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie;
 END //
 DELIMITER ;
 
@@ -694,7 +706,7 @@ DROP PROCEDURE if exists getEcuriesLastSeason;
 DELIMITER //
 CREATE PROCEDURE getEcuriesLastSeason()
 BEGIN
-    SELECT id, nom, couleur,dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
+    SELECT id, nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     JOIN Classement on id=idEcu
     WHERE annee = (SELECT max(annee) FROM Classement);
 END //
@@ -706,7 +718,7 @@ CREATE PROCEDURE getEcurieById(
 	IN idEcu INT(3)
 )
 BEGIN
-    SELECT id, nom, couleur,dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
+    SELECT id, nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     WHERE id=idEcu;
 END //
 DELIMITER ;
@@ -717,7 +729,7 @@ CREATE PROCEDURE getEcurieOfLastSeasonOfPiloteByIdPilote(
 	IN idPilote INT(3)
 )
 BEGIN
-    SELECT id, nom, couleur FROM Ecurie
+    SELECT id, nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     JOIN CoursesAnnee ON idEcu=id
     WHERE idPil=idPilote AND annee = (SELECT max(annee) FROM CoursesAnnee);
 END //
@@ -729,7 +741,7 @@ CREATE PROCEDURE getLastEcurieByIdPilote(
 	IN idPilote INT(3)
 )
 BEGIN
-    SELECT id, nom, couleur FROM Ecurie
+    SELECT id, nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     JOIN CoursesAnnee ON idEcu=id
     WHERE idPil=idPilote AND annee = (SELECT max(annee) FROM CoursesAnnee WHERE idPil=idPilote);
 END //
