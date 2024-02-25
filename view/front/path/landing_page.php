@@ -207,7 +207,7 @@
             <div class="white">
                 <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil1) .'"></div>';?>
-                    <h2><?php echo htmlentities($prenomPil2) ?></h2>
+                    <h2><?php echo htmlentities($prenomPil1) ?></h2>
                     <h1><?php echo htmlentities($nomPil1) ?></h1>
                 </div>
             </div>
