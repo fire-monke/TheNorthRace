@@ -22,8 +22,10 @@
 
             <input type="text" id="couleur" name="couleurAdd" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
 
-            <input name=submit type="submit" value="Ajouter">
+            <input type="submit" value="Ajouter">
+
         </form>
+        <input type="submit" value="Annuler" onclick="window.location.href='./appli&type=ecurie'">
     </div>
 </body>
 

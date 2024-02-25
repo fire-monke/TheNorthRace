@@ -51,11 +51,8 @@ try{
                 switch($action){
                     ### ITEM CREATE
                     case "create":
-                        if(empty($url[2])){
-                            header('Location: ../not_found');
-                        }
-                        $choice = $url[2];
-                        if($choice == "pilote" || $choice == "ecurie"){
+                        //$url[2] is the choice of the entity that you wish to create
+                        if(!empty($url[2]) && ($url[2] == "pilote" || $url[2] == "ecurie")){
                             include_once(RACINE . '/controller/back/controller.php');
                         }
                         else{

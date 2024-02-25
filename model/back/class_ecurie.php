@@ -110,11 +110,18 @@ class Ecurie {
         }
     }
     // update a color of an Ecurie
-    function updateEcurieColor($idEcurie, $couleur) {
+    function updateEcurieColor($idEcurie, $couleur, $dateCreation, $localisation, $nbTitresConstructeur, $nbCoursesDisputees, $nbVictoires, $nbPoduims, $directeur) {
         try {
-            $req = $this->cnx->prepare("CALL updateEcurieColor(:idEcurie, :couleur)");
+            $req = $this->cnx->prepare("CALL updateEcurieColor(:idEcurie, :couleur, :dateCreation, :localisation, :nbTitresConstructeur, :nbCoursesDisputees, :nbVictoires, :nbPoduims, :directeur)");
             $req->bindValue(':idEcurie', $idEcurie, PDO::PARAM_INT);
             $req->bindValue(':couleur', $couleur, PDO::PARAM_STR);
+            $req->bindValue(':dateCreation', $dateCreation, PDO::PARAM_INT);
+            $req->bindValue(':localisation', $localisation, PDO::PARAM_STR);
+            $req->bindValue(':nbTitresConstructeur', $nbTitresConstructeur, PDO::PARAM_INT);
+            $req->bindValue(':nbCoursesDisputees', $nbCoursesDisputees, PDO::PARAM_INT);
+            $req->bindValue(':nbVictoires', $nbVictoires, PDO::PARAM_INT);
+            $req->bindValue(':nbPoduims', $nbPoduims, PDO::PARAM_INT);
+            $req->bindValue(':directeur', $directeur, PDO::PARAM_STR);
             $req->execute();
 
         } catch (PDOException $e) {
