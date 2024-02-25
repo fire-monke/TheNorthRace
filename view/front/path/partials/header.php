@@ -19,8 +19,8 @@ include_once(RACINE . '/controller/front//header_controller.php');
     </div>
     <nav id="headerNav">
         <a href="">Classement</a>
-        <a href="./pilotes" id="apilotes">Pilotes</a>
-        <a href="./ecuries" id="aecuries">Ecuries</a>
+        <a href="/TheNorthRace/pilotes" id="apilotes">Pilotes</a>
+        <a href="/TheNorthRace/ecuries" id="aecuries">Ecuries</a>
         <a href="">Archives</a>
     </nav>
     <div class="connection">
@@ -37,9 +37,9 @@ include_once(RACINE . '/controller/front//header_controller.php');
                 $couleurEcurie = $ecurie->couleur;
                 $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
             ?>
-                <a class="a-f1" href="./ecurie/<?php echo $ecurie->id; ?>">
+                <a class="a-f1" href="/TheNorthRace/ecurie/<?php echo $ecurie->id; ?>">
                     <div  class="f1" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
-                        <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
+                        <div class="ecuries-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
                         <h4><?php echo $nomEcurie; ?></h4>
                         <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>">
                     </div>
@@ -109,9 +109,9 @@ include_once(RACINE . '/controller/front//header_controller.php');
         const hovEcu = document.querySelector('.hovEcu');
         handleHover(ecurie, hovEcu);
 
-        const pilotess = document.querySelector('#headerNav #apilotes');
+        const hovPil = document.querySelector('#headerNav #apilotes');
         const navSecondary = document.querySelector('.navSecondary');
-        handleHover(pilotess, navSecondary);
+        handleHover(hovPil, navSecondary);
 
         // Iterate over each element and add event listeners for 'mouseover' and 'mouseout'
         const elements = document.querySelectorAll('[data-color-ecurie]');
