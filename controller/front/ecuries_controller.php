@@ -11,8 +11,10 @@ $piloteModel = new Pilote();
 $ecuries = $ecurieModel->getEcuriesLastSeason();
 
 // Chargez la vue
+include_once(RACINE . '/view/front/path/partials/header.php');
 include_once(RACINE . '/view/front/path/ecuries_page.php');
-?>
+include_once(RACINE . '/view/front/path/partials/footer.php');
+
 
 
 

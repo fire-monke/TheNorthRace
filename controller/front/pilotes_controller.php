@@ -19,5 +19,7 @@ foreach ($pilotes as $pilote) {
 }
 
 // Inclure la vue
+include_once(RACINE . '/view/front/path/partials/header.php');
 include_once(RACINE . '/view/front/path/pilotes_page.php');
+include_once(RACINE . '/view/front/path/partials/footer.php');
 

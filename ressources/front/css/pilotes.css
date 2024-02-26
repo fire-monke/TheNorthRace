@@ -73,7 +73,6 @@
 .infomid{display: flex;  border-bottom: 1px solid #434346; align-items: center;justify-content: space-around; }
 .nom-prenom h2 {
     margin: 0; /* Ajoutez cette ligne pour supprimer les marges */
-    padding-top: 5px;
 }
 .nom-prenom p {
     margin: 0; /* Ajoutez cette ligne pour supprimer les marges */

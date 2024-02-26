@@ -7,12 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./ressources/front/css/style2.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
     <title>TheNorthRace</title>
 </head>
 <body>
-<header>
-<?php  include_once(RACINE . '/view/front/path/partials/header.php');?>  
-</header>
 <main>
     <section class="firstSection">
             <div class="wrapper">
@@ -206,5 +204,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </main>
 </body>
-<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>  
 </html>
