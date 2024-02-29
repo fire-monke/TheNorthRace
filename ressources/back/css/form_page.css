@@ -8,21 +8,21 @@
 	outline: none;
 }
 
-.update{
+.form_page{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100svh;
 }
 
-.update h1{
+.form_page h1, .submit{
 	text-align: center;
 	width: 50%;
 }
 
-.update form{
+.form_page form{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -31,8 +31,7 @@
 	height: 90%;
 }
 
-
-.update form input{
+.form_page form input, .submit{
 	background-color: #F3F3F3;
 	color: #000000;
 	width: 78%;
@@ -40,24 +39,28 @@
 	margin: 1rem 0.5rem;
 	border-radius: 0.5rem;
 	border: 1px solid grey;
+	transition: .3s;
 }
 
-.update form input::placeholder{
+.form_page form input::placeholder, .submit{
 	color: #000000;
+	transition: .3s;
 }
 
-.update input[type="submit"]{
-    background-color: #2D2D2D;
-    font-weight: 600;
-    color: white;
-    font-size: 1.1rem;
-    width: 21%;
-    border-radius: 0.5rem;
-    border: solid 1.5px #2D2D2D;
+.form_page input[type="submit"], .submit{
+	background-color: #2D2D2D;
+	font-weight: 600;
+	color: white;
+	font-size: 1.1rem;
+	width: 21%;
+	border-radius: 0.5rem;
+	border: solid 1.5px #2D2D2D;
+	transition: .01s;
 }
 
-.update input[type="submit"]:hover{
-    background-color: white;
-    color: #2D2D2D;
-    border: solid 1.5px #2D2D2D;
+.form_page input[type="submit"]:hover, .submit:hover{
+	background-color: white;
+	color: #2D2D2D;
+	border: solid 1.5px #2D2D2D;
+	transition: .3s;
 }
