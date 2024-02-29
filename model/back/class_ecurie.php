@@ -85,11 +85,19 @@ class Ecurie {
     }
 
     // add an Ecurie
-    function addEcurie($nom, $couleur){
+    function addEcurie($nom, $couleur, $dateCreation, $localisation, $nbTitresConstructeur, $nbCoursesDisputees, $nbVictoires, $nbPoduims, $directeur){
         try {
-            $req = $this->cnx->prepare("CALL AddEcurie(:nom, :couleur)");
+            $req = $this->cnx->prepare("CALL AddEcurie(:nom, :couleur, :dateCreation, :localisation, :nbTitresConstructeur, :nbCoursesDisputees, :nbVictoires, :nbPoduims, :directeur)");
             $req->bindValue(':nom', $nom, PDO::PARAM_STR);
             $req->bindValue(':couleur', $couleur, PDO::PARAM_STR);
+            $req->bindValue(':dateCreation', $dateCreation, PDO::PARAM_INT);
+            $req->bindValue(':localisation', $localisation, PDO::PARAM_STR);
+            $req->bindValue(':nbTitresConstructeur', $nbTitresConstructeur, PDO::PARAM_INT);
+            $req->bindValue(':nbCoursesDisputees', $nbCoursesDisputees, PDO::PARAM_INT);
+            $req->bindValue(':nbVictoires', $nbVictoires, PDO::PARAM_INT);
+            $req->bindValue(':nbPoduims', $nbPoduims, PDO::PARAM_INT);
+            $req->bindValue(':directeur', $directeur, PDO::PARAM_STR);
+
             $req->execute();
 
         } catch (PDOException $e) {

@@ -21,14 +21,14 @@ ENGINE=InnoDB;
 CREATE TABLE if not exists Ecurie (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40) NOT NULL,
-    couleur VARCHAR(10) NOT NULL,
+    couleur VARCHAR(20) NOT NULL,
     dateCreation YEAR DEFAULT (YEAR(CURRENT_DATE)) NOT NULL,
     localisation VARCHAR(50) DEFAULT 'Inconnue' NOT NULL,
     nbTitresConstructeur INT DEFAULT 0 NOT NULL, 
     nbCoursesDisputees INT DEFAULT 0 NOT NULL,
     nbVictoires INT DEFAULT 0 NOT NULL, 
     nbPoduims INT DEFAULT 0 NOT NULL,
-    directeur VARCHAR(50) DEFAULT 'Inconnu' NOT NULL, 
+    directeur VARCHAR(80) DEFAULT 'Inconnu' NOT NULL, 
     Primary Key(id)
 ) ENGINE=InnoDB;
 
@@ -647,11 +647,18 @@ DROP PROCEDURE if exists AddEcurie;
 DELIMITER //
 CREATE PROCEDURE AddEcurie (
     IN nomEcu VARCHAR(50),
-    IN couleurEcu VARCHAR(40)
+    IN couleurEcu VARCHAR(20),
+    IN dateCreation YEAR,
+    IN localisation VARCHAR(50),
+    IN nbTitresConstructeur INT,
+    IN nbCoursesDisputees INT,
+    IN nbVictoires INT,
+    IN nbPoduims INT,
+    IN directeur VARCHAR(80)
 )
 BEGIN
-    INSERT INTO Ecurie(nom, couleur)
-	VALUES(nomEcu, couleurEcu);
+    INSERT INTO Ecurie(nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur)
+	VALUES(nomEcu, couleurEcu, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur);
 END //
 DELIMITER ;
 
