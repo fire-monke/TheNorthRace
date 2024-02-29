@@ -4,6 +4,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./ressources/front/css/partials/footer.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
     <footer>
         <section class="contact">
             <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
@@ -15,11 +16,11 @@
             </form>
         </section>
         <section class="images">
-            <img src="./ressources/front/images/teamRedBull.png" alt="">
-            <img src="./ressources/front/images/teamMercedes.png" alt="">
-            <img src="./ressources/front/images/teamFerrari.png" alt="">
-            <img src="./ressources/front/images/teamMcLaren.png" alt="">
-            <img src="./ressources/front/images/teamAston.png" alt="">
+            <img src="/TheNorthRace/ressources/front/images/teamRedBull.png" alt="">
+            <img src="/TheNorthRace/ressources/front/images/teamMercedes.png" alt="">
+            <img src="/TheNorthRace/ressources/front/images/teamFerrari.png" alt="">
+            <img src="/TheNorthRace/ressources/front/images/teamMcLaren.png" alt="">
+            <img src="/TheNorthRace/ressources/front/images/teamAston.png" alt="">
         </section>
         <section class="banner">
             <div class="content-box">
@@ -49,10 +50,10 @@
             </div>
         </section>
         <div class="media">
-            <a href=""><img src="./ressources/front/images/greyInstagram.png" alt="#"></a>
-            <a href=""><img src="./ressources/front/images/greyGitHub.png" alt="#"></a>
-            <a href=""><img src="./ressources/front/images/greyTwitter.png" alt="#"></a>
-            <a href=""><img src="./ressources/front/images/greyLinkedin.png" alt="#"></a>
+            <a href=""><img src="/TheNorthRace/ressources/front/images/greyInstagram.png" alt="#"></a>
+            <a href=""><img src="/TheNorthRace/ressources/front/images/greyGitHub.png" alt="#"></a>
+            <a href=""><img src="/TheNorthRace/ressources/front/images/greyTwitter.png" alt="#"></a>
+            <a href=""><img src="/TheNorthRace/ressources/front/images/greyLinkedin.png" alt="#"></a>
         </div>
         <p class="TheNorthRace">© 2023  -  TheNorthRace</p>
     </footer>

@@ -7,11 +7,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./ressources/front/css/partials/header.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
     <title>TheNorthRace</title>
 </head>
 <header>
     <div class="wrapper">
-        <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
+        <img src="/TheNorthRace/ressources/front/images/LogoTransparent1.png" alt="Logo">
     </div>
     <nav id="headerNav">
         <a href="">Classement</a>
@@ -37,7 +38,7 @@
                     <div  class="f1" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
                         <div class="ecuries-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
                         <h4><?php echo $nomEcurie; ?></h4>
-                        <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>">
+                        <img class="img-f1" src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>">
                     </div>
                 </a>
             <?php endforeach; ?>
