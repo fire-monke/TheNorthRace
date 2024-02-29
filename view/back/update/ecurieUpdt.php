@@ -36,7 +36,7 @@
             
             <input type="hidden" id="nom" name="nom" placeholder="Nom" value="<?php echo !empty($uneEcurie->nom) ? htmlentities($uneEcurie->nom) : ''; ?>" required>
             
-            <label for="couleur">Couleur</label>
+            <label for="couleur">Couleur HTML</label>
             <input type="text" id="couleur" name="couleur" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
             
             <label for="dateCreation">Année de création</label>
