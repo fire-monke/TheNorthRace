@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="./ressources/front/css/pilotes.css">
     <link rel="stylesheet" href="./ressources/front/css/global.css">
 </head>
-<header>
-<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
-</header>
 <body>
    <main>
     <h1 class="title">Pilotes F1 2023</h1>
@@ -83,7 +80,6 @@
             }
         });
     });
-</script>
-<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>    
+</script> 
 </body>
 </html>
