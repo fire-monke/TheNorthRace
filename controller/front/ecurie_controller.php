@@ -27,8 +27,8 @@ if ($ecurie === null) {
     throw new Exception("L'écurie avec l'ID $idEcurie n'appartient pas à la dernière saison.");
 }
 
-$nomEcurie = $ecurie->nom;
-$couleurEcurie = $ecurie->couleur;
+$noomEcurie = $ecurie->nom;
+$couleuurEcurie = $ecurie->couleur;
 $dateCreationEcurie = $ecurie->dateCreation;
 $localisationEcurie = $ecurie->localisation;
 $titresConstructeursEcurie = $ecurie->nbTitresConstructeur;
