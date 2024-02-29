@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ressources/front/css/pilotes.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
 </head>
+<header>
+<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
+</header>
 <body>
    <main>
-    <h1>Pilotes F1 2023</h1>
+    <h1 class="title">Pilotes F1 2023</h1>
     <div class="top">
         <?php foreach ($pilotes as $pilote): ?>
             <?php 
@@ -53,9 +57,9 @@
 
 <script>
     // Ajoutez votre script JavaScript ici
-    const pilotes = document.querySelectorAll('.pilote');
+    const pilotess = document.querySelectorAll('.pilote');
 
-    pilotes.forEach(pilote => {
+    pilotess.forEach(pilote => {
         pilote.addEventListener('mouseover', () => {
             const couleurEcu = pilote.querySelector('.couleur-ecu').style.backgroundColor;
             pilote.style.borderRight = `2px solid ${couleurEcu}`;
@@ -80,6 +84,6 @@
         });
     });
 </script>
-
+<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>    
 </body>
 </html>

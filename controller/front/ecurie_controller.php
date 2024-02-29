@@ -52,5 +52,7 @@ if ($ecurieNom === "Alpine" || $ecurieNom === "Aston Martin Aramco" || $ecurieNo
 }
 
 // Inclure la vue
+include_once(RACINE . '/controller/front/partials/header_controller.php');
 include_once(RACINE . '/view/front/path/ecurie_page.php');
+include_once(RACINE . '/view/front/path/partials/footer.php');
 ?>

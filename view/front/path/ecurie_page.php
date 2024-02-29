@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ressources/front/css/ecurie.css">
+    <link rel="stylesheet" href="../ressources/front/css/partials/footer.css">
+    <link rel="stylesheet" href="../ressources/front/css/partials/header.css">
+    <link rel="stylesheet" href="../ressources/front/css/global.css">
     <title>Écuries</title>
 </head>
+<header>
+<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
+</header>
 <body>
    <main>
        <div class="BoqueGauche">
@@ -59,5 +65,7 @@
        </div>
    </main>
    <div class="photobas"></div>   
+
 </body>
+<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>    
 </html>

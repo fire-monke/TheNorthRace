@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ressources/front/css/ecuries.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
 </head>
+<header>
+<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
+</header>
 <body>
     <main>
-        <h1>Ecuries F1 2023</h1>
+        <h1 class="title">Ecuries F1 2023</h1>
         <div class="tous">
         <?php foreach ($ecuries as $ecurie): ?>
             <div class="pilote">
@@ -25,7 +29,7 @@
                     foreach ($pilotes as $pilote): ?>
                         <div class="pil">
                             <div class="interpil">
-                                <p><?= $pilote->prenom; ?></p>
+                                <p class="prenomp"><?= $pilote->prenom; ?></p>
                                 <h2><?= $pilote->nom; ?></h2>
                             </div>
                             <img class="imgPil"src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom; ?>.png" alt="img du pilote">
@@ -57,4 +61,5 @@
         });
     </script>
 </body>
+<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>  
 </html>

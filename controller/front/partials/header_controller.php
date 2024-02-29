@@ -1,4 +1,5 @@
 <?php
+
 require_once(RACINE . '/model/back/class_pilote.php');
 require_once(RACINE . '/model/back/class_ecurie.php');
 $Pilote = new Pilote();
@@ -34,6 +35,5 @@ foreach ($lesPilotesDB as $unPilote) {
         "couleurEcu" => $Ecurie->getLastEcurieByIdPilote($unPilote->id)->couleur,
     );
 }
-include_once(RACINE . '/controller/front/partials/header_controller.php');
-include_once(RACINE . '/view/front/path/landing_page.php');
-include_once(RACINE . '/view/front/path/partials/footer.php');
+
+include_once(RACINE . '/view/front/path/partials/header.php');
