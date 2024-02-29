@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./ressources/front/css/global.css">
 </head>
 <header>
-<?php  include_once(RACINE . '/view/front/path/partials/header.php');?>  
+<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
 </header>
 <body>
     <main>

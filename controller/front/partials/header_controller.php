@@ -36,4 +36,4 @@ foreach ($lesPilotesDB as $unPilote) {
     );
 }
 
-
+include_once(RACINE . '/view/front/path/partials/header.php');

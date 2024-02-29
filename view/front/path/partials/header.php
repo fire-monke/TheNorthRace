@@ -1,7 +1,3 @@
-<?php
-// Inclure le fichier du contrôleur de l'en-tête
-include_once(RACINE . '/controller/front/header_controller.php');
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
