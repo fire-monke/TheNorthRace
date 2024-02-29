@@ -16,8 +16,10 @@ ECURIE = false;
 </script>
 <body>
     <ul class="topbar">
+        <li>Id</li>
         <li>Prénom</li>
         <li>Nom</li>
+        <li>Ecurie</li>
         <button class="create" data-entity="pilote">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
 <?php
