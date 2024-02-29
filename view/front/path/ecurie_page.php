@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../ressources/front/css/ecurie.css">
     <link rel="stylesheet" href="../ressources/front/css/partials/footer.css">
     <link rel="stylesheet" href="../ressources/front/css/partials/header.css">
+    <link rel="stylesheet" href="../ressources/front/css/global.css">
     <title>Écuries</title>
 </head>
 <header>
