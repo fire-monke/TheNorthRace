@@ -16,7 +16,7 @@ ECURIE = false;
 </script>
 <body>
     <ul class="topbar">
-        <li>Id</li>
+        <li>ID</li>
         <li>Prénom</li>
         <li>Nom</li>
         <li>Ecurie</li>

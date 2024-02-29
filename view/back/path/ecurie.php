@@ -10,18 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
-<style>
-.topbar li:first-child{
-    margin-left: 6vw;
-}
-</style>
 <script>
       var ECURIE = true;
       PILOT = false;
 </script>
 <body>
     <ul class="topbar">
-        <li>Couleur</li>
+        <li>ID</li>
         <li>Nom</li>
         <button class="create" data-entity="ecurie">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
