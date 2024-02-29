@@ -204,5 +204,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </main>
 </body>
-<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>  
 </html>

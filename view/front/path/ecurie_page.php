@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="../ressources/front/css/global.css">
     <title>Écuries</title>
 </head>
-<header>
-<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
-</header>
 <body>
    <main>
        <div class="BoqueGauche">
@@ -19,7 +16,7 @@
           
            
         <div class="trait">
-           <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
+           <div class="ecurie-background" style="background-color: <?php echo $couleuurEcurie; ?>;"></div>
                 <div class="wrap">
                 <div class="interBloqueGaucheG">
                     <h3>Nom de l’écurie</h3>
@@ -32,7 +29,7 @@
                     <h3>Directeur</h3>
                 </div>
                 <div class="interBloqueGaucheD">
-                    <p><?php echo $nomEcurie; ?></p>
+                    <p><?php echo $noomEcurie; ?></p>
                     <p><?php echo $dateCreationEcurie; ?></p>
                     <p><?php echo $localisationEcurie; ?></p>
                     <p><?php echo $titresConstructeursEcurie; ?></p>
@@ -48,7 +45,7 @@
           <?php foreach ($pilotes as $pilote) : ?>
             <div class="pilote">
             <div class="imgPil">
-                <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$pilote->nom}.png"; ?>" alt="Nom de l'image">
+                <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$pilote->nom}.png"; ?>" alt="Image Pilote">
             </div>
                 <div class="interBloqueDroiteG">
                     <?php
@@ -66,6 +63,5 @@
    </main>
    <div class="photobas"></div>   
 
-</body>
-<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>    
+</body>  
 </html>

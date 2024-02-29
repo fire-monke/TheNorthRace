@@ -50,8 +50,9 @@
             </div>
             <div class="nav-list">
                 <ul>
-                    <?php foreach ($pilotesLastSeason as $pilote): ?>
-                        <li>
+                <?php foreach ($pilotesLastSeason as $pilote): ?>
+                    <li>
+                        <a href="/TheNorthRace/pilote/<?php echo $pilote->id; ?>">
                             <?php
                             $nomPilote = $pilote->nom;
                             $prenomPilote = $pilote->prenom;
@@ -66,8 +67,9 @@
                                 <?php echo $prenomPilote . ' ' . $nomPilote; ?>
                                 <strong class="spe" style="color: <?php echo $couleurEcurie; ?>">></strong>
                             </p>
-                        </li>
-                    <?php endforeach; ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
                 </ul>
             </div>
         </div>

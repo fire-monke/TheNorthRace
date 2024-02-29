@@ -1,0 +1,84 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Montserrat;
+	transition: .3s;
+
+
+}
+
+.h1{
+    padding-left: 35vh;
+padding-top: 5vh;
+}
+
+.pic {    height: 20vw;
+    width: auto;}
+
+
+.pic img{
+    height: 100%;
+}
+
+.allside{
+    width: 100%;
+    display: flex;
+    padding-left: 35vh;
+    padding-top: 10VH;
+}
+
+
+.leftside{width: 50%;
+font-size: 30px;}
+
+
+.numcount{    
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 4vh;
+}
+
+.name{ display: flex; 
+    gap: 2.5vh;
+    margin-top: 30px;
+    margin-left: 30px;}
+
+.rightside{
+    width: 70%;
+    display: flex;
+    align-items: center;
+
+	}
+    .ecurie-background {
+        width: 3px;
+        height: 178px; 
+        margin-right: 20px;
+        margin-left: 40px;
+    }
+.rightleft
+{
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 27px;
+
+}
+.rightleft > h3:not(:first-child) {
+    padding-top: 5px;
+}
+
+.rightright
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 27px;
+    font-size: 20px;
+    margin-left: 20px;
+    gap: 5px;
+
+}

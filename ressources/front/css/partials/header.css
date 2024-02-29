@@ -94,7 +94,10 @@ header .wrapper{
     background-color: #f0f0f0;
     border: solid 1px #F1F1F1;
 }
-
+li a {
+    text-decoration: none;
+    color: inherit;
+}
 .hovEcu {
     display: none;
     height: 58vh;

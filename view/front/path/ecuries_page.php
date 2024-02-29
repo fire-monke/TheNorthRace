@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="./ressources/front/css/ecuries.css">
     <link rel="stylesheet" href="./ressources/front/css/global.css">
 </head>
-<header>
-<?php  include_once(RACINE . '/controller/front/partials/header_controller.php');?>  
-</header>
 <body>
     <main>
         <h1 class="title">Ecuries F1 2023</h1>
@@ -61,5 +58,4 @@
         });
     </script>
 </body>
-<?php  include_once(RACINE . '/view/front/path/partials/footer.php');?>  
 </html>
