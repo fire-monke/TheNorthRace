@@ -14,39 +14,40 @@
 <body>
     <div class="form_page">
         <h1>MODIFICATION <span>
-<?php
-try{
-    require_once(RACINE . '/controller/back/controller.php');
-    if (isset($_GET['id'])) {
-        $piloteId = $_GET['id'];
-    } else {
-        echo "Erreur : ID du pilote non spécifié.";
-    }
-    if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
-    echo htmlentities($unPilote->prenom) ." ". htmlentities($unPilote->nom);
-    }
+        <?php
+        try {
+            if (isset($_GET['id'])) {
+                $piloteId = $_GET['id'];
+            } else {
+                throw "Erreur : ID du pilote non spécifié.";
+            }
+            if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
+                echo htmlentities($unPilote->prenom) ." ". htmlentities($unPilote->nom);
+            }
 
-}
-catch(Exception $ex){
-echo $ex->GetMessage();
-}?></span></h1>
+        } catch(Exception $ex){
+            echo $ex->GetMessage();
+        }?>
+        </span></h1>
 
         <form action="./appli" method="POST">
         <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
-                <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
 
-                <input type="text" id="prenom" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
 
-                <input type="text" id="pays" name="pays" placeholder="Pays" value="<?php if (!empty($unPilote->paysPil)){
-                    echo htmlentities($unPilote->paysPil);
-                }?>" required>
+            <label for="pays">Pays</label>
+            <input type="text" id="pays" name="pays" placeholder="Pays" value="<?php if (!empty($unPilote->paysPil)){echo htmlentities($unPilote->paysPil);}?>" required>
 
-                <input type="text" id="dateNais" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){
-                    echo htmlentities($unPilote->dateNais);
-                }?>" required>
-
+            <label for="dateNais">Date de naissance</label>
+            <input type="text" id="dateNais" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){echo htmlentities($unPilote->dateNais);}?>" required>
+            
+            <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
                 <a href="./appli&type=pilote" class="submit">Annuler</a>
+            </div>
         </form>
     </div>
 </body>

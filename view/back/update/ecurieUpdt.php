@@ -27,8 +27,7 @@
 
         } catch (Exception $ex) {
             echo $ex->GetMessage();
-        }
-        ?>
+        }?>
         </span></h1>
 
         <form action="./appli" method="POST">
@@ -60,9 +59,10 @@
             <label for="directeur">Directeur</label>
             <input type="text" id="directeur" name="directeur" placeholder="Directeur" minlength="0" maxlength="80" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
 
-
-            <input name=submit type="submit" value="Modifier">
-            <a href="./appli&type=ecurie" class="submit">Annuler</a>
+            <div class="button-container">
+                <input name=submit type="submit" value="Modifier">
+                <a href="./appli&type=ecurie" class="submit">Annuler</a>
+            </div>
         </form>
     </div>
 </body>

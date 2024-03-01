@@ -16,7 +16,6 @@
         <h1>Ajout d'une écurie</h1>
 
         <form action="./appli/create/ecurie" method="POST">
-
             <label for="nomAdd">Nom</label>
             <input type="text" id="nom" name="nomAdd" placeholder="Nom" required>
                         
@@ -26,7 +25,7 @@
             <label for="dateCreation">Année de création</label>
             <input type="number" id="dateCreation" name="dateCreationAdd" placeholder="Année de création" min="0" max="3000" value="2024">
             
-            <label for="localisation">localisation</label>
+            <label for="localisation">Localisation</label>
             <input type="text" id="localisation" name="localisationAdd" placeholder="Localisation" minlength="0" maxlength="50" value="Inconnue">
             
             <label for="nbTitresConstructeur">Nombre de titres constructeur</label>
@@ -44,8 +43,10 @@
             <label for="directeur">Directeur</label>
             <input type="text" id="directeur" name="directeurAdd" placeholder="Directeur" minlength="0" maxlength="80" value="Inconnu">
 
-            <input type="submit" value="Ajouter">
-            <a href="./appli&type=ecurie" class="submit">Annuler</a>
+            <div class="button-container">
+                <input type="submit" value="Ajouter">
+                <a href="./appli&type=ecurie" class="submit">Annuler</a>
+            </div>
         </form>
     </div>
 </body>
