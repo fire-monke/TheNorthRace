@@ -89,9 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         header('Location: ../../appli&type=pilote');//Because url = TheNorthRace/appli/create/pilote
         exit();
     }
-    else if (isset($_POST['nomAdd']) && isset($_POST['couleurAdd'])) {
+    else if (isset($_POST['nomAdd']) && isset($_POST['couleurAdd']) && isset($_POST['dateCreationAdd']) && isset($_POST['localisationAdd']) && isset($_POST['nbTitresConstructeurAdd']) && isset($_POST['nbCoursesDisputeesAdd']) && isset($_POST['nbVictoiresAdd']) && isset($_POST['nbPoduimsAdd']) && isset($_POST['directeurAdd'])) {
         $Ecurie = new Ecurie();
-        $Ecurie->addEcurie($_POST['nomAdd'],$_POST['couleurAdd']);
+        $Ecurie->addEcurie($_POST['nomAdd'], $_POST['couleurAdd'], $_POST['dateCreationAdd'], $_POST['localisationAdd'], $_POST['nbTitresConstructeurAdd'], $_POST['nbCoursesDisputeesAdd'], $_POST['nbVictoiresAdd'], $_POST['nbPoduimsAdd'], $_POST['directeurAdd']);
         header('Location: ../../appli&type=ecurie');
         exit();
     }

@@ -36,7 +36,7 @@
             
             <input type="hidden" id="nom" name="nom" placeholder="Nom" value="<?php echo !empty($uneEcurie->nom) ? htmlentities($uneEcurie->nom) : ''; ?>" required>
             
-            <label for="couleur">Couleur</label>
+            <label for="couleur">Couleur HTML</label>
             <input type="text" id="couleur" name="couleur" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
             
             <label for="dateCreation">Année de création</label>
@@ -58,7 +58,7 @@
             <input type="number" id="nbPoduims" name="nbPoduims" placeholder="Nombre de poduims" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbPoduims) ? htmlentities($uneEcurie->nbPoduims) : '0'; ?>" required>
             
             <label for="directeur">Directeur</label>
-            <input type="text" id="directeur" name="directeur" placeholder="Directeur" minlength="0" maxlength="50" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
+            <input type="text" id="directeur" name="directeur" placeholder="Directeur" minlength="0" maxlength="80" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
 
 
             <input name=submit type="submit" value="Modifier">
