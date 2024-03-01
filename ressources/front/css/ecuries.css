@@ -24,7 +24,10 @@
     width: 660px;
     height: 300px;
 }
-
+a.pilote {
+    text-decoration: none;
+    color: inherit;
+}
 .info{
     border-bottom: 1px solid #434346;
     display: flex;
