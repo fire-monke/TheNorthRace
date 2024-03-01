@@ -73,7 +73,7 @@
 	width: 100%;
 }
 
-.form_page input[type="text"], .form_page input[type="number"], .form_page input[type="date"]{
+.form_page input[type="text"], .form_page input[type="number"], .form_page input[type="date"], .form_page input[type="file"]{
 	width: 100%;
 }
 

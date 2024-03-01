@@ -84,8 +84,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_POST['nomAdd']) && isset($_POST['prenomAdd']) && isset($_POST['paysAdd']) /*&& isset($_POST['dateNaisAdd']) */) {
         $Pilote = new Pilote();
-        $Pilote->addPilote($_POST['nomAdd'], $_POST['prenomAdd'], $_POST['paysAdd']/*, $_POST['dateNaisAdd']*/);
-        $_GET = array();
+        $id_pilote = $Pilote->addPilote($_POST['nomAdd'], $_POST['prenomAdd'], $_POST['paysAdd']/*, $_POST['dateNaisAdd']*/);
+        // Check if the download went well
+        if (isset($_FILES["photoAdd"]) && $_FILES["photoAdd"]["error"] == 0) {
+
+            $nom_fichier_origine = $_FILES["photoAdd"]["name"];
+            $nouveau_nom_fichier = $id_pilote . '.png'; // generate a new file name
+
+            // move the downloaded file with its new name to the correct directory
+            $dossier_upload = "ressources/front/images/photo_Pilote_PNG/";
+            $chemin_fichier = $dossier_upload . $nouveau_nom_fichier;
+            move_uploaded_file($_FILES["photoAdd"]["tmp_name"], $chemin_fichier);
+        }
         header('Location: ../../appli&type=pilote');//Because url = TheNorthRace/appli/create/pilote
         exit();
     }
@@ -104,10 +114,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Traitement de la requête POST pour Update Pilote
 
     else if(isset($_POST['piloteId']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['pays']) && isset($_POST['dateNais'])) {
-        $piloteId = $_POST['piloteId'];
+        $id_pilote = $_POST['piloteId'];
         // Mise à jour du pilote
         $Pilote = new Pilote();
-        $Pilote->updatePilote($piloteId, $_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['dateNais']);
+        $Pilote->updatePilote($id_pilote, $_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['dateNais']);
+        // Check if the download went well
+        if (isset($_FILES["photoAdd"]) && $_FILES["photoAdd"]["error"] == 0) {
+
+            $nom_fichier_origine = $_FILES["photoAdd"]["name"];
+            $nouveau_nom_fichier = $id_pilote . '.png'; // generate a new file name
+
+            // move the downloaded file with its new name to the correct directory
+            $dossier_upload = "ressources/front/images/photo_Pilote_PNG/";
+            $chemin_fichier = $dossier_upload . $nouveau_nom_fichier;
+            move_uploaded_file($_FILES["photoAdd"]["tmp_name"], $chemin_fichier);
+        }
         header('Location: ./appli&type=pilote');
         exit();
     }

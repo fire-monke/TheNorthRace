@@ -39,7 +39,7 @@
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
-            <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($nomPil2) . '.png" alt="">' ?>
+            <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($idPil2) . '.png" alt="">' ?>
                 <div class="white">
                     <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil2) .'"></div>';?>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="first">
-        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($nomPil1) . '.png" alt="">' ?>
+        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($idPil1) . '.png" alt="">' ?>
             <div class="white">
                 <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil1) .'"></div>';?>
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="third">
-        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($nomPil3) . '.png" alt="">' ?>
+        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($idPil3) . '.png" alt="">' ?>
             <div class="white">
                 <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil3) .'"></div>'; ?>

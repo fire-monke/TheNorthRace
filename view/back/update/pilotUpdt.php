@@ -30,7 +30,7 @@
         }?>
         </span></h1>
 
-        <form action="./appli" method="POST">
+        <form action="./appli" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
@@ -44,6 +44,9 @@
             <label for="dateNais">Date de naissance</label>
             <input type="text" id="dateNais" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){echo htmlentities($unPilote->dateNais);}?>" required>
             
+            <label for="photoAdd">Photo du pilote</label>
+            <input type="file" id="photo" name="photoAdd" accept=".jpg, .jpeg, .png">
+
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
                 <a href="./appli&type=pilote" class="submit">Annuler</a>
