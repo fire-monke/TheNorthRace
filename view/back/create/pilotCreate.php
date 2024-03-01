@@ -16,17 +16,23 @@
         <h1>Ajout d'un pilote</h1>
 
         <form action="./appli/create/pilote" method="POST">
-                <input type="text" id="nom" name="nomAdd" placeholder="Nom" value="" required>
+            <label for="nomAdd">Nom</label>
+            <input type="text" id="nom" name="nomAdd" placeholder="Nom" value="" required>
 
-                <input type="text" id="prenom" name="prenomAdd" placeholder="Prenom" value="" required>
+            <label for="prenomAdd">Prénom</label>
+            <input type="text" id="prenom" name="prenomAdd" placeholder="Prenom" value="" required>
 
-                <input type="text" id="pays" name="paysAdd" placeholder="Pays" value="" required>
+            <label for="paysAdd">Pays</label>
+            <input type="text" id="pays" name="paysAdd" placeholder="Pays" value="" required>
 
-                <input type="text" id="dateNais" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
+            <label for="dateNaisAdd">Date de naissance</label>
+            <input type="text" id="dateNais" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
 
+            <div class="button-container">
                 <input name=submit type="submit" value="Ajouter">
                 <a href="./appli&type=pilote" class="submit">Annuler</a>
-            </form>
+            </div>
+        </form>
     </div>
 </body>
 </html>
