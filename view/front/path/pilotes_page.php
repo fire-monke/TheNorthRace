@@ -15,7 +15,7 @@
             // Récupérer l'écurie du pilote
             $ecuriePil = $ecurieController->getEcurieOfLastSeasonOfPiloteByIdPilote($pilote->id);
             ?>
-            <div class="pilote">
+            <a class="pilote" href="/TheNorthRace/pilote/<?php echo $pilote->id; ?>">
                 <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                     <div class="infoTop">
                         <p><?= $detail['placePil'] ?></p>
@@ -47,7 +47,7 @@
                         <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->id ?>" alt="Photo du pilote">
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
     </div>
     </main>

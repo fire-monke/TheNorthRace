@@ -11,7 +11,7 @@
         <h1 class="title">Ecuries F1 2023</h1>
         <div class="tous">
         <?php foreach ($ecuries as $ecurie): ?>
-            <div class="pilote">
+            <a class="pilote" href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
                 <div class="info">
                     <div class="interinfo">
                         <div class="couleur" style="background-color: <?= $ecurie->couleur; ?>"></div>
@@ -34,9 +34,9 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="ecurie">
-                <div class="voiture"><img src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/voiture_<?= str_replace(' ', '_', $ecurie->nom); ?>.png" alt="Photo de la voiture" style="margin-top: <?= ($ecurie->nom === 'Alphatauri') ? '25px;' : '10px;'; ?>"></div>
+                    <div class="voiture"><img src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/voiture_<?= str_replace(' ', '_', $ecurie->nom); ?>.png" alt="Photo de la voiture" style="margin-top: <?= ($ecurie->nom === 'Alphatauri') ? '25px;' : '10px;'; ?>"></div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
         </div>
     </main>

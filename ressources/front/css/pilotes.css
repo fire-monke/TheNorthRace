@@ -60,7 +60,10 @@
 
 
 }
-
+a.pilote {
+    text-decoration: none;
+    color: inherit;
+}
 .infoTop {
     display: flex;
     height: 30px;
