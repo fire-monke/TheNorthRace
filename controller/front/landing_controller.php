@@ -19,6 +19,10 @@ $nomPil1 = $lePodium[0]->nom;
 $nomPil2 = $lePodium[1]->nom;
 $nomPil3 = $lePodium[2]->nom;
 
+$idPil1 = $lePodium[0]->id;
+$idPil2 = $lePodium[1]->id;
+$idPil3 = $lePodium[2]->id;
+
 $lesPilotesDB = $Pilote->getPilotesLastSeason();
 
 $tableau_multidimensionnel = array();

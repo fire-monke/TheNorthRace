@@ -28,6 +28,7 @@ if ($pilote === null) {
     throw new Exception("Le pilote avec l'ID $idPilote n'appartient pas à la dernière saison.");
 }
 
+$iddPilote = $pilote->id;
 $nommPilote = $pilote->nom;
 $prenommPilote = $pilote->prenom;
 $paysPilote = $pilote->paysPil;

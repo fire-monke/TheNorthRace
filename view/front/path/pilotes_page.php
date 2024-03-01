@@ -44,7 +44,7 @@
                         <?php endforeach; ?>
                     </div>
                     <div class="photo-pilote">
-                        <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom ?>" alt="Photo du pilote">
+                        <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->id ?>" alt="Photo du pilote">
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@
                                 <p class="prenomp"><?= $pilote->prenom; ?></p>
                                 <h2><?= $pilote->nom; ?></h2>
                             </div>
-                            <img class="imgPil"src="/TheNorthRace/ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom; ?>.png" alt="img du pilote">
+                            <img class="imgPil"src="/TheNorthRace/ressources/front/images/photo_Pilote_PNG/<?= $pilote->id; ?>.png" alt="img du pilote">
                         </div>
                     <?php endforeach; ?>
                 </div>

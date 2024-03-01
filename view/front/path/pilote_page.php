@@ -17,7 +17,7 @@
 <div class="allside">
     <div class="leftside">
         <div class="pic">
-            <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$nommPilote}.png"; ?>" alt="image pilote">
+            <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$iddPilote}.png"; ?>" alt="image pilote">
         </div>
         <div class="numcount">
             <?php if(isset($coursesAnnee) && !empty($coursesAnnee)): ?>

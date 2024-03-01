@@ -515,18 +515,22 @@ INSERT INTO CoursesAnnee(idPil, annee, idEcu, nbPointPil, placePil, numPil) VALU
 -- PILOTE PILOTE PILOTE PILOTE PILOTE
 -- -------------------------------------
 
-DROP PROCEDURE if exists AddPilote;
+DROP PROCEDURE IF EXISTS AddPilote;
 DELIMITER //
 CREATE PROCEDURE AddPilote (
     IN nomPilote VARCHAR(50),
     IN prenomPilote VARCHAR(50),
-    IN paysPilote VARCHAR(50)
+    IN paysPilote VARCHAR(50),
+    OUT idPilote INT
 )
 BEGIN
     INSERT INTO Pilote(nom, prenom, paysPil)
     VALUES(nomPilote, prenomPilote, paysPilote);
+    
+    SET idPilote = LAST_INSERT_ID();
 END //
 DELIMITER ;
+
 
 DROP PROCEDURE if exists deletePiloteById;
 DELIMITER //

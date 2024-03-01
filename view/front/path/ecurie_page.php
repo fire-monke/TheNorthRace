@@ -45,7 +45,7 @@
           <?php foreach ($pilotes as $pilote) : ?>
             <div class="pilote">
             <div class="imgPil">
-                <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$pilote->nom}.png"; ?>" alt="Image Pilote">
+                <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$pilote->id}.png"; ?>" alt="Image Pilote">
             </div>
                 <div class="interBloqueDroiteG">
                     <?php

@@ -104,5 +104,8 @@
 
 .info-ecurie{display: flex;  flex-direction: column;   align-items: baseline; height: 100%;justify-content: space-around;}
 
-
+img{
+    max-width: 206px;
+    height: auto;
+}
 
