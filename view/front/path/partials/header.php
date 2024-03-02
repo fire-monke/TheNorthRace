@@ -12,7 +12,9 @@
 </head>
 <header>
     <div class="wrapper">
-        <img src="/TheNorthRace/ressources/front/images/LogoTransparent1.png" alt="Logo">
+    <a href="/TheNorthRace">
+     <img src="/TheNorthRace/ressources/front/images/LogoTransparent1.png" alt="Logo">
+    </a>
     </div>
     <nav id="headerNav">
         <a href="">Classement</a>
