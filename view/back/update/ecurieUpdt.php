@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./ressources/back/css/PiloteUpdt.css">
+    <link rel="stylesheet" href="./ressources/back/css/form_page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="update">
+    <div class="form_page">
         <h1>MODIFICATION <span>
         <?php
         try {
@@ -27,8 +27,7 @@
 
         } catch (Exception $ex) {
             echo $ex->GetMessage();
-        }
-        ?>
+        }?>
         </span></h1>
 
         <form action="./appli" method="POST">
@@ -36,7 +35,7 @@
             
             <input type="hidden" id="nom" name="nom" placeholder="Nom" value="<?php echo !empty($uneEcurie->nom) ? htmlentities($uneEcurie->nom) : ''; ?>" required>
             
-            <label for="couleur">Couleur</label>
+            <label for="couleur">Couleur HTML</label>
             <input type="text" id="couleur" name="couleur" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
             
             <label for="dateCreation">Année de création</label>
@@ -58,12 +57,13 @@
             <input type="number" id="nbPoduims" name="nbPoduims" placeholder="Nombre de poduims" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbPoduims) ? htmlentities($uneEcurie->nbPoduims) : '0'; ?>" required>
             
             <label for="directeur">Directeur</label>
-            <input type="text" id="directeur" name="directeur" placeholder="Directeur" minlength="0" maxlength="50" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
+            <input type="text" id="directeur" name="directeur" placeholder="Directeur" minlength="0" maxlength="80" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
 
-
-            <input name=submit type="submit" value="Modifier">
+            <div class="button-container">
+                <input name=submit type="submit" value="Modifier">
+                <a href="./appli&type=ecurie" class="submit">Annuler</a>
+            </div>
         </form>
-        <input type="submit" value="Annuler" onclick="window.location.href='./appli&type=ecurie'">
     </div>
 </body>
 </html>

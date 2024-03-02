@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ressources/front/css/pilotes.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
 </head>
 <body>
    <main>
-    <h1>Pilotes F1 2023</h1>
+    <h1 class="title">Pilotes F1 2023</h1>
     <div class="top">
         <?php foreach ($pilotes as $pilote): ?>
             <?php 
             // Récupérer l'écurie du pilote
             $ecuriePil = $ecurieController->getEcurieOfLastSeasonOfPiloteByIdPilote($pilote->id);
             ?>
-            <div class="pilote">
+            <a class="pilote" href="/TheNorthRace/pilote/<?php echo $pilote->id; ?>">
                 <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                     <div class="infoTop">
                         <p><?= $detail['placePil'] ?></p>
@@ -43,19 +44,19 @@
                         <?php endforeach; ?>
                     </div>
                     <div class="photo-pilote">
-                        <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->nom ?>" alt="Photo du pilote">
+                        <img src="./ressources/front/images/photo_Pilote_PNG/<?= $pilote->id ?>" alt="Photo du pilote">
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
     </div>
     </main>
 
 <script>
     // Ajoutez votre script JavaScript ici
-    const pilotes = document.querySelectorAll('.pilote');
+    const pilotess = document.querySelectorAll('.pilote');
 
-    pilotes.forEach(pilote => {
+    pilotess.forEach(pilote => {
         pilote.addEventListener('mouseover', () => {
             const couleurEcu = pilote.querySelector('.couleur-ecu').style.backgroundColor;
             pilote.style.borderRight = `2px solid ${couleurEcu}`;
@@ -79,7 +80,6 @@
             }
         });
     });
-</script>
-
+</script> 
 </body>
 </html>

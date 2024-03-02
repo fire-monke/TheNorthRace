@@ -15,6 +15,15 @@ try{
             case "pilotes":
                 include_once(RACINE . '/controller/front/pilotes_controller.php');
                 break;
+            case "pilote":
+                if(!isset($url[1]) || $url[1] == ''){
+                     throw new Exception("L'id de du pilote est introuvable");
+                    break;
+                    }
+                 $idPilote = $url[1];
+                 include_once(RACINE . '/controller/front/pilote_controller.php');
+                 break;
+   
             case "ecuries":
                  include_once(RACINE . '/controller/front/ecuries_controller.php');
                  break;

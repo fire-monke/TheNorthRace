@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,166 +7,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./ressources/front/css/style2.css">
+    <link rel="stylesheet" href="./ressources/front/css/global.css">
     <title>TheNorthRace</title>
 </head>
 <body>
-<header>
-    <div class="wrapper">
-        <img src="./ressources/front/images/LogoTransparent1.png" alt="Logo">
-    </div>
-  <nav id="headerNav">
-        <a href="">Classement</a>
-        <a href="./pilotes" id="pilotes">Pilotes</a>
-        <a href="./ecuries" id="ecuries">Ecuries</a>
-        <a href="">Archives</a>
-    </nav>
-    <div class="connection">
-        <a href="./connexion">Connexion</a>
-        <a href="./inscription">Inscription</a>
-    </div>
-</header>
-    
 <main>
     <section class="firstSection">
-    
-    <div class="navSecondary">
-        <div class="nav-width nav-content">
-            <div class="nav-header">
-                <h1>Tous les pilotes &nbsp;<span>></span></h1> 
-            </div>
-            <div class="nav-list">
-                <ul>
-                    <?php
-                    foreach ($pilotesLastSeason as $pilote) {
-                        $nomPilote = $pilote->nom;
-                        $prenomPilote = $pilote->prenom;
-
-                        $ecuriePilote = $Ecurie->getLastEcurieByIdPilote($pilote->id);
-
-                        if ($ecuriePilote) {
-                            $couleurEcurie = $ecuriePilote->couleur;
-                        }
-
-                        // print the pilot name and the color of the stable
-                        echo '<li>';
-                        echo '<p data-color-ecurie="' . $couleurEcurie . '"><span class="color-bar-pilot" style="background-color: ' . $couleurEcurie . '"></span>' . $prenomPilote . ' ' . $nomPilote . ''.'<strong class="spe" style="color:'. $couleurEcurie .'">></strong></p>';
-                        echo '</li>';
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="hovEcu">
-        <div class="nav-header">
-            <h1>Toutes les écuries &nbsp;<span>></span></h1> 
-        </div>
-        <div class="nav-list toutes">
-            <?php foreach ($ecuries as $ecurie):
-                $nomEcurie = $ecurie->nom;
-                $couleurEcurie = $ecurie->couleur;
-                $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
-            ?>
-                <a class="a-f1" href="./ecurie/<?php echo $ecurie->id; ?>">
-                    <div  class="ecurie" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
-                        <div class="ecurie-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
-                        <h4><?php echo $nomEcurie; ?></h4>
-                        <img class="img-f1" src="./ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>">
-                    </div>
-                </a>
-            <?php endforeach; ?>
-        </div>
-    </div>
-
-    <script>
-    // Select the '#ecurie' element in the 'headerNav'
-    const ecurie = document.querySelector('#headerNav #ecuries');
-    const hovEcu = document.querySelector('.hovEcu');
-    const elements = document.querySelectorAll('[data-color-ecurie]');
-
-    // Function to check if the mouse is over or outside 'hovEcu'
-    const isMouseOverHovEcu = (e) => {
-        return hovEcu.contains(e.relatedTarget) || e.target == ecurie;
-    };
-
-    // When hovering over the '#ecurie' element, display the 'hovEcu' div
-    ecurie.addEventListener('mouseover', () => {
-        hovEcu.style.display = 'block';
-    });
-
-    // When leaving the '#ecurie' element or 'hovEcu', hide the 'hovEcu' div
-    document.addEventListener('mouseout', (e) => {
-        if (!isMouseOverHovEcu(e)) {
-            hovEcu.style.display = 'none';
-        }
-    });
-
-    // When hovering over 'hovEcu', keep it displayed
-    hovEcu.addEventListener('mouseover', () => {
-        hovEcu.style.display = 'block';
-    });
-
-    // When leaving 'hovEcu', hide it
-    hovEcu.addEventListener('mouseout', () => {
-        hovEcu.style.display = 'none';
-    });
-
-    // Iterate over each element and add event listeners for 'mouseover' and 'mouseout'
-    elements.forEach((element) => {
-        // Save the initial border style to reset it on mouseout
-        const originalBorderStyle = element.style.border;
-
-        element.addEventListener('mouseover', () => {
-            // Change the color of the right and bottom borders of the element using the 'data-color-ecurie' attribute
-            element.style.borderRight = '1px solid ' + element.getAttribute('data-color-ecurie');
-            element.style.borderBottom = '1px solid ' + element.getAttribute('data-color-ecurie');
-        });
-
-        // Add an event listener for 'mouseout' to reset the borders
-        element.addEventListener('mouseout', () => {
-            // Reset the border to its initial value
-            element.style.border = originalBorderStyle;
-        });
-    });
-</script>
-
-<script>
-    // Select the '#pilotes' element in the 'headerNav'
-    const pilotes = document.querySelector('#headerNav #pilotes');
-    const navSecondary = document.querySelector('.navSecondary');
-
-    // Function to check if the mouse is over or outside 'navSecondary'
-    const isMouseOverNavSecondary = (e) => {
-        return navSecondary.contains(e.relatedTarget) || e.target == navSecondary || e.target == pilotes;
-    };
-
-    // When hovering over the '#pilotes' element, display the 'navSecondary' div
-    pilotes.addEventListener('mouseover', () => {
-        navSecondary.style.display = 'block';
-    });
-
-    // When leaving the '#pilotes' element or 'navSecondary', hide the 'navSecondary' div
-    document.addEventListener('mouseout', (e) => {
-        if (!isMouseOverNavSecondary(e)) {
-            navSecondary.style.display = 'none';
-        }
-    });
-
-    // When hovering over 'navSecondary', keep it displayed
-    navSecondary.addEventListener('mouseover', () => {
-        navSecondary.style.display = 'block';
-    });
-
-    // When leaving 'navSecondary', hide it
-    navSecondary.addEventListener('mouseout', () => {
-        navSecondary.style.display = 'none';
-    });
-</script>
-
-
-
-
             <div class="wrapper">
                 <div class="wrapper2">
             <h3>NEWSLETTER</h3>
@@ -193,7 +39,7 @@
     <div class="podium">
         <div class="bk"></div>
         <div class="second">
-            <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($nomPil2) . '.png" alt="">' ?>
+            <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($idPil2) . '.png" alt="">' ?>
                 <div class="white">
                     <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil2) .'"></div>';?>
@@ -203,7 +49,7 @@
             </div>
         </div>
         <div class="first">
-        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($nomPil1) . '.png" alt="">' ?>
+        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($idPil1) . '.png" alt="">' ?>
             <div class="white">
                 <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil1) .'"></div>';?>
@@ -213,7 +59,7 @@
             </div>
         </div>
         <div class="third">
-        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($nomPil3) . '.png" alt="">' ?>
+        <?php echo '<img src="./ressources/front/images/photo_Pilote_PNG/'. htmlentities($idPil3) . '.png" alt="">' ?>
             <div class="white">
                 <div class="black">
                         <?php echo '<div class="color" style="background-color:'. htmlentities($couleurEcuriePil3) .'"></div>'; ?>
@@ -354,53 +200,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <h1>29</h1>
         <h3>oct</h3>
     </div>
-    </section>
-    <footer>
-    <section class="contact">
-        <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
-        <form action="" method="post">
-            <input type="text" name="name" id="name" placeholder="name">
-            <input type="text" name="email" id="email" placeholder="email">
-            <textarea name="content" id="content" cols="30" rows="10" placeholder="content"></textarea>
-            <input type="button" value="Submit">
-        </form>
-    </section>
-    <section class="images">
-        <img src="./ressources/front/images/teamRedBull.png" alt="">
-        <img src="./ressources/front/images/teamMercedes.png" alt="">
-        <img src="./ressources/front/images/teamFerrari.png" alt="">
-        <img src="./ressources/front/images/teamMcLaren.png" alt="">
-        <img src="./ressources/front/images/teamAston.png" alt="">
-    </section>
-    <section class="banner">
-        <div class="content-box">
-            <h1>À PROPOS</h1>
-            <ul><li><a href="">Qui sommes nous ?</a></li>
-            <li><a href="">Concept</a></li>
-            <li><a href="">FAQ</a></li></ul>
-        </div>
-        <div class="content-box">
-            <h1>À EN SAVOIR PLUS</h1>
-            <ul><li><a href="">Mentions légales</a></li>
-            <li><a href="">Protection des données</a></li>
-            <li><a href="">Cookies</a></li></ul>
-        </div>
-        <div class="content-box">
-            <h1>CLASSEMENT</h1>
-            <ul><li><a href="">Saison actuelle</a></li>
-            <li><a href="">Championnat pilote</a></li>
-            <li><a href="">Championnat constructeur</a></li>
-            <li><a href="">Archive</a></li></ul>
-        </div>
-    </section>
-    <div class="media">
-        <a href=""><img src="./ressources/front/images/greyInstagram.png" alt="#"></a>
-        <a href=""><img src="./ressources/front/images/greyGitHub.png" alt="#"></a>
-        <a href=""><img src="./ressources/front/images/greyTwitter.png" alt="#"></a>
-        <a href=""><img src="./ressources/front/images/greyLinkedin.png" alt="#"></a>
-    </div>
-    <a class="TheNorthRace" href="">© 2023  -  TheNorthRace</a>
-    </footer>
+    </section>   
+
 </main>
 </body>
 </html>

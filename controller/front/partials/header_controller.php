@@ -1,4 +1,5 @@
 <?php
+
 require_once(RACINE . '/model/back/class_pilote.php');
 require_once(RACINE . '/model/back/class_ecurie.php');
 $Pilote = new Pilote();
@@ -19,10 +20,6 @@ $nomPil1 = $lePodium[0]->nom;
 $nomPil2 = $lePodium[1]->nom;
 $nomPil3 = $lePodium[2]->nom;
 
-$idPil1 = $lePodium[0]->id;
-$idPil2 = $lePodium[1]->id;
-$idPil3 = $lePodium[2]->id;
-
 $lesPilotesDB = $Pilote->getPilotesLastSeason();
 
 $tableau_multidimensionnel = array();
@@ -38,6 +35,5 @@ foreach ($lesPilotesDB as $unPilote) {
         "couleurEcu" => $Ecurie->getLastEcurieByIdPilote($unPilote->id)->couleur,
     );
 }
-include_once(RACINE . '/controller/front/partials/header_controller.php');
-include_once(RACINE . '/view/front/path/landing_page.php');
-include_once(RACINE . '/view/front/path/partials/footer.php');
+
+include_once(RACINE . '/view/front/path/partials/header.php');

@@ -16,13 +16,13 @@
         <h1>MODIFICATION <span>
         <?php
         try {
-            if (isset($_GET['id'])) {
-                $piloteId = $_GET['id'];
+            if (isset($_GET['teamId'])) {
+                $teamId = $_GET['teamId'];
             } else {
-                throw "Erreur : ID du pilote non spécifié.";
+                throw "Erreur : ID de la team non spécifié.";
             }
-            if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
-                echo htmlentities($unPilote->prenom) ." ". htmlentities($unPilote->nom);
+            if (!empty($uneCourse->prenom) && !empty($uneCourse->nom)){
+                echo htmlentities($uneCourse->prenom) ." ". htmlentities($uneCourse->nom);
             }
 
         } catch(Exception $ex){
@@ -49,7 +49,7 @@
 
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
-                <a href="./appli&type=pilote" class="submit">Annuler</a>
+                <a href="./appli&type=courses" class="submit">Annuler</a>
             </div>
         </form>
     </div>
