@@ -10,7 +10,10 @@
 }
 .a-f1{margin-top: 25px;}
 
-
+.standing a {
+    text-decoration: none; /* Supprimer le soulignement du lien */
+    color: inherit; /* Utiliser la couleur du texte par défaut de son parent (.pilot) */
+}
 
 .firstSection{
     position: relative;
