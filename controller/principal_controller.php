@@ -23,7 +23,6 @@ try{
                  $idPilote = $url[1];
                  include_once(RACINE . '/controller/front/pilote_controller.php');
                  break;
-   
             case "ecuries":
                  include_once(RACINE . '/controller/front/ecuries_controller.php');
                  break;
