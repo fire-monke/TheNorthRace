@@ -76,15 +76,16 @@
     foreach(array_slice($lesPilotes, 0, 6) as $unPilote)
     {
         $cpt+=1;
-        echo '<div class="pilot">';
+        echo '<a href="/TheNorthRace/pilote/' . $cpt . '" class="pilot">';
         echo '<h2>'.$cpt.'</h2>'; 
         echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
         echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
         echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
         echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
         echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
-        echo '</div>';
-    }?>
+        echo '</a>';
+    }
+    ?>
     <button id="voir-initial">VOIR TOUS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
 </div>
 
@@ -94,18 +95,34 @@
     foreach($lesPilotes as $unPilote)
     {
         $cpt+=1;
-        echo '<div class="pilot">';
+        echo '<a href="/TheNorthRace/pilote/' . $cpt . '" class="pilot">';
         echo '<h2>'.$cpt.'</h2>'; 
         echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
         echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
         echo '<h3>'.htmlentities($unPilote['nomEcurie']).'</h3>';
         echo '<p class="points">'.htmlentities($unPilote['nbPointsPil']).'</p>';
         echo '<img name="row" src="./ressources/front/images/greenRow.png" alt="">';
-        echo '</div>';
+        echo '</a>';
     }?>
        <button id="voir-tous">VOIR MOINS <img name="row" src="./ressources/front/images/whiteRow.png" alt=""></button>
 </div>
 
+<script>
+// Ajouter un écouteur d'événements pour chaque pilote
+document.querySelectorAll('.pilot').forEach(item => {
+  // Au survol, changer la couleur du texte pour correspondre à la couleur de l'écurie
+  item.addEventListener('mouseenter', event => {
+    const teamColor = event.currentTarget.querySelector('.teamcolor').style.backgroundColor;
+    event.currentTarget.querySelector('h2').style.color = teamColor;
+    event.currentTarget.querySelector('span').style.color = teamColor;
+  });
+  // À la sortie du survol, réinitialiser la couleur du texte
+  item.addEventListener('mouseleave', event => {
+    event.currentTarget.querySelector('h2').style.color = '';
+    event.currentTarget.querySelector('span').style.color = '';
+  });
+});
+</script>
 <script>
     //for the buttons
 document.addEventListener("DOMContentLoaded", function() {
