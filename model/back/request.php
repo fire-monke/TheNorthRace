@@ -2,6 +2,8 @@
 require_once(RACINE . '/model/connexion_PDO.php');
 require_once(RACINE . '/model/back/class_ecurie.php');
 require_once(RACINE . '/model/back/class_pilote.php');
+require_once(RACINE . '/model/back/class_coursesannee.php');
+require_once(RACINE . '/model/back/class_classement.php');
 
 class GetModeles {
     private $pdo;

@@ -8,8 +8,8 @@ if (!isset($_SESSION['admin'])) {
 $pagesEntites = array(
   'pilote' => 'pilote.php',
   'ecurie' => 'ecurie.php',
-//   'classement' => 'classement.php',
-//   'courses' => 'courses.php'
+  'classement' => 'classement.php',
+  'courses' => 'rank.php'
 );
 
 // Checks if a 'type' parameter is present in the URL, includes the corresponding PHP file from the specified directory,

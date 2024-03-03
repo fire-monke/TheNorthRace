@@ -24,6 +24,8 @@ if (isset($_GET['entity'])){
     if (isset($_GET['id'])) {
         $Id = $_GET['id'];
         $entity = $_GET['entity'];
+        $team = $_GET['teamId'];
+        $year = $_GET['year'];
 
         try {
             $response = array();
@@ -41,6 +43,24 @@ if (isset($_GET['entity'])){
                 include(RACINE . "/view/back/update/ecurieUpdt.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
+            }elseif ($entity === 'courses') {
+                $Pilote = new Pilote();
+                $Ecurie = new Ecurie();
+                $CoursesAnnee = new CoursesAnnee();
+                $unPilote = $Pilote->getPiloteById($Id);
+                $uneEcurie = $Ecurie->getEcurieById($team);
+                $uneCourse = $CoursesAnnee->getCoursesDetailsByPilotTeamAndYear($Id, $team, $year);
+                ob_start();
+                include(RACINE . "/view/back/update/rankingUpdt.php");
+                $output = ob_get_clean();
+                $response['html'] = $output;
+            }elseif ($entity === 'classement') {
+                $Classement = new Classement();
+                $leClassement = $Classement->getClassementByYearAndTeam($Id, $year);
+                ob_start();
+                include(RACINE . "/view/back/update/classementUpdt.php");
+                $output = ob_get_clean();
+                $response['html'] = $output;
             } else {
                 $response['error'] = 'Erreur : Entité non reconnue.';
             }
@@ -53,17 +73,33 @@ if (isset($_GET['entity'])){
         }
     }
     
+//REDIRECTION PAGE CREATION-------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------
+
     if ($action == "create") {
         try {
             $entity = $_GET['entity'];
             if ($entity === 'pilote') {
                 ob_start();
-                include(RACINE . "/view/back/create/pilotCreate.php");// view of pilot creation
+                include(RACINE . "/view/back/create/pilotCreate.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
             } elseif ($entity === 'ecurie') {
                 ob_start();
                 include(RACINE . "/view/back/create/ecurieCreate.php");
+                $output = ob_get_clean();
+                $response['html'] = $output;
+            } elseif ($entity === 'courses') {
+                ob_start();
+                include(RACINE . "/view/back/create/rankingCreate.php");
+                $output = ob_get_clean();
+                $response['html'] = $output;
+            } elseif ($entity === 'classement') {
+                ob_start();
+                include(RACINE . "/view/back/create/classementCreate.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
             } else {
@@ -106,6 +142,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         header('Location: ../../appli&type=ecurie');
         exit();
     }
+    else if (isset($_POST['pilotIdAdd']) && isset($_POST['yearRaceAdd']) && isset($_POST['teamIdAdd']) && isset($_POST['pointsAdd']) && isset($_POST['pilotPlaceAdd']) && isset($_POST['pilotNumberAdd'])) {
+        $CoursesAnnee = new CoursesAnnee();
+        $CoursesAnnee->AddRaceYear($_POST['pilotIdAdd'], $_POST['yearRaceAdd'], $_POST['teamIdAdd'], $_POST['pointsAdd'], $_POST['pilotPlaceAdd'], $_POST['pilotNumberAdd']);
+        header('Location: ../../appli&type=courses');
+        exit();
+    }
+    else if (isset($_POST['teamIdAdd']) && isset($_POST['yearAdd']) && isset($_POST['pointsAdd']) && isset($_POST['teamPlaceAdd'])) {
+        $Classement = new Classement();
+        $Classement->addClassement($_POST['teamIdAdd'], $_POST['yearAdd'], $_POST['pointsAdd'], $_POST['teamPlaceAdd']);
+        header('Location: ../../appli&type=classement');
+        exit();
+    }
 
 //UPDATE-------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
@@ -130,6 +178,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         header('Location: ./appli&type=ecurie');
         exit();
     }
+
+    else if (isset($_POST['PilotId']) && isset($_POST['teamId']) && isset($_POST['year']) && isset($_POST['newPoints']) && isset($_POST['placePil']) && isset($_POST['newPilotNumber'])) {
+        $id_pilote = $_POST['PilotId'];
+        $id_team = $_POST['teamId'];
+        $CoursesAnnee = new CoursesAnnee();
+        $CoursesAnnee->updateRaceForYear($id_pilote, $id_team, $_POST['year'], $_POST['newPoints'], $_POST['placePil'], $_POST['newPilotNumber']);
+        header('Location: ./appli&type=courses');
+        exit();
+    }
+
+    else if (isset($_POST['points']) && isset($_POST['teamPlace']) && isset($_POST['teamId']) && isset($_POST['year'])) {
+        $id_team = $_POST['teamId'];
+        $Classement = new Classement();
+        $Classement->updateClassement($_POST['points'], $_POST['teamPlace'], $id_team, $_POST['year']);
+        header('Location: ./appli&type=classement');
+        exit();
+    }
 }
 
 //DELETE-------------------------------------------------------------------------------------------------------------------
@@ -141,6 +206,8 @@ if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['e
     try {
         $id = $_GET['id'];
         $entity = $_GET['entity'];
+        $teamId = $_GET['teamId'];
+        $year = $_GET['year'];
 
         // Check if the entity is valid
         if ($entity === 'pilote') {
@@ -149,6 +216,13 @@ if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['e
         } elseif ($entity === 'ecurie') {
             $Ecurie = new Ecurie();
             $Ecurie->deleteEcurieById($id);
+        }
+        elseif ($entity === 'course') {
+            $Course = new CoursesAnnee();
+            $Course->DeleteRaceYear($Id, $teamId, $year);
+        }elseif ($entity === 'rank') {
+            $Classement = new Classement();
+            $Classement->deleteClassement($teamId, $year);
         } else {
             throw new Exception('Entité non reconnue.');
         }
