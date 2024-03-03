@@ -114,7 +114,7 @@ background-size: cover;
 	flex-direction: column;
 	justify-content: start;
 	align-items: start; /* Ajout de l'alignement des éléments au début */
-	padding-left: 15px;
+	padding-left: 30px;
 	font-size: 30px;
 	padding-top: 20px; 
 }
