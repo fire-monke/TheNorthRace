@@ -45,15 +45,19 @@
             <div class="imgPil">
                 <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$pilote->id}.png"; ?>" alt="Image Pilote">
             </div>
-                <div class="interBloqueDroiteG">
-                    <?php
-                        $idPil = $pilote->id; 
-                        $idPils[] = $idPil;
-                        $courseDetails = $CourseObj->getCoursesDetailsByPilotAndYear($idPil, $year);
+            <div class="interBloqueDroiteG">
+                <?php
+                $idPil = $pilote->id; 
+                $idPils[] = $idPil;
+                $courseDetails = $CourseObj->getCoursesDetailsByPilotAndYear($idPil, $year);
+                foreach ($courseDetails as $detail) {
                     ?>
-                    <h2><?php echo $courseDetails[0]['numPil']; ?></h2>
+                    <h2><?php echo $detail->numPil; ?></h2>
                     <h3><?php echo $pilote->prenom . ' ' . $pilote->nom; ?></h3>
                     <p><?php echo $ecurie->nom; ?></p>
+                <?php
+                }
+                ?>
                 </div>
             </div>
           <?php endforeach; ?>

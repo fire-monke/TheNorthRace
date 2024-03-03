@@ -18,8 +18,8 @@
             <a class="pilote" href="/TheNorthRace/pilote/<?php echo $pilote->id; ?>">
                 <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                     <div class="infoTop">
-                        <p><?= $detail['placePil'] ?></p>
-                        <p><?= $detail['nbPointPil'] ?> PTS</p>
+                        <p><?= $detail->placePil ?></p>
+                        <p><?= $detail->nbPointPil ?> PTS</p>
                     </div>
                 <?php endforeach; ?>
                 <div class="infomid">
@@ -39,7 +39,7 @@
                         </div>
                         <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                             <div class="infoCourse">
-                                <div class="num-pilote"><?= $detail['numPil'] ?></div>
+                                <div class="num-pilote"><?= $detail->numPil ?></div>
                             </div>
                         <?php endforeach; ?>
                     </div>
