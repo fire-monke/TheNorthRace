@@ -14,7 +14,7 @@ class CoursesAnnee {
             $req = $this->cnx->prepare("CALL GetCoursesDetailsByPilot(?)");
             $req->bindParam(1, $idPil, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             // Handle the error appropriately
             // You can log the error or return a default value
@@ -28,7 +28,7 @@ class CoursesAnnee {
             $req = $this->cnx->prepare("CALL GetCoursesDetailsByTeam(?)");
             $req->bindParam(1, $idEcu, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
@@ -40,7 +40,7 @@ class CoursesAnnee {
             $req->bindParam(1, $idPil, PDO::PARAM_INT);
             $req->bindParam(2, $year, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
@@ -53,7 +53,7 @@ class CoursesAnnee {
             $req->bindParam(1, $idEcu, PDO::PARAM_INT);
             $req->bindParam(2, $year, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
@@ -67,7 +67,7 @@ class CoursesAnnee {
             $req->bindParam(2, $idEcu, PDO::PARAM_INT);
             $req->bindParam(3, $year, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
@@ -79,7 +79,7 @@ class CoursesAnnee {
             $req = $this->cnx->prepare("CALL GetTop3CoursesByYear(?)");
             $req->bindParam(1, $year, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
@@ -91,7 +91,7 @@ class CoursesAnnee {
             $req = $this->cnx->prepare("CALL GetAllCoursesByYear(?)");
             $req->bindParam(1, $year, PDO::PARAM_INT);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }

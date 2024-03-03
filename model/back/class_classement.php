@@ -15,7 +15,7 @@ class Classement {
             $req = $this->cnx->prepare("CALL getClassementByYear(:year)");
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->execute();
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_OBJ);
 
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
@@ -28,7 +28,7 @@ class Classement {
             $req = $this->cnx->prepare("CALL getPodiumByYear(:year)");
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->execute();
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_OBJ);
 
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
@@ -41,7 +41,7 @@ class Classement {
             $req = $this->cnx->prepare("CALL getClassementByTeam(:idEcu)");
             $req->bindValue(':idEcu', $idEcu, PDO::PARAM_INT);
             $req->execute();
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
@@ -54,7 +54,7 @@ class Classement {
             $req->bindValue(':year', $year, PDO::PARAM_INT);
             $req->bindValue(':idEcu', $idEcu, PDO::PARAM_INT);
             $req->execute();
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             die("Erreur lors de l'accès à la base de données: " . $e->getMessage());
         }
