@@ -52,9 +52,9 @@ $(document).ready(function() {
 		chargerInclude("ecurie");
 	});
 
-    $("#courses").on("click", function() {
-        chargerInclude("rank");
-    });
+	$("#courses").on("click", function() {
+		chargerInclude("courses");
+	});
 
 	$("#classement").on("click", function() {
 		chargerInclude("classement");
