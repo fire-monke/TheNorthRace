@@ -888,12 +888,10 @@ DROP PROCEDURE IF EXISTS getClassementByYear
 DELIMITER //
 CREATE PROCEDURE getClassementByYear(IN year INT)
 BEGIN
-    SELECT c.placePil, p.prenom, p.nom, p.paysPil, e.nom as nomEcurie, c.nbPointPil
-    FROM pilote p
-    INNER JOIN coursesannee c ON p.id = c.idPil
-    INNER JOIN ecurie e ON e.id = c.idEcu
-    WHERE c.annee = year
-    ORDER BY c.placePil;
+    SELECT idEcu, annee, nbPointEcu, placeEcu
+    FROM classement 
+    WHERE annee = year
+    ORDER BY nbPointEcu;
 END //
 DELIMITER ;
 
