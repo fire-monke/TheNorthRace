@@ -53,7 +53,7 @@ $(document).ready(function() {
 	});
 
 	$("#courses").on("click", function() {
-		chargerInclude("courses");
+		chargerInclude("rank");
 	});
 
 	$("#classement").on("click", function() {
