@@ -34,8 +34,7 @@
             require_once(RACINE . './controller/back/controller.php');
             if(isset($_POST['year'])) {
                 $selectedYear = $_POST['year'];
-      
-          
+
             }
         else {
             $selectedYear=2020;
