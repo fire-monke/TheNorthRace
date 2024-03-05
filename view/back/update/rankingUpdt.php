@@ -16,17 +16,8 @@
         <h1>MODIFICATION <span>
         <?php
         try {
-            if (isset($_GET['id'])) {
-                $piloteId = $_GET['id'];
-            }if (isset($_GET['teamId'])) {
-                $EcurieId = $_GET['teamId'];
-            } if (isset($_GET['year'])) {
-                $year = $_GET['year'];
-            } else {
-                throw "Erreur : Erreur, non spécifié.";
-            }
-            if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
-                echo htmlentities($unPilote->prenom) ." ". htmlentities($unPilote->nom);
+            if (!empty($uneCourse->prenom) && !empty($uneCourse->nom)){
+                echo htmlentities($uneCourse->prenom) ." ". htmlentities($uneCourse->nom);
             }
 
         } catch(Exception $ex){
@@ -35,19 +26,18 @@
         </span></h1>
 
         <form action="./appli" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="PilotId" value="<?php echo $piloteId; ?>">
-        <input type="hidden" name="teamId" value="<?php echo $EcurieId; ?>">
-            <label for="year">Année</label>
-            <input type="text" id="year" name="year" placeholder="Année" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($uneCourse->year);}?>" required>
+        <input type="hidden" name="PilotId" value="<?php echo htmlentities($uneCourse[0]->idPil) ?>">
+        <input type="hidden" name="teamId" value="<?php echo $uneCourse->idEcu ?>">
+        <input type="hidden" name="year" value="<?php echo $uneCourse->annee ?>">
 
             <label for="placePil">Place du pilote</label>
-            <input type="text" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($uneCourse->placePil);}?>" required>
-
+            <input type="text" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($uneCourse->placePil)){ echo htmlentities($uneCourse->placePil);}?>" required>
+            <?php var_dump($uneCourse); ?>
             <label for="newPoints">Points inscrit</label>
-            <input type="text" id="newPoints" name="newPoints" placeholder="Points inscrit" value="<?php if (!empty($unPilote->paysPil)){echo htmlentities($uneCourse->nbPointPil);}?>" required>
+            <input type="text" id="newPoints" name="newPoints" placeholder="Points inscrit" value="<?php if (!empty($uneCourse->nbPointPil)){echo htmlentities($uneCourse->nbPointPil);}?>" required>
 
             <label for="newPilotNumber">Numéro du pilote</label>
-            <input type="text" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($unPilote->dateNais)){echo htmlentities($uneCourse->numPil);}?>" required>
+            <input type="text" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($uneCourse->dateNais)){echo htmlentities($uneCourse->numPil);}?>" required>
 
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
