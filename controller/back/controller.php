@@ -24,8 +24,6 @@ if (isset($_GET['entity'])){
     if (isset($_GET['id'])) {
         $Id = $_GET['id'];
         $entity = $_GET['entity'];
-        $team = $_GET['teamId'];
-        $year = $_GET['year'];
 
         try {
             $response = array();
