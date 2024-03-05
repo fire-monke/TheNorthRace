@@ -12,8 +12,6 @@ if (isset($_GET['entity'])){
     if (isset($_GET['id'])) {
         $Id = $_GET['id'];
         $entity = $_GET['entity'];
-        $team = $_GET['teamId'];
-        $year = $_GET['year'];
 
         try {
             $response = array(); // Initialisation du tableau de réponse
@@ -32,19 +30,18 @@ if (isset($_GET['entity'])){
                 include(RACINE . "/view/back/update/ecurieUpdt.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
-            }elseif ($entity === 'courses') {
-                $Pilote = new Pilote();
-                $Ecurie = new Ecurie();
+            }elseif ($entity === 'courses' && isset($_GET['teamId']) &&  isset($_GET['year'])) {
                 $CoursesAnnee = new CoursesAnnee();
-                $unPilote = $Pilote->getPiloteById($Id);
-                $uneEcurie = $Ecurie->getEcurieById($team);
+                $team = $_GET['teamId'];
+                $year = $_GET['year'];
                 $uneCourse = $CoursesAnnee->getCoursesDetailsByPilotTeamAndYear($Id, $team, $year);
                 ob_start();
                 include(RACINE . "/view/back/update/rankingUpdt.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
-            }elseif ($entity === 'classement') {
+            }elseif ($entity === 'classement'  &&  isset($_GET['year'])) {
                 $Classement = new Classement();
+                $year = $_GET['year'];
                 $leClassement = $Classement->getClassementByYearAndTeam($Id, $year);
                 ob_start();
                 include(RACINE . "/view/back/update/classementUpdt.php");

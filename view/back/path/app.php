@@ -64,10 +64,10 @@ $(document).ready(function() {
 $(document).on("click", ".updt", function() {
     const Id = $(this).data("id");
     const entity = $(this).data("entity");
-    const team = $(this).data("teamId");
+    const team = $(this).data("team-id");
     const year = $(this).data("year");
         $.ajax({
-            url: './appli/update/&id='+ Id + '&entity=' + entity + '&teamId=' + team + '&year=' + year,
+            url: './appli/update/&id='+ Id + '&entity=' + entity + '&team-id=' + team + '&year=' + year,
         type: 'GET',
         success: function(response) {
             console.log(response);
@@ -96,10 +96,10 @@ $(document).on("click", ".updt", function() {
 $(document).on("click", ".delete", function() {
     const Id = $(this).data("id");
     const entity = $(this).data("entity");
-    const team = $(this).data("teamId");
+    const team = $(this).data("team-id");
     const year = $(this).data("year");
     $.ajax({
-        url: './appli/delete/&id='+ Id + '&entity=' + entity + '&teamId=' + team + '&year=' + year,
+        url: './appli/delete/&id='+ Id + '&entity=' + entity + '&team-id=' + team + '&year=' + year,
         type: 'GET',
         success: function(response) {
             // Recharger la page après le succès de la requête AJAX

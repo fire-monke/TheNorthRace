@@ -34,7 +34,6 @@
         <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
-
             <label for="prenom">Prénom</label>
             <input type="text" id="prenom" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
 
