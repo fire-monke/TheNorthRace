@@ -20,7 +20,8 @@ header{
     height: 6vw;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 7vh;
 }
 
 header img{
@@ -59,41 +60,7 @@ header .wrapper{
     font-size: 1.1rem;
 }
 
-.connection{
-    width: 22%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.connection a{
-    padding: 1rem 2rem;
-    background-color: #232E35;
-    border: solid 1px #232E35;
-    color: #F1F1F1;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: .9rem;
-}
-
-.connection a:hover{
-    background-color: #13191c;
-    border: solid 1px #232E35;
-    color: #F1F1F1;
-}
-
-.connection a:first-child{
-    color: #232E35;
-    background-color: #FFFFFF;
-    border: solid 1px #F1F1F1;
-}
-
-.connection a:first-child:hover{
-    color: #232E35;
-    background-color: #f0f0f0;
-    border: solid 1px #F1F1F1;
-}
 li a {
     text-decoration: none;
     color: inherit;

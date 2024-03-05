@@ -94,30 +94,9 @@
 }
 
 
-.secondSection #championshipNav{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 7svh;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-}
+.championshipNav{
+    height: 7vh;
 
-#championshipNav a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20vw;
-    text-decoration: none;
-    color: #232E35;
-    transition: .3s;
-}
-
-#championshipNav a:hover{
-    color: #00A19B;
-    transition: .3s;
 }
 
 .podium{
@@ -399,89 +378,3 @@ button img{
     margin-left: 0.5vw;
 }
 
-.grandPrix{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70svh;
-    width: 100%;
-    background-color: #15151E;
-    color: white;
-}
-
-.gpChild{
-    border-right: 1px solid #434346;
-    border-bottom: 1px solid #434346;
-    width: 15vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.gpChild img{
-    width: 3.75vw;
-    height: 2.5vw;
-}
-
-.gpChild h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    font-size: 2rem;
-    margin: 1vw 0;
-}
-
-.gpChild h2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    margin-top: 1vw;
-}
-
-.gpChild + .active{
-    width: 40vw;
-    z-index: 100;
-    text-align: center;
-}
-
-.gpChild + .active img{
-    width: 4.5vw;
-    height: 2.7vw;
-}
-
-.gpChild + .active .daysContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 15vw;
-    
-}
-
-.gpChild + .active .day{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 10vw;
-    margin: 0 1vw;
-}
-
-.gpChild + .active .content{
-    height: 7vw;
-}
-
-.gpChild + .active .content p{
-    font-weight: 600;
-    font-size: 0.9rem;
-    background-color: #8c8c9065;
-    padding: 0.5vw 0.7vw;
-    border-radius: 1vw;
-    margin: 0.7vw 0;
-}
