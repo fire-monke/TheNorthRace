@@ -12,7 +12,6 @@ if (isset($_GET['entity'])){
     if (isset($_GET['id'])) {
         $Id = $_GET['id'];
         $entity = $_GET['entity'];
-
         try {
             $response = array(); // Initialisation du tableau de réponse
 
@@ -30,9 +29,9 @@ if (isset($_GET['entity'])){
                 include(RACINE . "/view/back/update/ecurieUpdt.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
-            }elseif ($entity === 'courses' && isset($_GET['teamId']) &&  isset($_GET['year'])) {
+            }elseif ($entity === 'courses' && isset($_GET['team-id']) &&  isset($_GET['year'])) {
                 $CoursesAnnee = new CoursesAnnee();
-                $team = $_GET['teamId'];
+                $team = $_GET['team-id'];
                 $year = $_GET['year'];
                 $uneCourse = $CoursesAnnee->getCoursesDetailsByPilotTeamAndYear($Id, $team, $year);
                 ob_start();
