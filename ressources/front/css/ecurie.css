@@ -1,6 +1,4 @@
 *{
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 }
 
@@ -30,11 +28,6 @@ body{
 	gap: 5px;
 
 }
-.img-f1{
-    padding-top: 35px;
-}
-.a-f1{margin-top: 25px;}	
-
 
 main{
 	display: flex;
@@ -46,9 +39,10 @@ main{
 	margin-left: 40px;
 }
 
-.trait{display: flex;margin-top: 80px;
+.trait{
+	display: flex;
+	margin-top: 80px;
 } 
-
 
 .BoqueGauche{
 	margin-left: 100px;
@@ -62,7 +56,6 @@ main{
 	display: flex;
 	align-items: flex-start;
 	width:80%;
-
 }
 
 .BoqueDroite {

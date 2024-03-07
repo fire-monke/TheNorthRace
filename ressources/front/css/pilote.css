@@ -1,19 +1,16 @@
 *{
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 }
-.img-f1{
-    padding-top: 35px;
-}
-.a-f1{margin-top: 25px;}
+
 .h1{
     padding-left: 35vh;
-padding-top: 5vh;
+    padding-top: 5vh;
 }
 
-.pic {    height: 20vw;
-    width: auto;}
+.pic {
+    height: 20vw;
+    width: auto;
+}
 
 
 .pic img{

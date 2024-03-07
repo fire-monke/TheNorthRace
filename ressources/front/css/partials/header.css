@@ -103,12 +103,14 @@ li a {
 .a-f1{
     text-decoration: none;
     color: inherit; /* Default text color */
+	margin-top: 25px;
 }
 
 .img-f1{
     margin-left: 10px;
     width: 200px;
     height: 200px;
+    padding-top: 35px;
 }
 
 .ecuries-background {
