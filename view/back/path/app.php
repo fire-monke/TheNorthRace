@@ -17,7 +17,7 @@
     <nav>
         <button id="pilote" href="">Pilotes</button>
         <button id="ecurie" href="">Ecuries</button>
-        <button id="courses" href="">Courses</button>
+        <button id="rank" href="">Courses</button>
         <button id="classement" href="">Classement</button>
     </nav>
     <div class="logout">
@@ -40,9 +40,8 @@ $(document).ready(function() {
 	const typeEntite = urlParams.get('type');
 
 	// Vérifiez si le type d'entité existe et ajoutez la classe "active" au bouton correspondant
-	if (typeEntite) {
-		$("#" + typeEntite).addClass("active");
-	}
+
+    
 	// Gérez les clics sur les boutons
 	$("#pilote").on("click", function() {
 		chargerInclude("pilote");
@@ -52,7 +51,7 @@ $(document).ready(function() {
 		chargerInclude("ecurie");
 	});
 
-	$("#courses").on("click", function() {
+	$("#rank").on("click", function() {
 		chargerInclude("rank");
 	});
 
@@ -62,13 +61,14 @@ $(document).ready(function() {
 });
 
 $(document).on("click", ".updt", function() {
+    
     const Id = $(this).data("id");
     const entity = $(this).data("entity");
     const team = $(this).data("team-id");
     const year = $(this).data("year");
         $.ajax({
             url: './appli/update/&id='+ Id + '&entity=' + entity + '&team-id=' + team + '&year=' + year,
-        type: 'GET',
+            type: 'GET',
         success: function(response) {
             console.log(response);
 

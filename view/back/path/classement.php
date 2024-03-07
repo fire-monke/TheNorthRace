@@ -37,10 +37,9 @@
                 $selectedYear = $_POST['year'];
               
              
-            } else {$selectedYear=2020;
-            
+            } else {
+                $selectedYear=2020;
             }
-            require_once(RACINE . './controller/back/controller.php');
             $Classement = new Classement();
             $Ecurie = new Ecurie();
             $Classements = $Classement->getClassementByYear($selectedYear);
@@ -67,25 +66,5 @@
             }
     ?>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('#year-select').change(function() {
-            var selectedYear = $(this).val();
-            $.ajax({
-                type: 'POST',
-                url: './appli',
-                data: {  type: typeEntite, year: selectedYear },
-                success: function(response) {
-                    $('#pilotes-container').html(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Erreur lors de la requête AJAX : ' + status + ' ' + error);
-                }
-            });
-        });
-        $('#year-select').change();
-    });
-</script>
 </body>
 </html>
