@@ -32,7 +32,7 @@
         }?>
         </span></h1>
 
-        <form action="./appli" method="POST" enctype="multipart/form-data">
+        <form action="./appli" method="POST">
         <input type="hidden" name="teamId" value="<?php echo $teamId; ?>">
         <label for="year">Année</label>
             <input type="text" id="year" name="year" placeholder="Année" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($uneCourse->year);}?>" required>

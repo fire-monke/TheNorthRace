@@ -31,10 +31,8 @@
         <?php
 
         try{ 
-            require_once(RACINE . './controller/back/controller.php');
             if(isset($_POST['year'])) {
                 $selectedYear = $_POST['year'];
-
             }
         else {
             $selectedYear=2020;
@@ -76,24 +74,5 @@
         ?>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#year-select').change(function() {
-                var selectedYear = $(this).val();
-                $.ajax({
-                    type: 'POST',
-                    url: './appli',
-                    data: {  type: typeEntite, year: selectedYear },
-                    success: function(response) {
-                        $('#pilotes-container').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Erreur lors de la requête AJAX : ' + status + ' ' + error);
-                    }
-                });
-            });
-            $('#year-select').change();
-        });
-    </script>
 </body>
 </html>

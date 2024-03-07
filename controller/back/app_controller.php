@@ -9,7 +9,7 @@ $pagesEntites = array(
   'pilote' => 'pilote.php',
   'ecurie' => 'ecurie.php',
   'classement' => 'classement.php',
-  'courses' => 'rank.php'
+  'rank' => 'rank.php'
 );
 
 // Checks if a 'type' parameter is present in the URL, includes the corresponding PHP file from the specified directory,

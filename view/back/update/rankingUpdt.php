@@ -25,8 +25,8 @@
         }?>
         </span></h1>
 
-        <form action="./appli" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="PilotId" value="<?php echo htmlentities($uneCourse[0]->idPil) ?>">
+        <form action="./appli" method="POST">
+        <input type="hidden" name="PilotId" value="<?php echo htmlentities($uneCourse->idPil) ?>">
         <input type="hidden" name="teamId" value="<?php echo $uneCourse->idEcu ?>">
         <input type="hidden" name="year" value="<?php echo $uneCourse->annee ?>">
 
