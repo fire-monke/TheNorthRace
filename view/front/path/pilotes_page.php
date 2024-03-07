@@ -30,7 +30,7 @@
                             <h2><?= $pilote->nom ?></h2>
                         </div>
                     </div>
-                    <img class="drapeau" src="./ressources/front/images/pays_Pilote_PNG/<?= $pilote->paysPil ?>.png" alt="Drapeau du pays du pilote" width="50px" height="30px">
+                    <img class="flag" class="drapeau" src="./ressources/front/images/pays_Pilote_PNG/<?= $pilote->paysPil ?>.png" alt="Drapeau du pays du pilote">
                 </div>
                 <div class="ecurie">
                     <div class="info-ecurie">

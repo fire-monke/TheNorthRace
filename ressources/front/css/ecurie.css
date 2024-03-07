@@ -4,11 +4,9 @@
 	box-sizing: border-box;
 }
 
-
 body{
 	overflow-x: hidden;
 }
-
 
 .interBloqueGaucheG {
 
@@ -21,7 +19,6 @@ body{
 .interBloqueGaucheG > h3:not(:first-child) {
 	padding-top: 5px;
 }
-
 
 .interBloqueGaucheD {
 	display: flex;
@@ -68,46 +65,18 @@ main{
 
 }
 
-
 .BoqueDroite {
 	width: 50%;
 	display: flex; 
 	flex-wrap: wrap;
-/* background-image: url('../fondPil.png');
-background-repeat: no-repeat;
-background-size: cover;
-color: white;
-height: 500px; */
-
 }
-/* .pilote1{width: 50%;}
-.pilote2{width: 50%;} */
 
 .imgPil{
-
-
-height: 17vw;
-width: auto;
-/* background-image: url("./Hamilton.png"); */
-/* background-repeat: no-repeat;
-background-size: contain;
-background-color: red; */
-
-
+	height: 17vw;
+	width: auto;
 }
 
 img{height: 100%;}
-
-/* .imgPil2{
-
-height: 30vw;
-
-background-image: url("./Hamilton.png");
-background-repeat: no-repeat;
-margin-left: -1px;
-background-size: cover;
-
-} */
 
 .interBloqueDroiteG {
 	display: flex;
@@ -122,16 +91,6 @@ background-size: cover;
 .interBloqueDroiteG :first-child {
 	margin-bottom: 15px;
 }
-	/* .interBloqueDroiteD :first-child {
-	margin-bottom: 15px;
-} */
-/* 
-	.interBloqueDroiteD{
-	padding-left: 15px;
-	font-size: 30px;
-	padding-top: 20px;
-
-} */
 
 .photobas{
 	width: 100vw;

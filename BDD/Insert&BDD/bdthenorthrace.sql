@@ -22,7 +22,7 @@ CREATE TABLE if not exists Ecurie (
     id INT(3) AUTO_INCREMENT,
     nom VARCHAR(40) NOT NULL,
     couleur VARCHAR(20) NOT NULL,
-    dateCreation YEAR DEFAULT (YEAR(CURRENT_DATE)) NOT NULL,
+    dateCreation YEAR DEFAULT '2024' NOT NULL,
     localisation VARCHAR(50) DEFAULT 'Inconnue' NOT NULL,
     nbTitresConstructeur INT DEFAULT 0 NOT NULL, 
     nbCoursesDisputees INT DEFAULT 0 NOT NULL,

@@ -30,9 +30,8 @@
         </div>
     </section>
     <section class="secondSection">
-    <div class="championshipNav">
-        
-    </div>
+
+    <div class="championshipNav"></div>
 
     <div class="podium">
         <div class="bk"></div>
