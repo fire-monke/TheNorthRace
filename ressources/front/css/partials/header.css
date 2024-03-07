@@ -62,19 +62,20 @@ li a {
 }
 .hovEcu {
     display: none;
-    height: 58vh;
+    height: auto;
     width: 100%;
     color: white;
     background-color: #15151E;
     z-index: 10000;
     position: absolute;
+    padding-bottom: 5vh;
     top: 0;
     left: 0; 
 }
 
 .toutes{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     height:80%;
     width: 80%;
