@@ -202,8 +202,8 @@ if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['e
     try {
         $id = $_GET['id'];
         $entity = $_GET['entity'];
-        $teamId = $_GET['teamId'];
-        $year = $_GET['year'];
+        // $teamId = $_GET['teamId']; /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\ MET ça dans le if !!!
+        // $year = $_GET['year'];
 
         // Check if the entity is valid
         if ($entity === 'pilote') {

@@ -24,8 +24,6 @@ ECURIE = false;
     </ul>
 <?php
 try{
-    require_once(RACINE . './controller/back/controller.php');
-    // require_once(RACINE . './controller/back/app_controller.php');
     $Pilote = new Pilote();
     $lesPilotes = $Pilote->getPilotes();
     $Ecurie = new Ecurie();
