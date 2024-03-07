@@ -28,15 +28,10 @@
         <li><button class="create" data-entity="pilote">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button></li>
     </ul>
     <div id="pilotes-container">
-    <?php  
-    
+    <?php
         try {
-         
-         
             if(isset($_POST['year'])) {
                 $selectedYear = $_POST['year'];
-              
-             
             } else {
                 $selectedYear=2020;
             }

@@ -30,7 +30,7 @@
     <div id="pilotes-container">
         <?php
 
-        try{ 
+        try{
             if(isset($_POST['year'])) {
                 $selectedYear = $_POST['year'];
             }

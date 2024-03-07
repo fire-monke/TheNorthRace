@@ -19,6 +19,7 @@ if (isset($_POST['type'])) {
     $pathToFile = RACINE . '/view/back/path/' . $type . '.php';
     try {
         if (file_exists($pathToFile)) {
+            require_once(RACINE . "/controller/back/controller.php");
             include_once($pathToFile);
         } else {
             throw new Exception("Le fichier spécifié n'existe pas.");
