@@ -5,14 +5,9 @@
     outline: none;
 }
 
-.img-f1{
-    padding-top: 35px;
-}
-.a-f1{margin-top: 25px;}
-
 .standing a {
-    text-decoration: none; /* Supprimer le soulignement du lien */
-    color: inherit; /* Utiliser la couleur du texte par défaut de son parent (.pilot) */
+    text-decoration: none;
+    color: inherit; /* Use the default text color of his parent (.pilot) */
 }
 
 .firstSection{
@@ -20,7 +15,7 @@
     background-image: url("../images/LasVegasTrack.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;   /* image prend toute la page*/
+    background-size: cover;
     height: 94svh;
     color: white;
     display: flex;
@@ -93,31 +88,8 @@
     background-color: #F1F1F1;
 }
 
-
-.secondSection #championshipNav{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 7svh;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-}
-
-#championshipNav a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20vw;
-    text-decoration: none;
-    color: #232E35;
-    transition: .3s;
-}
-
-#championshipNav a:hover{
-    color: #00A19B;
-    transition: .3s;
+.championshipNav{
+    height: 7vh;
 }
 
 .podium{
@@ -131,8 +103,6 @@
     background-color: #F2F1F1;
 }
 
-
-
 .bk{
     background: linear-gradient(90deg, black, rgb(41, 41, 41) , rgb(62, 62, 62) , rgb(41, 41, 41), black);
     width: 100%;
@@ -141,18 +111,6 @@
     background-repeat: no-repeat;
     position: absolute;
     left: 0;
-}
-
-.first{
-    margin-top: -27svh;
-    z-index: 100;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 25vw;
-    height: 20vw;
-    border-radius: 15px 15px 0 0;
 }
 
 .podium img{
@@ -164,46 +122,23 @@
     object-fit:contain;
 }
 
-.first .white{
-    display: flex;
-    align-items: flex-end;
-    background-color: #ffffff;
-    z-index: 150;
-    width: 25vw;
-    height: 15vw;
-    border-radius: 0.8rem 0.8rem 0 0;
-}
-
-.first .black{
-    background: #232E35;
+.black h1, .black h2{
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 25vw;
-    height: 7vw;
-    border-radius: 0 0 15px 15px;
-}
-
-.black h2{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-weight: 500;
-    font-size: 1.25rem;
     margin-left: 1vw;
-    width: 20vw;
-    height: 2.5vw;
 }
-
 .black h1{
-    display: flex;
-    justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 1vw;
     width: 15vw;
     height: 2vw;
     margin-bottom: 2vw;
+}
+.black h2{
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.25rem;
+    width: 20vw;
+    height: 2.5vw;
 }
 
 .color{
@@ -212,34 +147,30 @@
 }
 
 
-
-
-
-/* SECOND ET TROISIEME PILOTES */
-
-
-
-
-.first{
+/* PODIUM PILOTS */
+.first, .second, .third{
     margin-top: -27svh;
     z-index: 100;
-    display: flex;
-    align-items: flex-end;
     justify-content: center;
     flex-wrap: wrap;
-    width: 25vw;
     height: 20vw;
     border-radius: 15px 15px 0 0;
 }
-
-.first .white{
+.first, .first .white {
     display: flex;
     align-items: flex-end;
+    width: 25vw;
+}
+.second, .third, .second .white, .third .white{
+    display: flex;
+    align-items: flex-end;
+    width: 22.5vw;
+}
+.first .white, .second .white, .third .white{
     background-color: #ffffff;
     z-index: 150;
-    width: 25vw;
     height: 15vw;
-    border-radius: 0.8rem 0.8rem 0 0;
+    border-radius: 0.8rem 0.8rem 20px 20px;
 }
 
 .first .black{
@@ -247,38 +178,6 @@
     width: 25vw;
     height: 7vw;
     border-radius: 0 0 15px 15px;
-}
-
-
-
-
-
-/* SECOND PILOTE */
-
-
-
-
-
-.second, .third{
-    margin-top: -27svh;
-    z-index: 100;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 22.5vw;
-    height: 20vw;
-    border-radius: 15px 15px 0 0;
-}
-
-.second .white, .third .white{
-    display: flex;
-    align-items: flex-end;
-    background-color: #ffffff;
-    z-index: 150;
-    width: 22.5vw;
-    height: 15vw;
-    border-radius: 0.8rem 0.8rem 0 0;
 }
 
 .second .black, .third .black{
@@ -288,14 +187,7 @@
     border-radius: 0 0 15px 15px;
 }
 
-.second .color{
-    /* background-color: #3671C6; */
-    width: 22.5vw;
-    height: 0.75rem;
-}
-
-.third .color{
-    /* background-color: #2EAFAA; */
+.second .color, .third .color{
     width: 22.5vw;
     height: 0.75rem;
 }
@@ -308,7 +200,6 @@
     background-color: #F2F1F1;
     margin-top: 10vw;
     width: 100%;
-    /* height: 80svh; */
     height: auto;
     padding-bottom:2vw;
 }
@@ -341,28 +232,15 @@
     font-size: 0.9rem;
 }
 
-
-
 .pilot p{
     margin-left: 1vw;
 }
 
 .pilot .teamcolor{
-    
     margin-left: 6px;
     width: 10px;
     height: 22px;
     border-radius: 10px;
-    /* content: "";
-    position: relative;
-    left: 2rem;
-    top: -1.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 0.35vw;
-    height: 1.25vw; */
-    /* background-color: #3671C6; */
 }
 
 .pilot p span{
@@ -397,91 +275,4 @@ button{
 
 button img{
     margin-left: 0.5vw;
-}
-
-.grandPrix{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70svh;
-    width: 100%;
-    background-color: #15151E;
-    color: white;
-}
-
-.gpChild{
-    border-right: 1px solid #434346;
-    border-bottom: 1px solid #434346;
-    width: 15vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.gpChild img{
-    width: 3.75vw;
-    height: 2.5vw;
-}
-
-.gpChild h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    font-size: 2rem;
-    margin: 1vw 0;
-}
-
-.gpChild h2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    margin-top: 1vw;
-}
-
-.gpChild + .active{
-    width: 40vw;
-    z-index: 100;
-    text-align: center;
-}
-
-.gpChild + .active img{
-    width: 4.5vw;
-    height: 2.7vw;
-}
-
-.gpChild + .active .daysContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 15vw;
-    
-}
-
-.gpChild + .active .day{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 10vw;
-    margin: 0 1vw;
-}
-
-.gpChild + .active .content{
-    height: 7vw;
-}
-
-.gpChild + .active .content p{
-    font-weight: 600;
-    font-size: 0.9rem;
-    background-color: #8c8c9065;
-    padding: 0.5vw 0.7vw;
-    border-radius: 1vw;
-    margin: 0.7vw 0;
 }

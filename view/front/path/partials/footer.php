@@ -6,15 +6,6 @@
     <link rel="stylesheet" href="./ressources/front/css/partials/footer.css">
     <link rel="stylesheet" href="./ressources/front/css/global.css">
     <footer>
-        <section class="contact">
-            <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
-            <form action="" method="post">
-                <input type="text" name="name" id="name" placeholder="name">
-                <input type="text" name="email" id="email" placeholder="email">
-                <textarea name="content" id="content" cols="30" rows="10" placeholder="content"></textarea>
-                <input type="button" value="Submit">
-            </form>
-        </section>
         <section class="images">
             <img src="/TheNorthRace/ressources/front/images/teamRedBull.png" alt="">
             <img src="/TheNorthRace/ressources/front/images/teamMercedes.png" alt="">

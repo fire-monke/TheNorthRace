@@ -22,10 +22,6 @@
         <a href="/TheNorthRace/ecuries" id="aecuries">Ecuries</a>
         <a href="">Archives</a>
     </nav>
-    <div class="connection">
-        <a href="./connexion">Connexion</a>
-        <a href="./inscription">Inscription</a>
-    </div>
     <div class="hovEcu">
         <div class="nav-header">
             <h1>Toutes les écuries &nbsp;<span>></span></h1> 

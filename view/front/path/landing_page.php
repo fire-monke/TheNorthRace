@@ -30,11 +30,8 @@
         </div>
     </section>
     <section class="secondSection">
-    <nav id="championshipNav">
-            <a href="">Pilotes</a>
-            <a href="">Constructeurs</a>
-            <a href="">Dernière Course</a>
-    </nav>
+
+    <div class="championshipNav"></div>
 
     <div class="podium">
         <div class="bk"></div>
@@ -168,55 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
     
 </section>
-<section class="grandPrix">
-    <div class="gpChild">
-        <img src="./ressources/front/images/flagMexico.png" alt="">
-        <h2>Mexico</h2>
-        <h1>29</h1>
-        <h3>oct</h3>
-    </div><div class="gpChild">
-    <img src="./ressources/front/images/flagMexico.png" alt="">
-        <h2>Mexico</h2>
-        <h1>29</h1>
-        <h3>oct</h3>
-    </div><div class="gpChild active">
-    <img src="./ressources/front/images/flagMexico.png" alt="">
-        <h2>Mexico</h2>
-        <h1>FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2023</h1>
-        <div class="daysContainer">
-            <div class="day" id="friday">
-                <h3>FRIDAY</h3>
-                <div class="content">
-                    <p>20:30 - 21:30</p>
-                </div>
-            </div>
-            <div class="day" id="saturday">
-                <h3>SATURDAY</h3>
-                <div class="content">
-                <p>00:00 - 1:00</p>
-                <p>19:30 - 20:30</p>
-                <p>23:00 - 20:00</p>
-                </div>
-            </div>
-            <div class="day" id="sunday">
-                <h3>SUNDAY</h3>
-                <div class="content">
-                <p>21:00 - __</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="gpChild">
-    <img src="./ressources/front/images/flagMexico.png" alt="">
-        <h2>Mexico</h2>
-        <h1>29</h1>
-        <h3>oct</h3>
-    </div><div class="gpChild">
-        <img src="./ressources/front/images/flagMexico.png" alt="">
-        <h2>Mexico</h2>
-        <h1>29</h1>
-        <h3>oct</h3>
-    </div>
+
     </section>   
 
 </main>

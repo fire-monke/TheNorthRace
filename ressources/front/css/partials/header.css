@@ -1,4 +1,3 @@
-
 /* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 1.75vh;
@@ -15,12 +14,12 @@
 }
 
 header{
-    
-    width: 100%;
+    width: auto;
     height: 6vw;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 7vh;
 }
 
 header img{
@@ -50,8 +49,6 @@ header .wrapper{
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
-   
-
 }
 
 #headerNav a:hover{
@@ -59,63 +56,26 @@ header .wrapper{
     font-size: 1.1rem;
 }
 
-.connection{
-    width: 22%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.connection a{
-    padding: 1rem 2rem;
-    background-color: #232E35;
-    border: solid 1px #232E35;
-    color: #F1F1F1;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: .9rem;
-}
-
-.connection a:hover{
-    background-color: #13191c;
-    border: solid 1px #232E35;
-    color: #F1F1F1;
-}
-
-.connection a:first-child{
-    color: #232E35;
-    background-color: #FFFFFF;
-    border: solid 1px #F1F1F1;
-}
-
-.connection a:first-child:hover{
-    color: #232E35;
-    background-color: #f0f0f0;
-    border: solid 1px #F1F1F1;
-}
 li a {
     text-decoration: none;
     color: inherit;
 }
 .hovEcu {
     display: none;
-    height: 58vh;
+    height: auto;
     width: 100%;
     color: white;
     background-color: #15151E;
     z-index: 10000;
     position: absolute;
+    padding-bottom: 5vh;
     top: 0;
     left: 0; 
 }
 
-
-
-
 .toutes{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     height:80%;
     width: 80%;
@@ -142,26 +102,25 @@ li a {
 }
 
 .a-f1{
-    text-decoration: none; /* Supprimer le soulignement du lien */
-    color: inherit; /* Utiliser la couleur par défaut du texte */
+    text-decoration: none;
+    color: inherit; /* Default text color */
+	margin-top: 25px;
 }
-
 
 .img-f1{
     margin-left: 10px;
     width: 200px;
     height: 200px;
+    padding-top: 35px;
 }
 
 .ecuries-background {
-           
-    width: 50px; /* Ajustez la largeur du fond selon vos besoins */
-    height: 20px; /* Ajustez la hauteur du fond selon vos besoins */
+    width: 50px;
+    height: 20px;
     position: absolute;
     margin-top: 65px;
-    z-index: -1; /* Assurez-vous que le z-index est inférieur à celui de .ecurie */
+    z-index: -1;
 }
-
 
 .navSecondary{
     display: none;
@@ -199,9 +158,7 @@ li a {
     border-bottom-right-radius: 10px;
     margin: 10px 15px;
     margin-bottom: 50px;
-
 }
-
 
 .nav-list ul{
     display: flex;
@@ -231,10 +188,6 @@ li a {
     border-bottom-right-radius: 10px;
     min-height: 25px;
 }
-
-
-
-
 
 .spe{
     position: absolute;
