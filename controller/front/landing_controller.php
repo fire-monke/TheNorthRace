@@ -25,16 +25,15 @@ $idPil3 = $lePodium[2]->id;
 
 $lesPilotesDB = $Pilote->getPilotesLastSeason();
 
-$tableau_multidimensionnel = array();
-
-$lesPilotes = [];
+$lesPilotesClassement = [];
 
 foreach ($lesPilotesDB as $unPilote) {
-    $lesPilotes[] = array(
-        "nomEcurie" => $Ecurie->getEcurieOfLastSeasonOfPiloteByIdPilote($unPilote->id)->nom,
+    $lesPilotesClassement[] = array(
+        "idPil" => $unPilote->id,
         "prenomPil" => $unPilote->prenom,
         "nomPil" => $unPilote->nom,
         "nbPointsPil" => $Pilote->getPilotePointsLastSeasonById($unPilote->id)->nbPointPil,
+        "nomEcurie" => $Ecurie->getEcurieOfLastSeasonOfPiloteByIdPilote($unPilote->id)->nom,
         "couleurEcu" => $Ecurie->getLastEcurieByIdPilote($unPilote->id)->couleur,
     );
 }

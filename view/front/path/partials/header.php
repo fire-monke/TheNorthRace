@@ -27,7 +27,7 @@
             <h1>Toutes les écuries &nbsp;<span>></span></h1> 
         </div>
         <div class="nav-list toutes">
-            <?php foreach ($ecuries as $ecurie):
+            <?php foreach ($ecuriesLastSeason as $ecurie):
                 $nomEcurie = $ecurie->nom;
                 $couleurEcurie = $ecurie->couleur;
                 $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);

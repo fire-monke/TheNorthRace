@@ -18,9 +18,9 @@
             <h3>NEWSLETTER</h3>
         </div>
             <h1>The North <span>Race</span></h1>
-            <p>When the drivers hit the all-new Las Vegas street circuit in first practice ahead of next weekend’s Grand Prix, 
-            it will be the first time any of them will have sampled the track for real. 
-            We asked former Renault F1 racer Jolyon Palmer to explain all…</p>
+            <p>Lors des premiers essais du tout nouveau circuit urbain de Las Vegas, ce week-end,
+                les pilotes découvriront la piste pour la première fois.
+                Jolyon Palmer, ancien pilote Renault F1, nous en dit plus...</p>
             <div class="socialMedia">
                 <a href=""><img src="./ressources/front/images/whiteInstagram.png" alt="#"></a>
                 <a href=""><img src="./ressources/front/images/whiteGitHub.png" alt="#"></a>
@@ -70,10 +70,10 @@
     <div class="standing" id="standing-initial">
     <?php
     $cpt=0;
-    foreach(array_slice($lesPilotes, 0, 6) as $unPilote)
+    foreach(array_slice($lesPilotesClassement, 0, 6) as $unPilote)
     {
         $cpt+=1;
-        echo '<a href="/TheNorthRace/pilote/' . $cpt . '" class="pilot">';
+        echo '<a href="/TheNorthRace/pilote/' . htmlentities($unPilote['idPil']) . '" class="pilot">';
         echo '<h2>'.$cpt.'</h2>'; 
         echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
         echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
@@ -89,10 +89,10 @@
 <div class="standing" id="tous" style="display: none;">
     <?php
     $cpt=0;
-    foreach($lesPilotes as $unPilote)
+    foreach($lesPilotesClassement as $unPilote)
     {
         $cpt+=1;
-        echo '<a href="/TheNorthRace/pilote/' . $cpt . '" class="pilot">';
+        echo '<a href="/TheNorthRace/pilote/' . htmlentities($unPilote['idPil']) . '" class="pilot">';
         echo '<h2>'.$cpt.'</h2>'; 
         echo '<div class="teamcolor" style="background-color:'. htmlentities($unPilote['couleurEcu']) .'"></div>';
         echo '<p>'.htmlentities($unPilote['prenomPil']).' <span>'.htmlentities($unPilote['nomPil']).'</span></p>';
@@ -107,20 +107,18 @@
 <script>
 // Ajouter un écouteur d'événements pour chaque pilote
 document.querySelectorAll('.pilot').forEach(item => {
-  // Au survol, changer la couleur du texte pour correspondre à la couleur de l'écurie
+  // On hover, change the text color to the stable color
   item.addEventListener('mouseenter', event => {
     const teamColor = event.currentTarget.querySelector('.teamcolor').style.backgroundColor;
     event.currentTarget.querySelector('h2').style.color = teamColor;
     event.currentTarget.querySelector('span').style.color = teamColor;
   });
-  // À la sortie du survol, réinitialiser la couleur du texte
+  // On hover exit, reset the text color
   item.addEventListener('mouseleave', event => {
     event.currentTarget.querySelector('h2').style.color = '';
     event.currentTarget.querySelector('span').style.color = '';
   });
 });
-</script>
-<script>
     //for the buttons
 document.addEventListener("DOMContentLoaded", function() {
     var voirInitialBtn = document.getElementById("voir-initial");
@@ -163,11 +161,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-    
-</section>
-
-    </section>   
-
 </main>
 </body>
 </html>
