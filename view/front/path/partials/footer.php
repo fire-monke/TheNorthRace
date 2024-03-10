@@ -6,13 +6,61 @@
     <link rel="stylesheet" href="./ressources/front/css/partials/footer.css">
     <link rel="stylesheet" href="./ressources/front/css/global.css">
     <footer>
-        <section class="images">
-            <img src="/TheNorthRace/ressources/front/images/teamRedBull.png" alt="">
-            <img src="/TheNorthRace/ressources/front/images/teamMercedes.png" alt="">
-            <img src="/TheNorthRace/ressources/front/images/teamFerrari.png" alt="">
-            <img src="/TheNorthRace/ressources/front/images/teamMcLaren.png" alt="">
-            <img src="/TheNorthRace/ressources/front/images/teamAston.png" alt="">
-        </section>
+    <section class="images">
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <div class="carousel">
+        <?php foreach ($ecuriesLastSeason as $index => $ecurie): ?>
+            <div class="slide">
+                <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>" width="auto" height="100 %">
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <button class="next" onclick="nextSlide()">❯</button>
+</section>
+<script>
+    let slideIndex = 0;
+
+    function showSlides() {
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach((slide, index) => {
+            if (index === slideIndex) {
+                slide.style.display = 'block'; // Afficher la diapositive actuelle
+            } else {
+                slide.style.display = 'none'; // Masquer les autres diapositives
+            }
+        });
+    }
+
+    function nextSlide() {
+        if (slideIndex < <?php echo count($ecuriesLastSeason) - 1; ?>) {
+            slideIndex++; // Passer à la diapositive suivante si ce n'est pas la dernière
+        }
+        showSlides();
+    }
+
+    function prevSlide() {
+        if (slideIndex > 0) {
+            slideIndex--; // Revenir à la diapositive précédente si ce n'est pas la première
+        }
+        showSlides();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        showSlides(); // Appeler showSlides() après que le document ait été chargé
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        prevButton.addEventListener('click', function() {
+            prevSlide(); // Appeler prevSlide() lorsque le bouton précédent est cliqué
+        });
+
+        nextButton.addEventListener('click', function() {
+            nextSlide(); // Appeler nextSlide() lorsque le bouton suivant est cliqué
+        });
+    });
+</script>
+
+
         <section class="banner">
             <div class="content-box">
                 <h1>À PROPOS</h1>

@@ -14,12 +14,12 @@
 }
 
 header{
-    width: auto;
+    width: auto;    
     height: 6vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 7vh;
+    margin-left: 5vh;
 }
 
 header img{
@@ -38,7 +38,7 @@ header .wrapper{
     display: flex;
     justify-content: space-evenly;
     width: 40%;
-    margin: 0 5% 0 3%;
+    margin: 0 5% 0 8%;
     z-index: 10;
     height: 100%;
     align-items: center;
