@@ -184,18 +184,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
     else if (isset($_POST['PilotId']) && isset($_POST['teamId']) && isset($_POST['year']) && isset($_POST['newPoints']) && isset($_POST['placePil']) && isset($_POST['newPilotNumber'])) {
-        $id_pilote = $_POST['PilotId'];
-        $id_team = $_POST['teamId'];
+        $pilotId = intval($_POST['PilotId']);
+        $teamId = intval($_POST['teamId']);
+        $year = intval($_POST['year']);
+        $newPoints = intval($_POST['newPoints']);
+        $placePil = intval($_POST['placePil']);
+        $newPilotNumber = intval($_POST['newPilotNumber']);
+
         $CoursesAnnee = new CoursesAnnee();
-        $CoursesAnnee->updateRaceForYear($id_pilote, $id_team, $_POST['year'], $_POST['newPoints'], $_POST['placePil'], $_POST['newPilotNumber']);
-        header('Location: ./appli&type=courses');
+        $CoursesAnnee->updateRaceForYear($pilotId, $teamId, $year, $newPoints, $placePil, $newPilotNumber);
+        header('Location: ./appli&type=rank');
         exit();
     }
 
     else if (isset($_POST['points']) && isset($_POST['teamPlace']) && isset($_POST['teamId']) && isset($_POST['year'])) {
         $id_team = $_POST['teamId'];
+        $year = $_POST['year'];
         $Classement = new Classement();
-        $Classement->updateClassement($_POST['points'], $_POST['teamPlace'], $id_team, $_POST['year']);
+        $Classement->updateClassement($_POST['points'], $_POST['teamPlace'], $id_team, $year);
         header('Location: ./appli&type=classement');
         exit();
     }

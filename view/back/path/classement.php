@@ -39,27 +39,29 @@
             $Ecurie = new Ecurie();
             $Classements = $Classement->getClassementByYear($selectedYear);
             foreach($Classements as $unClassement) {
+                $uneEcurie = $Ecurie-> getEcurieById($unClassement->idEcu);
                 echo '<div class="pilot">';
-                if (!empty($unClassement->placePil)) {
-                    echo '<h2>'. htmlentities($unClassement->placePil) .'</h2>';
+                if (!empty($unClassement->placeEcu)) {
+                    echo '<p>'. htmlentities($unClassement->placeEcu).'<p>';
                 }
-                // if (!empty($uneEcurie->couleur)) {
-                //     echo '<div style="background:'.$uneEcurie->couleur. ';"></div>';
-                // }
-                if (!empty($unClassement->nbPointPil)) {
-                    echo '<p>'. htmlentities($unClassement->nbPointPil).'</p>';
+                if (!empty($uneEcurie->couleur)){
+                    echo '<div style="background:'.$uneEcurie->couleur. ';"></div>';
                 }
-                if (!empty($unClassement->nomEcurie)) {
-                    echo '<p>'. htmlentities($unClassement->nomEcurie).'</p>';
+                if (!empty($uneEcurie->nom)){
+                    echo '<p>'. htmlentities($uneEcurie->nom).'</p>';
                 }
-                // echo '<button class="updt" data-id="'. htmlentities($unClassement->idEcu) .'" data-year="'. htmlentities($selectedYear) .'" data-entity="classement"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
-                // <button class="delete" data-id="'. htmlentities($unClassement->idEcu) .'" data-year="'. htmlentities($selectedYear) .'" data-entity="classement"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';
-                echo '</div>';
-            } }
+                if (!empty($unClassement->nbPointEcu)) {
+                    echo '<p>'. htmlentities($unClassement->nbPointEcu).'</p>';
+                }
+                 echo '<button class="updt" data-id="'. htmlentities($unClassement->idEcu) .'" data-year="'. htmlentities($selectedYear) .'" data-entity="classement"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
+                <button class="delete" data-id="'. htmlentities($unClassement->idEcu) .'" data-year="'. htmlentities($selectedYear) .'" data-entity="classement"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';
+                echo '</div>';} 
+            }
             catch (Exception $e) {
                 echo "Une erreur est survenue : " . $e->getMessage();
             }
-    ?>
-</div>
+        ?>
+    </div>
+    
 </body>
 </html>

@@ -16,8 +16,11 @@
         <h1>MODIFICATION <span>
         <?php
         try {
-            if (!empty($uneCourse->prenom) && !empty($uneCourse->nom)){
-                echo htmlentities($uneCourse->prenom) ." ". htmlentities($uneCourse->nom);
+            if(is_array($uneCourse) && !empty($uneCourse)) {
+                $uneCourse = $uneCourse[0]; 
+            }
+            if (!empty($uneCourse->prenomPilote) && !empty($uneCourse->nomPilote)){
+                echo htmlentities($uneCourse->prenomPilote) ." ". htmlentities($uneCourse->nomPilote);
             }
 
         } catch(Exception $ex){
@@ -32,16 +35,15 @@
 
             <label for="placePil">Place du pilote</label>
             <input type="text" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($uneCourse->placePil)){ echo htmlentities($uneCourse->placePil);}?>" required>
-            <?php var_dump($uneCourse); ?>
             <label for="newPoints">Points inscrit</label>
             <input type="text" id="newPoints" name="newPoints" placeholder="Points inscrit" value="<?php if (!empty($uneCourse->nbPointPil)){echo htmlentities($uneCourse->nbPointPil);}?>" required>
 
             <label for="newPilotNumber">Numéro du pilote</label>
-            <input type="text" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($uneCourse->dateNais)){echo htmlentities($uneCourse->numPil);}?>" required>
+            <input type="text" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($uneCourse->numPil)){echo htmlentities($uneCourse->numPil);}?>" required>
 
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
-                <a href="./appli&type=courses" class="submit">Annuler</a>
+                <a href="./appli&type=rank" class="submit">Annuler</a>
             </div>
         </form>
     </div>

@@ -58,7 +58,6 @@ $(document).ready(function() {
 });
 
 $(document).on("click", ".updt", function() {
-    
     const id = $(this).data("id");
     const entity = $(this).data("entity");
     const team = $(this).data("team-id");
