@@ -30,13 +30,13 @@
             <?php foreach ($ecuriesLastSeason as $ecurie):
                 $nomEcurie = $ecurie->nom;
                 $couleurEcurie = $ecurie->couleur;
-                $nomEcurieSansEspaces = str_replace(' ', '_', $nomEcurie);
+                $idEcurie = $ecurie->id
             ?>
-                <a class="a-f1" href="/TheNorthRace/ecurie/<?php echo $ecurie->id; ?>">
-                    <div  class="f1" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $ecurie->id; ?>">
+                <a class="a-f1" href="/TheNorthRace/ecurie/<?php echo $idEcurie; ?>">
+                    <div  class="f1" data-color-ecurie="<?php echo $couleurEcurie; ?>" id="<?php echo $idEcurie; ?>">
                         <div class="ecuries-background" style="background-color: <?php echo $couleurEcurie; ?>;"></div>
                         <h4><?php echo $nomEcurie; ?></h4>
-                        <img class="img-f1" src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/voiture_<?php echo $nomEcurieSansEspaces; ?>.png" alt="Image écurie <?php echo $ecurie->id; ?>">
+                        <img class="img-f1" src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/<?php echo $idEcurie; ?>.png" alt="Image voiture <?php echo $nomEcurie; ?>">
                     </div>
                 </a>
             <?php endforeach; ?>

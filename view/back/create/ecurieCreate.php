@@ -15,7 +15,7 @@
     <div class="form_page">
         <h1>Ajout d'une écurie</h1>
 
-        <form action="./appli/create/ecurie" method="POST">
+        <form action="./appli/create/ecurie" method="POST" enctype="multipart/form-data">
             <label for="nomAdd">Nom</label>
             <input type="text" name="nomAdd" placeholder="Nom" required>
                         
@@ -43,8 +43,8 @@
             <label for="directeur">Directeur</label>
             <input type="text" name="directeurAdd" placeholder="Directeur" minlength="0" maxlength="80" value="Inconnu">
 
-            <label for="logoAdd">Logo de l'écurie</label>
-            <input type="file" name="logoAdd" accept=".jpg, .jpeg, .png">
+            <label for="logoEcurieAdd">Logo de l'écurie</label>
+            <input type="file" name="logoEcurieAdd" accept=".jpg, .jpeg, .png">
 
             <label for="photoVoitureAdd">Photo de la voiture de l'écurie</label>
             <input type="file" name="photoVoitureAdd" accept=".jpg, .jpeg, .png">

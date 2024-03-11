@@ -59,8 +59,8 @@
             <label for="directeur">Directeur</label>
             <input type="text" name="directeur" placeholder="Directeur" minlength="0" maxlength="80" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
 
-            <label for="logoAdd">Logo de l'écurie</label>
-            <input type="file" name="logoAdd" accept=".jpg, .jpeg, .png">
+            <label for="logoEcurieAdd">Logo de l'écurie</label>
+            <input type="file" name="logoEcurieAdd" accept=".jpg, .jpeg, .png">
 
             <label for="photoVoitureAdd">Photo de la voiture de l'écurie</label>
             <input type="file" name="photoVoitureAdd" accept=".jpg, .jpeg, .png">

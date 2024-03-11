@@ -4,10 +4,11 @@ require_once(RACINE . '/model/back/request.php');
 function upload_img($img_name, $input_name, $upload_path){
     // Check if the download went well
     if (isset($_FILES["$input_name"]) && $_FILES["$input_name"]["error"] == 0) {
-        $nouveau_nom_fichier = $img_name . '.png'; // generate a new file name
-        $img_path = $upload_path . $nouveau_nom_fichier;
-        move_uploaded_file($_FILES["$input_name"]["tmp_name"], $img_path);
+        $file_name = $img_name . '.png'; // generate a new file name
+        $img_path = $upload_path . $file_name;
+        return move_uploaded_file($_FILES["$input_name"]["tmp_name"], $img_path);
     }
+    return False;
 }
 //SELECT--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
@@ -97,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     else if (isset($_POST['nomAdd']) && isset($_POST['couleurAdd']) && isset($_POST['dateCreationAdd']) && isset($_POST['localisationAdd']) && isset($_POST['nbTitresConstructeurAdd']) && isset($_POST['nbCoursesDisputeesAdd']) && isset($_POST['nbVictoiresAdd']) && isset($_POST['nbPoduimsAdd']) && isset($_POST['directeurAdd'])) {
         $Ecurie = new Ecurie();
         $id_ecurie = $Ecurie->addEcurie($_POST['nomAdd'], $_POST['couleurAdd'], $_POST['dateCreationAdd'], $_POST['localisationAdd'], $_POST['nbTitresConstructeurAdd'], $_POST['nbCoursesDisputeesAdd'], $_POST['nbVictoiresAdd'], $_POST['nbPoduimsAdd'], $_POST['directeurAdd']);
-        upload_img($id_ecurie, "logoAdd", "ressources/front/images/logo_ecurie_PNG/");
+        upload_img($id_ecurie, "logoEcurieAdd", "ressources/front/images/logo_ecurie_PNG/");
         upload_img($id_ecurie, "photoVoitureAdd", "ressources/front/images/photo_voiture_PNG/");
         header('Location: ../../appli&type=ecurie');
         exit();
@@ -121,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $id_ecurie = $_POST['EcurieId'];
         $Ecurie = new Ecurie();
         $Ecurie->updateEcurieColor($id_ecurie, $_POST['couleur'], $_POST['dateCreation'], $_POST['localisation'], $_POST['nbTitresConstructeur'], $_POST['nbCoursesDisputees'], $_POST['nbVictoires'], $_POST['nbPoduims'], $_POST['directeur']);
-        upload_img($id_ecurie, "logoAdd", "ressources/front/images/logo_ecurie_PNG/");
+        upload_img($id_ecurie, "logoEcurieAdd", "ressources/front/images/logo_ecurie_PNG/");
         upload_img($id_ecurie, "photoVoitureAdd", "ressources/front/images/photo_voiture_PNG/");
         header('Location: ./appli&type=ecurie');
         exit();

@@ -13,8 +13,6 @@
    <main>
        <div class="BoqueGauche">
            <img src="<?php echo $imageSrc; ?>" alt="Écurie" class="ecurie-image" style="width: 70%;<?php echo $style; ?>">
-          
-           
         <div class="trait">
            <div class="ecurie-background" style="background-color: <?php echo $couleuurEcurie; ?>;"></div>
                 <div class="wrap">
@@ -61,7 +59,6 @@
           <?php endforeach; ?>
        </div>
    </main>
-   <div class="photobas"></div>   
-
+   <div class="photobas"></div>
 </body>  
 </html>

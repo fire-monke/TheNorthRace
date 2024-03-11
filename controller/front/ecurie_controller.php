@@ -3,16 +3,14 @@ include_once(RACINE . '/model/back/class_ecurie.php');
 include_once(RACINE . '/model/back/class_pilote.php');
 include_once(RACINE . '/model/back/class_coursesAnnee.php');
 
-// Créer une instance de la classe Ecurie
 $ecurieObj = new Ecurie();
 $CourseObj = new CoursesAnnee();
 $piloteObj = new Pilote();
 
-
-// Récupérer les écuries de la dernière saison
+// get all stable from the last season
 $ecuriesLastSeason = $ecurieObj->getEcuriesLastSeason();
 
-// Vérifier si l'écurie avec $idEcurie fait partie de la dernière saison
+// check if the stable is from the last season
 $ecurie = null;
 foreach ($ecuriesLastSeason as $ecurieLastSeason) {
     if ($ecurieLastSeason->id == $idEcurie) {
@@ -21,7 +19,6 @@ foreach ($ecuriesLastSeason as $ecurieLastSeason) {
     }
 }
 
-// Si l'écurie n'appartient pas à la dernière saison, lancer une exception
 if ($ecurie === null) {
     throw new Exception("L'écurie avec l'ID $idEcurie n'appartient pas à la dernière saison.");
 }
@@ -39,18 +36,14 @@ $pilotes = $piloteObj->getPilotesByIdEcu($idEcurie);
 $idPils = array(); 
 $year = 2023; // La dernière saison
 
-// Générer le chemin d'accès et le style pour l'image de l'écurie
 $ecurieNom = $ecurie->nom;
-$imageSrc = "../ressources/front/images/logo_ecurie_PNG/{$ecurieNom}.png";
+$imageSrc = "../ressources/front/images/logo_ecurie_PNG/{$ecurie->id}.png";
 $style = '';
 
-// Vérifier si le nom de l'écurie est "Alpine"
 if ($ecurieNom === "Alpine" || $ecurieNom === "Aston Martin Aramco" || $ecurieNom === "Alphatauri" || $ecurieNom === "Red Bull Racing" ) {
-    // Appliquer un style particulier
     $style = 'object-fit: contain; max-height: 300px; margin-top: 20px;';
 }
 
-// Inclure la vue
 include_once(RACINE . '/controller/front/partials/header_controller.php');
 include_once(RACINE . '/view/front/path/ecurie_page.php');
 include_once(RACINE . '/view/front/path/partials/footer.php');
