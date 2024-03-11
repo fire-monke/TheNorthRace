@@ -33,19 +33,19 @@
         <form action="./appli" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
             <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
+            <input type="text" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
 
             <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
+            <input type="text" name="prenom" placeholder="Prenom" value="<?php if (!empty($unPilote->prenom)){ echo htmlentities($unPilote->prenom);}?>" required>
 
             <label for="pays">Pays</label>
-            <input type="text" id="pays" name="pays" placeholder="Pays" value="<?php if (!empty($unPilote->paysPil)){echo htmlentities($unPilote->paysPil);}?>" required>
+            <input type="text" name="pays" placeholder="Pays" value="<?php if (!empty($unPilote->paysPil)){echo htmlentities($unPilote->paysPil);}?>" required>
 
             <label for="dateNais">Date de naissance</label>
-            <input type="text" id="dateNais" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){echo htmlentities($unPilote->dateNais);}?>" required>
+            <input type="text" name="dateNais" placeholder="Date de naissance" value="<?php if (!empty($unPilote->dateNais)){echo htmlentities($unPilote->dateNais);}?>" required>
             
             <label for="photoAdd">Photo du pilote</label>
-            <input type="file" id="photo" name="photoAdd" accept=".jpg, .jpeg, .png">
+            <input type="file" name="photoAdd" accept=".jpg, .jpeg, .png">
 
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">

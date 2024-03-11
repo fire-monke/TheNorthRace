@@ -30,37 +30,43 @@
         }?>
         </span></h1>
 
-        <form action="./appli" method="POST">
+        <form action="./appli" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="EcurieId" value="<?php echo $EcurieId; ?>">
             
-            <input type="hidden" id="nom" name="nom" placeholder="Nom" value="<?php echo !empty($uneEcurie->nom) ? htmlentities($uneEcurie->nom) : ''; ?>" required>
+            <input type="hidden" name="nom" placeholder="Nom" value="<?php echo !empty($uneEcurie->nom) ? htmlentities($uneEcurie->nom) : ''; ?>" required>
             
             <label for="couleur">Couleur HTML</label>
-            <input type="text" id="couleur" name="couleur" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
+            <input type="text" name="couleur" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
             
             <label for="dateCreation">Année de création</label>
-            <input type="number" id="dateCreation" name="dateCreation" placeholder="Année de création" min="0" max="3000" value="<?php echo !empty($uneEcurie->dateCreation) ? htmlentities($uneEcurie->dateCreation) : ''; ?>" required>
+            <input type="number" name="dateCreation" placeholder="Année de création" min="0" max="3000" value="<?php echo !empty($uneEcurie->dateCreation) ? htmlentities($uneEcurie->dateCreation) : ''; ?>" required>
             
             <label for="localisation">localisation</label>
-            <input type="text" id="localisation" name="localisation" placeholder="Localisation" minlength="0" maxlength="50" value="<?php echo !empty($uneEcurie->localisation) ? htmlentities($uneEcurie->localisation) : ''; ?>" required>
+            <input type="text" name="localisation" placeholder="Localisation" minlength="0" maxlength="50" value="<?php echo !empty($uneEcurie->localisation) ? htmlentities($uneEcurie->localisation) : ''; ?>" required>
             
             <label for="nbTitresConstructeur">Nombre de titres constructeur</label>
-            <input type="number" id="nbTitresConstructeur" name="nbTitresConstructeur" placeholder="Nombre de titres constructeur" min="0" max="500" value="<?php echo !empty($uneEcurie->nbTitresConstructeur) ? htmlentities($uneEcurie->nbTitresConstructeur) : '0'; ?>" required>
+            <input type="number" name="nbTitresConstructeur" placeholder="Nombre de titres constructeur" min="0" max="500" value="<?php echo !empty($uneEcurie->nbTitresConstructeur) ? htmlentities($uneEcurie->nbTitresConstructeur) : '0'; ?>" required>
             
             <label for="nbCoursesDisputees">Nombre de courses disputees</label>
-            <input type="number" id="nbCoursesDisputees" name="nbCoursesDisputees" placeholder="Nombre de courses disputees" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbCoursesDisputees) ? htmlentities($uneEcurie->nbCoursesDisputees) : '0'; ?>" required>
+            <input type="number" name="nbCoursesDisputees" placeholder="Nombre de courses disputees" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbCoursesDisputees) ? htmlentities($uneEcurie->nbCoursesDisputees) : '0'; ?>" required>
             
             <label for="nbVictoires">Nombre de victoires</label>
-            <input type="number" id="nbVictoires" name="nbVictoires" placeholder="Nombre de victoires" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbVictoires) ? htmlentities($uneEcurie->nbVictoires) : '0'; ?>" required>
+            <input type="number" name="nbVictoires" placeholder="Nombre de victoires" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbVictoires) ? htmlentities($uneEcurie->nbVictoires) : '0'; ?>" required>
             
             <label for="nbPoduims">Nombre de poduims</label>
-            <input type="number" id="nbPoduims" name="nbPoduims" placeholder="Nombre de poduims" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbPoduims) ? htmlentities($uneEcurie->nbPoduims) : '0'; ?>" required>
+            <input type="number" name="nbPoduims" placeholder="Nombre de poduims" min="0" max="10000" value="<?php echo !empty($uneEcurie->nbPoduims) ? htmlentities($uneEcurie->nbPoduims) : '0'; ?>" required>
             
             <label for="directeur">Directeur</label>
-            <input type="text" id="directeur" name="directeur" placeholder="Directeur" minlength="0" maxlength="80" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
+            <input type="text" name="directeur" placeholder="Directeur" minlength="0" maxlength="80" value="<?php echo !empty($uneEcurie->directeur) ? htmlentities($uneEcurie->directeur) : ''; ?>" required>
+
+            <label for="logoAdd">Logo de l'écurie</label>
+            <input type="file" name="logoAdd" accept=".jpg, .jpeg, .png">
+
+            <label for="photoVoitureAdd">Photo de la voiture de l'écurie</label>
+            <input type="file" name="photoVoitureAdd" accept=".jpg, .jpeg, .png">
 
             <div class="button-container">
-                <input name=submit type="submit" value="Modifier">
+                <input name="submit" type="submit" value="Modifier">
                 <a href="./appli&type=ecurie" class="submit">Annuler</a>
             </div>
         </form>

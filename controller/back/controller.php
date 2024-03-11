@@ -1,6 +1,14 @@
 <?php
 require_once(RACINE . '/model/back/request.php');
 
+function upload_img($img_name, $input_name, $upload_path){
+    // Check if the download went well
+    if (isset($_FILES["$input_name"]) && $_FILES["$input_name"]["error"] == 0) {
+        $nouveau_nom_fichier = $img_name . '.png'; // generate a new file name
+        $img_path = $upload_path . $nouveau_nom_fichier;
+        move_uploaded_file($_FILES["$input_name"]["tmp_name"], $img_path);
+    }
+}
 //SELECT--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
@@ -14,15 +22,14 @@ if (isset($_GET['entity'])){
         $entity = $_GET['entity'];
 
         try {
-            $response = array(); // Initialisation du tableau de réponse
-
+            $response = array();
             if ($entity === 'pilote') {
                 $Pilote = new Pilote();
                 $unPilote = $Pilote->getPiloteById($Id);
-                ob_start(); // Commence la mise en mémoire tampon de la sortie
+                ob_start(); // Begins buffering the output
                 include(RACINE . "/view/back/update/pilotUpdt.php");
-                $output = ob_get_clean(); // Récupère le contenu de la mémoire tampon et arrête la mémoire tampon
-                $response['html'] = $output; // Ajoute le contenu HTML à la réponse
+                $output = ob_get_clean(); // Get the contents of the buffer and stop the buffer
+                $response['html'] = $output; // add HTML content to the response
             } elseif ($entity === 'ecurie') {
                 $Ecurie = new Ecurie();
                 $uneEcurie = $Ecurie->getEcurieById($Id);
@@ -33,7 +40,6 @@ if (isset($_GET['entity'])){
             } else {
                 $response['error'] = 'Erreur : Entité non reconnue.';
             }
-
             // Envoie la réponse JSON
             header('Content-Type: application/json');
             echo json_encode($response);
@@ -43,7 +49,6 @@ if (isset($_GET['entity'])){
         }
     }
     
-    // if (isset($_GET['action']) && $_GET['action'] === 'create') {
     if ($action == "create") {
         try {
             $entity = $_GET['entity'];
@@ -63,7 +68,7 @@ if (isset($_GET['entity'])){
             // Envoie la réponse JSON
             header('Content-Type: application/json');
             echo json_encode($response);
-            exit(); // quitter le script après avoir envoyé la réponse
+            exit();
         } catch (Exception $ex)  {
             $response['error'] = 'Action de création non spécifiée ou entité manquante.';
             // Envoie la réponse JSON
@@ -85,23 +90,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_POST['nomAdd']) && isset($_POST['prenomAdd']) && isset($_POST['paysAdd']) /*&& isset($_POST['dateNaisAdd']) */) {
         $Pilote = new Pilote();
         $id_pilote = $Pilote->addPilote($_POST['nomAdd'], $_POST['prenomAdd'], $_POST['paysAdd']/*, $_POST['dateNaisAdd']*/);
-        // Check if the download went well
-        if (isset($_FILES["photoAdd"]) && $_FILES["photoAdd"]["error"] == 0) {
-
-            $nom_fichier_origine = $_FILES["photoAdd"]["name"];
-            $nouveau_nom_fichier = $id_pilote . '.png'; // generate a new file name
-
-            // move the downloaded file with its new name to the correct directory
-            $dossier_upload = "ressources/front/images/photo_Pilote_PNG/";
-            $chemin_fichier = $dossier_upload . $nouveau_nom_fichier;
-            move_uploaded_file($_FILES["photoAdd"]["tmp_name"], $chemin_fichier);
-        }
+        upload_img($id_pilote, "photoAdd", "ressources/front/images/photo_Pilote_PNG/");
         header('Location: ../../appli&type=pilote');//Because url = TheNorthRace/appli/create/pilote
-        exit();
+        exit();       
     }
     else if (isset($_POST['nomAdd']) && isset($_POST['couleurAdd']) && isset($_POST['dateCreationAdd']) && isset($_POST['localisationAdd']) && isset($_POST['nbTitresConstructeurAdd']) && isset($_POST['nbCoursesDisputeesAdd']) && isset($_POST['nbVictoiresAdd']) && isset($_POST['nbPoduimsAdd']) && isset($_POST['directeurAdd'])) {
         $Ecurie = new Ecurie();
-        $Ecurie->addEcurie($_POST['nomAdd'], $_POST['couleurAdd'], $_POST['dateCreationAdd'], $_POST['localisationAdd'], $_POST['nbTitresConstructeurAdd'], $_POST['nbCoursesDisputeesAdd'], $_POST['nbVictoiresAdd'], $_POST['nbPoduimsAdd'], $_POST['directeurAdd']);
+        $id_ecurie = $Ecurie->addEcurie($_POST['nomAdd'], $_POST['couleurAdd'], $_POST['dateCreationAdd'], $_POST['localisationAdd'], $_POST['nbTitresConstructeurAdd'], $_POST['nbCoursesDisputeesAdd'], $_POST['nbVictoiresAdd'], $_POST['nbPoduimsAdd'], $_POST['directeurAdd']);
+        upload_img($id_ecurie, "logoAdd", "ressources/front/images/logo_ecurie_PNG/");
+        upload_img($id_ecurie, "photoVoitureAdd", "ressources/front/images/photo_voiture_PNG/");
         header('Location: ../../appli&type=ecurie');
         exit();
     }
@@ -111,32 +108,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 //--------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
-// Traitement de la requête POST pour Update Pilote
-
     else if(isset($_POST['piloteId']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['pays']) && isset($_POST['dateNais'])) {
         $id_pilote = $_POST['piloteId'];
-        // Mise à jour du pilote
         $Pilote = new Pilote();
         $Pilote->updatePilote($id_pilote, $_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['dateNais']);
-        // Check if the download went well
-        if (isset($_FILES["photoAdd"]) && $_FILES["photoAdd"]["error"] == 0) {
-
-            $nom_fichier_origine = $_FILES["photoAdd"]["name"];
-            $nouveau_nom_fichier = $id_pilote . '.png'; // generate a new file name
-
-            // move the downloaded file with its new name to the correct directory
-            $dossier_upload = "ressources/front/images/photo_Pilote_PNG/";
-            $chemin_fichier = $dossier_upload . $nouveau_nom_fichier;
-            move_uploaded_file($_FILES["photoAdd"]["tmp_name"], $chemin_fichier);
-        }
+        upload_img($id_pilote, "photoAdd", "ressources/front/images/photo_Pilote_PNG/");
         header('Location: ./appli&type=pilote');
         exit();
     }
 
     else if (isset($_POST['EcurieId']) && isset($_POST['nom']) && isset($_POST['couleur']) && isset($_POST['dateCreation']) && isset($_POST['localisation']) && isset($_POST['nbTitresConstructeur']) && isset($_POST['nbCoursesDisputees']) && isset($_POST['nbVictoires']) && isset($_POST['nbPoduims']) && isset($_POST['directeur'])) {
-        $EcurieId = $_POST['EcurieId'];
+        $id_ecurie = $_POST['EcurieId'];
         $Ecurie = new Ecurie();
-        $Ecurie->updateEcurieColor($EcurieId, $_POST['couleur'], $_POST['dateCreation'], $_POST['localisation'], $_POST['nbTitresConstructeur'], $_POST['nbCoursesDisputees'], $_POST['nbVictoires'], $_POST['nbPoduims'], $_POST['directeur']);
+        $Ecurie->updateEcurieColor($id_ecurie, $_POST['couleur'], $_POST['dateCreation'], $_POST['localisation'], $_POST['nbTitresConstructeur'], $_POST['nbCoursesDisputees'], $_POST['nbVictoires'], $_POST['nbPoduims'], $_POST['directeur']);
+        upload_img($id_ecurie, "logoAdd", "ressources/front/images/logo_ecurie_PNG/");
+        upload_img($id_ecurie, "photoVoitureAdd", "ressources/front/images/photo_voiture_PNG/");
         header('Location: ./appli&type=ecurie');
         exit();
     }
@@ -147,23 +133,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 //--------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
-// if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id']) && isset($_GET['entity'])) {
 if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['entity'])){
     try {
-        $Id = $_GET['id'];
+        $id = $_GET['id'];
         $entity = $_GET['entity'];
 
-        // Vérifier si l'entité est valide (pilote ou écurie)
+        // Check if the entity is valid
         if ($entity === 'pilote') {
             $Pilote = new Pilote();
-            $Pilote->deletePiloteById($Id);
+            $Pilote->deletePiloteById($id);
         } elseif ($entity === 'ecurie') {
             $Ecurie = new Ecurie();
-            $Ecurie->deleteEcurieById($Id);
+            $Ecurie->deleteEcurieById($id);
         } else {
             throw new Exception('Entité non reconnue.');
         }
-        # Redirection vers la page de l'appli
+        // Redirection to app page
         header('Location: ./appli');
         exit();
     } catch (Exception $ex) {

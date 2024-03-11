@@ -658,11 +658,14 @@ CREATE PROCEDURE AddEcurie (
     IN nbCoursesDisputees INT,
     IN nbVictoires INT,
     IN nbPoduims INT,
-    IN directeur VARCHAR(80)
+    IN directeur VARCHAR(80),
+    OUT idEcurie INT
 )
 BEGIN
     INSERT INTO Ecurie(nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur)
 	VALUES(nomEcu, couleurEcu, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur);
+    
+	SET idEcurie = LAST_INSERT_ID();
 END //
 DELIMITER ;
 
