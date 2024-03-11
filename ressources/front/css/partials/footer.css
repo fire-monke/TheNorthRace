@@ -6,8 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
+ 
     margin-top: 10vh;
 }
 .carousel{display: flex;}
@@ -95,4 +94,45 @@
     justify-content: center;
     text-decoration: none;
     color: #656D72;
+}
+
+.carousel-button  {
+    margin: 5vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5vw 1vw;
+    background-color: #000000;
+    color: white;
+    font-weight: 600;
+    border: 1px solid #000000;
+    margin-left: 80px;
+}
+
+.images-container{
+    display: flex;
+    width: 80%;
+    padding-bottom: 100px;
+    padding-left: 80px;
+
+}
+
+.carousel-container {
+    margin-top: 100PX;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+    height: 300px;
+
+}
+.images {
+    display: flex;
+}
+.images img {
+    flex: 0 0 auto;
+}
+.hidden {
+    display: none;
 }

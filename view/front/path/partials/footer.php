@@ -6,61 +6,57 @@
     <link rel="stylesheet" href="./ressources/front/css/partials/footer.css">
     <link rel="stylesheet" href="./ressources/front/css/global.css">
     <footer>
-    <section class="images">
-    <button class="prev" onclick="prevSlide()">❮</button>
-    <div class="carousel">
-        <?php foreach ($ecuriesLastSeason as $index => $ecurie): ?>
-            <div class="slide">
-                <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>" width="auto" height="100 %">
-            </div>
-        <?php endforeach; ?>
+    <div class="carousel-container">
+    <button id="prev-slide" class="carousel-button" onclick="prevSlide()">❮</button>
+    <div class="images-container">
+        <div class="images">
+            <?php $i = 0; ?>
+            <?php foreach ($ecuriesLastSeason as $ecurie): ?>
+                <?php if ($i < 5): ?>
+                    <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>" width="auto" height="200px">
+                <?php else: ?>
+                    <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>" width="auto" height="200px">
+                <?php endif; ?>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-    <button class="next" onclick="nextSlide()">❯</button>
-</section>
-<script>
-    let slideIndex = 0;
+    <button id="next-slide" class="carousel-button" onclick="nextSlide()">❯</button>
+</div>
 
-    function showSlides() {
-        const slides = document.querySelectorAll('.slide');
-        slides.forEach((slide, index) => {
-            if (index === slideIndex) {
-                slide.style.display = 'block'; // Afficher la diapositive actuelle
+<script>
+    let currentSlide = 0;
+    const totalSlides = <?= count($ecuriesLastSeason); ?>; // Nombre total d'images
+    const imagesContainer = document.querySelector('.images');
+
+    function nextSlide() {
+        if (currentSlide + 5 < totalSlides) {
+            currentSlide++;
+            updateSlide();
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlide();
+        }
+    }
+
+    function updateSlide() {
+        const images = document.querySelectorAll('.images img');
+        images.forEach((img, index) => {
+            if (index >= currentSlide && index < currentSlide + 5) {
+                img.classList.remove('hidden');
             } else {
-                slide.style.display = 'none'; // Masquer les autres diapositives
+                img.classList.add('hidden');
             }
         });
     }
 
-    function nextSlide() {
-        if (slideIndex < <?php echo count($ecuriesLastSeason) - 1; ?>) {
-            slideIndex++; // Passer à la diapositive suivante si ce n'est pas la dernière
-        }
-        showSlides();
-    }
-
-    function prevSlide() {
-        if (slideIndex > 0) {
-            slideIndex--; // Revenir à la diapositive précédente si ce n'est pas la première
-        }
-        showSlides();
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        showSlides(); // Appeler showSlides() après que le document ait été chargé
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-
-        prevButton.addEventListener('click', function() {
-            prevSlide(); // Appeler prevSlide() lorsque le bouton précédent est cliqué
-        });
-
-        nextButton.addEventListener('click', function() {
-            nextSlide(); // Appeler nextSlide() lorsque le bouton suivant est cliqué
-        });
-    });
+    // Afficher les premières images au chargement de la page
+    updateSlide(currentSlide);
 </script>
-
-
         <section class="banner">
             <div class="content-box">
                 <h1>À PROPOS</h1>
