@@ -87,7 +87,7 @@ class Ecurie {
     // add an Ecurie
     function addEcurie($nom, $couleur, $dateCreation, $localisation, $nbTitresConstructeur, $nbCoursesDisputees, $nbVictoires, $nbPoduims, $directeur){
         try {
-            $req = $this->cnx->prepare("CALL AddEcurie(:nom, :couleur, :dateCreation, :localisation, :nbTitresConstructeur, :nbCoursesDisputees, :nbVictoires, :nbPoduims, :directeur)");
+            $req = $this->cnx->prepare("CALL AddEcurie(:nom, :couleur, :dateCreation, :localisation, :nbTitresConstructeur, :nbCoursesDisputees, :nbVictoires, :nbPoduims, :directeur, @idEcurie)");
             $req->bindValue(':nom', $nom, PDO::PARAM_STR);
             $req->bindValue(':couleur', $couleur, PDO::PARAM_STR);
             $req->bindValue(':dateCreation', $dateCreation, PDO::PARAM_INT);
@@ -97,9 +97,11 @@ class Ecurie {
             $req->bindValue(':nbVictoires', $nbVictoires, PDO::PARAM_INT);
             $req->bindValue(':nbPoduims', $nbPoduims, PDO::PARAM_INT);
             $req->bindValue(':directeur', $directeur, PDO::PARAM_STR);
-
             $req->execute();
 
+            $id_ecurie = $this->cnx->query("SELECT @idEcurie")->fetch(PDO::FETCH_ASSOC)['@idEcurie'];
+            
+            return $id_ecurie;
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();

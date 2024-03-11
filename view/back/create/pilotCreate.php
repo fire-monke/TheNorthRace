@@ -17,19 +17,19 @@
 
         <form action="./appli/create/pilote" method="POST" enctype="multipart/form-data">
             <label for="nomAdd">Nom</label>
-            <input type="text" id="nom" name="nomAdd" placeholder="Nom" value="" required>
+            <input type="text" name="nomAdd" placeholder="Nom" value="" required>
 
             <label for="prenomAdd">Prénom</label>
-            <input type="text" id="prenom" name="prenomAdd" placeholder="Prenom" value="" required>
+            <input type="text" name="prenomAdd" placeholder="Prenom" value="" required>
 
             <label for="paysAdd">Pays</label>
-            <input type="text" id="pays" name="paysAdd" placeholder="Pays" value="" required>
+            <input type="text" name="paysAdd" placeholder="Pays" value="" required>
 
             <label for="dateNaisAdd">Date de naissance</label>
-            <input type="text" id="dateNais" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
+            <input type="text" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
 
             <label for="photoAdd">Photo du pilote</label>
-            <input type="file" id="photo" name="photoAdd" accept=".jpg, .jpeg, .png">
+            <input type="file" name="photoAdd" accept=".jpg, .jpeg, .png">
 
             <div class="button-container">
                 <input name=submit type="submit" value="Ajouter">
