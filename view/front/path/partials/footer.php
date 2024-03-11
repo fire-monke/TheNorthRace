@@ -9,24 +9,30 @@
     <div class="carousel-container">
     <button id="prev-slide" class="carousel-button" onclick="prevSlide()">❮</button>
     <div class="images-container">
-        <div class="images">
-            <?php $i = 0; ?>
-            <?php foreach ($ecuriesLastSeason as $ecurie): ?>
-                <?php if ($i < 5): ?>
-                    <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>" width="auto" height="200px">
-                <?php else: ?>
-                    <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>" width="auto" height="200px">
-                <?php endif; ?>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </div>
+    <div class="images">
+        <?php $i = 0; ?>
+        <?php foreach ($ecuriesLastSeason as $ecurie): ?>
+            <?php if ($i < 5): ?>
+                <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
+                    <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
+                </a>
+            <?php else: ?>
+                <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
+                        <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
+                    </a>
+            <?php endif; ?>
+            <?php $i++; ?>
+        <?php endforeach; ?>
     </div>
-    <button id="next-slide" class="carousel-button" onclick="nextSlide()">❯</button>
-</div>
+    </div>
+        <button id="next-slide" class="carousel-button" onclick="nextSlide()">❯</button>
+    </div>
 
 <script>
+
+
     let currentSlide = 0;
-    const totalSlides = <?= count($ecuriesLastSeason); ?>; // Nombre total d'images
+    const totalSlides = <?= count($ecuriesLastSeason); ?>; 
     const imagesContainer = document.querySelector('.images');
 
     function nextSlide() {
@@ -54,7 +60,6 @@
         });
     }
 
-    // Afficher les premières images au chargement de la page
     updateSlide(currentSlide);
 </script>
         <section class="banner">
