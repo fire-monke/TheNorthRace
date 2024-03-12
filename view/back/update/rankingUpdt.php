@@ -29,7 +29,7 @@
         var_dump($uneCourse);?>
         </span></h1>
 
-        <form action="./appli" method="POST" enctype="multipart/form-data">
+        <form action="./appli" method="POST">
         <input type="hidden" name="PilotId" value="<?php echo $uneCourse->idPil ?>">
         <input type="hidden" name="teamId" value="<?php echo $uneCourse->idEcu ?>">
         <input type="hidden" name="year" value="<?php echo $uneCourse->annee ?>">

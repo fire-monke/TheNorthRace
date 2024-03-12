@@ -15,7 +15,7 @@
     <div class="form_page">
         <h1>Ajout classement d'un pilote</h1>
 
-        <form action="./appli/create/courses" method="POST" enctype="multipart/form-data">
+        <form action="./appli/create/courses" method="POST">
             <label for="pilotIdAdd">Pilote Id</label>
             <input type="text" id="pilotIdAdd" name="pilotIdAdd" placeholder="Id du pilote" value="" required>
 
