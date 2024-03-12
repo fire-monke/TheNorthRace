@@ -15,33 +15,39 @@
     <div class="form_page">
         <h1>Ajout d'une écurie</h1>
 
-        <form action="./appli/create/ecurie" method="POST">
+        <form action="./appli/create/ecurie" method="POST" enctype="multipart/form-data">
             <label for="nomAdd">Nom</label>
-            <input type="text" id="nom" name="nomAdd" placeholder="Nom" required>
+            <input type="text" name="nomAdd" placeholder="Nom" required>
                         
             <label for="couleur">Couleur HTML</label>
-            <input type="text" id="couleur" name="couleurAdd" placeholder="Couleur" value="#" required>
+            <input type="text" name="couleurAdd" placeholder="Couleur" value="#" required>
             
             <label for="dateCreation">Année de création</label>
-            <input type="number" id="dateCreation" name="dateCreationAdd" placeholder="Année de création" min="0" max="3000" value="2024">
+            <input type="number" name="dateCreationAdd" placeholder="Année de création" min="0" max="3000" value="2024">
             
             <label for="localisation">Localisation</label>
-            <input type="text" id="localisation" name="localisationAdd" placeholder="Localisation" minlength="0" maxlength="50" value="Inconnue">
+            <input type="text" name="localisationAdd" placeholder="Localisation" minlength="0" maxlength="50" value="Inconnue">
             
             <label for="nbTitresConstructeur">Nombre de titres constructeur</label>
-            <input type="number" id="nbTitresConstructeur" name="nbTitresConstructeurAdd" placeholder="Nombre de titres constructeur" min="0" max="500" >
+            <input type="number" name="nbTitresConstructeurAdd" placeholder="Nombre de titres constructeur" min="0" max="500" >
             
             <label for="nbCoursesDisputees">Nombre de courses disputees</label>
-            <input type="number" id="nbCoursesDisputees" name="nbCoursesDisputeesAdd" placeholder="Nombre de courses disputees" min="0" max="10000">
+            <input type="number" name="nbCoursesDisputeesAdd" placeholder="Nombre de courses disputees" min="0" max="10000">
             
             <label for="nbVictoires">Nombre de victoires</label>
-            <input type="number" id="nbVictoires" name="nbVictoiresAdd" placeholder="Nombre de victoires" min="0" max="10000">
+            <input type="number" name="nbVictoiresAdd" placeholder="Nombre de victoires" min="0" max="10000">
             
             <label for="nbPoduims">Nombre de poduims</label>
-            <input type="number" id="nbPoduims" name="nbPoduimsAdd" placeholder="Nombre de poduims" min="0" max="10000">
+            <input type="number" name="nbPoduimsAdd" placeholder="Nombre de poduims" min="0" max="10000">
             
             <label for="directeur">Directeur</label>
-            <input type="text" id="directeur" name="directeurAdd" placeholder="Directeur" minlength="0" maxlength="80" value="Inconnu">
+            <input type="text" name="directeurAdd" placeholder="Directeur" minlength="0" maxlength="80" value="Inconnu">
+
+            <label for="logoEcurieAdd">Logo de l'écurie</label>
+            <input type="file" name="logoEcurieAdd" accept=".jpg, .jpeg, .png">
+
+            <label for="photoVoitureAdd">Photo de la voiture de l'écurie</label>
+            <input type="file" name="photoVoitureAdd" accept=".jpg, .jpeg, .png">
 
             <div class="button-container">
                 <input type="submit" value="Ajouter">

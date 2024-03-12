@@ -17,11 +17,11 @@
                         <div class="couleur" style="background-color: <?= $ecurie->couleur; ?>"></div>
                         <h2><?= $ecurie->nom; ?></h2>
                     </div>
-                    <img class="imgEcu" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png">
+                    <img class="imgEcu" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->id; ?>.png">
                 </div>
                 <div class="nom-prenom">
                     <?php
-                    // Récupérez les pilotes de cette écurie
+                    // get drivers from the stable
                     $pilotes = $piloteModel->getPilotesByIdEcu($ecurie->id);
                     foreach ($pilotes as $pilote): ?>
                         <div class="pil">
@@ -34,14 +34,14 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="ecurie">
-                    <div class="voiture"><img src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/voiture_<?= str_replace(' ', '_', $ecurie->nom); ?>.png" alt="Photo de la voiture" style="margin-top: <?= ($ecurie->nom === 'Alphatauri') ? '25px;' : '10px;'; ?>"></div>
+                    <div class="voiture"><img src="/TheNorthRace/ressources/front/images/photo_voiture_PNG/<?php echo $ecurie->id; ?>.png" alt="Image voiture <?php echo $nomEcurie ?>" style="margin-top: <?php ($ecurie->nom === 'Alphatauri') ? '25px;' : '10px;'; ?>"></div>
                 </div>
             </a>
         <?php endforeach; ?>
         </div>
     </main>
     <script>
-        //pour le border hover
+        // border hover
         const pilotes = document.querySelectorAll('.pilote');
 
         pilotes.forEach(pilote => {

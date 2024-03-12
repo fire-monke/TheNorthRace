@@ -658,11 +658,14 @@ CREATE PROCEDURE AddEcurie (
     IN nbCoursesDisputees INT,
     IN nbVictoires INT,
     IN nbPoduims INT,
-    IN directeur VARCHAR(80)
+    IN directeur VARCHAR(80),
+    OUT idEcurie INT
 )
 BEGIN
     INSERT INTO Ecurie(nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur)
 	VALUES(nomEcu, couleurEcu, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur);
+    
+	SET idEcurie = LAST_INSERT_ID();
 END //
 DELIMITER ;
 
@@ -717,7 +720,7 @@ DROP PROCEDURE if exists getEcuriesLastSeason;
 DELIMITER //
 CREATE PROCEDURE getEcuriesLastSeason()
 BEGIN
-    SELECT id, nom, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
+    SELECT id, nom, annee, couleur, dateCreation, localisation, nbTitresConstructeur, nbCoursesDisputees, nbVictoires, nbPoduims, directeur FROM Ecurie
     JOIN Classement on id=idEcu
     WHERE annee = (SELECT max(annee) FROM Classement);
 END //
