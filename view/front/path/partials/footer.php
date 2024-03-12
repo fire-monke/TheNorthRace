@@ -14,11 +14,11 @@
             <?php foreach ($ecuriesLastSeason as $ecurie): ?>
                 <?php if ($i < 5): ?>
                     <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
-                        <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
+                        <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->id; ?>.png" alt="<?= $ecurie->nom; ?>">
                     </a>
                 <?php else: ?>
                     <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
-                            <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
+                            <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->id; ?>.png" alt="<?= $ecurie->nom; ?>">
                         </a>
                 <?php endif; ?>
                 <?php $i++; ?>
