@@ -98,7 +98,7 @@ class CoursesAnnee {
     }
 
  // Method to add a race for a given year
-     public function AddRaceYear($pilotId, $yearRace,$teamId, $points, $pilotPlace, $pilotNumber) {
+     public function AddRaceYear($pilotId, $yearRace, $teamId, $points, $pilotPlace, $pilotNumber) {
         try {
             $req = $this->cnx->prepare("CALL AddRaceYear(?, ?, ?, ?, ?, ?)");
             $req->bindParam(1, $pilotId, PDO::PARAM_INT);
@@ -131,8 +131,8 @@ class CoursesAnnee {
         try {
             $req = $this->cnx->prepare("CALL UpdateRaceForYear(?, ?, ?, ?, ?, ?)");
             $req->bindParam(1, $pilotId, PDO::PARAM_INT);
-            $req->bindParam(2, $teamId, PDO::PARAM_INT);
-            $req->bindParam(3, $year, PDO::PARAM_INT);
+            $req->bindParam(2, $year, PDO::PARAM_INT);
+            $req->bindParam(3, $teamId, PDO::PARAM_INT);
             $req->bindParam(4, $newPoints, PDO::PARAM_INT);
             $req->bindParam(5, $newPilotPlace, PDO::PARAM_INT);
             $req->bindParam(6, $newPilotNumber, PDO::PARAM_INT);

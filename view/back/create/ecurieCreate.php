@@ -50,7 +50,7 @@
             <input type="file" name="photoVoitureAdd" accept=".jpg, .jpeg, .png">
 
             <div class="button-container">
-                <input type="submit" value="Ajouter">
+                <input name=submit type="submit" value="Ajouter">
                 <a href="./appli&type=ecurie" class="submit">Annuler</a>
             </div>
         </form>

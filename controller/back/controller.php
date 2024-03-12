@@ -52,7 +52,7 @@ if (isset($_GET['entity'])){
             }elseif ($entity === 'classement'  &&  isset($_GET['year'])) {
                 $Classement = new Classement();
                 $year = $_GET['year'];
-                $leClassement = $Classement->getClassementByYearAndTeam($Id, $year);
+                $leClassement = $Classement->getClassementByYearAndTeam($year, $Id);
                 ob_start();
                 include(RACINE . "/view/back/update/classementUpdt.php");
                 $output = ob_get_clean();
@@ -88,7 +88,7 @@ if (isset($_GET['entity'])){
                 include(RACINE . "/view/back/create/ecurieCreate.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
-            } elseif ($entity === 'courses') {
+            } elseif ($entity === 'rank') {
                 ob_start();
                 include(RACINE . "/view/back/create/rankingCreate.php");
                 $output = ob_get_clean();
@@ -208,8 +208,6 @@ if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['e
     try {
         $id = $_GET['id'];
         $entity = $_GET['entity'];
-        // $teamId = $_GET['teamId']; /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\ MET ça dans le if !!!
-        // $year = $_GET['year'];
 
         // Check if the entity is valid
         if ($entity === 'pilote') {
@@ -219,12 +217,16 @@ if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['e
             $Ecurie = new Ecurie();
             $Ecurie->deleteEcurieById($id);
         }
-        elseif ($entity === 'course') {
+        elseif ($entity === 'course' && isset($_GET['teamId']) && isset($_GET['year'])) {
+            $teamId = $_GET['teamId'];
+            $year = $_GET['year'];
             $Course = new CoursesAnnee();
             $Course->DeleteRaceYear($Id, $teamId, $year);
-        }elseif ($entity === 'rank') {
+        }elseif ($entity === 'rank' && isset($_GET['year'])) {
+            $teamId = $_GET['teamId'];
+            $year = $_GET['year'];
             $Classement = new Classement();
-            $Classement->deleteClassement($teamId, $year);
+            $Classement->deleteClassement($Id, $year);
         } else {
             throw new Exception('Entité non reconnue.');
         }

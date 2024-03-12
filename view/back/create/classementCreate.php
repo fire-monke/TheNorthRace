@@ -15,22 +15,22 @@
     <div class="form_page">
         <h1>Ajout classement d'une écurie</h1>
 
-        <form action="./appli/create/classement" method="POST">
-
-            <label for="yearAdd">Année</label>
-            <input type="text" id="yearAdd" name="yearAdd" placeholder="Année de la course" value="" required>
+        <form action="./appli/create/classement" method="POST" enctype="multipart/form-data">
 
             <label for="teamIdAdd">Ecurie Id</label>
-            <input type="text" id="teamIdAdd" name="teamIdAdd" placeholder="Id de l'écurie" value="" required>
+            <input type="text" name="teamIdAdd" placeholder="Id de l'écurie" value="" required>
+
+            <label for="yearAdd">Année</label>
+            <input type="text" name="yearAdd" placeholder="Année des courses" value="" required>
 
             <label for="pointsAdd">Points</label>
-            <input type="text" id="pointsAdd" name="pointsAdd" placeholder="Points inscrit" value="" required>
+            <input type="text" name="pointsAdd" placeholder="Points inscrit" value="" required>
 
             <label for="teamPlaceAdd">Place</label>
-            <input type="text" id="teamPlaceAdd" name="teamPlaceAdd" placeholder="Place de l'écurie" value="" required>
+            <input type="text" name="teamPlaceAdd" placeholder="Place de l'écurie" value="" required>
             
             <div class="button-container">
-                <input type="submit" value="Ajouter">
+                <input  name=submit type="submit" value="Ajouter">
                 <a href="./appli&type=classement" class="submit">Annuler</a>
             </div>
         </form>

@@ -19,27 +19,24 @@
             if(is_array($leClassement) && !empty($leClassement)) {
                 $leClassement = $leClassement[0]; 
             }
-            if (!empty($leClassement->prenomPilote) && !empty($leClassement->nomPilote)){
-                echo htmlentities($leClassement->prenomPilote) ." ". htmlentities($leClassement->nomPilote);
+            if (!empty($leClassement->nomEcurie)){
+                echo htmlentities($leClassement->nomEcurie);
             }
         } catch(Exception $ex){
             echo $ex->GetMessage();
-        }?>
+        }
+        var_dump($leClassement);?>
         </span></h1>
 
         <form action="./appli" method="POST">
-        <input type="hidden" name="PilotId" value="<?php echo htmlentities($leClassement->idPil) ?>">
+
         <input type="hidden" name="teamId" value="<?php echo $leClassement->idEcu ?>">
         <input type="hidden" name="year" value="<?php echo $leClassement->annee ?>">
 
-            <label for="placePil">Place du pilote</label>
-            <input type="text" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($leClassement->placePil)){ echo htmlentities($leClassement->placePil);}?>" required>
+            <label for="placePil">Place constructeur</label>
+            <input type="text" name="teamPlace" placeholder="Place du pilote" value="<?php if (!empty($leClassement->placeEcu)){ echo htmlentities($leClassement->placeEcu);}?>" required>
             <label for="newPoints">Points inscrit</label>
-            <input type="text" id="newPoints" name="newPoints" placeholder="Points inscrit" value="<?php if (!empty($leClassement->nbPointPil)){echo htmlentities($leClassement->nbPointPil);}?>" required>
-     
-            <label for="newPilotNumber">Numéro du pilote</label>
-            <input type="text" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($leClassement->numPil)){echo htmlentities($leClassement->numPil);}?>" required>
-
+            <input type="text" name="points" placeholder="Points inscrit" value="<?php if (!empty($leClassement->nbPointEcu)){ echo htmlentities($leClassement->nbPointEcu);}?>" required>
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
                 <a href="./appli&type=rank" class="submit">Annuler</a>
