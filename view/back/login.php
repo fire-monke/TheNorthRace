@@ -15,14 +15,15 @@
         <h1>Bienvenue</h1>
         <p>Veuillez saisir vos coordonnées administrateur</p>
         <?php if (!empty($error)): ?>
-                <p class="error"><?php echo $error; ?></p>
-                <?php endif; ?>
+            <p class="error"><?php echo $error; ?></p>
+        <?php endif; ?>
         <div class="formulaire">
-        <form method="post" action="connexion"><!-- Renvoie vers RACINE/controller/back/login_controller.php -->
+            <form method="post" action="connexion"><!-- Renvoie vers RACINE/controller/back/login_controller.php -->
                 <input type="text" id="identifiant" name="identifiant" placeholder="Nom d'utilisateur" required><br>
                 <input type="password" id="password" name="password" placeholder="Mot de passe" required><br>
                 <input type="submit" id="submit" name="submit" value="Se connecter">
             </form>
+            <input type="button" id="reset" name="reset" value="Annuler" onclick="window.location.href='/TheNorthRace'">
         </div>
     </div>
 </body>
