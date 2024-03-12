@@ -8,7 +8,6 @@ $ecurieObj = new Ecurie();
 $CourseObj = new CoursesAnnee();
 $piloteObj = new Pilote();
 
-// Supposons que $idEcurie est déjà défini
 
 // Récupérer les écuries de la dernière saison
 $ecuriesLastSeason = $ecurieObj->getEcuriesLastSeason();

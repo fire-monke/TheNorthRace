@@ -64,6 +64,7 @@ a.pilote {
     justify-content: space-between;
     border-bottom: 1px solid #434346; 
     padding: 10px;
+    padding-top: 30px;
     
 }
 .infomid{display: flex;  border-bottom: 1px solid #434346; align-items: center;justify-content: space-around; }
