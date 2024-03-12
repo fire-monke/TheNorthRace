@@ -15,7 +15,7 @@
     <div class="form_page">
         <h1>Ajout classement d'une écurie</h1>
 
-        <form action="./appli/create/classement" method="POST" enctype="multipart/form-data">
+        <form action="./appli/create/classement" method="POST">
 
             <label for="teamIdAdd">Ecurie Id</label>
             <input type="text" name="teamIdAdd" placeholder="Id de l'écurie" value="" required>
