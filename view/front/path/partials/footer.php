@@ -1,36 +1,34 @@
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./ressources/front/css/partials/footer.css">
-    <link rel="stylesheet" href="./ressources/front/css/global.css">
-    <footer>
-    <div class="carousel-container">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./ressources/front/css/partials/footer.css">
+<link rel="stylesheet" href="./ressources/front/css/global.css">
+<footer>
+<div class="carousel-container">
     <button id="prev-slide" class="carousel-button" onclick="prevSlide()">❮</button>
     <div class="images-container">
-    <div class="images">
-        <?php $i = 0; ?>
-        <?php foreach ($ecuriesLastSeason as $ecurie): ?>
-            <?php if ($i < 5): ?>
-                <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
-                    <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
-                </a>
-            <?php else: ?>
-                <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
-                        <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
+        <div class="images">
+            <?php $i = 0; ?>
+            <?php foreach ($ecuriesLastSeason as $ecurie): ?>
+                <?php if ($i < 5): ?>
+                    <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
+                        <img src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
                     </a>
-            <?php endif; ?>
-            <?php $i++; ?>
-        <?php endforeach; ?>
+                <?php else: ?>
+                    <a href="/TheNorthRace/ecurie/<?= $ecurie->id; ?>">
+                            <img class="hidden" src="/TheNorthRace/ressources/front/images/logo_ecurie_PNG/<?= $ecurie->nom; ?>.png" alt="<?= $ecurie->nom; ?>">
+                        </a>
+                <?php endif; ?>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-    </div>
-        <button id="next-slide" class="carousel-button" onclick="nextSlide()">❯</button>
-    </div>
+    <button id="next-slide" class="carousel-button" onclick="nextSlide()">❯</button>
+</div>
 
 <script>
-
-
     let currentSlide = 0;
     const totalSlides = <?= count($ecuriesLastSeason); ?>; 
     const imagesContainer = document.querySelector('.images');
@@ -95,6 +93,6 @@
             <a href=""><img src="/TheNorthRace/ressources/front/images/greyTwitter.png" alt="#"></a>
             <a href=""><img src="/TheNorthRace/ressources/front/images/greyLinkedin.png" alt="#"></a>
         </div>
-        <p class="TheNorthRace">© 2023  -  TheNorthRace</p>
+        <p class="TheNorthRace">© 2024  -  TheNorthRace</p>
     </footer>
 </html>
