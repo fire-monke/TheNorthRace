@@ -2,14 +2,17 @@
 require_once(RACINE . '/model/back/request.php');
 
 function upload_img($img_name, $input_name, $upload_path){
+    $file_name = $img_name . '.png'; // generate a new file name
+    $img_path = $upload_path . $file_name;
     // Check if the download went well
     if (isset($_FILES["$input_name"]) && $_FILES["$input_name"]["error"] == 0) {
-        $file_name = $img_name . '.png'; // generate a new file name
-        $img_path = $upload_path . $file_name;
         return move_uploaded_file($_FILES["$input_name"]["tmp_name"], $img_path);
+    } else if (!file_exists($img_path) && file_exists($upload_path . "default.png")){
+        return copy($upload_path . "default.png", $img_path);
     }
-    return False;
+    return false;
 }
+
 //SELECT--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
