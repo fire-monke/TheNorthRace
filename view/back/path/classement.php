@@ -25,7 +25,7 @@
                 <option value="2021">2021</option>
             </select>
         </li>
-        <li><button class="create" data-entity="pilote">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button></li>
+        <li><button class="create" data-entity="classement">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button></li>
     </ul>
     <div id="pilotes-container">
     <?php

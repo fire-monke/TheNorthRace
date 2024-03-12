@@ -25,14 +25,14 @@
 
         } catch(Exception $ex){
             echo $ex->GetMessage();
-        }?>
+        }
+        var_dump($uneCourse);?>
         </span></h1>
 
-        <form action="./appli" method="POST">
-        <input type="hidden" name="PilotId" value="<?php echo htmlentities($uneCourse->idPil) ?>">
+        <form action="./appli" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="PilotId" value="<?php echo $uneCourse->idPil ?>">
         <input type="hidden" name="teamId" value="<?php echo $uneCourse->idEcu ?>">
         <input type="hidden" name="year" value="<?php echo $uneCourse->annee ?>">
-
             <label for="placePil">Place du pilote</label>
             <input type="text" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($uneCourse->placePil)){ echo htmlentities($uneCourse->placePil);}?>" required>
             <label for="newPoints">Points inscrit</label>

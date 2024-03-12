@@ -27,10 +27,12 @@
 
         } catch(Exception $ex){
             echo $ex->GetMessage();
-        }?>
+        }       
+        ?>
         </span></h1>
 
         <form action="./appli" method="POST" enctype="multipart/form-data">
+
         <input type="hidden" name="piloteId" value="<?php echo $piloteId; ?>">
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" placeholder="Nom" value="<?php  if (!empty($unPilote->nom)){ echo htmlentities($unPilote->nom);}?>" required>
