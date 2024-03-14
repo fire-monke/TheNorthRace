@@ -42,7 +42,7 @@
                 $uneEcurie = $Ecurie-> getEcurieById($unClassement->idEcu);
                 echo '<div class="pilot">';
                 if (!empty($unClassement->placeEcu)) {
-                    echo '<p>'. htmlentities($unClassement->placeEcu).'<p>';
+                    echo '<h2>'. htmlentities($unClassement->placeEcu).'</h2>';
                 }
                 if (!empty($uneEcurie->couleur)){
                     echo '<div style="background:'.$uneEcurie->couleur. ';"></div>';
