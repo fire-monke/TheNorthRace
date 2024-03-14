@@ -122,9 +122,9 @@ if (isset($_GET['entity'])){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    if(isset($_POST['nomAdd']) && isset($_POST['prenomAdd']) && isset($_POST['paysAdd']) /*&& isset($_POST['dateNaisAdd']) */) {
+    if(isset($_POST['nomAdd']) && isset($_POST['prenomAdd']) && isset($_POST['paysAdd']) && isset($_POST['dateNaisAdd']) ) {
         $Pilote = new Pilote();
-        $id_pilote = $Pilote->addPilote($_POST['nomAdd'], $_POST['prenomAdd'], $_POST['paysAdd']/*, $_POST['dateNaisAdd']*/);
+        $id_pilote = $Pilote->addPilote($_POST['nomAdd'], $_POST['prenomAdd'], $_POST['paysAdd'], $_POST['dateNaisAdd']);
         upload_img($id_pilote, "photoAdd", "ressources/front/images/photo_Pilote_PNG/");
         header('Location: ../../appli&type=pilote');//Because url = TheNorthRace/appli/create/pilote
         exit();       
@@ -140,19 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     else if (isset($_POST['pilotIdAdd']) && isset($_POST['yearRaceAdd']) && isset($_POST['teamIdAdd']) && isset($_POST['pointsAdd']) && isset($_POST['pilotPlaceAdd']) && isset($_POST['pilotNumberAdd'])) {
         $CoursesAnnee = new CoursesAnnee();
         $CoursesAnnee->AddRaceYear($_POST['pilotIdAdd'], $_POST['yearRaceAdd'], $_POST['teamIdAdd'], $_POST['pointsAdd'], $_POST['pilotPlaceAdd'], $_POST['pilotNumberAdd']);
-        header('Location: ../../appli&type=courses');
-        exit();
-    }
-    else if (isset($_POST['teamIdAdd']) && isset($_POST['yearAdd']) && isset($_POST['pointsAdd']) && isset($_POST['teamPlaceAdd'])) {
-        $Classement = new Classement();
-        $Classement->addClassement($_POST['teamIdAdd'], $_POST['yearAdd'], $_POST['pointsAdd'], $_POST['teamPlaceAdd']);
-        header('Location: ../../appli&type=classement');
-        exit();
-    }
-    else if (isset($_POST['pilotIdAdd']) && isset($_POST['yearRaceAdd']) && isset($_POST['teamIdAdd']) && isset($_POST['pointsAdd']) && isset($_POST['pilotPlaceAdd']) && isset($_POST['pilotNumberAdd'])) {
-        $CoursesAnnee = new CoursesAnnee();
-        $CoursesAnnee->AddRaceYear($_POST['pilotIdAdd'], $_POST['yearRaceAdd'], $_POST['teamIdAdd'], $_POST['pointsAdd'], $_POST['pilotPlaceAdd'], $_POST['pilotNumberAdd']);
-        header('Location: ../../appli&type=courses');
+        header('Location: ../../appli&type=rank');
         exit();
     }
     else if (isset($_POST['teamIdAdd']) && isset($_POST['yearAdd']) && isset($_POST['pointsAdd']) && isset($_POST['teamPlaceAdd'])) {
@@ -209,28 +197,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         exit();
     }
 
-    else if (isset($_POST['PilotId']) && isset($_POST['teamId']) && isset($_POST['year']) && isset($_POST['newPoints']) && isset($_POST['placePil']) && isset($_POST['newPilotNumber'])) {
-        $pilotId = intval($_POST['PilotId']);
-        $teamId = intval($_POST['teamId']);
-        $year = intval($_POST['year']);
-        $newPoints = intval($_POST['newPoints']);
-        $placePil = intval($_POST['placePil']);
-        $newPilotNumber = intval($_POST['newPilotNumber']);
-
-        $CoursesAnnee = new CoursesAnnee();
-        $CoursesAnnee->updateRaceForYear($pilotId, $teamId, $year, $newPoints, $placePil, $newPilotNumber);
-        header('Location: ./appli&type=rank');
-        exit();
-    }
-
-    else if (isset($_POST['points']) && isset($_POST['teamPlace']) && isset($_POST['teamId']) && isset($_POST['year'])) {
-        $id_team = $_POST['teamId'];
-        $year = $_POST['year'];
-        $Classement = new Classement();
-        $Classement->updateClassement($_POST['points'], $_POST['teamPlace'], $id_team, $year);
-        header('Location: ./appli&type=classement');
-        exit();
-    }
 }
 
 //DELETE-------------------------------------------------------------------------------------------------------------------
@@ -247,25 +213,26 @@ if(isset($action) && $action == "delete" && isset($_GET['id']) && isset($_GET['e
         if ($entity === 'pilote') {
             $Pilote = new Pilote();
             $Pilote->deletePiloteById($id);
+            header('Location: ./appli&type=pilote');
         } elseif ($entity === 'ecurie') {
             $Ecurie = new Ecurie();
             $Ecurie->deleteEcurieById($id);
+            header('Location: ./appli&type=ecurie');
         }
-        elseif ($entity === 'course' && isset($_GET['teamId']) && isset($_GET['year'])) {
-            $teamId = $_GET['teamId'];
+        elseif ($entity === 'rank' && isset($_GET['team-id']) && isset($_GET['year'])) {
+            $teamId = $_GET['team-id'];
             $year = $_GET['year'];
             $Course = new CoursesAnnee();
             $Course->DeleteRaceYear($id, $teamId, $year);
-        }elseif ($entity === 'rank' && isset($_GET['year'])) {
-            $teamId = $_GET['teamId'];
+            header('Location: ./appli&type=rank');
+        }elseif ($entity === 'classement' && isset($_GET['year'])) {
             $year = $_GET['year'];
             $Classement = new Classement();
             $Classement->deleteClassement($id, $year);
+            header('Location: ./appli&type=classement');
         } else {
             throw new Exception('Entité non reconnue.');
         }
-        // Redirection to app page
-        header('Location: ./appli');
         exit();
     } catch (Exception $ex) {
         echo 'Erreur lors de la suppression ' . $entity . ' : ' . $ex->getMessage();

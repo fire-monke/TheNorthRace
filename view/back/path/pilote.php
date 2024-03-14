@@ -19,28 +19,19 @@ ECURIE = false;
         <li>ID</li>
         <li>Prénom</li>
         <li>Nom</li>
-        <li>Ecurie</li>
         <button class="create" data-entity="pilote">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
 <?php
 try{
     $Pilote = new Pilote();
     $lesPilotes = $Pilote->getPilotes();
-    $Ecurie = new Ecurie();
     foreach($lesPilotes as $unPilote){
-        $uneEcurie = $Ecurie->getLastEcurieByIdPilote($unPilote->id);
         echo '<div class="pilot">';
         if (!empty($unPilote->id)){
         echo '<h2>'. htmlentities($unPilote->id) .'</h2>';
         }
-        if (!empty($uneEcurie->couleur)){
-            echo '<div style="background:'. htmlentities($uneEcurie->couleur) . ';"></div>';
-        }
         if (!empty($unPilote->prenom) && !empty($unPilote->nom)){
         echo '<p>'. htmlentities($unPilote->prenom) . '<span>' . htmlentities($unPilote->nom) . '</span>'.'</p>';
-        }
-        if (!empty($uneEcurie->nom)){
-            echo '<h3>'. htmlentities($uneEcurie->nom) .'</h3>';
         }
         echo '<button class="updt" data-id="'. htmlentities($unPilote->id) .'" data-entity="pilote"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
         <button class="delete" data-id="'. htmlentities($unPilote->id) .'" data-entity="pilote"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';

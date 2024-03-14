@@ -17,8 +17,8 @@
     <nav>
         <button id="pilote" href="">Pilotes</button>
         <button id="ecurie" href="">Ecuries</button>
-        <button id="rank" href="">Courses</button>
-        <button id="classement" href="">Classement</button>
+        <button id="rank" href="">Résultats Pilotes</button>
+        <button id="classement" href="">Résultats Constructeurs</button>
     </nav>
     <div class="logout">
         <a class="txt" href="./deconnexion">Se déconnecter</a>

@@ -64,8 +64,8 @@
                 echo '<p>'. htmlentities($unPilote->nom).'</p>';
             }
             
-            echo '<button class="updt" data-id="'. htmlentities($course->idPil) .'"  data-team-id="'. htmlentities($course->idEcu) .'"  data-year="'. htmlentities($selectedYear) .'" data-entity="courses"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
-            <button class="delete" data-id="'. htmlentities($course->idPil) .'"  data-team-id="'. htmlentities($course->idEcu) .'"  data-year="'. htmlentities($selectedYear) .'" data-entity="courses"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';
+            echo '<button class="updt" data-id="'. htmlentities($course->idPil) .'"  data-team-id="'. htmlentities($course->idEcu) .'"  data-year="'. htmlentities($selectedYear) .'" data-entity="rank"><img src="./ressources/back/images/index/edit.png" alt="#"></button>
+            <button class="delete" data-id="'. htmlentities($course->idPil) .'"  data-team-id="'. htmlentities($course->idEcu) .'"  data-year="'. htmlentities($selectedYear) .'" data-entity="rank"><img src="./ressources/back/images/index/delete.png" alt="#"></button>';
             echo '</div>';}
         }
             catch (Exception $e) {

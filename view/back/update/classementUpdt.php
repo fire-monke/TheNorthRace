@@ -25,7 +25,7 @@
         } catch(Exception $ex){
             echo $ex->GetMessage();
         }
-        var_dump($leClassement);?>
+        ?>
         </span></h1>
 
         <form action="./appli" method="POST">

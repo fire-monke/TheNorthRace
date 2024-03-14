@@ -36,7 +36,7 @@
 
             <div class="button-container">
                 <input name=submit type="submit" value="Ajouter">
-                <a href="./appli&type=courses" class="submit">Annuler</a>
+                <a href="./appli&type=rank" class="submit">Annuler</a>
             </div>
         </form>
     </div>
