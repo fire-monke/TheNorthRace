@@ -40,7 +40,7 @@ if (isset($_GET['entity'])){
                 include(RACINE . "/view/back/update/ecurieUpdt.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
-            }elseif ($entity === 'courses' && isset($_GET['team-id']) &&  isset($_GET['year'])) {
+            }elseif ($entity === 'rank' && isset($_GET['team-id']) &&  isset($_GET['year'])) {
                 $CoursesAnnee = new CoursesAnnee();
                 $team = $_GET['team-id'];
                 $year = $_GET['year'];

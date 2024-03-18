@@ -773,7 +773,8 @@ CREATE PROCEDURE getAllCoursesByYear (IN year INT) BEGIN
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
     INNER JOIN Ecurie e ON c.idEcu = e.id
-    WHERE c.annee = year;
+    WHERE c.annee = year
+    ORDER BY c.nbPointPil DESC;
 END //
 DELIMITER ;
 
@@ -894,7 +895,7 @@ BEGIN
     SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM classement 
     WHERE annee = year
-    ORDER BY nbPointEcu;
+    ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;
 
@@ -957,7 +958,8 @@ CREATE PROCEDURE getClassementByTeam(IN teamId INT)
 BEGIN
     SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
-    WHERE idEcu = teamId;
+    WHERE idEcu = teamId
+    ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;
 
@@ -967,6 +969,7 @@ CREATE PROCEDURE getClassementByYearAndTeam(IN raceYear INT, IN teamId INT)
 BEGIN
     SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
-    WHERE annee = raceYear AND idEcu = teamId;
+    WHERE annee = raceYear AND idEcu = teamId
+    ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;

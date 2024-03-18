@@ -73,7 +73,7 @@ $(document).on("click", ".updt", function() {
                 $("#include-container").html(response.html);
                 console.log('Affichage formulaire de mise à jour réussi.');
             } else if (response.error) {
-                console.error('Erreur lors de l\'affichage du formulaire de mise à jour: ', response.error);
+                console.error('Erreur lors de l\'affichage du formulaire de mise à jour: ',entity, 'bonjour', response.error);
             } else {
                 console.error('Réponse JSON inattendue:', response);
             }

@@ -16,13 +16,10 @@
         let searchParams = new URLSearchParams(window.location.search);
         searchParams.delete('type');
         searchParams.set('year', selectedYear);
-     
-        
+
         let newUrl = 'appli&type=rank&' + searchParams.toString();
         window.location.href = newUrl;
     }
-
-    
 </script>
 </head>
 <body>
@@ -36,13 +33,13 @@
             <label for="year-select">Choisir année :</label>
             <select name="year" id="year-select" onchange="refreshPage()">
         <?php
-        $years = array("2018", "2019", "2020", "2021");
+        $years = array("2018", "2019", "2020", "2021", "2022", "2023");
         $selectedYear = isset($_GET['year']) ? $_GET['year'] : null;
         foreach ($years as $year) {
             $selected = ($selectedYear === $year) ? "selected" : "";
             echo "<option value=\"$year\" $selected>$year</option>";
         }
-        if(!isset($_GET['year'])) {
+        if(!isset($_GET['year']) || (isset($_GET['year']) && !in_array($_GET['year'], $years))) {
             $selectedYear=2018;
         }
     ?>
@@ -58,13 +55,13 @@
         $Ecurie = new Ecurie();
         $Pilote = new Pilote();
         $CoursesAnnee = $CourseAnnee->getAllCoursesByYear($selectedYear);
+        $position=0;
         foreach($CoursesAnnee as $course){
+            $position = $position+1;
             $uneEcurie = $Ecurie-> getEcurieById($course->idEcu);
             $unPilote = $Pilote-> getPiloteById($course->idPil);
             echo '<div class="pilot">';
-            if (!empty($course->placePil)){
-            echo '<h2>'. htmlentities($course->placePil) .'</h2>';
-            }
+            echo '<h2>'. $position .'</h2>';
             if (!empty($uneEcurie->couleur)){
                 echo '<div style="background:'.$uneEcurie->couleur. ';"></div>';
             }

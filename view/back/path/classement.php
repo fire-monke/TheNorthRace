@@ -16,32 +16,28 @@
         let searchParams = new URLSearchParams(window.location.search);
         searchParams.delete('type');
         searchParams.set('year', selectedYear);
-     
-        
+
         let newUrl = 'appli&type=classement&' + searchParams.toString();
         window.location.href = newUrl;
     }
-
-    
 </script>
 </head>
 <body>
     <ul class="topbar">
-        <li>N°</li>
         <li>Place</li>
         <li>Ecurie</li>
         <li>Points</li>
         <li>
         <select name="year" id="year-select" onchange="refreshPage()">
     <?php
-    $years = array("2018", "2019", "2020", "2021");
+    $years = array("2018", "2019", "2020", "2021", "2022", "2023");
     $selectedYear = isset($_GET['year']) ? $_GET['year'] : null;
     foreach ($years as $year) {
         $selected = ($selectedYear === $year) ? "selected" : "";
         echo "<option value=\"$year\" $selected>$year</option>";
     }
 
-    if(!isset($_GET['year'])) {
+    if(!isset($_GET['year']) || (isset($_GET['year']) && !in_array($_GET['year'], $years))) {
         $selectedYear=2018;
     }
     ?>
@@ -55,12 +51,12 @@
             $Classement = new Classement();
             $Ecurie = new Ecurie();
             $Classements = $Classement->getClassementByYear($selectedYear);
+            $position = 0;
             foreach($Classements as $unClassement) {
+                $position = $position+1;
                 $uneEcurie = $Ecurie-> getEcurieById($unClassement->idEcu);
                 echo '<div class="pilot">';
-                if (!empty($unClassement->placeEcu)) {
-                    echo '<h2>'. htmlentities($unClassement->placeEcu).'</h2>';
-                }
+                echo '<h2>'. $position .'</h2>';
                 if (!empty($uneEcurie->couleur)){
                     echo '<div style="background:'.$uneEcurie->couleur. ';"></div>';
                 }
