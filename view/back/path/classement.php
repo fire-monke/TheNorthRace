@@ -47,7 +47,7 @@
     ?>
 </select>
         </li>
-        <li><button class="create" data-entity="classement">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button></li>
+        <button class="create" data-entity="classement">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
     <div id="pilotes-container">
     <?php

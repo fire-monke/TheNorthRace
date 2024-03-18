@@ -27,10 +27,11 @@
 </head>
 <body>
     <ul class="topbar">
-        <li>N°</li>
         <li>Place</li>
-        <li>Ecurie</li>
         <li>Points</li>
+        <li>N°</li>
+        <li>Ecurie</li>
+        <li>Pilote</li>
         <li>
             <label for="year-select">Choisir année :</label>
             <select name="year" id="year-select" onchange="refreshPage()">
@@ -47,7 +48,7 @@
     ?>
 </select>
         </li>
-        <li><button class="create" data-entity="rank">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button></li>
+        <button class="create" data-entity="rank">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button>
     </ul>
     <div id="pilotes-container">
         <?php

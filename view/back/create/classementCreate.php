@@ -18,7 +18,7 @@
         <form action="./appli/create/classement" method="POST">
 
             <label for="teamIdAdd">Ecurie Id</label>
-            <select name="teamIdAdd">
+            <select name="teamIdAdd" class="selected">
             <?php
             foreach($lesEcuries as $uneEcurie){
                 echo '<option value="'. $uneEcurie->id .'">'. htmlentities($uneEcurie->nom) .'</option>';
