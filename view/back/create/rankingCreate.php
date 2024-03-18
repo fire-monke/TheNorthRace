@@ -17,14 +17,24 @@
 
         <form action="./appli/create/courses" method="POST">
             <label for="pilotIdAdd">Pilote Id</label>
-            <input type="text" id="pilotIdAdd" name="pilotIdAdd" placeholder="Id du pilote" value="" required>
-
+            <select name="pilotIdAdd">
+            <?php
+            foreach($lesPilotes as $unPilote){
+                echo '<option value="'. $unPilote->id .'">'. htmlentities($unPilote->prenom . " " . $unPilote->nom) .'</option>';
+            }
+            ?>
+            </select>
             <label for="yearRaceAdd">Année</label>
             <input type="text" id="yearRaceAdd" name="yearRaceAdd" placeholder="Année de la course" value="" required>
 
             <label for="teamIdAdd">Ecurie Id</label>
-            <input type="text" id="teamIdAdd" name="teamIdAdd" placeholder="Id de l'écurie" value="" required>
-
+            <select name="teamIdAdd">
+            <?php
+            foreach($lesEcuries as $uneEcurie){
+                echo '<option value="'. $uneEcurie->id .'">'. htmlentities($uneEcurie->nom) .'</option>';
+            }
+            ?>
+            </select>
             <label for="pointsAdd">Points</label>
             <input type="text" id="pointsAdd" name="pointsAdd" placeholder="Points inscrit" value="" required>
 

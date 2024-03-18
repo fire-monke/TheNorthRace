@@ -57,6 +57,8 @@ $(document).ready(function() {
 	});
 });
 
+
+
 $(document).on("click", ".updt", function() {
     const id = $(this).data("id");
     const entity = $(this).data("entity");
@@ -67,8 +69,6 @@ $(document).on("click", ".updt", function() {
             type: 'GET',
         success: function(response) {
             console.log(response);
-
-            // Ajoutez une vérification pour traiter la réponse JSON
             if (response.html) {
                 $("#include-container").html(response.html);
                 console.log('Affichage formulaire de mise à jour réussi.');
@@ -79,9 +79,9 @@ $(document).on("click", ".updt", function() {
             }
         },
         error: function(xhr, status, error) {
-            console.error('Erreur AJAX :', xhr.responseText); // Affiche la réponse du serveur
-            console.error('Status :', status); // Affiche le statut de la requête
-            console.error('Erreur :', error); // Affiche l'erreur
+            console.error('Erreur AJAX :', xhr.responseText);
+            console.error('Status :', status); 
+            console.error('Erreur :', error);
         }
     });
 });

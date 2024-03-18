@@ -9,6 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+    function refreshPage() {
+        const selectElement = document.getElementById("year-select");
+        let selectedYear = selectElement.value;
+        let searchParams = new URLSearchParams(window.location.search);
+        searchParams.delete('type');
+        searchParams.set('year', selectedYear);
+     
+        
+        let newUrl = 'appli&type=rank&' + searchParams.toString();
+        window.location.href = newUrl;
+    }
+
+    
+</script>
 </head>
 <body>
     <ul class="topbar">
@@ -18,12 +33,19 @@
         <li>Points</li>
         <li>
             <label for="year-select">Choisir année :</label>
-            <select name="year" id="year-select">
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-            </select>
+            <select name="year" id="year-select" onchange="refreshPage()">
+        <?php
+        $years = array("2018", "2019", "2020", "2021");
+        $selectedYear = isset($_GET['year']) ? $_GET['year'] : null;
+        foreach ($years as $year) {
+            $selected = ($selectedYear === $year) ? "selected" : "";
+            echo "<option value=\"$year\" $selected>$year</option>";
+        }
+        if(!isset($_GET['year'])) {
+            $selectedYear=2018;
+        }
+    ?>
+</select>
         </li>
         <li><button class="create" data-entity="rank">Ajouter<img src="./ressources/back/images/index/add.svg" alt="#"></button></li>
     </ul>
@@ -31,12 +53,6 @@
         <?php
 
         try{
-            if(isset($_POST['year'])) {
-                $selectedYear = $_POST['year'];
-            }
-        else {
-            $selectedYear=2020;
-        }  
         $CourseAnnee = new CoursesAnnee();
         $Ecurie = new Ecurie();
         $Pilote = new Pilote();

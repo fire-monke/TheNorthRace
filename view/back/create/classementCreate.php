@@ -18,7 +18,13 @@
         <form action="./appli/create/classement" method="POST">
 
             <label for="teamIdAdd">Ecurie Id</label>
-            <input type="text" name="teamIdAdd" placeholder="Id de l'écurie" value="" required>
+            <select name="teamIdAdd">
+            <?php
+            foreach($lesEcuries as $uneEcurie){
+                echo '<option value="'. $uneEcurie->id .'">'. htmlentities($uneEcurie->nom) .'</option>';
+            }
+            ?>
+            </select>
 
             <label for="yearAdd">Année</label>
             <input type="text" name="yearAdd" placeholder="Année des courses" value="" required>

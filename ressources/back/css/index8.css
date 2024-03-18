@@ -98,7 +98,7 @@ button.active{
     box-shadow: 1px 1px 3px -1px rgb(0, 0, 0);
     overflow-y: scroll;
     -ms-overflow-style: none;
-    scrollbar-width: none;  /* Firefox */
+    scrollbar-width: none; 
     scrollbar-size: auto;
    }
 

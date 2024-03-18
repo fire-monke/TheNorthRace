@@ -60,7 +60,6 @@ if (isset($_GET['entity'])){
             } else {
                 $response['error'] = 'Erreur : Entité non reconnue.';
             }
-            // Envoie la réponse JSON
             header('Content-Type: application/json');
             echo json_encode($response);
         } catch (Exception $ex) {
@@ -88,11 +87,17 @@ if (isset($_GET['entity'])){
                 $output = ob_get_clean();
                 $response['html'] = $output;
             } elseif ($entity === 'rank') {
+                $Pilote = new Pilote();
+                $lesPilotes = $Pilote->getPilotes();
+                $Ecurie = new Ecurie();
+                $lesEcuries = $Ecurie->getEcuries();
                 ob_start();
                 include(RACINE . "/view/back/create/rankingCreate.php");
                 $output = ob_get_clean();
                 $response['html'] = $output;
             } elseif ($entity === 'classement') {
+                $Ecurie = new Ecurie();
+                $lesEcuries = $Ecurie->getEcuries();
                 ob_start();
                 include(RACINE . "/view/back/create/classementCreate.php");
                 $output = ob_get_clean();
