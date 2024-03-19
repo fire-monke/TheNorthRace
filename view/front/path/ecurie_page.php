@@ -54,7 +54,7 @@
                     ?>
                     <h2><?php echo $detail->numPil; ?></h2>
                     <h3><?php echo $pilote->prenom . ' ' . $pilote->nom; ?></h3>
-                    <p><?php echo $ecurie->nom; ?></p>
+                    <p><?php echo $noomEcurie; ?></p>
                 <?php
                 }
                 ?>
