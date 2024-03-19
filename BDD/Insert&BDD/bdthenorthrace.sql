@@ -521,11 +521,12 @@ CREATE PROCEDURE AddPilote (
     IN nomPilote VARCHAR(50),
     IN prenomPilote VARCHAR(50),
     IN paysPilote VARCHAR(50),
+    IN dateNaissance DATE,
     OUT idPilote INT
 )
 BEGIN
-    INSERT INTO Pilote(nom, prenom, paysPil)
-    VALUES(nomPilote, prenomPilote, paysPilote);
+    INSERT INTO Pilote(nom, prenom, paysPil, dateNais)
+    VALUES(nomPilote, prenomPilote, paysPilote, dateNaissance);
     
     SET idPilote = LAST_INSERT_ID();
 END //
@@ -554,7 +555,7 @@ CREATE PROCEDURE updatePilote(
 )
 BEGIN
     UPDATE Pilote
-	SET nom=nomPil, prenom=prenomPil, paysPil=paysPilPil
+	SET nom=nomPil, prenom=prenomPil, paysPil=paysPilPil, dateNais=dateNaisPil
 	WHERE id=idPilote;
 END //
 DELIMITER ;
@@ -973,3 +974,4 @@ BEGIN
     ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;
+

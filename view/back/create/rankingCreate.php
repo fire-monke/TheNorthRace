@@ -38,8 +38,8 @@
             <label for="pointsAdd">Points</label>
             <input type="text" id="pointsAdd" name="pointsAdd" placeholder="Points inscrit" value="" required>
 
-            <label for="pilotPlaceAdd">Place du pilote</label>
-            <input type="text" id="pilotPlaceAdd" name="pilotPlaceAdd" placeholder="Place du pilote" value="" required>
+            <!-- <label for="pilotPlaceAdd">Place du pilote</label> -->
+            <input type="text" id="pilotPlaceAdd" name="pilotPlaceAdd" placeholder="Place du pilote" value="" hidden>
             
             <label for="pilotNumberAdd">Numéro du pilote</label>
             <input type="text" id="pilotNumberAdd" name="pilotNumberAdd" placeholder="Numéro de course du pilote" value="" required>

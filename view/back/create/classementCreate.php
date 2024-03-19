@@ -32,8 +32,8 @@
             <label for="pointsAdd">Points</label>
             <input type="text" name="pointsAdd" placeholder="Points inscrit" value="" required>
 
-            <label for="teamPlaceAdd">Place</label>
-            <input type="text" name="teamPlaceAdd" placeholder="Place de l'écurie" value="" required>
+            <!-- <label for="teamPlaceAdd">Place</label> -->
+            <input type="text" name="teamPlaceAdd" placeholder="Place de l'écurie" value="" hidden>
             
             <div class="button-container">
                 <input  name=submit type="submit" value="Ajouter">
