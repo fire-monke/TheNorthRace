@@ -27,13 +27,13 @@
             </select>
 
             <label for="yearAdd">Année</label>
-            <input type="text" name="yearAdd" placeholder="Année des courses" value="" required>
+            <input type="number" name="yearAdd" placeholder="Année des courses" value="" min="2018" max="2023" required>
 
             <label for="pointsAdd">Points</label>
-            <input type="text" name="pointsAdd" placeholder="Points inscrit" value="" required>
+            <input type="number" name="pointsAdd" placeholder="Points inscrit" value=""  min="0" max="1500" required>
 
-            <label for="teamPlaceAdd">Place</label>
-            <input type="text" name="teamPlaceAdd" placeholder="Place de l'écurie" value="" required>
+            <!-- <label for="teamPlaceAdd">Place</label> -->
+            <input type="number" name="teamPlaceAdd" placeholder="Place de l'écurie" value=""  min="1" max="20" hidden>
             
             <div class="button-container">
                 <input  name=submit type="submit" value="Ajouter">

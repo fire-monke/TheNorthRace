@@ -30,7 +30,7 @@
         <li>
         <select name="year" id="year-select" onchange="refreshPage()">
     <?php
-    $years = array("2018", "2019", "2020", "2021", "2022", "2023");
+    $years = array("2023", "2022", "2021", "2020", "2019", "2018");
     $selectedYear = isset($_GET['year']) ? $_GET['year'] : null;
     foreach ($years as $year) {
         $selected = ($selectedYear === $year) ? "selected" : "";

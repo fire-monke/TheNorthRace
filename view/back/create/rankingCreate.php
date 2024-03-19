@@ -25,7 +25,7 @@
             ?>
             </select>
             <label for="yearRaceAdd">Année</label>
-            <input type="text" id="yearRaceAdd" name="yearRaceAdd" placeholder="Année de la course" value="" required>
+            <input type="number" id="yearRaceAdd" name="yearRaceAdd" placeholder="Année de la course" value="" min="2018" max="2023" required>
 
             <label for="teamIdAdd">Ecurie Id</label>
             <select name="teamIdAdd" class="selected">
@@ -36,13 +36,13 @@
             ?>
             </select>
             <label for="pointsAdd">Points</label>
-            <input type="text" id="pointsAdd" name="pointsAdd" placeholder="Points inscrit" value="" required>
+            <input type="number" name="pointsAdd" placeholder="Points inscrit" value=""  min="0" max="1500" required>
 
-            <label for="pilotPlaceAdd">Place du pilote</label>
-            <input type="text" id="pilotPlaceAdd" name="pilotPlaceAdd" placeholder="Place du pilote" value="" required>
+            <!-- <label for="pilotPlaceAdd">Place du pilote</label> -->
+            <input type="number" name="pilotPlaceAdd" placeholder="Place du pilote" value=""  min="1" max="20" hidden>
             
             <label for="pilotNumberAdd">Numéro du pilote</label>
-            <input type="text" id="pilotNumberAdd" name="pilotNumberAdd" placeholder="Numéro de course du pilote" value="" required>
+            <input type="number" name="pilotNumberAdd" placeholder="Numéro de course du pilote" value=""  min="1" max="99" required>
 
             <div class="button-container">
                 <input name=submit type="submit" value="Ajouter">

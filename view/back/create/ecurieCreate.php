@@ -23,7 +23,7 @@
             <input type="text" name="couleurAdd" placeholder="Couleur" value="#" required>
             
             <label for="dateCreation">Année de création</label>
-            <input type="number" name="dateCreationAdd" placeholder="Année de création" min="0" max="3000" value="2024">
+            <input type="number" name="dateCreationAdd" placeholder="Année de création" min="1940" max="2023" value="2023">
             
             <label for="localisation">Localisation</label>
             <input type="text" name="localisationAdd" placeholder="Localisation" minlength="0" maxlength="50" value="Inconnue">

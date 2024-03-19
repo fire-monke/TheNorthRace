@@ -33,9 +33,9 @@
         <input type="hidden" name="teamId" value="<?php echo $leClassement->idEcu ?>">
         <input type="hidden" name="year" value="<?php echo $leClassement->annee ?>">
 
-            <input type="text" name="teamPlace" placeholder="Place du pilote" value="<?php if (!empty($leClassement->placeEcu)){ echo htmlentities($leClassement->placeEcu);}?>" required>
+            <input type="number" name="teamPlace" placeholder="Place du pilote" value="<?php if (!empty($leClassement->placeEcu)){ echo htmlentities($leClassement->placeEcu);}?>" min="1" max="20" hidden>
             <label for="newPoints">Points inscrit</label>
-            <input type="text" name="points" placeholder="Points inscrit" value="<?php if (!empty($leClassement->nbPointEcu)){ echo htmlentities($leClassement->nbPointEcu);}?>" required>
+            <input type="number" name="points" placeholder="Points inscrit" value="<?php if (!empty($leClassement->nbPointEcu)){ echo htmlentities($leClassement->nbPointEcu);}?>"  min="0" max="2000" required>
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
                 <a href="./appli&type=rank" class="submit">Annuler</a>

@@ -36,7 +36,6 @@
     <div class="ecurie-background" style="background-color: <?php echo $couleurrEcurie; ?>;"></div>
         <div class="rightleft">
             <h3>Nom de l'Écurie</h3>
-            <h3>Position</h3>
             <h3>Points</h3>
             <h3>Date de Naissance</h3>
             <h3>Âge</h3>
@@ -46,7 +45,6 @@
       <div class="rightright">
             <p><?php echo $nommEcurie; ?></p><?php if(isset($coursesAnnee) && !empty($coursesAnnee)): ?>
                     <?php foreach ($coursesAnnee as $course): ?>
-                        <p><?php echo $course->placePil;?></p>
                          <p><?php echo $course->nbPointPil; ?></p>
                     <?php endforeach; ?>
                 <?php endif; ?>

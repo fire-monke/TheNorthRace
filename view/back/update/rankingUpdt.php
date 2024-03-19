@@ -33,12 +33,12 @@
         <input type="hidden" name="teamId" value="<?php echo $uneCourse->idEcu ?>">
         <input type="hidden" name="year" value="<?php echo $uneCourse->annee ?>">
 
-            <input type="text" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($uneCourse->placePil)){ echo htmlentities($uneCourse->placePil);}?>" required>
+            <input type="number" id="placePil" name="placePil" placeholder="Place du pilote" value="<?php if (!empty($uneCourse->placePil)){ echo htmlentities($uneCourse->placePil);}?>"  min="1" max="20" hidden>
             <label for="newPoints">Points inscrit</label>
-            <input type="text" id="newPoints" name="newPoints" placeholder="Points inscrit" value="<?php if (!empty($uneCourse->nbPointPil)){echo htmlentities($uneCourse->nbPointPil);}?>" required>
+            <input type="number" id="newPoints" name="newPoints" placeholder="Points inscrit" value="<?php if (!empty($uneCourse->nbPointPil)){echo htmlentities($uneCourse->nbPointPil);}?>"   min="0" max="1500"required>
 
             <label for="newPilotNumber">Numéro du pilote</label>
-            <input type="text" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($uneCourse->numPil)){echo htmlentities($uneCourse->numPil);}?>" required>
+            <input type="number" id="newPilotNumber" name="newPilotNumber" placeholder="Numéro du pilote" value="<?php if (!empty($uneCourse->numPil)){echo htmlentities($uneCourse->numPil);}?>"  min="1" max="99"required>
 
             <div class="button-container">
                 <input name=submit type="submit" value="Modifier">
