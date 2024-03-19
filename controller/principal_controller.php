@@ -23,7 +23,6 @@ try{
                  $idPilote = $url[1];
                  include_once(RACINE . '/controller/front/pilote_controller.php');
                  break;
-   
             case "ecuries":
                  include_once(RACINE . '/controller/front/ecuries_controller.php');
                  break;
@@ -61,7 +60,7 @@ try{
                     ### ITEM CREATE
                     case "create":
                         //$url[2] is the choice of the entity that you wish to create
-                        if(!empty($url[2]) && ($url[2] == "pilote" || $url[2] == "ecurie")){
+                        if(!empty($url[2]) && ($url[2] == "pilote" || $url[2] == "ecurie" || $url[2] == "courses" || $url[2] == "classement")){
                             include_once(RACINE . '/controller/back/controller.php');
                         }
                         else{

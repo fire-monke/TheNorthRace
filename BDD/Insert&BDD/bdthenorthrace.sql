@@ -521,11 +521,12 @@ CREATE PROCEDURE AddPilote (
     IN nomPilote VARCHAR(50),
     IN prenomPilote VARCHAR(50),
     IN paysPilote VARCHAR(50),
+    IN dateNaissance DATE,
     OUT idPilote INT
 )
 BEGIN
-    INSERT INTO Pilote(nom, prenom, paysPil)
-    VALUES(nomPilote, prenomPilote, paysPilote);
+    INSERT INTO Pilote(nom, prenom, paysPil, dateNais)
+    VALUES(nomPilote, prenomPilote, paysPilote, dateNaissance);
     
     SET idPilote = LAST_INSERT_ID();
 END //
@@ -554,7 +555,7 @@ CREATE PROCEDURE updatePilote(
 )
 BEGIN
     UPDATE Pilote
-	SET nom=nomPil, prenom=prenomPil, paysPil=paysPilPil
+	SET nom=nomPil, prenom=prenomPil, paysPil=paysPilPil, dateNais=dateNaisPil
 	WHERE id=idPilote;
 END //
 DELIMITER ;
@@ -773,7 +774,8 @@ CREATE PROCEDURE getAllCoursesByYear (IN year INT) BEGIN
     FROM CoursesAnnee c
     INNER JOIN Pilote p ON c.idPil = p.id
     INNER JOIN Ecurie e ON c.idEcu = e.id
-    WHERE c.annee = year;
+    WHERE c.annee = year
+    ORDER BY c.nbPointPil DESC;
 END //
 DELIMITER ;
 
@@ -894,7 +896,7 @@ BEGIN
     SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM classement 
     WHERE annee = year
-    ORDER BY nbPointEcu;
+    ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;
 
@@ -957,7 +959,8 @@ CREATE PROCEDURE getClassementByTeam(IN teamId INT)
 BEGIN
     SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
-    WHERE idEcu = teamId;
+    WHERE idEcu = teamId
+    ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;
 
@@ -967,6 +970,8 @@ CREATE PROCEDURE getClassementByYearAndTeam(IN raceYear INT, IN teamId INT)
 BEGIN
     SELECT idEcu, annee, nbPointEcu, placeEcu
     FROM Classement
-    WHERE annee = raceYear AND idEcu = teamId;
+    WHERE annee = raceYear AND idEcu = teamId
+    ORDER BY nbPointEcu DESC;
 END //
 DELIMITER ;
+

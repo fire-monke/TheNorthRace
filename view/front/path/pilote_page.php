@@ -20,10 +20,12 @@
             <img src="<?php echo "../ressources/front/images/photo_pilote_PNG/{$iddPilote}.png"; ?>" alt="image pilote">
         </div>
         <div class="numcount">
-            <?php if(isset($coursesAnnee) && !empty($coursesAnnee)): ?>
-                <h2><?php echo $coursesAnnee[0]['numPil']; ?></h2>
-                <img class="drapeau" src="../ressources/front/images/pays_Pilote_PNG/<?= $paysPilote ?>.png" alt="Drapeau du pays du pilote" width="55px" height="35px">
-            <?php endif; ?>
+                <?php if(isset($coursesAnnee) && !empty($coursesAnnee)): ?>
+                    <?php foreach ($coursesAnnee as $course): ?>
+                        <h2><?php echo $course->numPil; ?></h2>
+                        <img class="drapeau" src="../ressources/front/images/pays_Pilote_PNG/<?= $paysPilote ?>.png" alt="Drapeau du pays du pilote" width="55px" height="35px">
+                    <?php endforeach; ?>
+                <?php endif; ?>
         </div>
         <div class="name">
             <h2><?php echo $prenommPilote; ?></h2>
@@ -34,7 +36,6 @@
     <div class="ecurie-background" style="background-color: <?php echo $couleurrEcurie; ?>;"></div>
         <div class="rightleft">
             <h3>Nom de l'Écurie</h3>
-            <h3>Position</h3>
             <h3>Points</h3>
             <h3>Date de Naissance</h3>
             <h3>Âge</h3>
@@ -42,9 +43,12 @@
           
          </div>
       <div class="rightright">
-            <p><?php echo $nommEcurie; ?></p>
-            <p><?php echo isset($coursesAnnee[0]['placePil']) ? "{$coursesAnnee[0]['placePil']}" : 'Place non disponible'; ?></p>
-            <p><?php echo isset($coursesAnnee[0]['nbPointPil']) ? "{$coursesAnnee[0]['nbPointPil']}" : 'Points non disponibles'; ?></p>
+            <p><?php echo $nommEcurie; ?></p><?php if(isset($coursesAnnee) && !empty($coursesAnnee)): ?>
+                    <?php foreach ($coursesAnnee as $course): ?>
+                         <p><?php echo $course->nbPointPil; ?></p>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+           
             <p><?php echo $dateNaissancePilote ; ?></p>
             <p><?php echo $age ; ?></p>
             <p><?php echo $paysPilote; ?></p>

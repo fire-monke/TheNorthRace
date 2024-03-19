@@ -39,7 +39,7 @@
             <input type="text" name="couleur" placeholder="Couleur" value="<?php echo !empty($uneEcurie->couleur) ? htmlentities($uneEcurie->couleur) : ''; ?>" required>
             
             <label for="dateCreation">Année de création</label>
-            <input type="number" name="dateCreation" placeholder="Année de création" min="0" max="3000" value="<?php echo !empty($uneEcurie->dateCreation) ? htmlentities($uneEcurie->dateCreation) : ''; ?>" required>
+            <input type="number" name="dateCreation" placeholder="Année de création" min="1940" max="2023" value="<?php echo !empty($uneEcurie->dateCreation) ? htmlentities($uneEcurie->dateCreation) : ''; ?>" required>
             
             <label for="localisation">localisation</label>
             <input type="text" name="localisation" placeholder="Localisation" minlength="0" maxlength="50" value="<?php echo !empty($uneEcurie->localisation) ? htmlentities($uneEcurie->localisation) : ''; ?>" required>

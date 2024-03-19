@@ -8,8 +8,8 @@ if (!isset($_SESSION['admin'])) {
 $pagesEntites = array(
   'pilote' => 'pilote.php',
   'ecurie' => 'ecurie.php',
-//   'classement' => 'classement.php',
-//   'courses' => 'courses.php'
+  'classement' => 'classement.php',
+  'rank' => 'rank.php'
 );
 
 // Checks if a 'type' parameter is present in the URL, includes the corresponding PHP file from the specified directory,
@@ -19,6 +19,7 @@ if (isset($_POST['type'])) {
     $pathToFile = RACINE . '/view/back/path/' . $type . '.php';
     try {
         if (file_exists($pathToFile)) {
+            require_once(RACINE . "/controller/back/controller.php");
             include_once($pathToFile);
         } else {
             throw new Exception("Le fichier spécifié n'existe pas.");

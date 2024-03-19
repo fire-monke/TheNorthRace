@@ -82,12 +82,13 @@ class Pilote {
     }
 
     // add a Pilote / returns id of created Pilote
-    function addPilote($nom, $prenom, $paysPil) {
+    function addPilote($nom, $prenom, $paysPil, $dateNais) {
         try {
-            $req = $this->cnx->prepare("CALL AddPilote(:nom, :prenom, :paysPil, @idPilote)");
+            $req = $this->cnx->prepare("CALL AddPilote(:nom, :prenom, :paysPil, :dateNais, @idPilote)");
             $req->bindValue(':nom', $nom, PDO::PARAM_STR);
             $req->bindValue(':prenom', $prenom, PDO::PARAM_STR);
             $req->bindValue(':paysPil', $paysPil, PDO::PARAM_STR);
+            $req->bindValue(':dateNais', $dateNais, PDO::PARAM_STR);
             $req->execute();
 
             $id_pilote = $this->cnx->query("SELECT @idPilote")->fetch(PDO::FETCH_ASSOC)['@idPilote'];

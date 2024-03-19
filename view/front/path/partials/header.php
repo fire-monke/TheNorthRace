@@ -17,10 +17,8 @@
     </a>
     </div>
     <nav id="headerNav">
-        <a href="">Classement</a>
         <a href="/TheNorthRace/pilotes" id="apilotes">Pilotes</a>
         <a href="/TheNorthRace/ecuries" id="aecuries">Ecuries</a>
-        <a href="">Archives</a>
     </nav>
     <div class="hovEcu">
         <div class="nav-header">

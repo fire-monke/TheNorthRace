@@ -22,7 +22,6 @@
     </ul>
 <?php
 try{
-    require_once(RACINE . '/controller/back/controller.php');
     $Ecurie = new Ecurie();
     $lesEcuries = $Ecurie->getEcuries();
     foreach($lesEcuries as $uneEcurie){

@@ -96,7 +96,10 @@ button.active{
     width: 90%;
     border-radius: 0.85rem;
     box-shadow: 1px 1px 3px -1px rgb(0, 0, 0);
-    overflow-x: scroll;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    scrollbar-size: auto;
    }
 
   nav{
@@ -119,8 +122,8 @@ button.active{
   }
 
 .pilot{
-  width: 90%;
-  height: 10%;
+  width: 90vw;
+  height: 5rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -129,7 +132,7 @@ button.active{
 
 .topbar{
   display: flex;
-  width: 90%;
+  width: 90vw;
   height: 5rem;
   background-color: rgb(22, 22, 22);
   color: white;
@@ -149,14 +152,23 @@ button.active{
   margin-left: 4vw;
 }
 
+.selected{
+  width: 15vw;
+  padding: 1vw 1.5vw;
+  background-color: #F3F3F3;
+  border-radius: 0.5rem;
+  margin: 0.5vw 0vw;
+  margin-right: 45vw;
+}
+
 
 .topbar button{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 13%;
+  width: 11.25vw;
   background-color: #1162db;
-  height: 55%;
+  height: 2.5vw;
   border-radius: 0.5rem;
   border: 1px solid #1162db;
   margin-left: auto;

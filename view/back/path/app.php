@@ -17,8 +17,8 @@
     <nav>
         <button id="pilote" href="">Pilotes</button>
         <button id="ecurie" href="">Ecuries</button>
-        <button id="courses" href="">Courses</button>
-        <button id="classement" href="">Classement</button>
+        <button id="rank" href="">Résultats Pilotes</button>
+        <button id="classement" href="">Résultats Constructeurs</button>
     </nav>
     <div class="logout">
         <a class="txt" href="./deconnexion">Se déconnecter</a>
@@ -35,14 +35,10 @@
 </html>
 <script>
 $(document).ready(function() {
-	// Au chargement de la page
+	// On load
 	const urlParams = new URLSearchParams(window.location.search);
 	const typeEntite = urlParams.get('type');
-
-	// Vérifiez si le type d'entité existe et ajoutez la classe "active" au bouton correspondant
-	if (typeEntite) {
-		$("#" + typeEntite).addClass("active");
-	}
+    
 	// Gérez les clics sur les boutons
 	$("#pilote").on("click", function() {
 		chargerInclude("pilote");
@@ -52,8 +48,8 @@ $(document).ready(function() {
 		chargerInclude("ecurie");
 	});
 
-	$("#courses").on("click", function() {
-		chargerInclude("courses");
+	$("#rank").on("click", function() {
+		chargerInclude("rank");
 	});
 
 	$("#classement").on("click", function() {
@@ -61,48 +57,51 @@ $(document).ready(function() {
 	});
 });
 
+
+
 $(document).on("click", ".updt", function() {
-    const Id = $(this).data("id");
+    const id = $(this).data("id");
     const entity = $(this).data("entity");
+    const team = $(this).data("team-id");
+    const year = $(this).data("year");
         $.ajax({
-        url: './appli/update/&id=' + Id + '&entity=' + entity,
-        type: 'GET',
+            url: './appli/update/&id='+ id + '&entity=' + entity + '&team-id=' + team + '&year=' + year,
+            type: 'GET',
         success: function(response) {
             console.log(response);
-
-            // Ajoutez une vérification pour traiter la réponse JSON
             if (response.html) {
-                // La mise à jour a réussi, vous pouvez effectuer des actions nécessaires ici
-                // Par exemple, mettre à jour le contenu HTML sur la page
                 $("#include-container").html(response.html);
-                console.log('Mise à jour réussie.');
+                console.log('Affichage formulaire de mise à jour réussi.');
             } else if (response.error) {
-                // La mise à jour a échoué, afficher un message d'erreur si nécessaire
-                console.error('Erreur lors de la mise à jour: ', response.error);
+                console.error('Erreur lors de l\'affichage du formulaire de mise à jour: ',entity, 'bonjour', response.error);
             } else {
                 console.error('Réponse JSON inattendue:', response);
             }
         },
         error: function(xhr, status, error) {
-            console.error('Erreur AJAX :', xhr.responseText); // Affiche la réponse du serveur
-            console.error('Status :', status); // Affiche le statut de la requête
-            console.error('Erreur :', error); // Affiche l'erreur
+            console.error('Erreur AJAX :', xhr.responseText);
+            console.error('Status :', status); 
+            console.error('Erreur :', error);
         }
     });
 });
 
 $(document).on("click", ".delete", function() {
-    const Id = $(this).data("id");
+    const id = $(this).data("id");
     const entity = $(this).data("entity");
+    const team = $(this).data("team-id");
+    const year = $(this).data("year");
     $.ajax({
-        url: './appli/delete/&id='+ Id + '&entity=' + entity,
+        url: './appli/delete/&id='+ id + '&entity=' + entity + '&team-id=' + team + '&year=' + year,
         type: 'GET',
         success: function(response) {
-            // Recharger la page après le succès de la requête AJAX
+            // Reload the page
             window.location.reload();
         },
-        error: function(error) {
-            console.error('Erreur AJAX :', error);
+        error: function(xhr, status, error) {
+            console.error('Erreur AJAX :', xhr.responseText); // Affiche la réponse du serveur
+            console.error('Status :', status); // Affiche le statut de la requête
+            console.error('Erreur :', error); // Affiche l'erreur
         }
     });
 });
@@ -116,7 +115,12 @@ $(document).on("click", ".create", function() {
             console.log(response);
             if (response.html) {
                 $("body").html(response.html);
-                console.log('redirection réussie.');
+                console.log('Affichage formulaire d\'ajout à jour réussi.');
+            } else if (response.error) {
+                // La mise à jour a échoué, afficher un message d'erreur si nécessaire
+                console.error('Erreur lors de l\'affichage du formulaire d\'ajout: ', response.error);
+            } else {
+                console.error('Réponse JSON inattendue:', response);
             }
         },
         error: function(xhr, status, error) {
@@ -124,7 +128,6 @@ $(document).on("click", ".create", function() {
             console.error('Status :', status); // Affiche le statut de la requête
             console.error('Erreur :', error); // Affiche l'erreur
         }
-
     });
 });
 

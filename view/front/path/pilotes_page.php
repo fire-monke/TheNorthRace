@@ -10,19 +10,23 @@
    <main>
     <h1 class="title">Pilotes F1 2023</h1>
     <div class="top">
-        <?php foreach ($pilotes as $pilote): ?>
-            <?php 
+            <?php $cpt = 1; 
+            foreach ($pilotes as $pilote):
+            
             // Récupérer l'écurie du pilote
             $ecuriePil = $ecurieController->getEcurieOfLastSeasonOfPiloteByIdPilote($pilote->id);
             ?>
-            <a class="pilote" href="/TheNorthRace/pilote/<?php echo $pilote->id; ?>">
-                <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
+                <a class="pilote" href="/TheNorthRace/pilote/<?php echo $pilote->id; ?>">
+               
+                  <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                     <div class="infoTop">
-                        <p><?= $detail['placePil'] ?></p>
-                        <p><?= $detail['nbPointPil'] ?> PTS</p>
+                        <p><?= $cpt ?></p>
+                        <?php $cpt+=1; ?>
+                        <p><?= $detail->nbPointPil ?> PTS</p>
                     </div>
+
                 <?php endforeach; ?>
-                <div class="infomid">
+                    <div class="infomid">
                     <div class="couleur">
                         <div class="couleur-ecu" style="background-color: <?= $ecuriePil->couleur ?>"></div>
                         <div class="nom-prenom">
@@ -39,7 +43,7 @@
                         </div>
                         <?php foreach ($courseDetails[$pilote->id] as $detail): ?>
                             <div class="infoCourse">
-                                <div class="num-pilote"><?= $detail['numPil'] ?></div>
+                                <div class="num-pilote"><?= $detail->numPil ?></div>
                             </div>
                         <?php endforeach; ?>
                     </div>
