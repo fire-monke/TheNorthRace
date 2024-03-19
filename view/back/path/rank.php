@@ -33,14 +33,14 @@
             <label for="year-select">Choisir année :</label>
             <select name="year" id="year-select" onchange="refreshPage()">
         <?php
-        $years = array("2018", "2019", "2020", "2021", "2022", "2023");
+        $years = array("2023", "2022", "2021", "2020", "2019", "2018");
         $selectedYear = isset($_GET['year']) ? $_GET['year'] : null;
         foreach ($years as $year) {
             $selected = ($selectedYear === $year) ? "selected" : "";
             echo "<option value=\"$year\" $selected>$year</option>";
         }
         if(!isset($_GET['year']) || (isset($_GET['year']) && !in_array($_GET['year'], $years))) {
-            $selectedYear=2018;
+            $selectedYear=2023;
         }
     ?>
 </select>

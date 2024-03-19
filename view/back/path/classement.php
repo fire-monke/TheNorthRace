@@ -38,7 +38,7 @@
     }
 
     if(!isset($_GET['year']) || (isset($_GET['year']) && !in_array($_GET['year'], $years))) {
-        $selectedYear=2018;
+        $selectedYear=2023;
     }
     ?>
 </select>

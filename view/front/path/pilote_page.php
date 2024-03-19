@@ -44,9 +44,13 @@
           
          </div>
       <div class="rightright">
-            <p><?php echo $nommEcurie; ?></p>
-            <p><?php echo isset($coursesAnnee->placePil) ? "{$coursesAnnee[0]['placePil']}" : 'Place non disponible'; ?></p>
-            <p><?php echo isset($coursesAnnee->nbPointPil) ? "{$coursesAnnee[0]['nbPointPil']}" : 'Points non disponibles'; ?></p>
+            <p><?php echo $nommEcurie; ?></p><?php if(isset($coursesAnnee) && !empty($coursesAnnee)): ?>
+                    <?php foreach ($coursesAnnee as $course): ?>
+                        <p><?php echo $course->placePil;?></p>
+                         <p><?php echo $course->nbPointPil; ?></p>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+           
             <p><?php echo $dateNaissancePilote ; ?></p>
             <p><?php echo $age ; ?></p>
             <p><?php echo $paysPilote; ?></p>
