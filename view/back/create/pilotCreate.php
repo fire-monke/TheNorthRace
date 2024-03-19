@@ -26,7 +26,7 @@
             <input type="text" name="paysAdd" placeholder="Pays" value="" required>
 
             <label for="dateNaisAdd">Date de naissance</label>
-            <input type="number" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" min="2018" max="2023" required>
+            <input type="text" name="dateNaisAdd" placeholder="Date de naissance (AAAA-MM-JJ)" value="" required>
 
             <label for="photoAdd">Photo du pilote</label>
             <input type="file" name="photoAdd" accept=".jpg, .jpeg, .png">
